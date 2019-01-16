@@ -11,15 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/index": [
+    "/client": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/addclient": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/": [
+    "/schedule": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

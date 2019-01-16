@@ -5,7 +5,7 @@ import Scheduler from './schedule'
 const Home = props => (
   <div>
     <DoDisplay>
-      <Scheduler />
+      <Scheduler id={props.query.id} />
     </DoDisplay>
   </div>
 )

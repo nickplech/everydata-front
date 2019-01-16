@@ -36,7 +36,7 @@ const List = styled.div`
   display: grid;
   margin-top: 50px;
   margin-bottom: 50px;
-  grid-template-rows: 1fr 60vh 1fr;
+  grid-template-rows: 1fr 50vh 1fr;
   position: relative;
   z-index: 0;
 `
@@ -47,16 +47,16 @@ const Clientlisting = styled.div`
   grid-auto-rows: 20px;
   background-color: rgba(20, 20, 100, 0.1);
   max-width: 100%;
-  grid-gap: 15px;
+  grid-gap: 10px;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 15px;
   margin-bottom: 15px;
   padding-right: 10px;
   padding-left: 10px;
-  padding-top: 15px;
+  padding-top: 0px;
   overflow-y: scroll;
-  padding-bottom: 40px;
+  padding-bottom: 0px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 `

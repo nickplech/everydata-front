@@ -4,7 +4,7 @@ import Schedule from '../components/Schedule'
 
 const Scheduler = props => (
   <PleaseSignIn>
-    <Schedule />
+    <Schedule id={props.query.id} />
   </PleaseSignIn>
 )
 export default Scheduler

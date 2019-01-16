@@ -35,6 +35,7 @@ const Minute = styled.p`
   opacity: 0.6;
 `
 const Digital = styled.p`
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   display: block;
   text-align: center;
   font-size: 38px;

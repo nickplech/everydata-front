@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import Calendar from './Calendar'
+import DayCalendar from './DayCalendar'
 import CalendarStats from './CalendarStats'
 import styled from 'styled-components'
 
 const CalendarLayout = styled.div`
   display: grid;
-  grid-template-columns: 270px minmax(420px, 1fr);
+  grid-template-columns: 375px minmax(420px, 1fr);
   grid-template-rows: 1fr 250px;
   height: calc(100% - 140px);
   width: 100%;
@@ -22,9 +22,7 @@ class Schedule extends Component {
   render() {
     return (
       <CalendarLayout>
-        <CalendarStats />
-
-        <Calendar />
+        <CalendarStats id={this.props.id} />
       </CalendarLayout>
     )
   }

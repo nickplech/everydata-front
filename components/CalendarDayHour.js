@@ -1,4 +1,5 @@
 import React from 'react'
+import { format } from 'date-fns'
 import styled from 'styled-components'
 
 const StyledTable = styled.table`
@@ -7,6 +8,7 @@ const StyledTable = styled.table`
   width: 100%;
   margin-top: 30px;
   border-spacing: 0 0px;
+  border-top: 1px solid lightgrey;
 `
 
 const Hour = styled.th`
@@ -58,7 +60,9 @@ const ProductRow = props => {
   return (
     <tr>
       <BorderlessSub>{name}</BorderlessSub>
-      <Sub>{name}</Sub>
+      <Sub>
+        <input placeholder={name} />
+      </Sub>
     </tr>
   )
 }
@@ -86,6 +90,9 @@ class ProductTable extends React.Component {
   }
 }
 
+const StyledTitle = styled.p`
+  color: rgb(100, 100, 240);
+`
 class FilterableProductTable extends React.Component {
   constructor(props) {
     super(props)
@@ -94,7 +101,19 @@ class FilterableProductTable extends React.Component {
     }
   }
   render() {
-    return <ProductTable products={this.props.products} />
+    // let today = new Date()
+    return (
+      <>
+        <StyledTitle>
+          {this.state.value}
+          {/*
+          {format(today, 'MMMM d, YYYY', {
+            awareOfUnicodeTokens: true,
+          })} */}
+        </StyledTitle>
+        <ProductTable products={this.props.products} />
+      </>
+    )
   }
 }
 
