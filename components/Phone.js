@@ -1,21 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
+import posed, { PoseGroup } from 'react-pose'
 
 const MainPhone = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 190px 125px 45px 1fr;
-  background-image: url('../static/img/bg-phone2.png');
-  bottom: 0%;
-  width: 425px;
-  min-height: 550px;
-  z-index: 4;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top;
-  padding-left: 35px;
-  margin: 0 auto;
   .main-phone {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 190px 125px 45px 1fr;
+    background-image: url('../static/img/bg-phone2.png');
+    bottom: 0%;
+    width: 425px;
+    min-height: 550px;
+    z-index: 4;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    padding-left: 35px;
+    margin: 0 auto;
+  }
+  /* .main-phone {
     position: absolute;
     -webkit-animation-name: phone-slide;
     -webkit-animation-duration: 1s;
@@ -26,7 +29,7 @@ const MainPhone = styled.div`
     animation-timing-function: ease;
     animation-fill-mode: forwards;
     visibility: hidden;
-  }
+  } */
   .med-text1 {
     grid-row: 2/3;
     height: auto;
@@ -53,47 +56,86 @@ const MainPhone = styled.div`
     left: 35px;
     z-index: 5;
   }
-  /* @-webkit-keyframes phone-slide {
-    0% {
-      top: 80%;
-    }
-    100% {
-      top: -23%;
-    }
-    0% {
-      visibility: hidden;
-    }
-    100% {
-      visibility: visible;
-    }
-  } */
-
-  @keyframes phone-slide {
-    0% {
-      top: 80%;
-    }
-    100% {
-      top: -23%;
-    }
-    0% {
-      visibility: hidden;
-    }
-    100% {
-      visibility: visible;
-    }
-  }
 `
+const PhoneSlide = posed.div({
+  exit: {
+    y: '0%',
+  },
+  enter: {
+    y: '0%',
+    beforeChildren: true,
+    staggerChildren: 500,
+  },
+})
+// opacity: 1,
+// delay: 300,
+// transition: {
+//   y: { type: 'spring', stiffness: 1000, damping: 15 },
+//   default: { duration: 500 },
 
-const Phone = () => (
-  <MainPhone className="main-phone">
-    <img
-      id="i1"
-      className="med-text1"
-      src="../static/img/medical-reminder.png"
-    />
-    <img id="i2" className="med-text2" src="../static/img/confirm2.png" />
-    <img id="i3" className="med-text3" src="../static/img/confirmrem.png" />
-  </MainPhone>
-)
+const Bub1 = posed.img({
+  exit: {
+    opacity: 0,
+    scale: 0.7,
+  },
+  enter: {
+    opacity: 1,
+    scale: 1,
+    transition: { type: 'spring', stiffness: 300 },
+  },
+})
+
+const Bub2 = posed.img({
+  exit: {
+    opacity: 0,
+    scale: 0.7,
+  },
+  enter: {
+    opacity: 1,
+    scale: 1,
+    transition: { type: 'spring', stiffness: 300 },
+  },
+})
+
+const Bub3 = posed.img({
+  exit: {
+    opacity: 0,
+    scale: 0.7,
+  },
+  enter: {
+    opacity: 1,
+    scale: 1,
+    transition: { type: 'spring', stiffness: 300 },
+  },
+})
+
+class Phone extends React.Component {
+  render() {
+    return (
+      <MainPhone>
+        <PhoneSlide initialPose="exit" pose="enter" className="main-phone">
+          <Bub1
+            key="bub1"
+            id="i1"
+            className="med-text1"
+            src="../static/img/medical-reminder.png"
+          />
+          <Bub2
+            key="bub2"
+            id="i2"
+            className="med-text2"
+            src="../static/img/confirm2.png"
+          />
+          <Bub3
+            key="bub3"
+            id="i3"
+            className="med-text3"
+            src="../static/img/confirmrem.png"
+          />
+        </PhoneSlide>
+      </MainPhone>
+    )
+  }
+}
 
 export default Phone

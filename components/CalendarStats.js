@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import Link from 'next/link'
 import posed from 'react-pose'
+import moment from 'moment'
 import Calendar from 'react-calendar/dist/entry.nostyle'
 import styled from 'styled-components'
 import DayCalendar from './DayCalendar'
@@ -191,10 +192,11 @@ const Gear = posed.img({
 
 class CalendarStats extends React.Component {
   state = {
-    value: new Date(),
+    date: new Date(),
   }
 
   onChange = date => this.setState({ date })
+
   render() {
     // return (
     // <Mutation
@@ -206,13 +208,16 @@ class CalendarStats extends React.Component {
     //   {({ data }) => {
     //     if (!data.day) return <p>No Day Found for {this.props.day}</p>
     //     const date = data.day
+
     return (
       <>
         <StatsDisplay>
           <Calendar
             onChange={this.onChange}
-            value={this.state.value}
+            minDetail="decade"
+            value={this.state.date}
             calendarType="US"
+            returnValue="start"
           />
           <Fragment>
             <Flexer>
@@ -230,17 +235,16 @@ class CalendarStats extends React.Component {
                   />
                 </a>
               </Link>
-
               <Stat />
             </Flexer>
           </Fragment>
         </StatsDisplay>
-        <DayCalendar props={this.state.value} />
+        {/* <DayCalendar props={this.state.date} /> */}
       </>
-      //     )
-      //   }}
-      // </Mutation>
     )
+    //     )
+    //   }}
+    // </Mutation>
   }
 }
 

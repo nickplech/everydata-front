@@ -30,6 +30,9 @@ const Flex = styled.div`
 const Flexer = styled.div`
   display: flex;
   flex-flow: column;
+  .center {
+    margin: 0 20px;
+  }
 `
 const Logo = styled.img`
   margin-top: 15px;
@@ -51,12 +54,15 @@ const RemIcon = styled.div`
   border-radius: 50%;
 `
 const DateSelector = styled.div`
+  position: absolute;
+  bottom: 400px;
+  right: 16px;
   display: grid;
-  width: 58%;
+  width: 89%;
   min-height: 135px;
   grid-template-rows: 35px 1fr;
   margin-top: 75px;
-  margin-bottom: 20px;
+
   background: white;
   align-self: center;
   .month {
@@ -83,8 +89,8 @@ const Day = styled.div`
     display: flex;
 
     margin: 3px;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     background: lightskyblue;
     outline: none;
     border: none;
@@ -108,8 +114,8 @@ class TextDashboard extends Component {
                 className="flexChild"
                 src="../static/img/perfectdayreminders.png"
                 alt="perfect day reminders"
-                width="125px"
-                height="125px"
+                width="100px"
+                height="100px"
               />
             </Flex>
             <Flexer>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import DayCalendar from './DayCalendar'
+
 import CalendarStats from './CalendarStats'
 import styled from 'styled-components'
 

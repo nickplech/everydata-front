@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 const SingleClientStyles = styled.div`
   display: grid;
-  grid-template-columns: 270px minmax(420px, 1fr) 400px;
+  grid-template-columns: 270px minmax(420px, 1fr) 300px;
   grid-template-rows: 1fr 250px;
   height: calc(100% - 140px);
   width: 100%;

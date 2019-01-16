@@ -1,62 +1,54 @@
-import React, { Component } from 'react'
+import React from 'react'
+import TimeKeeper from 'react-timekeeper'
 import styled from 'styled-components'
 
-const Flexer = styled.div`
-  display: flex;
-  justify-content: center;
-`
-const Hour = styled.div`
-  display: inline-flex;
-  height: 125px;
-  width: 125px;
-  border-radius: 50%;
-  background: rgba(230, 230, 230, 1);
-  margin: 0 20px;
-  justify-content: center;
-`
-const Min = styled.div`
-  display: inline-flex;
-  height: 125px;
-  width: 125px;
-  border-radius: 50%;
-  background: rgba(230, 230, 230, 1);
-  margin: 0 20px;
-  justify-content: center;
-`
+const StyledPicka = styled.div`
+  position: absolute;
+  margin: 0 15px;
+  bottom: 15px;
 
-const Hr = styled.p`
-  display: flex;
-  align-self: center;
-  opacity: 0.6;
+  .center {
+    margin: 0 90px;
+  }
 `
-const Minute = styled.p`
-  display: flex;
-  align-self: center;
-  opacity: 0.6;
-`
-const Digital = styled.p`
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  display: block;
-  text-align: center;
-  font-size: 38px;
-  color: rgba(100, 100, 240, 1);
-  font-weight: 200;
-`
+class TimePicker extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      time: null,
+      displayTimepicker: true,
+    }
+    this.handleTimeChange = this.handleTimeChange.bind(this)
+  }
+  handleTimeChange(newTime) {
+    this.setState({ time: newTime.formatted })
+  }
 
-class TimePicker extends Component {
   render() {
     return (
-      <>
-        <Flexer>
-          <Hour>
-            <Hr>Hr</Hr>
-          </Hour>
-          <Min>
-            <Minute>Min</Minute>
-          </Min>
-        </Flexer>
-        <Digital>12:00</Digital>
-      </>
+      <StyledPicka>
+        {this.state.displayTimepicker ? (
+          <TimeKeeper
+            time={this.state.time}
+            onChange={this.handleTimeChange}
+            config={{
+              TIMEPICKER_BACKGROUND: 'white',
+              CLOCK_WRAPPER_BACKGROUND: 'rgba(230,230,240,.4)',
+              CLOCK_WRAPPER_MERIDIEM_COLOR: '#898989',
+              CLOCK_WRAPPER_MERIDIEM_BACKGROUND_COLOR_SELECTED:
+                'rgba(100,100,240,1)',
+              CLOCK_WRAPPER_MERIDIEM_TEXT_COLOR_SELECTED: 'white',
+              CLOCK_HAND_ARM: 'rgba(100,100,240,1)',
+              CLOCK_HAND_CIRCLE_BACKGROUND: 'rgba(100,100,240,1)',
+              CLOCK_NUMBER_COLOR: '#999999',
+              TIME_SELECTED_COLOR: 'rgba(100,100,240,1)',
+            }}
+            switchToMinuteOnHourSelect={true}
+          />
+        ) : (
+          false
+        )}
+      </StyledPicka>
     )
   }
 }

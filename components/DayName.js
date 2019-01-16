@@ -7,7 +7,7 @@ const StyledDiv = styled.div`
   .daynum {
     display: flex;
     color: lightslategray;
-    margin: 3px;
+    margin: 2px 5.5px;
 
     width: 25px;
     height: 20px;
