@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo'
 import Form from './styles/Form'
 import Router from 'next/router'
 import MaskedInput from 'react-text-mask'
+
 import gql from 'graphql-tag'
 import styled, { ThemeProvider } from 'styled-components'
 import Error from './ErrorMessage'
@@ -22,6 +23,17 @@ const Inner = styled.div`
     &:active {
       opacity: 1;
     }
+  }
+  .create-contact-avatar-input {
+    min-width: 80px;
+    height: 80px;
+    background-color: lightgrey;
+    background-image: url('../static/person.svg');
+    background-size: 32px 32px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    cursor: pointer;
   }
 `
 
@@ -57,6 +69,12 @@ class CreateClient extends Component {
     const { name, type, value } = e.target
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
+  }
+
+  uploadFile = async e => {
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
   }
   render() {
     return (
@@ -150,7 +168,23 @@ class CreateClient extends Component {
                     onChange={this.handleChange}
                   />
                 </label>
-
+                <label htmlFor="file">
+                  Add Clients Photo
+                  <input
+                    type="file"
+                    id="file"
+                    name="file"
+                    placeholder="upload their picture"
+                    onChange={this.uploadFile}
+                  />
+                  {this.state.image && (
+                    <img
+                      width="150"
+                      src={this.state.image}
+                      alt="upload preview"
+                    />
+                  )}
+                </label>
                 <SickButton type="submit">Add Contact</SickButton>
               </fieldset>
             </Form>

@@ -23,6 +23,7 @@ const TOGGLE_CART_MUTATION = gql`
 
 const ConfList = styled.div`
   display: flex;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   align-items: center;
   width: 100%;
@@ -37,6 +38,7 @@ const ConfList = styled.div`
   .scroll {
     height: 300px;
     overflow-y: scroll;
+    overscroll-behavior: contain;
     overflow-x: hidden;
     &::-webkit-scrollbar {
       display: none; // Safari and Chrome
@@ -79,9 +81,8 @@ class Slider extends Component {
                         <Supreme>Date</Supreme>
                         <ConfList>
                           <div className="flexChild">
-                            <p className="confirmed">
-                              {me.cart.length} - Confirmed
-                            </p>
+                            <p className="confirmed">Confirmed</p>
+                            <p style={{ color: 'green' }}>{me.cart.length}</p>
                             <div className="scroll">
                               <ul>
                                 {me.cart.map(cartItem => (
@@ -94,9 +95,8 @@ class Slider extends Component {
                             </div>
                           </div>
                           <div className="flexChild">
-                            <p className="canceled">
-                              {me.cart.length} - Canceled
-                            </p>
+                            <p className="canceled">Canceled</p>
+                            <p style={{ color: 'red' }}>{me.cart.length}</p>
                             <div className="scroll">
                               <ul>
                                 {me.cart.map(cartItem => (
@@ -109,9 +109,8 @@ class Slider extends Component {
                             </div>
                           </div>
                           <div className="flexChild">
-                            <p className="unconfirmed">
-                              {me.cart.length} - Unconfirmed
-                            </p>
+                            <p className="unconfirmed">Unconfirmed</p>
+                            <p style={{ color: 'grey' }}>{me.cart.length}</p>
                             <div className="scroll">
                               <ul>
                                 {me.cart.map(cartItem => (

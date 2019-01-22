@@ -213,6 +213,7 @@ class CalendarStats extends React.Component {
       <>
         <StatsDisplay>
           <Calendar
+            name="date"
             onChange={this.onChange}
             minDetail="decade"
             value={this.state.date}
@@ -239,7 +240,7 @@ class CalendarStats extends React.Component {
             </Flexer>
           </Fragment>
         </StatsDisplay>
-        {/* <DayCalendar props={this.state.date} /> */}
+        <DayCalendar date={this.state.date} />
       </>
     )
     //     )

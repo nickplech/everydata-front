@@ -1,6 +1,6 @@
 // import React from 'react'
 // import Dayz from 'dayz'
-// // could also import the sass if you have a loader at dayz/dayz.scss
+
 // import styled from 'styled-components'
 // import moment from 'moment'
 
@@ -402,10 +402,10 @@
 //     background-color: #ecc16f;
 //   }
 //   .dayz.event.is-resizable:before {
-//     top: -px;
+//     top: -10px;
 //   }
 //   .dayz.event.is-resizable:after {
-//     bottom: -px;
+//     bottom: -10px;
 //   }
 //   .dayz.event.is-resizable.is-resizing:before,
 //   .dayz.event.is-resizable.is-resizing:after,
@@ -433,7 +433,7 @@
 //     border-width: 10px 0 10px 10px;
 //     border-color: transparent transparent transparent #dddddd;
 //     right: -0px;
-//     top: -px;
+//     top: -0px;
 //   }
 //   .dayz.event.is-continued.color-1::after {
 //     border-color: transparent transparent transparent #4d4d4d;
@@ -535,7 +535,7 @@
 
 // class CalendarDayHour extends React.Component {
 //   render() {
-//     const { date } = this.state
+//     const { date } = this.props
 //     return (
 //       <StyledDayz>
 //         <Dayz display="day" date={date} events={EVENTS} />

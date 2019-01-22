@@ -52,6 +52,8 @@ const StyledBoxes = styled.div`
     border: 2px solid white;
     border-radius: 0px;
     margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
     padding-left: 10px;
     padding-right: 10px;
   }

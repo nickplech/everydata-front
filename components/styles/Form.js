@@ -34,7 +34,7 @@ const Form = styled.form`
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
     font-size: 1.5rem;
-    border: 1px solid black;
+    border: 1px solid grey;
     border-radius: 5px;
     margin-top: 0.8rem;
     &:focus {

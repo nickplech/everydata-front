@@ -24,6 +24,7 @@
     "downshift": "^2.2.3",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
+    "flubber": "^0.4.2",
     "form-serialize": "^0.7.2",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.9.2",

@@ -8,24 +8,30 @@ const GradientDiv = styled.div`
 
   background-size: cover;
   background-position: center;
+  justify-content: center;
+  align-items: center;
   height: 200px;
 `
 
 const StyledButton = styled.button`
   display: flex;
-  padding: 10px 0px;
+  padding: 20px 0px;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  margin-top: 75px;
-  margin-bottom: 75px;
+
   background: white;
   color: gray;
   border: none;
-  border-radius: 25px;
-  width: 200px;
+  border-radius: 40px;
+  width: 250px;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 16px;
+  box-shadow: 2px 3px 2px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  &:active {
+    outline: none;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  }
 `
 
 const CallToAction = () => (

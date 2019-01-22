@@ -11,15 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/index": [
+    "/schedule": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/hipaa": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/": [
+    "/bulk": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

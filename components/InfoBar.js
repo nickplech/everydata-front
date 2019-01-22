@@ -11,18 +11,18 @@ import Slider from './Slider'
 const StyledBar = styled.div`
   display: flex;
   position: relative;
-  height: 45px;
+  height: 44px;
   width: 100%;
   margin: 0;
   opacity: 1;
   .tab2 {
     background: purple;
-    height: 45px;
+    height: 44px;
     opacity: 0.8;
   }
   .tab3 {
     background: blue;
-    height: 45px;
+    height: 44px;
     opacity: 0.8;
   }
   button {

@@ -702,7 +702,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var StyledBar = styled_components__WEBPACK_IMPORTED_MODULE_6___default.a.div.withConfig({
   displayName: "InfoBar__StyledBar",
   componentId: "ahoxrm-0"
-})(["display:flex;position:relative;height:45px;width:100%;margin:0;opacity:1;.tab2{background:purple;height:45px;opacity:0.8;}.tab3{background:blue;height:45px;opacity:0.8;}button{width:150px;}"]);
+})(["display:flex;position:relative;height:44px;width:100%;margin:0;opacity:1;.tab2{background:purple;height:44px;opacity:0.8;}.tab3{background:blue;height:44px;opacity:0.8;}button{width:150px;}"]);
 var Confirmer = styled_components__WEBPACK_IMPORTED_MODULE_6___default.a.div.withConfig({
   displayName: "InfoBar__Confirmer",
   componentId: "ahoxrm-1"
@@ -1062,7 +1062,7 @@ var StyledPage = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.wi
 var Inner = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
   displayName: "Page__Inner",
   componentId: "sc-4u7a64-1"
-})(["max-width:", ";margin:0 auto;padding:0.5rem 0 0 0;"], function (props) {
+})(["max-width:", ";margin:0 auto;padding:0rem 0 0 0;"], function (props) {
   return props.theme.maxWidth;
 });
 Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["injectGlobal"])(_templateObject(), theme.black);
@@ -1478,7 +1478,7 @@ var TOGGLE_CART_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_t
 var ConfList = styled_components__WEBPACK_IMPORTED_MODULE_7___default.a.div.withConfig({
   displayName: "Slider__ConfList",
   componentId: "sc-94qe3k-0"
-})(["display:flex;text-align:center;align-items:center;width:100%;.flexChild{display:block;align-content:center;justify-content:center;width:100%;color:white;}.scroll{height:300px;overflow-y:scroll;overflow-x:hidden;&::-webkit-scrollbar{display:none;}}.confirmed{background:rgba(100,190,90,0.9);}.canceled{background:rgba(200,80,90,0.9);}.unconfirmed{background:grey;}"]);
+})(["display:flex;font-family:'Montserrat',sans-serif;text-align:center;align-items:center;width:100%;.flexChild{display:block;align-content:center;justify-content:center;width:100%;color:white;}.scroll{height:300px;overflow-y:scroll;overscroll-behavior:contain;overflow-x:hidden;&::-webkit-scrollbar{display:none;}}.confirmed{background:rgba(100,190,90,0.9);}.canceled{background:rgba(200,80,90,0.9);}.unconfirmed{background:grey;}"]);
 
 var Slider =
 /*#__PURE__*/
@@ -1497,7 +1497,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 61
         },
         __self: this
       }, function (_ref) {
@@ -1507,7 +1507,7 @@ function (_Component) {
           mutation: TOGGLE_CART_MUTATION,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 63
+            lineNumber: 65
           },
           __self: this
         }, function (toggleCart) {
@@ -1515,7 +1515,7 @@ function (_Component) {
             query: LOCAL_STATE_QUERY,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 65
+              lineNumber: 67
             },
             __self: this
           }, function (_ref2) {
@@ -1524,25 +1524,25 @@ function (_Component) {
               open: data.cartOpen,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 67
+                lineNumber: 69
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 68
+                lineNumber: 70
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 69
+                lineNumber: 71
               },
               __self: this
             }, "calendar")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 71
+                lineNumber: 73
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CloseButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -1551,46 +1551,55 @@ function (_Component) {
               className: "exy",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 72
+                lineNumber: 74
               },
               __self: this
             }, "\xD7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Supreme__WEBPACK_IMPORTED_MODULE_5__["default"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 79
+                lineNumber: 81
               },
               __self: this
             }, "Date"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ConfList, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 80
+                lineNumber: 82
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 81
+                lineNumber: 83
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "confirmed",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 82
+                lineNumber: 84
               },
               __self: this
-            }, me.cart.length, " - Confirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-              className: "scroll",
+            }, "Confirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+              style: {
+                color: 'green'
+              },
               __source: {
                 fileName: _jsxFileName,
                 lineNumber: 85
               },
               __self: this
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+            }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+              className: "scroll",
               __source: {
                 fileName: _jsxFileName,
                 lineNumber: 86
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 87
               },
               __self: this
             }, me.cart.map(function (cartItem) {
@@ -1599,7 +1608,7 @@ function (_Component) {
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 88
+                  lineNumber: 89
                 },
                 __self: this
               });
@@ -1607,17 +1616,26 @@ function (_Component) {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 96
+                lineNumber: 97
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "canceled",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 97
+                lineNumber: 98
               },
               __self: this
-            }, me.cart.length, " - Canceled"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            }, "Canceled"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+              style: {
+                color: 'red'
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 99
+              },
+              __self: this
+            }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
@@ -1654,17 +1672,26 @@ function (_Component) {
                 lineNumber: 112
               },
               __self: this
-            }, me.cart.length, " - Unconfirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            }, "Unconfirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+              style: {
+                color: 'grey'
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 113
+              },
+              __self: this
+            }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 115
+                lineNumber: 114
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 116
+                lineNumber: 115
               },
               __self: this
             }, me.cart.map(function (cartItem) {
@@ -1673,20 +1700,20 @@ function (_Component) {
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 118
+                  lineNumber: 117
                 },
                 __self: this
               });
             })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 129
+                lineNumber: 128
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 130
+                lineNumber: 129
               },
               __self: this
             }, "flash messages with date")));
@@ -1715,22 +1742,19 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-transition-group */ "react-transition-group");
-/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_transition_group__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-transition-group */ "react-transition-group");
+/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_transition_group__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/SuccessCount.js";
 
 
 
-
-var AnimationStyles = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.span.withConfig({
+var AnimationStyles = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.span.withConfig({
   displayName: "SuccessCount__AnimationStyles",
   componentId: "sc-1glbnt0-0"
 })(["position:relative;.count{display:block;position:relative;transition:all 0.4s;backface-visibility:hidden;}.count-enter{transform:rotateX(0.5turn);}.count-enter-active{transform:rotateX(0);}.count-exit{top:0;position:absolute;transform:rotateX(0);}.count-exit-active{transform:rotateX(0.5turn);}"]);
-var Dot = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.span.withConfig({
+var Dot = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.span.withConfig({
   displayName: "SuccessCount__Dot",
   componentId: "sc-1glbnt0-1"
 })(["background:white;display:inline-block;color:black;border-radius:50%;padding:0.3rem;line-height:2rem;min-width:2.8rem;margin-left:1rem;font-weight:100;font-feature-settings:'tnum';font-variant-numeric:tabular-nums;"]);
@@ -1740,16 +1764,16 @@ var SuccessCount = function SuccessCount(_ref) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AnimationStyles, {
     __source: {
       fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_transition_group__WEBPACK_IMPORTED_MODULE_1__["TransitionGroup"], {
+    __source: {
+      fileName: _jsxFileName,
       lineNumber: 46
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_transition_group__WEBPACK_IMPORTED_MODULE_2__["TransitionGroup"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 47
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_transition_group__WEBPACK_IMPORTED_MODULE_2__["CSSTransition"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_transition_group__WEBPACK_IMPORTED_MODULE_1__["CSSTransition"], {
     unmountOnExit: true,
     className: "count",
     classNames: "count",
@@ -1760,13 +1784,13 @@ var SuccessCount = function SuccessCount(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 47
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Dot, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 54
     },
     __self: this
   }, count))));
@@ -1894,10 +1918,8 @@ __webpack_require__.r(__webpack_exports__);
 var CartStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "CartStyles",
   componentId: "sc-1tvog53-0"
-})(["padding:40px;position:relative;background:white;position:fixed;height:100%;top:0;right:0;width:40%;min-width:500px;max-width:700px;bottom:0;transform:translateX(100%);transition:all 0.3s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);z-index:90;display:grid;grid-template-rows:200px 400px auto;overflow-y:scroll;", ";header{border-bottom:3px solid ", ";margin-bottom:1rem;padding-bottom:1rem;}footer{border-top:10px double ", ";margin-top:2rem;padding-top:2rem;display:grid;grid-template-columns:1fr;align-items:center;font-size:3rem;font-weight:900;p{margin:0;}}ul{margin:0;padding:0;list-style:none;}.exy{cursor:pointer;opacity:0.7;outline:none;}"], function (props) {
+})(["padding:40px;position:relative;background:white;position:fixed;height:100%;top:0;right:0;width:40%;min-width:500px;max-width:700px;bottom:0;transform:translateX(100%);transition:all 0.3s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);z-index:90;display:grid;grid-template-rows:200px 400px auto;overflow-y:scroll;", ";header{margin-bottom:1rem;padding-bottom:1rem;}footer{border-top:5px solid ", ";margin-top:2rem;padding-top:2rem;display:grid;grid-template-columns:1fr;align-items:center;font-size:3rem;font-weight:900;p{margin:0;}}ul{margin:0;padding:0;list-style:none;}.exy{cursor:pointer;opacity:0.7;outline:none;}"], function (props) {
   return props.open && "transform: translateX(0);";
-}, function (props) {
-  return props.theme.black;
 }, function (props) {
   return props.theme.black;
 });

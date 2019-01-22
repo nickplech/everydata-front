@@ -18,7 +18,18 @@ const SINGLE_CLIENT_QUERY = gql`
     }
   }
 `
-
+const ALL_CLIENTSUSERS_QUERY = gql`
+  query ALL_CLIENTSUSERS_QUERY($id: ID!) {
+    clientsUsers(where: { user: $id }) {
+      id
+      firstName
+      lastName
+      cellPhone
+      birthDay
+      image
+    }
+  }
+`
 const ALL_CLIENTS_QUERY = gql`
   query ALL_CLIENTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
     clients(first: $first, skip: $skip, orderBy: lastName_ASC) {
@@ -91,4 +102,4 @@ class Clients extends Component {
 }
 
 export default Clients
-export { ALL_CLIENTS_QUERY, SINGLE_CLIENT_QUERY }
+export { ALL_CLIENTS_QUERY, SINGLE_CLIENT_QUERY, ALL_CLIENTSUSERS_QUERY }

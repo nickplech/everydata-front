@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import dateFNS from 'date-fns'
+
 import styled from 'styled-components'
-import CalendarDayHour from './CalendarDayHour'
+import SingleDay from './SingleDay'
 
 const DayView = styled.div`
   position: relative;
@@ -18,24 +18,11 @@ const DayView = styled.div`
   z-index: -1;
 `
 
-const DayGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-
-  width: 100%;
-  border: none;
-  height: 80vh;
-  overflow-y: scroll;
-  overscroll-behavior: contain;
-`
-
 class DayCalendar extends Component {
   render() {
     return (
       <DayView>
-        <DayGrid>
-          <CalendarDayHour date={this.state.date} />
-        </DayGrid>
+        <SingleDay date={this.props.date} />
       </DayView>
     )
   }

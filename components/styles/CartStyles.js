@@ -21,12 +21,11 @@ const CartStyles = styled.div`
   overflow-y: scroll;
   ${props => props.open && `transform: translateX(0);`};
   header {
-    border-bottom: 3px solid ${props => props.theme.black};
     margin-bottom: 1rem;
     padding-bottom: 1rem;
   }
   footer {
-    border-top: 10px double ${props => props.theme.black};
+    border-top: 5px solid ${props => props.theme.black};
     margin-top: 2rem;
     padding-top: 2rem;
     display: grid;

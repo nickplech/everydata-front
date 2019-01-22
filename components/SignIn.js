@@ -25,8 +25,6 @@ const StyledP = styled.p`
 `
 class SignIn extends Component {
   state = {
-    name: '',
-    businessName: '',
     email: '',
     password: '',
   }
@@ -47,8 +45,6 @@ class SignIn extends Component {
               e.preventDefault()
               await signin()
               this.setState({
-                name: '',
-                businessName: '',
                 email: '',
                 password: '',
               })

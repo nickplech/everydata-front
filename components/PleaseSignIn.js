@@ -13,7 +13,10 @@ const PleaseSignIn = props => (
       if (!data.me) {
         return (
           <div>
-            <Paragraph>Please Sign In before Continuing</Paragraph>
+            <Paragraph>
+              You have either been logged out due to innactivity or have ended
+              your session. Please Sign In to continue!
+            </Paragraph>
             <SignIn />
           </div>
         )

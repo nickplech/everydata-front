@@ -26,8 +26,8 @@ const StyledHero = styled.div`
     left: -50px;
     right: -50px;
     height: 700px;
-    -webkit-transform: rotateZ(-5.7deg);
-    transform: rotateZ(-5.7deg);
+    -webkit-transform: rotateZ(-5.4deg);
+    transform: rotateZ(-5.4deg);
     z-index: 0;
     margin: 0;
     padding: 0;
@@ -75,7 +75,9 @@ const Hero = () => (
   <Wrapper>
     <StyledHero>
       <Left>
-        <h1 className="title">Making Every Day Perfect</h1>
+        <h1 className="title">
+          Refreshingly Simple Text Message Appointment Reminders
+        </h1>
         <p>
           Most appointment-based businesses are plauged with constant "No-Shows"
           which result in lost revenue and disruption to your daily schedule. We

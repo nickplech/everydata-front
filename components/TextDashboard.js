@@ -62,7 +62,7 @@ const DateSelector = styled.div`
   min-height: 135px;
   grid-template-rows: 35px 1fr;
   margin-top: 75px;
-
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
   background: white;
   align-self: center;
   .month {

@@ -1,8 +1,9 @@
-import Link from 'next/link'
+import Accordian from '../components/Accordian'
+import HipaaCompliant from '../components/HipaaCompliant'
 
 const Hipaa = props => (
   <div>
-    <p>HIPAA Compliance</p>
+    <HipaaCompliant />
   </div>
 )
 
