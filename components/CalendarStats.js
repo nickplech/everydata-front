@@ -6,7 +6,7 @@ import posed from 'react-pose'
 import moment from 'moment'
 import Calendar from 'react-calendar/dist/entry.nostyle'
 import styled from 'styled-components'
-import DayCalendar from './DayCalendar'
+import SingleDay from './SingleDay'
 
 // const SINGLE_DAY_MUTATION = gql`
 //   mutation SINGLE_DAY_MUTATION($day: DateTime!) {
@@ -198,17 +198,6 @@ class CalendarStats extends React.Component {
   onChange = date => this.setState({ date })
 
   render() {
-    // return (
-    // <Mutation
-    //   mutation={SINGLE_DAY_MUTATION}
-    //   variables={{
-    //     date: this.state.day,
-    //   }}
-    // >
-    //   {({ data }) => {
-    //     if (!data.day) return <p>No Day Found for {this.props.day}</p>
-    //     const date = data.day
-
     return (
       <>
         <StatsDisplay>
@@ -240,12 +229,9 @@ class CalendarStats extends React.Component {
             </Flexer>
           </Fragment>
         </StatsDisplay>
-        <DayCalendar date={this.state.date} />
+        <SingleDay date={this.state.date} />
       </>
     )
-    //     )
-    //   }}
-    // </Mutation>
   }
 }
 
