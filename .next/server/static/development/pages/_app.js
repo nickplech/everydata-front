@@ -810,12 +810,12 @@ function (_Component) {
               lineNumber: 69
             },
             __self: this
-          }));
+          }), !me.cart && null);
         });
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slider__WEBPACK_IMPORTED_MODULE_2__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 80
+          lineNumber: 81
         },
         __self: this
       }));

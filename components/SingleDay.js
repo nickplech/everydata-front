@@ -56,7 +56,7 @@ const DayGrid = styled.div`
 
   grid-template-columns: 60px 1fr;
   position: absolute;
-  grid-auto-rows: 30px;
+  grid-auto-rows: 25px;
   border-radius: 0px 0 25px 0;
   grid-gap: 1px;
   width: 80%;

@@ -72,6 +72,7 @@ class InfoBar extends Component {
                       0,
                     )}
                   />
+                  {!me.cart && null}
                 </Confirmer>
               )}
             </Mutation>
