@@ -24,12 +24,10 @@ const Inner = styled.div`
       opacity: 1;
     }
   }
-  .create-contact-avatar-input {
-    min-width: 80px;
+  .profPic {
+    width: 80px;
     height: 80px;
     background-color: lightgrey;
-    background-image: url('../static/person.svg');
-    background-size: 32px 32px;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 50%;
@@ -63,7 +61,7 @@ class CreateClient extends Component {
     lastName: '',
     cellPhone: '',
     birthDay: '',
-    image: '',
+    image: '../static/img/profpic.jpg',
   }
   handleChange = e => {
     const { name, type, value } = e.target
@@ -179,6 +177,7 @@ class CreateClient extends Component {
                   />
                   {this.state.image && (
                     <img
+                      className="profPic"
                       width="150"
                       src={this.state.image}
                       alt="upload preview"

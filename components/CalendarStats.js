@@ -21,14 +21,13 @@ const StatsDisplay = styled.div`
   grid-row: 1/3;
   grid-column: 1;
   background-color: rgba(220, 220, 220, 0.3);
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 5px;
+
   width: 100%;
   height: 100%;
   border: 5px solid white;
-  border-radius: 25px;
-  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
+  border-right: none;
+  border-radius: 25px 0 0 25px;
+  box-shadow: -2px 1px 2px 3px rgba(0, 0, 0, 0.05);
   .gear {
     position: relative;
     display: flex;
@@ -38,7 +37,7 @@ const StatsDisplay = styled.div`
     cursor: pointer;
   }
   .react-calendar {
-    width: 355px;
+    width: 100%;
     border-radius: 15px;
     max-width: 100%;
     box-shadow: 1px 1px 1px 1px rgba(20, 20, 20, 0.1);
@@ -65,7 +64,7 @@ const StatsDisplay = styled.div`
     cursor: pointer;
   }
   .react-calendar__navigation {
-    height: 54px;
+    height: 60px;
     margin-bottom: 0.5em;
   }
   .react-calendar__navigation button {
@@ -79,7 +78,7 @@ const StatsDisplay = styled.div`
       border-radius: 15px 0 0 0;
     }
     &:last-child {
-      border-radius: 0 15px 0 0;
+      border-radius: 0 0px 0 0;
     }
     &:nth-child(2) {
       border-radius: 0;
@@ -209,25 +208,24 @@ class CalendarStats extends React.Component {
             calendarType="US"
             returnValue="start"
           />
-          <Fragment>
-            <Flexer>
-              <Link
-                href={{
-                  pathname: 'calendarsettings',
-                  query: { id: this.props.id },
-                }}
-              >
-                <a>
-                  <Gear
-                    className="gear"
-                    src="../static/img/gear.png"
-                    alt="edit schedule settings"
-                  />
-                </a>
-              </Link>
-              <Stat />
-            </Flexer>
-          </Fragment>
+
+          <Flexer>
+            <Link
+              href={{
+                pathname: 'calendarsettings',
+                query: { id: this.props.id },
+              }}
+            >
+              <a>
+                <Gear
+                  className="gear"
+                  src="../static/img/gear.png"
+                  alt="edit schedule settings"
+                />
+              </a>
+            </Link>
+            <Stat />
+          </Flexer>
         </StatsDisplay>
         <SingleDay date={this.state.date} />
       </>

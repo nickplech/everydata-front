@@ -14,6 +14,7 @@ const SINGLE_CLIENT_QUERY = gql`
       lastName
       cellPhone
       birthDay
+      image
     }
   }
 `

@@ -1,9 +1,9 @@
 import DoDisplay from '../components/DoDisplay'
-import Scheduler from './schedule'
+import Schedule from '../components/Schedule'
 
 const Home = props => (
   <DoDisplay>
-    <Scheduler id={props.query.id} />
+    <Schedule id={props.query.id} />
   </DoDisplay>
 )
 

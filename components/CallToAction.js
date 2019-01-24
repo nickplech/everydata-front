@@ -18,7 +18,6 @@ const StyledButton = styled.button`
   padding: 20px 0px;
   align-items: center;
   justify-content: center;
-
   background: white;
   color: gray;
   border: none;
@@ -31,6 +30,9 @@ const StyledButton = styled.button`
   &:active {
     outline: none;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  }
+  &:focus {
+    outline: none;
   }
 `
 

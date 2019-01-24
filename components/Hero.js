@@ -42,23 +42,31 @@ const StyledHero = styled.div`
   }
 `
 const Left = styled.div`
+  font-family: 'Montserrat', sans-serif;
   z-index: 5;
-
+  margin-top: 300px;
+  .confirmation {
+    color: white;
+  }
   p {
     position: relative;
+    margin: 0;
     display: block;
-    max-width: 600px;
+    max-width: 700px;
     z-index: 5;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    padding-left: 20%;
   }
   .title {
     position: relative;
     display: block;
+    margin-bottom: 0px;
     color: white;
     font-weight: 600;
-
-    font-size: 1.6rem;
+    padding-left: 20%;
+    line-height: 2.8rem;
+    font-size: 2.7rem;
   }
 `
 
@@ -71,19 +79,48 @@ const Screen = styled.img`
   z-index: 3;
 `
 
+const HeroButton = styled.button`
+  display: inline-block;
+  background: transparent;
+  border: 2px solid white;
+  margin-left: 20%;
+  padding: 8px 12px;
+  margin-top: 15px;
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  &:hover {
+    border-color: yellow;
+    color: yellow;
+  }
+`
+const SecondButton = styled.button`
+  display: inline-block;
+  background: rgba(100, 100, 220, 1);
+  border: 3px solid rgba(100, 100, 220, 1);
+  margin-left: 25px;
+  padding: 8px 12px;
+  margin-top: 15px;
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  &:hover {
+    border-color: yellow;
+    color: yellow;
+  }
+`
 const Hero = () => (
   <Wrapper>
     <StyledHero>
       <Left>
         <h1 className="title">
-          Refreshingly Simple Text Message Appointment Reminders
+          Confidence Through <span className="confirmation">Confirmation</span>
         </h1>
-        <p>
-          Most appointment-based businesses are plauged with constant "No-Shows"
-          which result in lost revenue and disruption to your daily schedule. We
-          have simplified &amp; perfected appointment reminders.
-        </p>
         <p>Effortlessly reduce "No-Shows" &amp; improve daily work flow.</p>
+        <HeroButton>Start Your Free Trial</HeroButton>{' '}
+        <SecondButton>Start Your Free Trial</SecondButton>
       </Left>
       <div>
         <Screen

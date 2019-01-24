@@ -17,9 +17,12 @@ const Nav = () => (
         )}
         {!me && (
           <>
+            <Link href="/pricing">
+              <a>Pricing</a>
+            </Link>
             <Link href="/hipaa">
               <a>Hipaa</a>
-            </Link>{' '}
+            </Link>
             <Link href="/signup">
               <a>Sign In</a>
             </Link>

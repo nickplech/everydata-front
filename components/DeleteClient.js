@@ -8,8 +8,6 @@ const DELETE_CLIENT_MUTATION = gql`
   mutation DELETE_CLIENT_MUTATION($id: ID!) {
     deleteClient(id: $id) {
       id
-      firstName
-      lastName
     }
   }
 `

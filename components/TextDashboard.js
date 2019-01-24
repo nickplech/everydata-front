@@ -84,10 +84,8 @@ const Day = styled.div`
   flex-flow: row wrap;
   align-content: center;
   justify-content: center;
-
   .days {
     display: flex;
-
     margin: 3px;
     width: 30px;
     height: 30px;

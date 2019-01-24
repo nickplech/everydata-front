@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import posed, { PoseGroup } from 'react-pose'
+import posed from 'react-pose'
 
 const MainPhone = styled.div`
   .main-phone {
@@ -18,18 +18,7 @@ const MainPhone = styled.div`
     padding-left: 35px;
     margin: 0 auto;
   }
-  /* .main-phone {
-    position: absolute;
-    -webkit-animation-name: phone-slide;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-delay: 1s;
-    animation-name: phone-slide;
-    animation-duration: 1s;
-    animation-delay: 1s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-    visibility: hidden;
-  } */
+
   .med-text1 {
     grid-row: 2/3;
     height: auto;
@@ -67,16 +56,11 @@ const PhoneSlide = posed.div({
     staggerChildren: 500,
   },
 })
-// opacity: 1,
-// delay: 300,
-// transition: {
-//   y: { type: 'spring', stiffness: 1000, damping: 15 },
-//   default: { duration: 500 },
 
 const Bub1 = posed.img({
   exit: {
     opacity: 0,
-    scale: 0.7,
+    scale: 0.9,
   },
   enter: {
     opacity: 1,
@@ -88,7 +72,7 @@ const Bub1 = posed.img({
 const Bub2 = posed.img({
   exit: {
     opacity: 0,
-    scale: 0.7,
+    scale: 0.9,
   },
   enter: {
     opacity: 1,
@@ -100,7 +84,7 @@ const Bub2 = posed.img({
 const Bub3 = posed.img({
   exit: {
     opacity: 0,
-    scale: 0.7,
+    scale: 0.9,
   },
   enter: {
     opacity: 1,

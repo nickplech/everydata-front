@@ -117,7 +117,9 @@ const Cake = styled.img`
   margin-right: 5px;
 `
 const Stat = styled.div`
-  font-size: 12px;
+  display: flex;
+
+  font-size: 14px;
 `
 
 const StyledTitle = styled.h2`
@@ -187,10 +189,10 @@ class ClientStats extends React.Component {
                         <div className="circle-1" />
                         <div className="circle-2" />
                         <img
-                          src="http://100dayscss.com/codepen/jessica-potter.jpg"
+                          src={client.image}
                           width="70"
                           height="70"
-                          alt="Jessica Potter"
+                          alt="Client Profile Pic"
                         />
                       </div>
                       <StyledTitle>

@@ -18,7 +18,7 @@ const ClientStyles = styled.div`
 
     & > * {
       background: white;
-      border: 1px solid grey;
+      border-bottom: 1px solid grey;
       font-size: 1.3rem;
       &:hover {
         background: rgba(100, 100, 240, 0.4);
@@ -32,6 +32,7 @@ const ClientStyles = styled.div`
   button {
     height: 28px;
     max-width: 100px;
+    margin-left: 50px;
     cursor: pointer;
     &:hover {
       background: rgba(100, 100, 240, 0.4);

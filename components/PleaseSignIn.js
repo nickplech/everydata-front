@@ -12,13 +12,13 @@ const PleaseSignIn = props => (
       if (loading) return <p>Loading...</p>
       if (!data.me) {
         return (
-          <div>
+          <>
             <Paragraph>
               You have either been logged out due to innactivity or have ended
               your session. Please Sign In to continue!
             </Paragraph>
             <SignIn />
-          </div>
+          </>
         )
       }
       return props.children
