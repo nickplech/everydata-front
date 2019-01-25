@@ -12,7 +12,7 @@ const CalendarLayout = styled.div`
   padding-left: 10px;
   padding-right: 10px;
   top: 125px;
-  grid-column-gap: 0px;
+  grid-column-gap: 8px;
   bottom: 0;
   z-index: -1;
 `

@@ -67,9 +67,6 @@ class Slider extends Component {
                 <Query query={LOCAL_STATE_QUERY}>
                   {({ data }) => (
                     <CartStyles open={data.cartOpen}>
-                      <div>
-                        <p>calendar</p>
-                      </div>
                       <header>
                         <CloseButton
                           onClick={toggleCart}

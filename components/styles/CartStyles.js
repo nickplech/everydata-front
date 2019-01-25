@@ -17,7 +17,7 @@ const CartStyles = styled.div`
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
   z-index: 90;
   display: grid;
-  grid-template-rows: 200px 400px auto;
+  grid-template-rows: 40vh auto;
   overflow-y: scroll;
   ${props => props.open && `transform: translateX(0);`};
   header {

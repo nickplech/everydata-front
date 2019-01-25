@@ -1,8 +1,4 @@
-import React, { Component, Fragment } from 'react'
-import { Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
-import Link from 'next/link'
-import posed from 'react-pose'
+import React from 'react'
 import moment from 'moment'
 import Calendar from 'react-calendar/dist/entry.nostyle'
 import styled from 'styled-components'
@@ -25,22 +21,15 @@ const StatsDisplay = styled.div`
   width: 100%;
   height: 100%;
   border: 5px solid white;
-  border-right: none;
-  border-radius: 25px 0 0 25px;
-  box-shadow: -2px 1px 2px 3px rgba(0, 0, 0, 0.05);
-  .gear {
-    position: relative;
-    display: flex;
-    left: 215px;
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-  }
+
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 1px 1px 2px 3px rgba(0, 0, 0, 0.05);
+
   .react-calendar {
-    width: 100%;
+    width: 365px;
     border-radius: 15px;
     max-width: 100%;
-    box-shadow: 1px 1px 1px 1px rgba(20, 20, 20, 0.1);
+    box-shadow: 0px 1px 1px 1px rgba(20, 20, 20, 0.1);
     max-height: 300px;
     background: white;
     border: 1px solid rgba(20, 20, 20, 0.1);
@@ -78,7 +67,7 @@ const StatsDisplay = styled.div`
       border-radius: 15px 0 0 0;
     }
     &:last-child {
-      border-radius: 0 0px 0 0;
+      border-radius: 0 15px 0 0;
     }
     &:nth-child(2) {
       border-radius: 0;
@@ -161,33 +150,6 @@ const StatsDisplay = styled.div`
     color: white;
   }
 `
-const Flexer = styled.div`
-  display: flex;
-  flex-flow: column;
-`
-
-const Stat = styled.div`
-  font-size: 12px;
-`
-
-const StyledSub = styled.p`
-  margin-top: 0;
-  font-size: 14px;
-`
-
-const Gear = posed.img({
-  hoverable: true,
-  pressable: true,
-  init: {
-    scale: 1,
-  },
-  hover: {
-    scale: 1.2,
-  },
-  press: {
-    scale: 1.1,
-  },
-})
 
 class CalendarStats extends React.Component {
   state = {
@@ -208,24 +170,6 @@ class CalendarStats extends React.Component {
             calendarType="US"
             returnValue="start"
           />
-
-          <Flexer>
-            <Link
-              href={{
-                pathname: 'calendarsettings',
-                query: { id: this.props.id },
-              }}
-            >
-              <a>
-                <Gear
-                  className="gear"
-                  src="../static/img/gear.png"
-                  alt="edit schedule settings"
-                />
-              </a>
-            </Link>
-            <Stat />
-          </Flexer>
         </StatsDisplay>
         <SingleDay date={this.state.date} />
       </>

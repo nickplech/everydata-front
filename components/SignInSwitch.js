@@ -3,13 +3,14 @@ import { CURRENT_USER_QUERY } from './User'
 import Signup from '../components/Signup'
 import SignIn from '../components/SignIn'
 import Footer from '../components/Footer'
-import RequestReset from '../components/RequestReset'
+
 import styled from 'styled-components'
 
 const Columns = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 600px));
   grid-gap: 20px;
+  justify-content: center;
 `
 
 const Bottom = styled.div`
@@ -27,9 +28,7 @@ const DoDisplay = props => (
         return (
           <>
             <Columns>
-              <Signup />
-              <SignIn />
-              <RequestReset />
+              <SignIn /> <Signup />
             </Columns>
             <Bottom>
               <Footer className="bottom" />

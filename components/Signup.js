@@ -12,12 +12,14 @@ const SIGNUP_MUTATION = gql`
     $businessName: String!
     $email: String!
     $password: String!
+    $confirmPassword: String!
   ) {
     signup(
       name: $name
       businessName: $businessName
       email: $email
       password: $password
+      confirmPassword: $confirmPassword
     ) {
       id
       name
@@ -33,6 +35,7 @@ class Signup extends Component {
     businessName: '',
     email: '',
     password: '',
+    confirmPassword: '',
   }
   saveToState = e => {
     this.setState({ [e.target.name]: e.target.value })
@@ -41,7 +44,13 @@ class Signup extends Component {
     return (
       <Mutation
         mutation={SIGNUP_MUTATION}
-        variables={this.state}
+        variables={{
+          name: this.state.name,
+          businessName: this.state.businessName,
+          email: this.state.email,
+          password: this.state.password,
+          confirmPassword: this.state.confirmPassword,
+        }}
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
         {(signup, { error, loading }) => (
@@ -55,6 +64,7 @@ class Signup extends Component {
                 businessName: '',
                 email: '',
                 password: '',
+                confirmPassword: '',
               })
             }}
           >
@@ -104,6 +114,16 @@ class Signup extends Component {
                   required
                   minLength={6}
                   value={this.state.password}
+                  onChange={this.saveToState}
+                />
+              </label>
+              <label htmlFor="confirmPassword">
+                Confirm Your Password
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                  value={this.state.confirmPassword}
                   onChange={this.saveToState}
                 />
               </label>

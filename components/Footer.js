@@ -1,35 +1,33 @@
-import Link from 'next/link';
-import styled from 'styled-components';
-import FooterStyles from './styles/FooterStyles';
-import SickButton from './styles/SickButton';
+import Link from 'next/link'
+
+import FooterStyles from './styles/FooterStyles'
 
 const Footer = () => (
-<FooterStyles>
-
+  <FooterStyles>
     <div>
-	    <Link href="/blog">
-				<a>Blog</a>
-			</Link>
+      <Link href="/blog">
+        <a>Blog</a>
+      </Link>
     </div>
     <div>
       <Link href="/faq">
-				<a>FAQ</a>
-			</Link>
+        <a>FAQ</a>
+      </Link>
     </div>
     <div>
-    	<Link href="/privacy">
-				<a>Privacy Policy</a>
-			</Link>
+      <Link href="/privacy">
+        <a>Privacy Policy</a>
+      </Link>
     </div>
     <div>
-	    <Link href="/terms">
-				<a>Terms of Use</a>
-			</Link>
+      <Link href="/terms">
+        <a>Terms of Use</a>
+      </Link>
     </div>
     <div>
       <p>Copyright © Perfect Day Reminders LLC 2016-2018</p>
     </div>
-</FooterStyles>
-  );
+  </FooterStyles>
+)
 
-export default Footer;
+export default Footer

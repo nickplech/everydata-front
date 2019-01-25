@@ -77,7 +77,7 @@ class SignIn extends Component {
 
               <SickButton type="submit">Sign In!</SickButton>
 
-              <Link href="">
+              <Link href="/resetrequest">
                 <StyledP>Forget Your Password?</StyledP>
               </Link>
             </fieldset>

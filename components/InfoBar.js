@@ -67,12 +67,14 @@ class InfoBar extends Component {
                 <Confirmer onClick={toggleCart}>
                   <span className="confirmations">Confirmations</span>
                   <SuccessCount
-                    count={me.cart.reduce(
-                      (tally, cartItem) => tally + cartItem.quantity,
-                      0,
-                    )}
+                    count={
+                      me &&
+                      me.cart.reduce(
+                        (tally, cartItem) => tally + cartItem.quantity,
+                        0,
+                      )
+                    }
                   />
-                  {!me.cart && null}
                 </Confirmer>
               )}
             </Mutation>

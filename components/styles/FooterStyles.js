@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 const FooterStyles = styled.div`
   width: 100%;
+  position: relative;
+  bottom: 0;
   background: rgba(10, 10, 10, 0.8);
   color: ${props => props.theme.offWhite};
   margin: 0;
@@ -13,10 +15,7 @@ const FooterStyles = styled.div`
   justify-self: center;
   font-size: 0.9rem;
   height: 250px;
-  .bottom {
-    position: absolute;
-    bottom: 0;
-  }
+
   a {
     color: ${props => props.theme.offWhite};
     font-size: 1.3rem;

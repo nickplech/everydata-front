@@ -19,6 +19,7 @@ const NavStyles = styled.ul`
     font-size: 1em;
     background: none;
     border: 0;
+    color: rgba(100, 100, 100, 1);
     z-index: 5;
     cursor: pointer;
 

@@ -1,8 +1,11 @@
+import PleaseSignIn from '../components/PleaseSignIn'
 import UpdateClient from '../components/UpdateClient'
 
 const AddClient = props => (
   <div>
-    <UpdateClient id={props.query.id} />
+    <PleaseSignIn>
+      <UpdateClient id={props.query.id} />
+    </PleaseSignIn>
   </div>
 )
 
