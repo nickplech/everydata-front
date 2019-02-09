@@ -46,7 +46,7 @@ const DayView = styled.div`
     margin-top: 1px;
     height: 60px;
     width: 100%;
-    background: rgba(100, 100, 240, 1);
+    background: rgba(20, 110, 240, 1);
   }
   .gear {
     position: absolute;
@@ -109,7 +109,7 @@ const DayGrid = styled.div`
     border-bottom: none;
     border-top: 1px solid white;
     border-radius: 20px 0 0 20px;
-    background: rgba(100, 100, 240, 0.2);
+    background: rgba(20, 110, 240, 0.15);
     color: grey;
 
     &:hover {

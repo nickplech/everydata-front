@@ -10,9 +10,6 @@ const Nav = () => (
         {me && (
           <>
             {' '}
-            <Link href="/pricing">
-              <a>Pricing</a>
-            </Link>
             <Link href="/account">
               <a>Account</a>
             </Link>
@@ -24,6 +21,10 @@ const Nav = () => (
         )}
         {!me && (
           <>
+            {' '}
+            <Link href="/pricing">
+              <a>Pricing</a>
+            </Link>
             <Link href="/hipaa">
               <a>Hipaa</a>
             </Link>

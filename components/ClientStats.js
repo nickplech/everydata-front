@@ -117,7 +117,6 @@ const Cake = styled.img`
 `
 const Stat = styled.div`
   display: flex;
-
   font-size: 14px;
 `
 

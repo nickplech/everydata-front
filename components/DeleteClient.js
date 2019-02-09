@@ -34,9 +34,7 @@ class DeleteClient extends Component {
         {(deleteClient, { error }) => (
           <button
             onClick={() => {
-              if (
-                confirm(`'Are you sure you want to delete ${this.props.id}'`)
-              ) {
+              if (confirm(`'Are you sure you want to delete this client?'`)) {
                 deleteClient().catch(err => {
                   alert(err.message)
                 })

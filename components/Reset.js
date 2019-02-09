@@ -49,6 +49,7 @@ class Reset extends Component {
       >
         {(reset, { error, loading, called }) => (
           <Form
+            style={{ margin: '50px auto' }}
             method="post"
             onSubmit={async e => {
               e.preventDefault()

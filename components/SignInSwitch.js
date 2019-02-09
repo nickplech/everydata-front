@@ -11,6 +11,7 @@ const Columns = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 600px));
   grid-gap: 20px;
   justify-content: center;
+  margin-top: 50px;
 `
 
 const Bottom = styled.div`

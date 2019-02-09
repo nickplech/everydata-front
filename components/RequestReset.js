@@ -16,7 +16,7 @@ const REQUEST_RESET_MUTATION = gql`
 
 const Thinner = styled.div`
   max-width: 600px;
-  margin: 0 auto;
+  margin: 50px auto;
 `
 
 class RequestReset extends Component {

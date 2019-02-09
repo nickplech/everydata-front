@@ -72,7 +72,7 @@ class Slider extends Component {
                           title="close"
                           className="exy"
                         >
-                          &times;
+                          <div className="child">&times;</div>
                         </CloseButton>
                         <Supreme>Date</Supreme>
                         <ConfList>

@@ -1,5 +1,6 @@
 import React from 'react'
 import UpdateUserProfile from './UpdateUserProfile'
+import TakeMyMoney from './TakeMyMoney'
 import Tabs from './Tabs'
 import styled from 'styled-components'
 
@@ -27,7 +28,15 @@ const TabParent = () => (
         </div>
       </Tabs.Tab>
       <Tabs.Tab id="tab2" title="Subscription">
-        <div className="padded">Payment &amp; Subscription</div>
+        <div className="padded">
+          {' '}
+          <TakeMyMoney>
+            {' '}
+            <button>Express</button>
+          </TakeMyMoney>
+          <button>Classic</button>
+          <button>HIPAA</button>
+        </div>
       </Tabs.Tab>
     </Tabs>
   </Styled>

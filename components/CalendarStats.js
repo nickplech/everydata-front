@@ -57,7 +57,7 @@ const StatsDisplay = styled.div`
     min-width: 44px;
     background: none;
     font-size: 20px;
-    background-color: rgba(100, 100, 240, 1);
+    background-color: rgba(20, 110, 240, 1);
     border-radius: 15px 15px 0 0;
     color: white;
     &:first-child {
@@ -81,7 +81,7 @@ const StatsDisplay = styled.div`
     background-color: #e6e6e6;
   }
   .react-calendar__navigation button[disabled] {
-    background-color: rgba(100, 100, 240, 0.1);
+    background-color: rgba(20, 110, 240, 0.1);
   }
   .react-calendar__month-view__weekdays {
     text-align: center;
@@ -127,7 +127,7 @@ const StatsDisplay = styled.div`
     background-color: #e6e6e6;
   }
   .react-calendar__tile--hasActive {
-    background: rgba(100, 100, 240, 1);
+    background: rgba(20, 110, 240, 1);
     color: white;
   }
   .react-calendar__tile--hasActive:enabled:hover,
@@ -135,7 +135,7 @@ const StatsDisplay = styled.div`
     background: #a9d4ff;
   }
   .react-calendar__tile--active {
-    background: rgba(100, 100, 240, 1);
+    background: rgba(20, 110, 240, 1);
     color: white;
   }
   .react-calendar__tile--active:enabled:hover,
