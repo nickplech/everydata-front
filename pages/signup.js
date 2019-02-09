@@ -1,10 +1,10 @@
-import SingInSwitch from '../components/SignInSwitch'
-import LoggedIn from '../components/LoggedIn'
+import SignInSwitch from '../components/SignInSwitch'
+import Schedule from '../components/Schedule'
 
 const SignupPage = props => (
-  <SingInSwitch>
-    <LoggedIn id={props.query.id} />
-  </SingInSwitch>
+  <SignInSwitch>
+    <Schedule id={props.query.id} />
+  </SignInSwitch>
 )
 
 export default SignupPage

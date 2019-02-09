@@ -118,7 +118,11 @@ const Hero = () => (
         <h1 className="title">
           Confidence Through <span className="confirmation">Confirmation</span>
         </h1>
-        <p>Effortlessly reduce "No-Shows" &amp; improve daily work flow.</p>
+        <p>
+          Your Business' best option for effortlessly reducing "no-shows" &amp;
+          improving daily work flow. Start sending appointment reminders
+          immediately with no credit card required for a free trial.
+        </p>
         <HeroButton>Start Your Free Trial</HeroButton>{' '}
         <SecondButton>Start Your Free Trial</SecondButton>
       </Left>

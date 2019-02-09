@@ -11,15 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/schedule": [
+    "/account": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/index": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/": [
+    "/pricing": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

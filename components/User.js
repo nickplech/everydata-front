@@ -13,6 +13,9 @@ const CURRENT_USER_QUERY = gql`
       # orders {
       #   id
       # }
+      appointments {
+        id
+      }
       cart {
         id
         quantity

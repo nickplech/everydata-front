@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
-
 import { ALL_CLIENTS_QUERY } from './Clients'
 
 const DELETE_CLIENT_MUTATION = gql`

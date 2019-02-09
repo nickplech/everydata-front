@@ -3,7 +3,6 @@ import { SINGLE_CLIENT_QUERY } from './SingleClient'
 import { Query } from 'react-apollo'
 import Link from 'next/link'
 import { format } from 'date-fns'
-
 import AddToCart from './AddToCart'
 import posed from 'react-pose'
 import styled from 'styled-components'

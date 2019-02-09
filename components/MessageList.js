@@ -3,37 +3,36 @@ import styled from 'styled-components'
 
 const Lister = styled.div`
   position: relative;
-  display: grid;
-  grid-row: 1/2;
-
+  display: flex;
+  flex-flow: column;
+  padding-bottom: 20px;
   box-sizing: border-box;
   padding-left: 6px;
-  width: 100%;
 
   overflow-y: scroll;
   background: white;
 
   .message {
-    margin: 0px 10px;
-    padding: 20px 0;
+    display: flex;
+    align-content: center;
+    margin: 0px 30px;
+    padding: 0px;
     border-bottom: 1.5px solid rgba(220, 220, 220, 0.4);
   }
 
-  .message-username {
-    font-size: 11px;
-    color: #3e5869;
-    opacity: 0.9;
-    margin-bottom: 6px;
-  }
   .message-text {
+    align-self: center;
     background: rgba(220, 220, 220, 0.8);
     font-family: 'Montserrat', sans-serif;
     color: black;
     display: block;
     font-size: 12px;
-    padding: 8px 12px;
+    padding: 10px 14px;
+    margin: 12px 0;
     border-radius: 8px;
-    max-width: 50%;
+    width: 50%;
+    height: 80%;
+    max-width: 600px;
     min-width: 300px;
   }
 `

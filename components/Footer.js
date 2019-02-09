@@ -10,7 +10,7 @@ const Footer = () => (
       </Link>
     </div>
     <div>
-      <Link href="/faq">
+      <Link href="/pricing">
         <a>FAQ</a>
       </Link>
     </div>

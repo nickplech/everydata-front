@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import User from './User'
-
 import CartStyles from './styles/CartStyles'
 import Supreme from './styles/Supreme'
 import CloseButton from './styles/CloseButton'

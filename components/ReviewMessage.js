@@ -2,53 +2,63 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Back = styled.div`
+  display: grid;
   grid-row: 2/3;
-  grid-column: 2;
-
-  width: 96%;
-  height: 94%;
-  margin: 0 auto;
+  grid-column: 2/3;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   z-index: 5;
-
-  border-radius: 10px;
-  background-color: rgba(220, 220, 220, 0.3);
+  border-radius: 20px;
+  border: 5px solid white;
+  box-shadow: 1px 0 4px 2px rgba(0, 0, 0, 0.1);
+  background-color: rgba(240, 240, 240, 1);
 `
 
 const Flexer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 50px;
+  position: relative;
   flex-flow: column;
-
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   justify-content: center;
 `
-const CharCount = styled.span`
-  font-size: 11px;
-  display: flex;
-  align-self: flex-end;
-`
-const MessageEdit = styled.input`
+// const CharCount = styled.div`
+//   display: block;
+//   font-size: 11px;
+//   bottom: 70px;
+//   right: 40px;
+//   position: absolute;
+//   z-index: 10px;
+// `
+const MessageEdit = styled.div`
   background: white;
-  display: flex;
-  align-self: flex-end;
+  display: grid;
+  grid-column: 2;
+  position: relative;
   z-index: 6;
-  width: 90%;
-  height: 80%;
+  width: 350px;
+  height: calc(100% - 40px);
+  border-radius: 10px;
+  align-self: center;
+  justify-self: flex-end;
+  margin-right: 25px;
   max-width: 800px;
 `
 const Send = styled.button`
-  display: flex;
-
-  align-content: center;
-  justify-content: center;
-
   background: rgba(30, 110, 240, 1);
   color: white;
   font-weight: 800;
   border: 0;
-  margin-top: 10px;
-  align-self: flex-end;
+  margin-bottom: 10px;
+  width: 75px;
+  display: grid;
+  grid-column: 2;
   font-size: 2rem;
+  justify-self: flex-end;
+  margin-right: 25px;
   padding: 0.7rem 1.2rem;
   font-size: 1.8rem;
   border-radius: 5px;
@@ -69,11 +79,12 @@ const Send = styled.button`
 const ReviewMessage = () => (
   <Back>
     <Flexer>
-      <CharCount>
-        <p>/160</p>
-      </CharCount>
+      {/* <div>
+        <CharCount>/160</CharCount>
+      </div> */}
 
-      <MessageEdit readOnly />
+      <MessageEdit readOnly maxlength="160" />
+
       <Send>Send</Send>
     </Flexer>
   </Back>

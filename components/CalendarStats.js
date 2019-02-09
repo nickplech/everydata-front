@@ -1,16 +1,13 @@
 import React from 'react'
-import moment from 'moment'
+import dateFns from 'date-fns'
 import Calendar from 'react-calendar/dist/entry.nostyle'
 import styled from 'styled-components'
 import SingleDay from './SingleDay'
 
-// const SINGLE_DAY_MUTATION = gql`
-//   mutation SINGLE_DAY_MUTATION($day: DateTime!) {
-//     changeDay(day: $day) {
-//       date
-//     }
-//   }
-// `
+const Indexed = styled.div`
+  position: relative;
+  z-index: 0;
+`
 const StatsDisplay = styled.div`
   position: relative;
   display: grid;
@@ -30,7 +27,7 @@ const StatsDisplay = styled.div`
     border-radius: 15px;
     max-width: 100%;
     box-shadow: 0px 1px 1px 1px rgba(20, 20, 20, 0.1);
-    max-height: 300px;
+    height: 310px;
     background: white;
     border: 1px solid rgba(20, 20, 20, 0.1);
     font-family: Arial, Helvetica, sans-serif;
@@ -153,10 +150,17 @@ const StatsDisplay = styled.div`
 
 class CalendarStats extends React.Component {
   state = {
-    date: new Date(),
+    date: dateFns.startOfDay(new Date()),
+    today: dateFns.startOfToday(new Date()),
   }
 
   onChange = date => this.setState({ date })
+
+  // handleClick = () => {
+  //   alert(`'New date is: ${this.state.date}'`)
+  // }
+
+  handleJumpToToday = today => this.setState({ today })
 
   render() {
     return (
@@ -166,6 +170,7 @@ class CalendarStats extends React.Component {
             name="date"
             onChange={this.onChange}
             minDetail="decade"
+            // onClick={this.handleClick}
             value={this.state.date}
             calendarType="US"
             returnValue="start"

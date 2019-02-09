@@ -11,15 +11,12 @@ const ClientStyles = styled.div`
     text-align: left;
     display: grid;
     width: 100%;
-
     align-items: center;
-
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 
     & > * {
       background: white;
-      border-bottom: 1px solid grey;
-      font-size: 1.3rem;
+
       &:hover {
         background: rgba(100, 100, 240, 0.4);
       }
@@ -30,9 +27,7 @@ const ClientStyles = styled.div`
     padding-left: 10px;
   }
   button {
-    height: 28px;
-    max-width: 100px;
-    margin-left: 50px;
+    padding: 6px 0;
     cursor: pointer;
     &:hover {
       background: rgba(100, 100, 240, 0.4);

@@ -27,11 +27,7 @@ export default class Client extends Component {
           </Link>
 
           <p>{client.cellPhone}</p>
-          <p>
-            {format(client.birthDay, 'MMMM d, YYYY', {
-              awareOfUnicodeTokens: true,
-            })}
-          </p>
+          <p>{format(client.birthDay, 'MMMM d, YYYY')}</p>
           <Link
             href={{
               pathname: 'update',

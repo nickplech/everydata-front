@@ -5,7 +5,7 @@ import { CURRENT_USER_QUERY } from './User'
 import Link from 'next/link'
 import SuccessCount from './SuccessCount'
 import styled from 'styled-components'
-import Tab from './Tab'
+import Block from './Block'
 import Slider from './Slider'
 
 const StyledBar = styled.div`
@@ -52,12 +52,12 @@ class InfoBar extends Component {
       <StyledBar>
         <Link href="/bulk">
           <a className="tab2">
-            <Tab name="Bulk Sender" />
+            <Block name="Bulk Sender" />
           </a>
         </Link>
         <Link href="/schedule">
           <a className="tab3">
-            <Tab name="Schedule" />
+            <Block name="Schedule" />
           </a>
         </Link>
         <Query query={CURRENT_USER_QUERY}>

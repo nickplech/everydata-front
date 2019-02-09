@@ -249,6 +249,178 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./components/Block.js":
+/*!*****************************!*\
+  !*** ./components/Block.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/Block.js";
+
+
+var Tabs = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "Block__Tabs",
+  componentId: "f85u3b-0"
+})(["display:flex;padding:10px;min-width:150px;height:45px;justify-content:center;align-content:center;align-items:center;.textWhite{color:white;text-transform:uppercase;font-size:10px;}&:hover{background:rgba(240,240,240,0.3);}"]);
+
+var Block = function Block(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Tabs, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "textWhite",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: this
+  }, props.name)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Block);
+
+/***/ }),
+
+/***/ "./components/CalendarStats.js":
+/*!*************************************!*\
+  !*** ./components/CalendarStats.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_calendar_dist_entry_nostyle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-calendar/dist/entry.nostyle */ "./node_modules/react-calendar/dist/entry.nostyle.js");
+/* harmony import */ var react_calendar_dist_entry_nostyle__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_calendar_dist_entry_nostyle__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _SingleDay__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SingleDay */ "./components/SingleDay.js");
+var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/CalendarStats.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+var Indexed = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "CalendarStats__Indexed",
+  componentId: "sc-3vgek8-0"
+})(["position:relative;z-index:0;"]);
+var StatsDisplay = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "CalendarStats__StatsDisplay",
+  componentId: "sc-3vgek8-1"
+})(["position:relative;display:grid;grid-row:1/3;grid-column:1;background-color:rgba(220,220,220,0.3);width:100%;height:100%;border:5px solid white;border-radius:25px 25px 25px 25px;box-shadow:1px 1px 2px 3px rgba(0,0,0,0.05);.react-calendar{width:365px;border-radius:15px;max-width:100%;box-shadow:0px 1px 1px 1px rgba(20,20,20,0.1);height:310px;background:white;border:1px solid rgba(20,20,20,0.1);font-family:Arial,Helvetica,sans-serif;line-height:1.125em;}.react-calendar,.react-calendar *,.react-calendar *:before,.react-calendar *:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}.react-calendar button{margin:0;border:0;outline:none;}.react-calendar button:enabled:hover{cursor:pointer;}.react-calendar__navigation{height:60px;margin-bottom:0.5em;}.react-calendar__navigation button{min-width:44px;background:none;font-size:20px;background-color:rgba(100,100,240,1);border-radius:15px 15px 0 0;color:white;&:first-child{border-radius:15px 0 0 0;}&:last-child{border-radius:0 15px 0 0;}&:nth-child(2){border-radius:0;}&:nth-child(3){border-radius:0;}&:nth-child(4){border-radius:0;}}.react-calendar__navigation button:enabled:hover,.react-calendar__navigation button:enabled:focus{background-color:#e6e6e6;}.react-calendar__navigation button[disabled]{background-color:rgba(100,100,240,0.1);}.react-calendar__month-view__weekdays{text-align:center;text-transform:uppercase;font-weight:bold;font-size:0.75em;}.react-calendar__month-view__weekdays__weekday{padding:2em 0;}.react-calendar__month-view__weekNumbers{font-weight:bold;}.react-calendar__month-view__weekNumbers .react-calendar__tile{display:flex;align-items:center;justify-content:center;font-size:0.75em;padding:calc(0.75em / 0.75) calc(0.5em / 0.75);}.react-calendar__month-view__days__day--weekend{color:red;}.react-calendar__month-view__days__day--neighboringMonth{color:#969696;}.react-calendar__year-view .react-calendar__tile,.react-calendar__decade-view .react-calendar__tile,.react-calendar__century-view .react-calendar__tile{padding:2em 0.5em;}.react-calendar__tile{max-width:100%;text-align:center;padding:0.75em 0.5em;background:none;}.react-calendar__tile:disabled{background-color:#f0f0f0;}.react-calendar__tile:enabled:hover,.react-calendar__tile:enabled:focus{background-color:#e6e6e6;}.react-calendar__tile--hasActive{background:rgba(100,100,240,1);color:white;}.react-calendar__tile--hasActive:enabled:hover,.react-calendar__tile--hasActive:enabled:focus{background:#a9d4ff;}.react-calendar__tile--active{background:rgba(100,100,240,1);color:white;}.react-calendar__tile--active:enabled:hover,.react-calendar__tile--active:enabled:focus{background:#1087ff;}.react-calendar--selectRange .react-calendar__tile--hover{background-color:rgba(100,100,240,1);color:white;}"]);
+
+var CalendarStats =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(CalendarStats, _React$Component);
+
+  function CalendarStats() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, CalendarStats);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(CalendarStats)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      date: date_fns__WEBPACK_IMPORTED_MODULE_1___default.a.startOfDay(new Date()),
+      today: date_fns__WEBPACK_IMPORTED_MODULE_1___default.a.startOfToday(new Date())
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (date) {
+      return _this.setState({
+        date: date
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleJumpToToday", function (today) {
+      return _this.setState({
+        today: today
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(CalendarStats, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StatsDisplay, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 168
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_calendar_dist_entry_nostyle__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        name: "date",
+        onChange: this.onChange,
+        minDetail: "decade" // onClick={this.handleClick}
+        ,
+        value: this.state.date,
+        calendarType: "US",
+        returnValue: "start",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 169
+        },
+        __self: this
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleDay__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        date: this.state.date,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 179
+        },
+        __self: this
+      }));
+    }
+  }]);
+
+  return CalendarStats;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (CalendarStats);
+
+/***/ }),
+
 /***/ "./components/CartItem.js":
 /*!********************************!*\
   !*** ./components/CartItem.js ***!
@@ -340,6 +512,242 @@ CartItem.propTypes = {
   cartItem: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (CartItem);
+
+/***/ }),
+
+/***/ "./components/ClientSearch.js":
+/*!************************************!*\
+  !*** ./components/ClientSearch.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var downshift__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! downshift */ "./node_modules/downshift/dist/downshift.esm.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.browser.umd.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash.debounce */ "./node_modules/lodash.debounce/index.js");
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _styles_DropDown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/DropDown */ "./components/styles/DropDown.js");
+
+var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/ClientSearch.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  query SEARCH_CLIENTS_QUERY($searchTerm: String!) {\n    clients(\n      orderBy: updatedAt_DESC\n      where: {\n        OR: [\n          { firstName_contains: $searchTerm }\n          { lastName_contains: $searchTerm }\n        ]\n      }\n    ) {\n      id\n      firstName\n      lastName\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+
+var SEARCH_CLIENTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_4___default()(_templateObject());
+
+var ClientSearch =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ClientSearch, _Component);
+
+  function ClientSearch() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, ClientSearch);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ClientSearch)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      clients: [],
+      loading: false
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", lodash_debounce__WEBPACK_IMPORTED_MODULE_5___default()(
+    /*#__PURE__*/
+    function () {
+      var _ref = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e, client) {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log('Searching...');
+
+                _this.setState({
+                  loading: true
+                });
+
+                _context.next = 4;
+                return client.query({
+                  query: SEARCH_CLIENTS_QUERY,
+                  variables: {
+                    searchTerm: e.target.value
+                  }
+                });
+
+              case 4:
+                res = _context.sent;
+
+                _this.setState({
+                  clients: res.data.clients,
+                  loading: false
+                });
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      return function (_x, _x2) {
+        return _ref.apply(this, arguments);
+      };
+    }(), 350));
+
+    return _this;
+  }
+
+  _createClass(ClientSearch, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      Object(downshift__WEBPACK_IMPORTED_MODULE_2__["resetIdCounter"])();
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_6__["SearchStyles"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 48
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(downshift__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        itemToString: function itemToString(client) {
+          return client === null ? '' : client.lastName + ',' + ' ' + client.firstName;
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 49
+        },
+        __self: this
+      }, function (_ref2) {
+        var getInputProps = _ref2.getInputProps,
+            getItemProps = _ref2.getItemProps,
+            isOpen = _ref2.isOpen,
+            inputValue = _ref2.inputValue,
+            highlightedIndex = _ref2.highlightedIndex;
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 63
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["ApolloConsumer"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 64
+          },
+          __self: this
+        }, function (client) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", _extends({}, getInputProps({
+            type: 'search',
+            placeholder: 'Search Clients',
+            id: 'search',
+            className: _this2.state.loading ? 'loading' : '',
+            spellCheck: false,
+            onChange: function onChange(e) {
+              e.persist();
+
+              _this2.onChange(e, client);
+            }
+          }), {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 66
+            },
+            __self: this
+          }));
+        }), isOpen && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_6__["DropDown"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 82
+          },
+          __self: this
+        }, _this2.state.clients.map(function (item, index) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_6__["DropDownItem"], _extends({}, getItemProps({
+            item: item
+          }), {
+            key: item.id,
+            highlighted: index === highlightedIndex,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 84
+            },
+            __self: this
+          }), item.lastName, ", ", item.firstName);
+        }), !_this2.state.clients.length && !_this2.state.loading && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_6__["DropDownItem"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 93
+          },
+          __self: this
+        }, " Nothing Found for ", inputValue)));
+      }));
+    }
+  }]);
+
+  return ClientSearch;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (ClientSearch);
 
 /***/ }),
 
@@ -572,7 +980,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _SuccessCount__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SuccessCount */ "./components/SuccessCount.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _Tab__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Tab */ "./components/Tab.js");
+/* harmony import */ var _Block__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Block */ "./components/Block.js");
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/InfoBar.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -645,7 +1053,7 @@ function (_Component) {
           lineNumber: 54
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tab__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Block__WEBPACK_IMPORTED_MODULE_7__["default"], {
         name: "Bulk Sender",
         __source: {
           fileName: _jsxFileName,
@@ -666,7 +1074,7 @@ function (_Component) {
           lineNumber: 59
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tab__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Block__WEBPACK_IMPORTED_MODULE_7__["default"], {
         name: "Schedule",
         __source: {
           fileName: _jsxFileName,
@@ -801,6 +1209,262 @@ var Meta = function Meta() {
 
 /***/ }),
 
+/***/ "./components/Modal.js":
+/*!*****************************!*\
+  !*** ./components/Modal.js ***!
+  \*****************************/
+/*! exports provided: default, OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OPEN_MODAL_QUERY", function() { return OPEN_MODAL_QUERY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOGGLE_MODAL_MUTATION", function() { return TOGGLE_MODAL_MUTATION; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.browser.umd.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _ClientSearch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ClientSearch */ "./components/ClientSearch.js");
+var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/Modal.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  mutation {\n    toggleModal @client\n  }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  query {\n    openModal @client\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+var OPEN_MODAL_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
+var TOGGLE_MODAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject2()); // const CREATE_CLIENT_MUTATION = gql`
+//   mutation CREATE_CLIENT_MUTATION(
+//     $firstName: String!
+//     $lastName: String!
+//     $cellPhone: String!
+//     $birthDay: DateTime
+//     $image: String
+//   ) {
+//     createClient(
+//       firstName: $firstName
+//       lastName: $lastName
+//       cellPhone: $cellPhone
+//       birthDay: $birthDay
+//       image: $image
+//     ) {
+//       id
+//     }
+//   }
+// `
+
+var BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "Modal__BackDrop",
+  componentId: "sc-105rmtf-0"
+})(["position:fixed;display:flex;justify-content:center;align-items:center;top:0;bottom:0;left:0;right:0;background-color:rgba(0,0,0,0.5);"]);
+var Title = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].h1.withConfig({
+  displayName: "Modal__Title",
+  componentId: "sc-105rmtf-1"
+})([""]);
+var Modall = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "Modal__Modall",
+  componentId: "sc-105rmtf-2"
+})(["background-color:#fff;border-radius:25px;display:grid;grid-template-rows:50px 1fr 80px;grid-template-columns:1fr 1fr;position:absolute;align-items:center;width:500px;height:500px;padding:10px 25px;z-index:900;box-shadow:1px 1px 5px 3px rgba(0,0,0,0.3);.title{grid-column:1/3;font-size:18px;justify-self:center;color:rgba(20,110,220,1);left:0;right:0;top:0;position:relative;}"]);
+var Cancel = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].button.withConfig({
+  displayName: "Modal__Cancel",
+  componentId: "sc-105rmtf-3"
+})(["background-color:#fff;border-radius:5px;display:grid;grid-row:3;grid-column:2;position:relative;align-items:center;justify-self:flex-start;height:40%;background:rgba(220,100,120,1);color:white;width:100px;font-size:18px;z-index:900;&:focus{outline:none;}"]);
+var Save = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].button.withConfig({
+  displayName: "Modal__Save",
+  componentId: "sc-105rmtf-4"
+})(["background-color:#fff;border-radius:5px;display:grid;grid-column:2;grid-row:3;justify-self:flex-end;position:relative;align-items:center;width:100px;height:40%;background:rgba(20,200,120,1);color:white;font-size:18px;z-index:900;&:focus{outline:none;}"]);
+
+var Modal =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Modal, _Component);
+
+  function Modal() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Modal);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Modal)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      client: '',
+      date: '',
+      timeRange: ''
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (e) {
+      var _e$target = e.target,
+          name = _e$target.name,
+          type = _e$target.type,
+          value = _e$target.value;
+      var val = type === 'number' ? parseFloat(value) : value;
+
+      _this.setState(_defineProperty({}, name, val));
+    });
+
+    return _this;
+  }
+
+  _createClass(Modal, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Mutation"], {
+        mutation: TOGGLE_MODAL_MUTATION,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 127
+        },
+        __self: this
+      }, function (toggleModal) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
+          query: OPEN_MODAL_QUERY,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 129
+          },
+          __self: this
+        }, function (_ref) {
+          var data = _ref.data;
+
+          if (!data.openModal) {
+            return null;
+          }
+
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BackDrop, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 135
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Modall, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 136
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+            className: "title",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 137
+            },
+            __self: this
+          }, "New Appointment"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 138
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 139
+            },
+            __self: this
+          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+            htmlFor: "reason",
+            className: "required",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 140
+            },
+            __self: this
+          }, "Appointment Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            type: "text",
+            id: "reason",
+            name: "reason",
+            placeholder: "Appointment Type",
+            autoComplete: "off",
+            required: true // value={
+            // }
+            ,
+            onChange: _this2.handleChange,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 142
+            },
+            __self: this
+          }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Cancel, {
+            onClick: toggleModal,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 156
+            },
+            __self: this
+          }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Save, {
+            onClick: toggleModal,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 157
+            },
+            __self: this
+          }, "Save")));
+        });
+      });
+    }
+  }]);
+
+  return Modal;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Modal);
+
+
+/***/ }),
+
 /***/ "./components/Nav.js":
 /*!***************************!*\
   !*** ./components/Nav.js ***!
@@ -839,62 +1503,75 @@ var Nav = function Nav() {
         lineNumber: 9
       },
       __self: this
-    }, me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/clients",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 12
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    }, me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, ' ', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/pricing",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 13
       },
       __self: this
-    }, "Settings")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
+        lineNumber: 14
       },
       __self: this
-    })), !me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/pricing",
+    }, "Pricing")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/account",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17
+      },
+      __self: this
+    }, "Account")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/clients",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 20
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    }, "Settings")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 22
       },
       __self: this
-    }, "Pricing")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    })), !me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/hipaa",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 27
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 28
       },
       __self: this
     }, "Hipaa")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/signup",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 30
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 31
       },
       __self: this
     }, "Sign In"))));
@@ -1312,6 +1989,267 @@ var Signout = function Signout() {
 
 /***/ }),
 
+/***/ "./components/SingleDay.js":
+/*!*********************************!*\
+  !*** ./components/SingleDay.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_pose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-pose */ "./node_modules/react-pose/dist/react-pose.es.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.browser.umd.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Modal */ "./components/Modal.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var date_fns_set_hours__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns/set_hours */ "./node_modules/date-fns/set_hours/index.js");
+/* harmony import */ var date_fns_set_hours__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(date_fns_set_hours__WEBPACK_IMPORTED_MODULE_6__);
+var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/SingleDay.js";
+
+
+
+
+
+
+
+
+var Gear = react_pose__WEBPACK_IMPORTED_MODULE_2__["default"].img({
+  hoverable: true,
+  pressable: true,
+  init: {
+    scale: 1
+  },
+  hover: {
+    scale: 1.2
+  },
+  press: {
+    scale: 1.1
+  }
+});
+var DayView = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "SingleDay__DayView",
+  componentId: "sc-1099gq1-0"
+})(["position:relative;display:grid;grid-row:1/3;grid-column:2/3;width:100%;height:100%;background-color:white;box-shadow:0 1px 5px 3px rgba(0,0,0,0.05);border:5px solid white;border-radius:20px 20px 25px 25px;z-index:-1;.parent{display:flex;flex-flow:column;position:absolute;right:0px;align-items:flex-end;border-radius:15px 15px 0 0;text-align:center;padding-right:20px;margin-top:1px;height:60px;width:100%;background:rgba(100,100,240,1);}.gear{position:absolute;display:flex;left:10px;top:10px;width:25px;height:25px;cursor:pointer;z-index:50;}.date{display:flex;text-transform:uppercase;margin:0;color:rgba(230,230,230,0.8);font-size:14px;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}.sideDate{display:flex;color:white;margin:0;font-family:'Montserrat',sans-serif;font-size:26px;line-height:26px;padding-top:10px;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}"]);
+var DayGrid = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "SingleDay__DayGrid",
+  componentId: "sc-1099gq1-1"
+})(["display:grid;position:relative;grid-template-columns:60px 1fr;position:absolute;grid-auto-rows:25px;border-radius:0px 0 25px 0;grid-gap:2px;width:100%;right:0px;margin-top:63px;height:75vh;overflow-y:scroll;overscroll-behavior:contain;.timeCell{display:grid;grid-column:1/3;padding-left:15px;align-items:center;border-bottom:none;border-top:1px solid white;border-radius:20px 0 0 20px;background:rgba(100,100,240,0.2);color:grey;&:hover{opacity:0.5;}}.lower{display:grid;grid-column:2/3;padding-left:5px;align-items:center;border-bottom:none;border-top:1px solid white;background:rgba(243,241,244,1);color:grey;&:hover{opacity:0.5;}}.number{display:grid;font-size:12px;align-self:center;justify-content:flex-start;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}"]);
+var TopBlock = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "SingleDay__TopBlock",
+  componentId: "sc-1099gq1-2"
+})(["display:grid;grid-column:2;grid-row:1/3;width:100%;height:100%;background:rgba(240,240,240,1);"]);
+var DATA = [{
+  time: '7:00 am',
+  q2: '7:15 am',
+  q3: '7:30 am',
+  q4: '7:45 am',
+  display: '7 am'
+}, {
+  time: '8:00 am',
+  q2: '8:15 am',
+  q3: '8:30 am',
+  q4: '8:45 am',
+  display: '8 am'
+}, {
+  time: '9:00 am',
+  q2: '9:15 am',
+  q3: '9:30 am',
+  q4: '9:45 am',
+  display: '9 am'
+}, {
+  time: '10:00 am',
+  q2: '10:15 am',
+  q3: '10:30 am',
+  q4: '10:45 am',
+  display: '10 am'
+}, {
+  time: '11:00 am',
+  q2: '11:15 am',
+  q3: '11:30 am',
+  q4: '11:45 am',
+  display: '11 am'
+}, {
+  time: '12:00 pm',
+  q2: '12:15 pm',
+  q3: '12:30 pm',
+  q4: '12:45 pm',
+  display: '12 pm'
+}, {
+  time: '1:00 pm',
+  q2: '1:15 pm',
+  q3: '1:30 pm',
+  q4: '1:45 pm',
+  display: '1 pm'
+}, {
+  time: '2:00 pm',
+  q2: '2:15 pm',
+  q3: '2:30 pm',
+  q4: '2:45 pm',
+  display: '2 pm'
+}, {
+  time: '3:00 pm',
+  q2: '3:15 pm',
+  q3: '3:30 pm',
+  q4: '3:45 pm',
+  display: '3 pm'
+}, {
+  time: '4:00 pm',
+  q2: '4:15 pm',
+  q3: '4:30 pm',
+  q4: '4:45 pm',
+  display: '4 pm'
+}, {
+  time: '5:00 pm',
+  q2: '5:15 pm',
+  q3: '5:30 pm',
+  q4: '5:45 pm',
+  display: '5 pm'
+}, {
+  time: '6:00 pm',
+  q2: '6:15 pm',
+  q3: '6:30 pm',
+  q4: '6:45 pm',
+  display: '6 pm'
+}, {
+  time: '7:00 pm',
+  q2: '7:15 pm',
+  q3: '7:30 pm',
+  q4: '7:45 pm',
+  display: '7 pm'
+}, {
+  time: '8:00 pm',
+  q2: '8:15 pm',
+  q3: '8:30 pm',
+  q4: '8:45 pm',
+  display: '8 pm'
+}, {
+  time: '9:00 pm',
+  q2: '9:15 pm',
+  q3: '9:30 pm',
+  q4: '9:45 pm',
+  display: '9 pm'
+}];
+
+var SingleDay = function SingleDay(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DayView, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 269
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Gear, {
+    className: "gear",
+    src: "../static/img/gear.png",
+    alt: "edit schedule settings",
+    onClick: props.handleJumpToToday,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 276
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "parent",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 283
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sideDate",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 284
+    },
+    __self: this
+  }, Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["format"])(props.date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "date",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 285
+    },
+    __self: this
+  }, Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["format"])(props.date, 'dddd'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DayGrid, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 288
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TopBlock, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 289
+    },
+    __self: this
+  }), DATA.map(function (timeblock) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["Mutation"], {
+      mutation: _Modal__WEBPACK_IMPORTED_MODULE_4__["TOGGLE_MODAL_MUTATION"],
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 292
+      },
+      __self: this
+    }, function (toggleModal) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onDoubleClick: toggleModal,
+        key: timeblock.time,
+        className: "timeCell number",
+        value: timeblock.time,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 295
+        },
+        __self: this
+      }, timeblock.display), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onDoubleClick: toggleModal,
+        className: "lower",
+        value: timeblock.q2,
+        key: timeblock.q2,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 303
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onDoubleClick: toggleModal,
+        className: "lower",
+        value: timeblock.q3,
+        key: timeblock.q3,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 309
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onDoubleClick: toggleModal,
+        className: "lower",
+        value: timeblock.q4,
+        key: timeblock.q4,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 315
+        },
+        __self: this
+      }));
+    });
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    value: DATA,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 327
+    },
+    __self: this
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SingleDay);
+
+/***/ }),
+
 /***/ "./components/Slider.js":
 /*!******************************!*\
   !*** ./components/Slider.js ***!
@@ -1410,7 +2348,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 60
         },
         __self: this
       }, function (_ref) {
@@ -1420,7 +2358,7 @@ function (_Component) {
           mutation: TOGGLE_CART_MUTATION,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 65
+            lineNumber: 64
           },
           __self: this
         }, function (toggleCart) {
@@ -1428,7 +2366,7 @@ function (_Component) {
             query: LOCAL_STATE_QUERY,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 67
+              lineNumber: 66
             },
             __self: this
           }, function (_ref2) {
@@ -1437,13 +2375,13 @@ function (_Component) {
               open: data.cartOpen,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 69
+                lineNumber: 68
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 70
+                lineNumber: 69
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CloseButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -1452,33 +2390,33 @@ function (_Component) {
               className: "exy",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 71
+                lineNumber: 70
               },
               __self: this
             }, "\xD7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Supreme__WEBPACK_IMPORTED_MODULE_5__["default"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 78
+                lineNumber: 77
               },
               __self: this
             }, "Date"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ConfList, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 79
+                lineNumber: 78
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 80
+                lineNumber: 79
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "confirmed",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 81
+                lineNumber: 80
               },
               __self: this
             }, "Confirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1487,20 +2425,20 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 82
+                lineNumber: 81
               },
               __self: this
             }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 83
+                lineNumber: 82
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 84
+                lineNumber: 83
               },
               __self: this
             }, me.cart.map(function (cartItem) {
@@ -1509,7 +2447,7 @@ function (_Component) {
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 86
+                  lineNumber: 85
                 },
                 __self: this
               });
@@ -1517,14 +2455,14 @@ function (_Component) {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 94
+                lineNumber: 93
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "canceled",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 95
+                lineNumber: 94
               },
               __self: this
             }, "Canceled"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1533,20 +2471,20 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 96
+                lineNumber: 95
               },
               __self: this
             }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 97
+                lineNumber: 96
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 98
+                lineNumber: 97
               },
               __self: this
             }, me.cart.map(function (cartItem) {
@@ -1555,7 +2493,7 @@ function (_Component) {
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 100
+                  lineNumber: 99
                 },
                 __self: this
               });
@@ -1563,14 +2501,14 @@ function (_Component) {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 108
+                lineNumber: 107
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "unconfirmed",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 109
+                lineNumber: 108
               },
               __self: this
             }, "Unconfirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1579,20 +2517,20 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 110
+                lineNumber: 109
               },
               __self: this
             }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 111
+                lineNumber: 110
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 112
+                lineNumber: 111
               },
               __self: this
             }, me.cart.map(function (cartItem) {
@@ -1601,20 +2539,20 @@ function (_Component) {
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 114
+                  lineNumber: 113
                 },
                 __self: this
               });
             })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 125
+                lineNumber: 124
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 126
+                lineNumber: 125
               },
               __self: this
             }, "flash messages with date")));
@@ -1700,47 +2638,6 @@ var SuccessCount = function SuccessCount(_ref) {
 
 /***/ }),
 
-/***/ "./components/Tab.js":
-/*!***************************!*\
-  !*** ./components/Tab.js ***!
-  \***************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/Tab.js";
-
-
-var Tabs = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
-  displayName: "Tab__Tabs",
-  componentId: "sc-1pyozuf-0"
-})(["display:flex;padding:10px;min-width:150px;height:45px;justify-content:center;align-content:center;align-items:center;.textWhite{color:white;text-transform:uppercase;font-size:10px;}&:hover{background:rgba(240,240,240,0.3);}"]);
-
-var Tab = function Tab(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Tabs, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 25
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "textWhite",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 26
-    },
-    __self: this
-  }, props.name)));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Tab);
-
-/***/ }),
-
 /***/ "./components/User.js":
 /*!****************************!*\
   !*** ./components/User.js ***!
@@ -1765,7 +2662,7 @@ var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/compone
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query {\n    me {\n      id\n      email\n      name\n      businessName\n      permissions\n      # orders {\n      #   id\n      # }\n      cart {\n        id\n        quantity\n        client {\n          id\n          firstName\n          lastName\n        }\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query {\n    me {\n      id\n      email\n      name\n      businessName\n      permissions\n      # orders {\n      #   id\n      # }\n      appointments {\n        id\n      }\n      cart {\n        id\n        quantity\n        client {\n          id\n          firstName\n          lastName\n        }\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1786,7 +2683,7 @@ var User = function User(props) {
     query: CURRENT_USER_QUERY,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 33
     },
     __self: this
   }), function (payload) {
@@ -1958,8 +2855,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_with_apollo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next-with-apollo */ "./node_modules/next-with-apollo/lib/index.js");
 /* harmony import */ var next_with_apollo__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_with_apollo__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/index.js");
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config */ "./config.js");
-/* harmony import */ var _components_Slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Slider */ "./components/Slider.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../config */ "./config.js");
+/* harmony import */ var _components_Slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Slider */ "./components/Slider.js");
+/* harmony import */ var _components_Modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Modal */ "./components/Modal.js");
+/* harmony import */ var _components_CalendarStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/CalendarStats */ "./components/CalendarStats.js");
+
+
+
+
 
 
 
@@ -1968,7 +2873,7 @@ __webpack_require__.r(__webpack_exports__);
 function createClient(_ref) {
   var headers = _ref.headers;
   return new apollo_boost__WEBPACK_IMPORTED_MODULE_1__["default"]({
-    uri:  true ? _config__WEBPACK_IMPORTED_MODULE_2__["endpoint"] : undefined,
+    uri:  true ? _config__WEBPACK_IMPORTED_MODULE_3__["endpoint"] : undefined,
     request: function request(operation) {
       operation.setContext({
         fetchOptions: {
@@ -1985,7 +2890,7 @@ function createClient(_ref) {
             var cache = _ref2.cache;
 
             var _cache$readQuery = cache.readQuery({
-              query: _components_Slider__WEBPACK_IMPORTED_MODULE_3__["LOCAL_STATE_QUERY"]
+              query: _components_Slider__WEBPACK_IMPORTED_MODULE_4__["LOCAL_STATE_QUERY"]
             }),
                 cartOpen = _cache$readQuery.cartOpen;
 
@@ -1996,11 +2901,28 @@ function createClient(_ref) {
             };
             cache.writeData(data);
             return data;
+          },
+          toggleModal: function toggleModal(_, variables, _ref3) {
+            var cache = _ref3.cache;
+
+            var _cache$readQuery2 = cache.readQuery({
+              query: _components_Modal__WEBPACK_IMPORTED_MODULE_5__["OPEN_MODAL_QUERY"]
+            }),
+                openModal = _cache$readQuery2.openModal;
+
+            var data = {
+              data: {
+                openModal: !openModal
+              }
+            };
+            cache.writeData(data);
+            return data;
           }
         }
       },
       defaults: {
-        cartOpen: false
+        cartOpen: false,
+        openModal: false
       }
     }
   });
@@ -2845,11 +3767,663 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 
 /***/ }),
 
+/***/ "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _emotion_memoize__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/memoize */ "./node_modules/@emotion/memoize/dist/memoize.browser.esm.js");
+
+
+var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|default|defer|dir|disabled|download|draggable|encType|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|itemProp|itemScope|itemType|itemID|itemRef|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/; // https://esbench.com/bench/5bfee68a4cd7e6009ef61d23
+
+var index = Object(_emotion_memoize__WEBPACK_IMPORTED_MODULE_0__["default"])(function (prop) {
+  return reactPropsRegex.test(prop) || prop.charCodeAt(0) === 111
+  /* o */
+  && prop.charCodeAt(1) === 110
+  /* n */
+  && prop.charCodeAt(2) < 91;
+}
+/* Z+1 */
+);
+
+/* harmony default export */ __webpack_exports__["default"] = (index);
+
+
+/***/ }),
+
+/***/ "./node_modules/@emotion/memoize/dist/memoize.browser.esm.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@emotion/memoize/dist/memoize.browser.esm.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function memoize(fn) {
+  var cache = {};
+  return function (arg) {
+    if (cache[arg] === undefined) cache[arg] = fn(arg);
+    return cache[arg];
+  };
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (memoize);
+
+
+/***/ }),
+
+/***/ "./node_modules/@popmotion/easing/dist/easing.es.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@popmotion/easing/dist/easing.es.js ***!
+  \**********************************************************/
+/*! exports provided: reversed, mirrored, createReversedEasing, createMirroredEasing, createExpoIn, createBackIn, createAnticipateEasing, linear, easeIn, easeOut, easeInOut, circIn, circOut, circInOut, backIn, backOut, backInOut, anticipate, cubicBezier */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reversed", function() { return reversed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mirrored", function() { return mirrored; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReversedEasing", function() { return createReversedEasing; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMirroredEasing", function() { return createMirroredEasing; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createExpoIn", function() { return createExpoIn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBackIn", function() { return createBackIn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAnticipateEasing", function() { return createAnticipateEasing; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "linear", function() { return linear; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "easeIn", function() { return easeIn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "easeOut", function() { return easeOut; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "easeInOut", function() { return easeInOut; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "circIn", function() { return circIn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "circOut", function() { return circOut; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "circInOut", function() { return circInOut; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "backIn", function() { return backIn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "backOut", function() { return backOut; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "backInOut", function() { return backInOut; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "anticipate", function() { return anticipate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cubicBezier", function() { return cubicBezier; });
+var DEFAULT_OVERSHOOT_STRENGTH = 1.525;
+var reversed = function (easing) {
+    return function (p) {
+        return 1 - easing(1 - p);
+    };
+};
+var mirrored = function (easing) {
+    return function (p) {
+        return p <= 0.5 ? easing(2 * p) / 2 : (2 - easing(2 * (1 - p))) / 2;
+    };
+};
+var createReversedEasing = reversed;
+var createMirroredEasing = mirrored;
+var createExpoIn = function (power) {
+    return function (p) {
+        return Math.pow(p, power);
+    };
+};
+var createBackIn = function (power) {
+    return function (p) {
+        return p * p * ((power + 1) * p - power);
+    };
+};
+var createAnticipateEasing = function (power) {
+    var backEasing = createBackIn(power);
+    return function (p) {
+        return (p *= 2) < 1 ? 0.5 * backEasing(p) : 0.5 * (2 - Math.pow(2, -10 * (p - 1)));
+    };
+};
+var linear = function (p) {
+    return p;
+};
+var easeIn = /*#__PURE__*/createExpoIn(2);
+var easeOut = /*#__PURE__*/reversed(easeIn);
+var easeInOut = /*#__PURE__*/mirrored(easeIn);
+var circIn = function (p) {
+    return 1 - Math.sin(Math.acos(p));
+};
+var circOut = /*#__PURE__*/reversed(circIn);
+var circInOut = /*#__PURE__*/mirrored(circOut);
+var backIn = /*#__PURE__*/createBackIn(DEFAULT_OVERSHOOT_STRENGTH);
+var backOut = /*#__PURE__*/reversed(backIn);
+var backInOut = /*#__PURE__*/mirrored(backIn);
+var anticipate = /*#__PURE__*/createAnticipateEasing(DEFAULT_OVERSHOOT_STRENGTH);
+var NEWTON_ITERATIONS = 8;
+var NEWTON_MIN_SLOPE = 0.001;
+var SUBDIVISION_PRECISION = 0.0000001;
+var SUBDIVISION_MAX_ITERATIONS = 10;
+var K_SPLINE_TABLE_SIZE = 11;
+var K_SAMPLE_STEP_SIZE = 1.0 / (K_SPLINE_TABLE_SIZE - 1.0);
+var FLOAT_32_SUPPORTED = typeof Float32Array !== 'undefined';
+var a = function (a1, a2) {
+    return 1.0 - 3.0 * a2 + 3.0 * a1;
+};
+var b = function (a1, a2) {
+    return 3.0 * a2 - 6.0 * a1;
+};
+var c = function (a1) {
+    return 3.0 * a1;
+};
+var getSlope = function (t, a1, a2) {
+    return 3.0 * a(a1, a2) * t * t + 2.0 * b(a1, a2) * t + c(a1);
+};
+var calcBezier = function (t, a1, a2) {
+    return ((a(a1, a2) * t + b(a1, a2)) * t + c(a1)) * t;
+};
+function cubicBezier(mX1, mY1, mX2, mY2) {
+    var sampleValues = FLOAT_32_SUPPORTED ? new Float32Array(K_SPLINE_TABLE_SIZE) : new Array(K_SPLINE_TABLE_SIZE);
+    var binarySubdivide = function (aX, aA, aB) {
+        var i = 0;
+        var currentX;
+        var currentT;
+        do {
+            currentT = aA + (aB - aA) / 2.0;
+            currentX = calcBezier(currentT, mX1, mX2) - aX;
+            if (currentX > 0.0) {
+                aB = currentT;
+            } else {
+                aA = currentT;
+            }
+        } while (Math.abs(currentX) > SUBDIVISION_PRECISION && ++i < SUBDIVISION_MAX_ITERATIONS);
+        return currentT;
+    };
+    var newtonRaphsonIterate = function (aX, aGuessT) {
+        var i = 0;
+        var currentSlope = 0;
+        var currentX;
+        for (; i < NEWTON_ITERATIONS; ++i) {
+            currentSlope = getSlope(aGuessT, mX1, mX2);
+            if (currentSlope === 0.0) {
+                return aGuessT;
+            }
+            currentX = calcBezier(aGuessT, mX1, mX2) - aX;
+            aGuessT -= currentX / currentSlope;
+        }
+        return aGuessT;
+    };
+    var calcSampleValues = function () {
+        for (var i = 0; i < K_SPLINE_TABLE_SIZE; ++i) {
+            sampleValues[i] = calcBezier(i * K_SAMPLE_STEP_SIZE, mX1, mX2);
+        }
+    };
+    var getTForX = function (aX) {
+        var intervalStart = 0.0;
+        var currentSample = 1;
+        var lastSample = K_SPLINE_TABLE_SIZE - 1;
+        var dist = 0.0;
+        var guessForT = 0.0;
+        var initialSlope = 0.0;
+        for (; currentSample !== lastSample && sampleValues[currentSample] <= aX; ++currentSample) {
+            intervalStart += K_SAMPLE_STEP_SIZE;
+        }
+        --currentSample;
+        dist = (aX - sampleValues[currentSample]) / (sampleValues[currentSample + 1] - sampleValues[currentSample]);
+        guessForT = intervalStart + dist * K_SAMPLE_STEP_SIZE;
+        initialSlope = getSlope(guessForT, mX1, mX2);
+        if (initialSlope >= NEWTON_MIN_SLOPE) {
+            return newtonRaphsonIterate(aX, guessForT);
+        } else if (initialSlope === 0.0) {
+            return guessForT;
+        } else {
+            return binarySubdivide(aX, intervalStart, intervalStart + K_SAMPLE_STEP_SIZE);
+        }
+    };
+    calcSampleValues();
+    var resolver = function (aX) {
+        var returnValue;
+        if (mX1 === mY1 && mX2 === mY2) {
+            returnValue = aX;
+        } else if (aX === 0) {
+            returnValue = 0;
+        } else if (aX === 1) {
+            returnValue = 1;
+        } else {
+            returnValue = calcBezier(getTForX(aX), mY1, mY2);
+        }
+        return returnValue;
+    };
+    return resolver;
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@popmotion/popcorn/dist/popcorn.es.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@popmotion/popcorn/dist/popcorn.es.js ***!
+  \************************************************************/
+/*! exports provided: createAnticipateEasing, createBackIn, createExpoIn, cubicBezier, linear, easeIn, easeOut, easeInOut, circIn, circOut, circInOut, backIn, backOut, backInOut, anticipate, reversed, mirrored, angle, applyOffset, clamp, conditional, degreesToRadians, distance, interpolate, isPoint, isPoint3D, mix, mixArray, mixColor, mixComplex, pipe, pointFromVector, progress, radiansToDegrees, smooth, smoothFrame, snap, springForce, springForceExpo, springForceLinear, steps, toDecimal, velocityPerFrame, velocityPerSecond, wrap */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "angle", function() { return angle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "applyOffset", function() { return applyOffset; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clamp", function() { return clamp$1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "conditional", function() { return conditional; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "degreesToRadians", function() { return degreesToRadians; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "distance", function() { return distance; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "interpolate", function() { return interpolate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isPoint", function() { return isPoint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isPoint3D", function() { return isPoint3D; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mix", function() { return mix; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mixArray", function() { return mixArray; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mixColor", function() { return mixColor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mixComplex", function() { return mixComplex; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pipe", function() { return pipe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pointFromVector", function() { return pointFromVector; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "progress", function() { return progress; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "radiansToDegrees", function() { return radiansToDegrees; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "smooth", function() { return smooth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "smoothFrame", function() { return smoothFrame; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "snap", function() { return snap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "springForce", function() { return springForce; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "springForceExpo", function() { return springForceExpo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "springForceLinear", function() { return springForceLinear; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "steps", function() { return steps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toDecimal", function() { return toDecimal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "velocityPerFrame", function() { return velocityPerFrame; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "velocityPerSecond", function() { return velocityPerSecond; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrap", function() { return wrap$1; });
+/* harmony import */ var style_value_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! style-value-types */ "./node_modules/style-value-types/dist/style-value-types.es.js");
+/* harmony import */ var hey_listen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! hey-listen */ "./node_modules/hey-listen/dist/hey-listen.es.js");
+/* harmony import */ var framesync__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! framesync */ "./node_modules/framesync/dist/framesync.es.js");
+/* harmony import */ var _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @popmotion/easing */ "./node_modules/@popmotion/easing/dist/easing.es.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createAnticipateEasing", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["createAnticipateEasing"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createBackIn", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["createBackIn"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createExpoIn", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["createExpoIn"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cubicBezier", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["cubicBezier"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "linear", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["linear"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "easeIn", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["easeIn"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "easeOut", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["easeOut"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "easeInOut", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["easeInOut"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "circIn", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["circIn"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "circOut", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["circOut"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "circInOut", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["circInOut"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "backIn", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["backIn"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "backOut", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["backOut"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "backInOut", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["backInOut"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "anticipate", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["anticipate"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "reversed", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["reversed"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "mirrored", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_3__["mirrored"]; });
+
+
+
+
+
+
+
+var zeroPoint = {
+    x: 0,
+    y: 0,
+    z: 0
+};
+var isNum = function (v) { return typeof v === 'number'; };
+
+var radiansToDegrees = (function (radians) { return (radians * 180) / Math.PI; });
+
+var angle = (function (a, b) {
+    if (b === void 0) { b = zeroPoint; }
+    return radiansToDegrees(Math.atan2(b.y - a.y, b.x - a.x));
+});
+
+var applyOffset = (function (from, to) {
+    var hasReceivedFrom = true;
+    if (to === undefined) {
+        to = from;
+        hasReceivedFrom = false;
+    }
+    return function (v) {
+        if (hasReceivedFrom) {
+            return v - from + to;
+        }
+        else {
+            from = v;
+            hasReceivedFrom = true;
+            return to;
+        }
+    };
+});
+
+var curryRange = (function (func) { return function (min, max, v) { return (v !== undefined ? func(min, max, v) : function (cv) { return func(min, max, cv); }); }; });
+
+var clamp = function (min, max, v) {
+    return Math.min(Math.max(v, min), max);
+};
+var clamp$1 = curryRange(clamp);
+
+var conditional = (function (check, apply) { return function (v) {
+    return check(v) ? apply(v) : v;
+}; });
+
+var degreesToRadians = (function (degrees) { return (degrees * Math.PI) / 180; });
+
+var isPoint = (function (point) {
+    return point.hasOwnProperty('x') && point.hasOwnProperty('y');
+});
+
+var isPoint3D = (function (point) {
+    return isPoint(point) && point.hasOwnProperty('z');
+});
+
+var distance1D = function (a, b) { return Math.abs(a - b); };
+var distance = (function (a, b) {
+    if (b === void 0) { b = zeroPoint; }
+    if (isNum(a) && isNum(b)) {
+        return distance1D(a, b);
+    }
+    else if (isPoint(a) && isPoint(b)) {
+        var xDelta = distance1D(a.x, b.x);
+        var yDelta = distance1D(a.y, b.y);
+        var zDelta = isPoint3D(a) && isPoint3D(b) ? distance1D(a.z, b.z) : 0;
+        return Math.sqrt(Math.pow(xDelta, 2) + Math.pow(yDelta, 2) + Math.pow(zDelta, 2));
+    }
+    return 0;
+});
+
+var progress = (function (from, to, value) {
+    var toFromDifference = to - from;
+    return toFromDifference === 0 ? 1 : (value - from) / toFromDifference;
+});
+
+var mix = (function (from, to, progress) {
+    return -progress * from + progress * to + from;
+});
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+var mixLinearColor = function (from, to, v) {
+    var fromExpo = from * from;
+    var toExpo = to * to;
+    return Math.sqrt(v * (toExpo - fromExpo) + fromExpo);
+};
+var colorTypes = [style_value_types__WEBPACK_IMPORTED_MODULE_0__["hex"], style_value_types__WEBPACK_IMPORTED_MODULE_0__["rgba"], style_value_types__WEBPACK_IMPORTED_MODULE_0__["hsla"]];
+var getColorType = function (v) {
+    return colorTypes.find(function (type) { return type.test(v); });
+};
+var mixColor = (function (from, to) {
+    var fromColorType = getColorType(from);
+    var toColorType = getColorType(to);
+    Object(hey_listen__WEBPACK_IMPORTED_MODULE_1__["invariant"])(fromColorType.transform === toColorType.transform, 'Both colors must be Hex and/or RGBA, or both must be HSLA');
+    var fromColor = fromColorType.parse(from);
+    var toColor = toColorType.parse(to);
+    var blended = __assign({}, fromColor);
+    var mixFunc = fromColorType === style_value_types__WEBPACK_IMPORTED_MODULE_0__["hsla"] ? mix : mixLinearColor;
+    return function (v) {
+        for (var key in blended) {
+            if (key !== 'alpha') {
+                blended[key] = mixFunc(fromColor[key], toColor[key], v);
+            }
+        }
+        blended.alpha = mix(fromColor.alpha, toColor.alpha, v);
+        return fromColorType.transform(blended);
+    };
+});
+
+var combineFunctions = function (a, b) { return function (v) { return b(a(v)); }; };
+var pipe = (function () {
+    var transformers = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        transformers[_i] = arguments[_i];
+    }
+    return transformers.reduce(combineFunctions);
+});
+
+var mixArray = function (from, to) {
+    var output = from.slice();
+    var numValues = output.length;
+    var blendValue = from.map(function (fromThis, i) {
+        var toThis = to[i];
+        if (isNum(fromThis)) {
+            return function (v) { return mix(fromThis, toThis, v); };
+        }
+        else if (style_value_types__WEBPACK_IMPORTED_MODULE_0__["color"].test(fromThis)) {
+            return mixColor(fromThis, toThis);
+        }
+        else {
+            return mixComplex(fromThis, toThis);
+        }
+    });
+    return function (v) {
+        for (var i = 0; i < numValues; i++) {
+            output[i] = blendValue[i](v);
+        }
+        return output;
+    };
+};
+var mixComplex = function (from, to) {
+    var valueTemplate = style_value_types__WEBPACK_IMPORTED_MODULE_0__["complex"].createTransformer(from);
+    Object(hey_listen__WEBPACK_IMPORTED_MODULE_1__["invariant"])(valueTemplate(from) === style_value_types__WEBPACK_IMPORTED_MODULE_0__["complex"].createTransformer(to)(from), "Values '" + from + "' and '" + to + "' are of different format, or a value might have changed value type.");
+    return pipe(mixArray(style_value_types__WEBPACK_IMPORTED_MODULE_0__["complex"].parse(from), style_value_types__WEBPACK_IMPORTED_MODULE_0__["complex"].parse(to)), valueTemplate);
+};
+
+var mixNumber = curryRange(mix);
+var getMixer = function (v) {
+    return typeof v === 'number'
+        ? mixNumber
+        : style_value_types__WEBPACK_IMPORTED_MODULE_0__["color"].test(v)
+            ? mixColor
+            : mixComplex;
+};
+var createMixers = function (output, ease) {
+    return Array(output.length - 1)
+        .fill(getMixer(output[0]))
+        .map(function (factory, i) {
+        var mixer = factory(output[i], output[i + 1]);
+        if (ease) {
+            var easingFunction = Array.isArray(ease) ? ease[i] : ease;
+            return pipe(easingFunction, mixer);
+        }
+        else {
+            return mixer;
+        }
+    });
+};
+var fastInterpolate = function (_a, _b) {
+    var from = _a[0], to = _a[1];
+    var mixer = _b[0];
+    return function (v) { return mixer(progress(from, to, v)); };
+};
+var slowInterpolate = function (input, mixers) {
+    var inputLength = input.length;
+    var lastInputIndex = inputLength - 1;
+    return function (v) {
+        var mixerIndex = 0;
+        var foundMixerIndex = false;
+        if (v <= input[0]) {
+            foundMixerIndex = true;
+        }
+        else if (v >= input[lastInputIndex]) {
+            mixerIndex = lastInputIndex - 1;
+            foundMixerIndex = true;
+        }
+        if (!foundMixerIndex) {
+            var i = 1;
+            for (; i < inputLength; i++) {
+                if (input[i] > v || i === lastInputIndex) {
+                    break;
+                }
+            }
+            mixerIndex = i - 1;
+        }
+        var progressInRange = progress(input[mixerIndex], input[mixerIndex + 1], v);
+        return mixers[mixerIndex](progressInRange);
+    };
+};
+var interpolate = (function (input, output, _a) {
+    var _b = _a === void 0 ? {} : _a, _c = _b.clamp, clamp = _c === void 0 ? true : _c, ease = _b.ease;
+    var inputLength = input.length;
+    Object(hey_listen__WEBPACK_IMPORTED_MODULE_1__["invariant"])(inputLength === output.length, 'Both input and output ranges must be the same length');
+    Object(hey_listen__WEBPACK_IMPORTED_MODULE_1__["invariant"])(!ease || !Array.isArray(ease) || ease.length === input.length - 1, 'Array of easing functions must be of length `input.length - 1`, as it applies to the transitions **between** the defined values.');
+    if (input[0] > input[inputLength - 1]) {
+        input = input.slice();
+        output = output.slice();
+        input.reverse();
+        output.reverse();
+    }
+    var mixers = createMixers(output, ease);
+    var interpolate = inputLength === 2
+        ? fastInterpolate(input, mixers)
+        : slowInterpolate(input, mixers);
+    return clamp
+        ? pipe(clamp$1(input[0], input[inputLength - 1]), interpolate)
+        : interpolate;
+});
+
+var pointFromVector = (function (origin, angle, distance) {
+    angle = degreesToRadians(angle);
+    return {
+        x: distance * Math.cos(angle) + origin.x,
+        y: distance * Math.sin(angle) + origin.y
+    };
+});
+
+var toDecimal = (function (num, precision) {
+    if (precision === void 0) { precision = 2; }
+    precision = Math.pow(10, precision);
+    return Math.round(num * precision) / precision;
+});
+
+var smoothFrame = (function (prevValue, nextValue, duration, smoothing) {
+    if (smoothing === void 0) { smoothing = 0; }
+    return toDecimal(prevValue +
+        (duration * (nextValue - prevValue)) / Math.max(smoothing, duration));
+});
+
+var smooth = (function (strength) {
+    if (strength === void 0) { strength = 50; }
+    var previousValue = 0;
+    var lastUpdated = 0;
+    return function (v) {
+        var currentFramestamp = Object(framesync__WEBPACK_IMPORTED_MODULE_2__["getFrameData"])().timestamp;
+        var timeDelta = currentFramestamp !== lastUpdated ? currentFramestamp - lastUpdated : 0;
+        var newValue = timeDelta
+            ? smoothFrame(previousValue, v, timeDelta, strength)
+            : previousValue;
+        lastUpdated = currentFramestamp;
+        previousValue = newValue;
+        return newValue;
+    };
+});
+
+var snap = (function (points) {
+    if (typeof points === 'number') {
+        return function (v) { return Math.round(v / points) * points; };
+    }
+    else {
+        var i_1 = 0;
+        var numPoints_1 = points.length;
+        return function (v) {
+            var lastDistance = Math.abs(points[0] - v);
+            for (i_1 = 1; i_1 < numPoints_1; i_1++) {
+                var point = points[i_1];
+                var distance = Math.abs(point - v);
+                if (distance === 0)
+                    return point;
+                if (distance > lastDistance)
+                    return points[i_1 - 1];
+                if (i_1 === numPoints_1 - 1)
+                    return point;
+                lastDistance = distance;
+            }
+        };
+    }
+});
+
+var identity = function (v) { return v; };
+var springForce = function (alterDisplacement) {
+    if (alterDisplacement === void 0) { alterDisplacement = identity; }
+    return curryRange(function (constant, origin, v) {
+        var displacement = origin - v;
+        var springModifiedDisplacement = -(0 - constant + 1) * (0 - alterDisplacement(Math.abs(displacement)));
+        return displacement <= 0
+            ? origin + springModifiedDisplacement
+            : origin - springModifiedDisplacement;
+    });
+};
+var springForceLinear = springForce();
+var springForceExpo = springForce(Math.sqrt);
+
+var velocityPerFrame = (function (xps, frameDuration) {
+    return isNum(xps) ? xps / (1000 / frameDuration) : 0;
+});
+
+var velocityPerSecond = (function (velocity, frameDuration) {
+    return frameDuration ? velocity * (1000 / frameDuration) : 0;
+});
+
+var wrap = function (min, max, v) {
+    var rangeSize = max - min;
+    return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
+};
+var wrap$1 = curryRange(wrap);
+
+var clampProgress = clamp$1(0, 1);
+var steps = (function (steps, direction) {
+    if (direction === void 0) { direction = 'end'; }
+    return function (progress) {
+        progress =
+            direction === 'end' ? Math.min(progress, 0.999) : Math.max(progress, 0.001);
+        var expanded = progress * steps;
+        var rounded = direction === 'end' ? Math.floor(expanded) : Math.ceil(expanded);
+        return clampProgress(rounded / steps);
+    };
+});
+
+
+
+
+/***/ }),
+
 /***/ "./node_modules/apollo-boost/lib/index.js":
 /*!************************************************!*\
   !*** ./node_modules/apollo-boost/lib/index.js ***!
   \************************************************/
-/*! exports provided: gql, InMemoryCache, HttpLink, default, printAST, ObservableQuery, NetworkStatus, ApolloError, ApolloClient, createOperation, makePromise, toPromise, fromPromise, fromError, Observable, defaultDataIdFromObject, FetchType, empty, from, split, concat, ApolloLink, execute, ID_KEY, readQueryFromStore, diffQueryAgainstStore, assertIdValue, WriteError, enhanceErrorWithDocument, writeQueryToStore, writeResultToStore, writeSelectionSetToStore, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory, RecordingCache, record */
+/*! exports provided: printAST, ObservableQuery, NetworkStatus, ApolloError, ApolloClient, FetchType, createOperation, makePromise, toPromise, fromPromise, fromError, Observable, empty, from, split, concat, ApolloLink, execute, gql, InMemoryCache, HttpLink, default, defaultDataIdFromObject, ID_KEY, readQueryFromStore, diffQueryAgainstStore, assertIdValue, WriteError, enhanceErrorWithDocument, writeQueryToStore, writeResultToStore, writeSelectionSetToStore, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory, RecordingCache, record */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14637,6 +16211,7585 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ }),
 
+/***/ "./node_modules/date-fns/_lib/getTimezoneOffsetInMilliseconds/index.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/date-fns/_lib/getTimezoneOffsetInMilliseconds/index.js ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var MILLISECONDS_IN_MINUTE = 60000
+
+/**
+ * Google Chrome as of 67.0.3396.87 introduced timezones with offset that includes seconds.
+ * They usually appear for dates that denote time before the timezones were introduced
+ * (e.g. for 'Europe/Prague' timezone the offset is GMT+00:57:44 before 1 October 1891
+ * and GMT+01:00:00 after that date)
+ *
+ * Date#getTimezoneOffset returns the offset in minutes and would return 57 for the example above,
+ * which would lead to incorrect calculations.
+ *
+ * This function returns the timezone offset in milliseconds that takes seconds in account.
+ */
+module.exports = function getTimezoneOffsetInMilliseconds (dirtyDate) {
+  var date = new Date(dirtyDate.getTime())
+  var baseTimezoneOffset = date.getTimezoneOffset()
+  date.setSeconds(0, 0)
+  var millisecondsPartOfTimezoneOffset = date.getTime() % MILLISECONDS_IN_MINUTE
+
+  return baseTimezoneOffset * MILLISECONDS_IN_MINUTE + millisecondsPartOfTimezoneOffset
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/add_days/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/date-fns/add_days/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Add the specified number of days to the given date.
+ *
+ * @description
+ * Add the specified number of days to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of days to be added
+ * @returns {Date} the new date with the days added
+ *
+ * @example
+ * // Add 10 days to 1 September 2014:
+ * var result = addDays(new Date(2014, 8, 1), 10)
+ * //=> Thu Sep 11 2014 00:00:00
+ */
+function addDays (dirtyDate, dirtyAmount) {
+  var date = parse(dirtyDate)
+  var amount = Number(dirtyAmount)
+  date.setDate(date.getDate() + amount)
+  return date
+}
+
+module.exports = addDays
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/add_hours/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/add_hours/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addMilliseconds = __webpack_require__(/*! ../add_milliseconds/index.js */ "./node_modules/date-fns/add_milliseconds/index.js")
+
+var MILLISECONDS_IN_HOUR = 3600000
+
+/**
+ * @category Hour Helpers
+ * @summary Add the specified number of hours to the given date.
+ *
+ * @description
+ * Add the specified number of hours to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of hours to be added
+ * @returns {Date} the new date with the hours added
+ *
+ * @example
+ * // Add 2 hours to 10 July 2014 23:00:00:
+ * var result = addHours(new Date(2014, 6, 10, 23, 0), 2)
+ * //=> Fri Jul 11 2014 01:00:00
+ */
+function addHours (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addMilliseconds(dirtyDate, amount * MILLISECONDS_IN_HOUR)
+}
+
+module.exports = addHours
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/add_iso_years/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/date-fns/add_iso_years/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getISOYear = __webpack_require__(/*! ../get_iso_year/index.js */ "./node_modules/date-fns/get_iso_year/index.js")
+var setISOYear = __webpack_require__(/*! ../set_iso_year/index.js */ "./node_modules/date-fns/set_iso_year/index.js")
+
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Add the specified number of ISO week-numbering years to the given date.
+ *
+ * @description
+ * Add the specified number of ISO week-numbering years to the given date.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of ISO week-numbering years to be added
+ * @returns {Date} the new date with the ISO week-numbering years added
+ *
+ * @example
+ * // Add 5 ISO week-numbering years to 2 July 2010:
+ * var result = addISOYears(new Date(2010, 6, 2), 5)
+ * //=> Fri Jun 26 2015 00:00:00
+ */
+function addISOYears (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return setISOYear(dirtyDate, getISOYear(dirtyDate) + amount)
+}
+
+module.exports = addISOYears
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/add_milliseconds/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/add_milliseconds/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Millisecond Helpers
+ * @summary Add the specified number of milliseconds to the given date.
+ *
+ * @description
+ * Add the specified number of milliseconds to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of milliseconds to be added
+ * @returns {Date} the new date with the milliseconds added
+ *
+ * @example
+ * // Add 750 milliseconds to 10 July 2014 12:45:30.000:
+ * var result = addMilliseconds(new Date(2014, 6, 10, 12, 45, 30, 0), 750)
+ * //=> Thu Jul 10 2014 12:45:30.750
+ */
+function addMilliseconds (dirtyDate, dirtyAmount) {
+  var timestamp = parse(dirtyDate).getTime()
+  var amount = Number(dirtyAmount)
+  return new Date(timestamp + amount)
+}
+
+module.exports = addMilliseconds
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/add_minutes/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/add_minutes/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addMilliseconds = __webpack_require__(/*! ../add_milliseconds/index.js */ "./node_modules/date-fns/add_milliseconds/index.js")
+
+var MILLISECONDS_IN_MINUTE = 60000
+
+/**
+ * @category Minute Helpers
+ * @summary Add the specified number of minutes to the given date.
+ *
+ * @description
+ * Add the specified number of minutes to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of minutes to be added
+ * @returns {Date} the new date with the minutes added
+ *
+ * @example
+ * // Add 30 minutes to 10 July 2014 12:00:00:
+ * var result = addMinutes(new Date(2014, 6, 10, 12, 0), 30)
+ * //=> Thu Jul 10 2014 12:30:00
+ */
+function addMinutes (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addMilliseconds(dirtyDate, amount * MILLISECONDS_IN_MINUTE)
+}
+
+module.exports = addMinutes
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/add_months/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/date-fns/add_months/index.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var getDaysInMonth = __webpack_require__(/*! ../get_days_in_month/index.js */ "./node_modules/date-fns/get_days_in_month/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Add the specified number of months to the given date.
+ *
+ * @description
+ * Add the specified number of months to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of months to be added
+ * @returns {Date} the new date with the months added
+ *
+ * @example
+ * // Add 5 months to 1 September 2014:
+ * var result = addMonths(new Date(2014, 8, 1), 5)
+ * //=> Sun Feb 01 2015 00:00:00
+ */
+function addMonths (dirtyDate, dirtyAmount) {
+  var date = parse(dirtyDate)
+  var amount = Number(dirtyAmount)
+  var desiredMonth = date.getMonth() + amount
+  var dateWithDesiredMonth = new Date(0)
+  dateWithDesiredMonth.setFullYear(date.getFullYear(), desiredMonth, 1)
+  dateWithDesiredMonth.setHours(0, 0, 0, 0)
+  var daysInMonth = getDaysInMonth(dateWithDesiredMonth)
+  // Set the last day of the new month
+  // if the original date was the last day of the longer month
+  date.setMonth(desiredMonth, Math.min(daysInMonth, date.getDate()))
+  return date
+}
+
+module.exports = addMonths
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/add_quarters/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/add_quarters/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addMonths = __webpack_require__(/*! ../add_months/index.js */ "./node_modules/date-fns/add_months/index.js")
+
+/**
+ * @category Quarter Helpers
+ * @summary Add the specified number of year quarters to the given date.
+ *
+ * @description
+ * Add the specified number of year quarters to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of quarters to be added
+ * @returns {Date} the new date with the quarters added
+ *
+ * @example
+ * // Add 1 quarter to 1 September 2014:
+ * var result = addQuarters(new Date(2014, 8, 1), 1)
+ * //=> Mon Dec 01 2014 00:00:00
+ */
+function addQuarters (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  var months = amount * 3
+  return addMonths(dirtyDate, months)
+}
+
+module.exports = addQuarters
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/add_seconds/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/add_seconds/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addMilliseconds = __webpack_require__(/*! ../add_milliseconds/index.js */ "./node_modules/date-fns/add_milliseconds/index.js")
+
+/**
+ * @category Second Helpers
+ * @summary Add the specified number of seconds to the given date.
+ *
+ * @description
+ * Add the specified number of seconds to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of seconds to be added
+ * @returns {Date} the new date with the seconds added
+ *
+ * @example
+ * // Add 30 seconds to 10 July 2014 12:45:00:
+ * var result = addSeconds(new Date(2014, 6, 10, 12, 45, 0), 30)
+ * //=> Thu Jul 10 2014 12:45:30
+ */
+function addSeconds (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addMilliseconds(dirtyDate, amount * 1000)
+}
+
+module.exports = addSeconds
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/add_weeks/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/add_weeks/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addDays = __webpack_require__(/*! ../add_days/index.js */ "./node_modules/date-fns/add_days/index.js")
+
+/**
+ * @category Week Helpers
+ * @summary Add the specified number of weeks to the given date.
+ *
+ * @description
+ * Add the specified number of week to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of weeks to be added
+ * @returns {Date} the new date with the weeks added
+ *
+ * @example
+ * // Add 4 weeks to 1 September 2014:
+ * var result = addWeeks(new Date(2014, 8, 1), 4)
+ * //=> Mon Sep 29 2014 00:00:00
+ */
+function addWeeks (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  var days = amount * 7
+  return addDays(dirtyDate, days)
+}
+
+module.exports = addWeeks
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/add_years/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/add_years/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addMonths = __webpack_require__(/*! ../add_months/index.js */ "./node_modules/date-fns/add_months/index.js")
+
+/**
+ * @category Year Helpers
+ * @summary Add the specified number of years to the given date.
+ *
+ * @description
+ * Add the specified number of years to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of years to be added
+ * @returns {Date} the new date with the years added
+ *
+ * @example
+ * // Add 5 years to 1 September 2014:
+ * var result = addYears(new Date(2014, 8, 1), 5)
+ * //=> Sun Sep 01 2019 00:00:00
+ */
+function addYears (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addMonths(dirtyDate, amount * 12)
+}
+
+module.exports = addYears
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/are_ranges_overlapping/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/date-fns/are_ranges_overlapping/index.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Range Helpers
+ * @summary Is the given date range overlapping with another date range?
+ *
+ * @description
+ * Is the given date range overlapping with another date range?
+ *
+ * @param {Date|String|Number} initialRangeStartDate - the start of the initial range
+ * @param {Date|String|Number} initialRangeEndDate - the end of the initial range
+ * @param {Date|String|Number} comparedRangeStartDate - the start of the range to compare it with
+ * @param {Date|String|Number} comparedRangeEndDate - the end of the range to compare it with
+ * @returns {Boolean} whether the date ranges are overlapping
+ * @throws {Error} startDate of a date range cannot be after its endDate
+ *
+ * @example
+ * // For overlapping date ranges:
+ * areRangesOverlapping(
+ *   new Date(2014, 0, 10), new Date(2014, 0, 20), new Date(2014, 0, 17), new Date(2014, 0, 21)
+ * )
+ * //=> true
+ *
+ * @example
+ * // For non-overlapping date ranges:
+ * areRangesOverlapping(
+ *   new Date(2014, 0, 10), new Date(2014, 0, 20), new Date(2014, 0, 21), new Date(2014, 0, 22)
+ * )
+ * //=> false
+ */
+function areRangesOverlapping (dirtyInitialRangeStartDate, dirtyInitialRangeEndDate, dirtyComparedRangeStartDate, dirtyComparedRangeEndDate) {
+  var initialStartTime = parse(dirtyInitialRangeStartDate).getTime()
+  var initialEndTime = parse(dirtyInitialRangeEndDate).getTime()
+  var comparedStartTime = parse(dirtyComparedRangeStartDate).getTime()
+  var comparedEndTime = parse(dirtyComparedRangeEndDate).getTime()
+
+  if (initialStartTime > initialEndTime || comparedStartTime > comparedEndTime) {
+    throw new Error('The start of the range cannot be after the end of the range')
+  }
+
+  return initialStartTime < comparedEndTime && comparedStartTime < initialEndTime
+}
+
+module.exports = areRangesOverlapping
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/closest_index_to/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/closest_index_to/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Return an index of the closest date from the array comparing to the given date.
+ *
+ * @description
+ * Return an index of the closest date from the array comparing to the given date.
+ *
+ * @param {Date|String|Number} dateToCompare - the date to compare with
+ * @param {Date[]|String[]|Number[]} datesArray - the array to search
+ * @returns {Number} an index of the date closest to the given date
+ * @throws {TypeError} the second argument must be an instance of Array
+ *
+ * @example
+ * // Which date is closer to 6 September 2015?
+ * var dateToCompare = new Date(2015, 8, 6)
+ * var datesArray = [
+ *   new Date(2015, 0, 1),
+ *   new Date(2016, 0, 1),
+ *   new Date(2017, 0, 1)
+ * ]
+ * var result = closestIndexTo(dateToCompare, datesArray)
+ * //=> 1
+ */
+function closestIndexTo (dirtyDateToCompare, dirtyDatesArray) {
+  if (!(dirtyDatesArray instanceof Array)) {
+    throw new TypeError(toString.call(dirtyDatesArray) + ' is not an instance of Array')
+  }
+
+  var dateToCompare = parse(dirtyDateToCompare)
+  var timeToCompare = dateToCompare.getTime()
+
+  var result
+  var minDistance
+
+  dirtyDatesArray.forEach(function (dirtyDate, index) {
+    var currentDate = parse(dirtyDate)
+    var distance = Math.abs(timeToCompare - currentDate.getTime())
+    if (result === undefined || distance < minDistance) {
+      result = index
+      minDistance = distance
+    }
+  })
+
+  return result
+}
+
+module.exports = closestIndexTo
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/closest_to/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/date-fns/closest_to/index.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Return a date from the array closest to the given date.
+ *
+ * @description
+ * Return a date from the array closest to the given date.
+ *
+ * @param {Date|String|Number} dateToCompare - the date to compare with
+ * @param {Date[]|String[]|Number[]} datesArray - the array to search
+ * @returns {Date} the date from the array closest to the given date
+ * @throws {TypeError} the second argument must be an instance of Array
+ *
+ * @example
+ * // Which date is closer to 6 September 2015: 1 January 2000 or 1 January 2030?
+ * var dateToCompare = new Date(2015, 8, 6)
+ * var result = closestTo(dateToCompare, [
+ *   new Date(2000, 0, 1),
+ *   new Date(2030, 0, 1)
+ * ])
+ * //=> Tue Jan 01 2030 00:00:00
+ */
+function closestTo (dirtyDateToCompare, dirtyDatesArray) {
+  if (!(dirtyDatesArray instanceof Array)) {
+    throw new TypeError(toString.call(dirtyDatesArray) + ' is not an instance of Array')
+  }
+
+  var dateToCompare = parse(dirtyDateToCompare)
+  var timeToCompare = dateToCompare.getTime()
+
+  var result
+  var minDistance
+
+  dirtyDatesArray.forEach(function (dirtyDate) {
+    var currentDate = parse(dirtyDate)
+    var distance = Math.abs(timeToCompare - currentDate.getTime())
+    if (result === undefined || distance < minDistance) {
+      result = currentDate
+      minDistance = distance
+    }
+  })
+
+  return result
+}
+
+module.exports = closestTo
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/compare_asc/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/compare_asc/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Compare the two dates and return -1, 0 or 1.
+ *
+ * @description
+ * Compare the two dates and return 1 if the first date is after the second,
+ * -1 if the first date is before the second or 0 if dates are equal.
+ *
+ * @param {Date|String|Number} dateLeft - the first date to compare
+ * @param {Date|String|Number} dateRight - the second date to compare
+ * @returns {Number} the result of the comparison
+ *
+ * @example
+ * // Compare 11 February 1987 and 10 July 1989:
+ * var result = compareAsc(
+ *   new Date(1987, 1, 11),
+ *   new Date(1989, 6, 10)
+ * )
+ * //=> -1
+ *
+ * @example
+ * // Sort the array of dates:
+ * var result = [
+ *   new Date(1995, 6, 2),
+ *   new Date(1987, 1, 11),
+ *   new Date(1989, 6, 10)
+ * ].sort(compareAsc)
+ * //=> [
+ * //   Wed Feb 11 1987 00:00:00,
+ * //   Mon Jul 10 1989 00:00:00,
+ * //   Sun Jul 02 1995 00:00:00
+ * // ]
+ */
+function compareAsc (dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft)
+  var timeLeft = dateLeft.getTime()
+  var dateRight = parse(dirtyDateRight)
+  var timeRight = dateRight.getTime()
+
+  if (timeLeft < timeRight) {
+    return -1
+  } else if (timeLeft > timeRight) {
+    return 1
+  } else {
+    return 0
+  }
+}
+
+module.exports = compareAsc
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/compare_desc/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/compare_desc/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Compare the two dates reverse chronologically and return -1, 0 or 1.
+ *
+ * @description
+ * Compare the two dates and return -1 if the first date is after the second,
+ * 1 if the first date is before the second or 0 if dates are equal.
+ *
+ * @param {Date|String|Number} dateLeft - the first date to compare
+ * @param {Date|String|Number} dateRight - the second date to compare
+ * @returns {Number} the result of the comparison
+ *
+ * @example
+ * // Compare 11 February 1987 and 10 July 1989 reverse chronologically:
+ * var result = compareDesc(
+ *   new Date(1987, 1, 11),
+ *   new Date(1989, 6, 10)
+ * )
+ * //=> 1
+ *
+ * @example
+ * // Sort the array of dates in reverse chronological order:
+ * var result = [
+ *   new Date(1995, 6, 2),
+ *   new Date(1987, 1, 11),
+ *   new Date(1989, 6, 10)
+ * ].sort(compareDesc)
+ * //=> [
+ * //   Sun Jul 02 1995 00:00:00,
+ * //   Mon Jul 10 1989 00:00:00,
+ * //   Wed Feb 11 1987 00:00:00
+ * // ]
+ */
+function compareDesc (dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft)
+  var timeLeft = dateLeft.getTime()
+  var dateRight = parse(dirtyDateRight)
+  var timeRight = dateRight.getTime()
+
+  if (timeLeft > timeRight) {
+    return -1
+  } else if (timeLeft < timeRight) {
+    return 1
+  } else {
+    return 0
+  }
+}
+
+module.exports = compareDesc
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_calendar_days/index.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_calendar_days/index.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfDay = __webpack_require__(/*! ../start_of_day/index.js */ "./node_modules/date-fns/start_of_day/index.js")
+
+var MILLISECONDS_IN_MINUTE = 60000
+var MILLISECONDS_IN_DAY = 86400000
+
+/**
+ * @category Day Helpers
+ * @summary Get the number of calendar days between the given dates.
+ *
+ * @description
+ * Get the number of calendar days between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of calendar days
+ *
+ * @example
+ * // How many calendar days are between
+ * // 2 July 2011 23:00:00 and 2 July 2012 00:00:00?
+ * var result = differenceInCalendarDays(
+ *   new Date(2012, 6, 2, 0, 0),
+ *   new Date(2011, 6, 2, 23, 0)
+ * )
+ * //=> 366
+ */
+function differenceInCalendarDays (dirtyDateLeft, dirtyDateRight) {
+  var startOfDayLeft = startOfDay(dirtyDateLeft)
+  var startOfDayRight = startOfDay(dirtyDateRight)
+
+  var timestampLeft = startOfDayLeft.getTime() -
+    startOfDayLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
+  var timestampRight = startOfDayRight.getTime() -
+    startOfDayRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
+
+  // Round the number of days to the nearest integer
+  // because the number of milliseconds in a day is not constant
+  // (e.g. it's different in the day of the daylight saving time clock shift)
+  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_DAY)
+}
+
+module.exports = differenceInCalendarDays
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_calendar_iso_weeks/index.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_calendar_iso_weeks/index.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfISOWeek = __webpack_require__(/*! ../start_of_iso_week/index.js */ "./node_modules/date-fns/start_of_iso_week/index.js")
+
+var MILLISECONDS_IN_MINUTE = 60000
+var MILLISECONDS_IN_WEEK = 604800000
+
+/**
+ * @category ISO Week Helpers
+ * @summary Get the number of calendar ISO weeks between the given dates.
+ *
+ * @description
+ * Get the number of calendar ISO weeks between the given dates.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of calendar ISO weeks
+ *
+ * @example
+ * // How many calendar ISO weeks are between 6 July 2014 and 21 July 2014?
+ * var result = differenceInCalendarISOWeeks(
+ *   new Date(2014, 6, 21),
+ *   new Date(2014, 6, 6)
+ * )
+ * //=> 3
+ */
+function differenceInCalendarISOWeeks (dirtyDateLeft, dirtyDateRight) {
+  var startOfISOWeekLeft = startOfISOWeek(dirtyDateLeft)
+  var startOfISOWeekRight = startOfISOWeek(dirtyDateRight)
+
+  var timestampLeft = startOfISOWeekLeft.getTime() -
+    startOfISOWeekLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
+  var timestampRight = startOfISOWeekRight.getTime() -
+    startOfISOWeekRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
+
+  // Round the number of days to the nearest integer
+  // because the number of milliseconds in a week is not constant
+  // (e.g. it's different in the week of the daylight saving time clock shift)
+  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_WEEK)
+}
+
+module.exports = differenceInCalendarISOWeeks
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_calendar_iso_years/index.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_calendar_iso_years/index.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getISOYear = __webpack_require__(/*! ../get_iso_year/index.js */ "./node_modules/date-fns/get_iso_year/index.js")
+
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Get the number of calendar ISO week-numbering years between the given dates.
+ *
+ * @description
+ * Get the number of calendar ISO week-numbering years between the given dates.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of calendar ISO week-numbering years
+ *
+ * @example
+ * // How many calendar ISO week-numbering years are 1 January 2010 and 1 January 2012?
+ * var result = differenceInCalendarISOYears(
+ *   new Date(2012, 0, 1),
+ *   new Date(2010, 0, 1)
+ * )
+ * //=> 2
+ */
+function differenceInCalendarISOYears (dirtyDateLeft, dirtyDateRight) {
+  return getISOYear(dirtyDateLeft) - getISOYear(dirtyDateRight)
+}
+
+module.exports = differenceInCalendarISOYears
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_calendar_months/index.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_calendar_months/index.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Get the number of calendar months between the given dates.
+ *
+ * @description
+ * Get the number of calendar months between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of calendar months
+ *
+ * @example
+ * // How many calendar months are between 31 January 2014 and 1 September 2014?
+ * var result = differenceInCalendarMonths(
+ *   new Date(2014, 8, 1),
+ *   new Date(2014, 0, 31)
+ * )
+ * //=> 8
+ */
+function differenceInCalendarMonths (dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft)
+  var dateRight = parse(dirtyDateRight)
+
+  var yearDiff = dateLeft.getFullYear() - dateRight.getFullYear()
+  var monthDiff = dateLeft.getMonth() - dateRight.getMonth()
+
+  return yearDiff * 12 + monthDiff
+}
+
+module.exports = differenceInCalendarMonths
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_calendar_quarters/index.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_calendar_quarters/index.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getQuarter = __webpack_require__(/*! ../get_quarter/index.js */ "./node_modules/date-fns/get_quarter/index.js")
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Quarter Helpers
+ * @summary Get the number of calendar quarters between the given dates.
+ *
+ * @description
+ * Get the number of calendar quarters between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of calendar quarters
+ *
+ * @example
+ * // How many calendar quarters are between 31 December 2013 and 2 July 2014?
+ * var result = differenceInCalendarQuarters(
+ *   new Date(2014, 6, 2),
+ *   new Date(2013, 11, 31)
+ * )
+ * //=> 3
+ */
+function differenceInCalendarQuarters (dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft)
+  var dateRight = parse(dirtyDateRight)
+
+  var yearDiff = dateLeft.getFullYear() - dateRight.getFullYear()
+  var quarterDiff = getQuarter(dateLeft) - getQuarter(dateRight)
+
+  return yearDiff * 4 + quarterDiff
+}
+
+module.exports = differenceInCalendarQuarters
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_calendar_weeks/index.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_calendar_weeks/index.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfWeek = __webpack_require__(/*! ../start_of_week/index.js */ "./node_modules/date-fns/start_of_week/index.js")
+
+var MILLISECONDS_IN_MINUTE = 60000
+var MILLISECONDS_IN_WEEK = 604800000
+
+/**
+ * @category Week Helpers
+ * @summary Get the number of calendar weeks between the given dates.
+ *
+ * @description
+ * Get the number of calendar weeks between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @param {Object} [options] - the object with options
+ * @param {Number} [options.weekStartsOn=0] - the index of the first day of the week (0 - Sunday)
+ * @returns {Number} the number of calendar weeks
+ *
+ * @example
+ * // How many calendar weeks are between 5 July 2014 and 20 July 2014?
+ * var result = differenceInCalendarWeeks(
+ *   new Date(2014, 6, 20),
+ *   new Date(2014, 6, 5)
+ * )
+ * //=> 3
+ *
+ * @example
+ * // If the week starts on Monday,
+ * // how many calendar weeks are between 5 July 2014 and 20 July 2014?
+ * var result = differenceInCalendarWeeks(
+ *   new Date(2014, 6, 20),
+ *   new Date(2014, 6, 5),
+ *   {weekStartsOn: 1}
+ * )
+ * //=> 2
+ */
+function differenceInCalendarWeeks (dirtyDateLeft, dirtyDateRight, dirtyOptions) {
+  var startOfWeekLeft = startOfWeek(dirtyDateLeft, dirtyOptions)
+  var startOfWeekRight = startOfWeek(dirtyDateRight, dirtyOptions)
+
+  var timestampLeft = startOfWeekLeft.getTime() -
+    startOfWeekLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
+  var timestampRight = startOfWeekRight.getTime() -
+    startOfWeekRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
+
+  // Round the number of days to the nearest integer
+  // because the number of milliseconds in a week is not constant
+  // (e.g. it's different in the week of the daylight saving time clock shift)
+  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_WEEK)
+}
+
+module.exports = differenceInCalendarWeeks
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_calendar_years/index.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_calendar_years/index.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Year Helpers
+ * @summary Get the number of calendar years between the given dates.
+ *
+ * @description
+ * Get the number of calendar years between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of calendar years
+ *
+ * @example
+ * // How many calendar years are between 31 December 2013 and 11 February 2015?
+ * var result = differenceInCalendarYears(
+ *   new Date(2015, 1, 11),
+ *   new Date(2013, 11, 31)
+ * )
+ * //=> 2
+ */
+function differenceInCalendarYears (dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft)
+  var dateRight = parse(dirtyDateRight)
+
+  return dateLeft.getFullYear() - dateRight.getFullYear()
+}
+
+module.exports = differenceInCalendarYears
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_days/index.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_days/index.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var differenceInCalendarDays = __webpack_require__(/*! ../difference_in_calendar_days/index.js */ "./node_modules/date-fns/difference_in_calendar_days/index.js")
+var compareAsc = __webpack_require__(/*! ../compare_asc/index.js */ "./node_modules/date-fns/compare_asc/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Get the number of full days between the given dates.
+ *
+ * @description
+ * Get the number of full days between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of full days
+ *
+ * @example
+ * // How many full days are between
+ * // 2 July 2011 23:00:00 and 2 July 2012 00:00:00?
+ * var result = differenceInDays(
+ *   new Date(2012, 6, 2, 0, 0),
+ *   new Date(2011, 6, 2, 23, 0)
+ * )
+ * //=> 365
+ */
+function differenceInDays (dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft)
+  var dateRight = parse(dirtyDateRight)
+
+  var sign = compareAsc(dateLeft, dateRight)
+  var difference = Math.abs(differenceInCalendarDays(dateLeft, dateRight))
+  dateLeft.setDate(dateLeft.getDate() - sign * difference)
+
+  // Math.abs(diff in full days - diff in calendar days) === 1 if last calendar day is not full
+  // If so, result must be decreased by 1 in absolute value
+  var isLastDayNotFull = compareAsc(dateLeft, dateRight) === -sign
+  return sign * (difference - isLastDayNotFull)
+}
+
+module.exports = differenceInDays
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_hours/index.js":
+/*!************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_hours/index.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var differenceInMilliseconds = __webpack_require__(/*! ../difference_in_milliseconds/index.js */ "./node_modules/date-fns/difference_in_milliseconds/index.js")
+
+var MILLISECONDS_IN_HOUR = 3600000
+
+/**
+ * @category Hour Helpers
+ * @summary Get the number of hours between the given dates.
+ *
+ * @description
+ * Get the number of hours between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of hours
+ *
+ * @example
+ * // How many hours are between 2 July 2014 06:50:00 and 2 July 2014 19:00:00?
+ * var result = differenceInHours(
+ *   new Date(2014, 6, 2, 19, 0),
+ *   new Date(2014, 6, 2, 6, 50)
+ * )
+ * //=> 12
+ */
+function differenceInHours (dirtyDateLeft, dirtyDateRight) {
+  var diff = differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) / MILLISECONDS_IN_HOUR
+  return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
+}
+
+module.exports = differenceInHours
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_iso_years/index.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_iso_years/index.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var differenceInCalendarISOYears = __webpack_require__(/*! ../difference_in_calendar_iso_years/index.js */ "./node_modules/date-fns/difference_in_calendar_iso_years/index.js")
+var compareAsc = __webpack_require__(/*! ../compare_asc/index.js */ "./node_modules/date-fns/compare_asc/index.js")
+var subISOYears = __webpack_require__(/*! ../sub_iso_years/index.js */ "./node_modules/date-fns/sub_iso_years/index.js")
+
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Get the number of full ISO week-numbering years between the given dates.
+ *
+ * @description
+ * Get the number of full ISO week-numbering years between the given dates.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of full ISO week-numbering years
+ *
+ * @example
+ * // How many full ISO week-numbering years are between 1 January 2010 and 1 January 2012?
+ * var result = differenceInISOYears(
+ *   new Date(2012, 0, 1),
+ *   new Date(2010, 0, 1)
+ * )
+ * //=> 1
+ */
+function differenceInISOYears (dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft)
+  var dateRight = parse(dirtyDateRight)
+
+  var sign = compareAsc(dateLeft, dateRight)
+  var difference = Math.abs(differenceInCalendarISOYears(dateLeft, dateRight))
+  dateLeft = subISOYears(dateLeft, sign * difference)
+
+  // Math.abs(diff in full ISO years - diff in calendar ISO years) === 1
+  // if last calendar ISO year is not full
+  // If so, result must be decreased by 1 in absolute value
+  var isLastISOYearNotFull = compareAsc(dateLeft, dateRight) === -sign
+  return sign * (difference - isLastISOYearNotFull)
+}
+
+module.exports = differenceInISOYears
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_milliseconds/index.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_milliseconds/index.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Millisecond Helpers
+ * @summary Get the number of milliseconds between the given dates.
+ *
+ * @description
+ * Get the number of milliseconds between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of milliseconds
+ *
+ * @example
+ * // How many milliseconds are between
+ * // 2 July 2014 12:30:20.600 and 2 July 2014 12:30:21.700?
+ * var result = differenceInMilliseconds(
+ *   new Date(2014, 6, 2, 12, 30, 21, 700),
+ *   new Date(2014, 6, 2, 12, 30, 20, 600)
+ * )
+ * //=> 1100
+ */
+function differenceInMilliseconds (dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft)
+  var dateRight = parse(dirtyDateRight)
+  return dateLeft.getTime() - dateRight.getTime()
+}
+
+module.exports = differenceInMilliseconds
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_minutes/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_minutes/index.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var differenceInMilliseconds = __webpack_require__(/*! ../difference_in_milliseconds/index.js */ "./node_modules/date-fns/difference_in_milliseconds/index.js")
+
+var MILLISECONDS_IN_MINUTE = 60000
+
+/**
+ * @category Minute Helpers
+ * @summary Get the number of minutes between the given dates.
+ *
+ * @description
+ * Get the number of minutes between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of minutes
+ *
+ * @example
+ * // How many minutes are between 2 July 2014 12:07:59 and 2 July 2014 12:20:00?
+ * var result = differenceInMinutes(
+ *   new Date(2014, 6, 2, 12, 20, 0),
+ *   new Date(2014, 6, 2, 12, 7, 59)
+ * )
+ * //=> 12
+ */
+function differenceInMinutes (dirtyDateLeft, dirtyDateRight) {
+  var diff = differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) / MILLISECONDS_IN_MINUTE
+  return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
+}
+
+module.exports = differenceInMinutes
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_months/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_months/index.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var differenceInCalendarMonths = __webpack_require__(/*! ../difference_in_calendar_months/index.js */ "./node_modules/date-fns/difference_in_calendar_months/index.js")
+var compareAsc = __webpack_require__(/*! ../compare_asc/index.js */ "./node_modules/date-fns/compare_asc/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Get the number of full months between the given dates.
+ *
+ * @description
+ * Get the number of full months between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of full months
+ *
+ * @example
+ * // How many full months are between 31 January 2014 and 1 September 2014?
+ * var result = differenceInMonths(
+ *   new Date(2014, 8, 1),
+ *   new Date(2014, 0, 31)
+ * )
+ * //=> 7
+ */
+function differenceInMonths (dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft)
+  var dateRight = parse(dirtyDateRight)
+
+  var sign = compareAsc(dateLeft, dateRight)
+  var difference = Math.abs(differenceInCalendarMonths(dateLeft, dateRight))
+  dateLeft.setMonth(dateLeft.getMonth() - sign * difference)
+
+  // Math.abs(diff in full months - diff in calendar months) === 1 if last calendar month is not full
+  // If so, result must be decreased by 1 in absolute value
+  var isLastMonthNotFull = compareAsc(dateLeft, dateRight) === -sign
+  return sign * (difference - isLastMonthNotFull)
+}
+
+module.exports = differenceInMonths
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_quarters/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_quarters/index.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var differenceInMonths = __webpack_require__(/*! ../difference_in_months/index.js */ "./node_modules/date-fns/difference_in_months/index.js")
+
+/**
+ * @category Quarter Helpers
+ * @summary Get the number of full quarters between the given dates.
+ *
+ * @description
+ * Get the number of full quarters between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of full quarters
+ *
+ * @example
+ * // How many full quarters are between 31 December 2013 and 2 July 2014?
+ * var result = differenceInQuarters(
+ *   new Date(2014, 6, 2),
+ *   new Date(2013, 11, 31)
+ * )
+ * //=> 2
+ */
+function differenceInQuarters (dirtyDateLeft, dirtyDateRight) {
+  var diff = differenceInMonths(dirtyDateLeft, dirtyDateRight) / 3
+  return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
+}
+
+module.exports = differenceInQuarters
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_seconds/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_seconds/index.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var differenceInMilliseconds = __webpack_require__(/*! ../difference_in_milliseconds/index.js */ "./node_modules/date-fns/difference_in_milliseconds/index.js")
+
+/**
+ * @category Second Helpers
+ * @summary Get the number of seconds between the given dates.
+ *
+ * @description
+ * Get the number of seconds between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of seconds
+ *
+ * @example
+ * // How many seconds are between
+ * // 2 July 2014 12:30:07.999 and 2 July 2014 12:30:20.000?
+ * var result = differenceInSeconds(
+ *   new Date(2014, 6, 2, 12, 30, 20, 0),
+ *   new Date(2014, 6, 2, 12, 30, 7, 999)
+ * )
+ * //=> 12
+ */
+function differenceInSeconds (dirtyDateLeft, dirtyDateRight) {
+  var diff = differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) / 1000
+  return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
+}
+
+module.exports = differenceInSeconds
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_weeks/index.js":
+/*!************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_weeks/index.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var differenceInDays = __webpack_require__(/*! ../difference_in_days/index.js */ "./node_modules/date-fns/difference_in_days/index.js")
+
+/**
+ * @category Week Helpers
+ * @summary Get the number of full weeks between the given dates.
+ *
+ * @description
+ * Get the number of full weeks between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of full weeks
+ *
+ * @example
+ * // How many full weeks are between 5 July 2014 and 20 July 2014?
+ * var result = differenceInWeeks(
+ *   new Date(2014, 6, 20),
+ *   new Date(2014, 6, 5)
+ * )
+ * //=> 2
+ */
+function differenceInWeeks (dirtyDateLeft, dirtyDateRight) {
+  var diff = differenceInDays(dirtyDateLeft, dirtyDateRight) / 7
+  return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
+}
+
+module.exports = differenceInWeeks
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/difference_in_years/index.js":
+/*!************************************************************!*\
+  !*** ./node_modules/date-fns/difference_in_years/index.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var differenceInCalendarYears = __webpack_require__(/*! ../difference_in_calendar_years/index.js */ "./node_modules/date-fns/difference_in_calendar_years/index.js")
+var compareAsc = __webpack_require__(/*! ../compare_asc/index.js */ "./node_modules/date-fns/compare_asc/index.js")
+
+/**
+ * @category Year Helpers
+ * @summary Get the number of full years between the given dates.
+ *
+ * @description
+ * Get the number of full years between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of full years
+ *
+ * @example
+ * // How many full years are between 31 December 2013 and 11 February 2015?
+ * var result = differenceInYears(
+ *   new Date(2015, 1, 11),
+ *   new Date(2013, 11, 31)
+ * )
+ * //=> 1
+ */
+function differenceInYears (dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft)
+  var dateRight = parse(dirtyDateRight)
+
+  var sign = compareAsc(dateLeft, dateRight)
+  var difference = Math.abs(differenceInCalendarYears(dateLeft, dateRight))
+  dateLeft.setFullYear(dateLeft.getFullYear() - sign * difference)
+
+  // Math.abs(diff in full years - diff in calendar years) === 1 if last calendar year is not full
+  // If so, result must be decreased by 1 in absolute value
+  var isLastYearNotFull = compareAsc(dateLeft, dateRight) === -sign
+  return sign * (difference - isLastYearNotFull)
+}
+
+module.exports = differenceInYears
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/distance_in_words/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/date-fns/distance_in_words/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var compareDesc = __webpack_require__(/*! ../compare_desc/index.js */ "./node_modules/date-fns/compare_desc/index.js")
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var differenceInSeconds = __webpack_require__(/*! ../difference_in_seconds/index.js */ "./node_modules/date-fns/difference_in_seconds/index.js")
+var differenceInMonths = __webpack_require__(/*! ../difference_in_months/index.js */ "./node_modules/date-fns/difference_in_months/index.js")
+var enLocale = __webpack_require__(/*! ../locale/en/index.js */ "./node_modules/date-fns/locale/en/index.js")
+
+var MINUTES_IN_DAY = 1440
+var MINUTES_IN_ALMOST_TWO_DAYS = 2520
+var MINUTES_IN_MONTH = 43200
+var MINUTES_IN_TWO_MONTHS = 86400
+
+/**
+ * @category Common Helpers
+ * @summary Return the distance between the given dates in words.
+ *
+ * @description
+ * Return the distance between the given dates in words.
+ *
+ * | Distance between dates                                            | Result              |
+ * |-------------------------------------------------------------------|---------------------|
+ * | 0 ... 30 secs                                                     | less than a minute  |
+ * | 30 secs ... 1 min 30 secs                                         | 1 minute            |
+ * | 1 min 30 secs ... 44 mins 30 secs                                 | [2..44] minutes     |
+ * | 44 mins ... 30 secs ... 89 mins 30 secs                           | about 1 hour        |
+ * | 89 mins 30 secs ... 23 hrs 59 mins 30 secs                        | about [2..24] hours |
+ * | 23 hrs 59 mins 30 secs ... 41 hrs 59 mins 30 secs                 | 1 day               |
+ * | 41 hrs 59 mins 30 secs ... 29 days 23 hrs 59 mins 30 secs         | [2..30] days        |
+ * | 29 days 23 hrs 59 mins 30 secs ... 44 days 23 hrs 59 mins 30 secs | about 1 month       |
+ * | 44 days 23 hrs 59 mins 30 secs ... 59 days 23 hrs 59 mins 30 secs | about 2 months      |
+ * | 59 days 23 hrs 59 mins 30 secs ... 1 yr                           | [2..12] months      |
+ * | 1 yr ... 1 yr 3 months                                            | about 1 year        |
+ * | 1 yr 3 months ... 1 yr 9 month s                                  | over 1 year         |
+ * | 1 yr 9 months ... 2 yrs                                           | almost 2 years      |
+ * | N yrs ... N yrs 3 months                                          | about N years       |
+ * | N yrs 3 months ... N yrs 9 months                                 | over N years        |
+ * | N yrs 9 months ... N+1 yrs                                        | almost N+1 years    |
+ *
+ * With `options.includeSeconds == true`:
+ * | Distance between dates | Result               |
+ * |------------------------|----------------------|
+ * | 0 secs ... 5 secs      | less than 5 seconds  |
+ * | 5 secs ... 10 secs     | less than 10 seconds |
+ * | 10 secs ... 20 secs    | less than 20 seconds |
+ * | 20 secs ... 40 secs    | half a minute        |
+ * | 40 secs ... 60 secs    | less than a minute   |
+ * | 60 secs ... 90 secs    | 1 minute             |
+ *
+ * @param {Date|String|Number} dateToCompare - the date to compare with
+ * @param {Date|String|Number} date - the other date
+ * @param {Object} [options] - the object with options
+ * @param {Boolean} [options.includeSeconds=false] - distances less than a minute are more detailed
+ * @param {Boolean} [options.addSuffix=false] - result indicates if the second date is earlier or later than the first
+ * @param {Object} [options.locale=enLocale] - the locale object
+ * @returns {String} the distance in words
+ *
+ * @example
+ * // What is the distance between 2 July 2014 and 1 January 2015?
+ * var result = distanceInWords(
+ *   new Date(2014, 6, 2),
+ *   new Date(2015, 0, 1)
+ * )
+ * //=> '6 months'
+ *
+ * @example
+ * // What is the distance between 1 January 2015 00:00:15
+ * // and 1 January 2015 00:00:00, including seconds?
+ * var result = distanceInWords(
+ *   new Date(2015, 0, 1, 0, 0, 15),
+ *   new Date(2015, 0, 1, 0, 0, 0),
+ *   {includeSeconds: true}
+ * )
+ * //=> 'less than 20 seconds'
+ *
+ * @example
+ * // What is the distance from 1 January 2016
+ * // to 1 January 2015, with a suffix?
+ * var result = distanceInWords(
+ *   new Date(2016, 0, 1),
+ *   new Date(2015, 0, 1),
+ *   {addSuffix: true}
+ * )
+ * //=> 'about 1 year ago'
+ *
+ * @example
+ * // What is the distance between 1 August 2016 and 1 January 2015 in Esperanto?
+ * var eoLocale = require('date-fns/locale/eo')
+ * var result = distanceInWords(
+ *   new Date(2016, 7, 1),
+ *   new Date(2015, 0, 1),
+ *   {locale: eoLocale}
+ * )
+ * //=> 'pli ol 1 jaro'
+ */
+function distanceInWords (dirtyDateToCompare, dirtyDate, dirtyOptions) {
+  var options = dirtyOptions || {}
+
+  var comparison = compareDesc(dirtyDateToCompare, dirtyDate)
+
+  var locale = options.locale
+  var localize = enLocale.distanceInWords.localize
+  if (locale && locale.distanceInWords && locale.distanceInWords.localize) {
+    localize = locale.distanceInWords.localize
+  }
+
+  var localizeOptions = {
+    addSuffix: Boolean(options.addSuffix),
+    comparison: comparison
+  }
+
+  var dateLeft, dateRight
+  if (comparison > 0) {
+    dateLeft = parse(dirtyDateToCompare)
+    dateRight = parse(dirtyDate)
+  } else {
+    dateLeft = parse(dirtyDate)
+    dateRight = parse(dirtyDateToCompare)
+  }
+
+  var seconds = differenceInSeconds(dateRight, dateLeft)
+  var offset = dateRight.getTimezoneOffset() - dateLeft.getTimezoneOffset()
+  var minutes = Math.round(seconds / 60) - offset
+  var months
+
+  // 0 up to 2 mins
+  if (minutes < 2) {
+    if (options.includeSeconds) {
+      if (seconds < 5) {
+        return localize('lessThanXSeconds', 5, localizeOptions)
+      } else if (seconds < 10) {
+        return localize('lessThanXSeconds', 10, localizeOptions)
+      } else if (seconds < 20) {
+        return localize('lessThanXSeconds', 20, localizeOptions)
+      } else if (seconds < 40) {
+        return localize('halfAMinute', null, localizeOptions)
+      } else if (seconds < 60) {
+        return localize('lessThanXMinutes', 1, localizeOptions)
+      } else {
+        return localize('xMinutes', 1, localizeOptions)
+      }
+    } else {
+      if (minutes === 0) {
+        return localize('lessThanXMinutes', 1, localizeOptions)
+      } else {
+        return localize('xMinutes', minutes, localizeOptions)
+      }
+    }
+
+  // 2 mins up to 0.75 hrs
+  } else if (minutes < 45) {
+    return localize('xMinutes', minutes, localizeOptions)
+
+  // 0.75 hrs up to 1.5 hrs
+  } else if (minutes < 90) {
+    return localize('aboutXHours', 1, localizeOptions)
+
+  // 1.5 hrs up to 24 hrs
+  } else if (minutes < MINUTES_IN_DAY) {
+    var hours = Math.round(minutes / 60)
+    return localize('aboutXHours', hours, localizeOptions)
+
+  // 1 day up to 1.75 days
+  } else if (minutes < MINUTES_IN_ALMOST_TWO_DAYS) {
+    return localize('xDays', 1, localizeOptions)
+
+  // 1.75 days up to 30 days
+  } else if (minutes < MINUTES_IN_MONTH) {
+    var days = Math.round(minutes / MINUTES_IN_DAY)
+    return localize('xDays', days, localizeOptions)
+
+  // 1 month up to 2 months
+  } else if (minutes < MINUTES_IN_TWO_MONTHS) {
+    months = Math.round(minutes / MINUTES_IN_MONTH)
+    return localize('aboutXMonths', months, localizeOptions)
+  }
+
+  months = differenceInMonths(dateRight, dateLeft)
+
+  // 2 months up to 12 months
+  if (months < 12) {
+    var nearestMonth = Math.round(minutes / MINUTES_IN_MONTH)
+    return localize('xMonths', nearestMonth, localizeOptions)
+
+  // 1 year up to max Date
+  } else {
+    var monthsSinceStartOfYear = months % 12
+    var years = Math.floor(months / 12)
+
+    // N years up to 1 years 3 months
+    if (monthsSinceStartOfYear < 3) {
+      return localize('aboutXYears', years, localizeOptions)
+
+    // N years 3 months up to N years 9 months
+    } else if (monthsSinceStartOfYear < 9) {
+      return localize('overXYears', years, localizeOptions)
+
+    // N years 9 months up to N year 12 months
+    } else {
+      return localize('almostXYears', years + 1, localizeOptions)
+    }
+  }
+}
+
+module.exports = distanceInWords
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/distance_in_words_strict/index.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/date-fns/distance_in_words_strict/index.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var compareDesc = __webpack_require__(/*! ../compare_desc/index.js */ "./node_modules/date-fns/compare_desc/index.js")
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var differenceInSeconds = __webpack_require__(/*! ../difference_in_seconds/index.js */ "./node_modules/date-fns/difference_in_seconds/index.js")
+var enLocale = __webpack_require__(/*! ../locale/en/index.js */ "./node_modules/date-fns/locale/en/index.js")
+
+var MINUTES_IN_DAY = 1440
+var MINUTES_IN_MONTH = 43200
+var MINUTES_IN_YEAR = 525600
+
+/**
+ * @category Common Helpers
+ * @summary Return the distance between the given dates in words.
+ *
+ * @description
+ * Return the distance between the given dates in words, using strict units.
+ * This is like `distanceInWords`, but does not use helpers like 'almost', 'over',
+ * 'less than' and the like.
+ *
+ * | Distance between dates | Result              |
+ * |------------------------|---------------------|
+ * | 0 ... 59 secs          | [0..59] seconds     |
+ * | 1 ... 59 mins          | [1..59] minutes     |
+ * | 1 ... 23 hrs           | [1..23] hours       |
+ * | 1 ... 29 days          | [1..29] days        |
+ * | 1 ... 11 months        | [1..11] months      |
+ * | 1 ... N years          | [1..N]  years       |
+ *
+ * @param {Date|String|Number} dateToCompare - the date to compare with
+ * @param {Date|String|Number} date - the other date
+ * @param {Object} [options] - the object with options
+ * @param {Boolean} [options.addSuffix=false] - result indicates if the second date is earlier or later than the first
+ * @param {'s'|'m'|'h'|'d'|'M'|'Y'} [options.unit] - if specified, will force a unit
+ * @param {'floor'|'ceil'|'round'} [options.partialMethod='floor'] - which way to round partial units
+ * @param {Object} [options.locale=enLocale] - the locale object
+ * @returns {String} the distance in words
+ *
+ * @example
+ * // What is the distance between 2 July 2014 and 1 January 2015?
+ * var result = distanceInWordsStrict(
+ *   new Date(2014, 6, 2),
+ *   new Date(2015, 0, 2)
+ * )
+ * //=> '6 months'
+ *
+ * @example
+ * // What is the distance between 1 January 2015 00:00:15
+ * // and 1 January 2015 00:00:00?
+ * var result = distanceInWordsStrict(
+ *   new Date(2015, 0, 1, 0, 0, 15),
+ *   new Date(2015, 0, 1, 0, 0, 0),
+ * )
+ * //=> '15 seconds'
+ *
+ * @example
+ * // What is the distance from 1 January 2016
+ * // to 1 January 2015, with a suffix?
+ * var result = distanceInWordsStrict(
+ *   new Date(2016, 0, 1),
+ *   new Date(2015, 0, 1),
+ *   {addSuffix: true}
+ * )
+ * //=> '1 year ago'
+ *
+ * @example
+ * // What is the distance from 1 January 2016
+ * // to 1 January 2015, in minutes?
+ * var result = distanceInWordsStrict(
+ *   new Date(2016, 0, 1),
+ *   new Date(2015, 0, 1),
+ *   {unit: 'm'}
+ * )
+ * //=> '525600 minutes'
+ *
+ * @example
+ * // What is the distance from 1 January 2016
+ * // to 28 January 2015, in months, rounded up?
+ * var result = distanceInWordsStrict(
+ *   new Date(2015, 0, 28),
+ *   new Date(2015, 0, 1),
+ *   {unit: 'M', partialMethod: 'ceil'}
+ * )
+ * //=> '1 month'
+ *
+ * @example
+ * // What is the distance between 1 August 2016 and 1 January 2015 in Esperanto?
+ * var eoLocale = require('date-fns/locale/eo')
+ * var result = distanceInWordsStrict(
+ *   new Date(2016, 7, 1),
+ *   new Date(2015, 0, 1),
+ *   {locale: eoLocale}
+ * )
+ * //=> '1 jaro'
+ */
+function distanceInWordsStrict (dirtyDateToCompare, dirtyDate, dirtyOptions) {
+  var options = dirtyOptions || {}
+
+  var comparison = compareDesc(dirtyDateToCompare, dirtyDate)
+
+  var locale = options.locale
+  var localize = enLocale.distanceInWords.localize
+  if (locale && locale.distanceInWords && locale.distanceInWords.localize) {
+    localize = locale.distanceInWords.localize
+  }
+
+  var localizeOptions = {
+    addSuffix: Boolean(options.addSuffix),
+    comparison: comparison
+  }
+
+  var dateLeft, dateRight
+  if (comparison > 0) {
+    dateLeft = parse(dirtyDateToCompare)
+    dateRight = parse(dirtyDate)
+  } else {
+    dateLeft = parse(dirtyDate)
+    dateRight = parse(dirtyDateToCompare)
+  }
+
+  var unit
+  var mathPartial = Math[options.partialMethod ? String(options.partialMethod) : 'floor']
+  var seconds = differenceInSeconds(dateRight, dateLeft)
+  var offset = dateRight.getTimezoneOffset() - dateLeft.getTimezoneOffset()
+  var minutes = mathPartial(seconds / 60) - offset
+  var hours, days, months, years
+
+  if (options.unit) {
+    unit = String(options.unit)
+  } else {
+    if (minutes < 1) {
+      unit = 's'
+    } else if (minutes < 60) {
+      unit = 'm'
+    } else if (minutes < MINUTES_IN_DAY) {
+      unit = 'h'
+    } else if (minutes < MINUTES_IN_MONTH) {
+      unit = 'd'
+    } else if (minutes < MINUTES_IN_YEAR) {
+      unit = 'M'
+    } else {
+      unit = 'Y'
+    }
+  }
+
+  // 0 up to 60 seconds
+  if (unit === 's') {
+    return localize('xSeconds', seconds, localizeOptions)
+
+  // 1 up to 60 mins
+  } else if (unit === 'm') {
+    return localize('xMinutes', minutes, localizeOptions)
+
+  // 1 up to 24 hours
+  } else if (unit === 'h') {
+    hours = mathPartial(minutes / 60)
+    return localize('xHours', hours, localizeOptions)
+
+  // 1 up to 30 days
+  } else if (unit === 'd') {
+    days = mathPartial(minutes / MINUTES_IN_DAY)
+    return localize('xDays', days, localizeOptions)
+
+  // 1 up to 12 months
+  } else if (unit === 'M') {
+    months = mathPartial(minutes / MINUTES_IN_MONTH)
+    return localize('xMonths', months, localizeOptions)
+
+  // 1 year up to max Date
+  } else if (unit === 'Y') {
+    years = mathPartial(minutes / MINUTES_IN_YEAR)
+    return localize('xYears', years, localizeOptions)
+  }
+
+  throw new Error('Unknown unit: ' + unit)
+}
+
+module.exports = distanceInWordsStrict
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/distance_in_words_to_now/index.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/date-fns/distance_in_words_to_now/index.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var distanceInWords = __webpack_require__(/*! ../distance_in_words/index.js */ "./node_modules/date-fns/distance_in_words/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Return the distance between the given date and now in words.
+ *
+ * @description
+ * Return the distance between the given date and now in words.
+ *
+ * | Distance to now                                                   | Result              |
+ * |-------------------------------------------------------------------|---------------------|
+ * | 0 ... 30 secs                                                     | less than a minute  |
+ * | 30 secs ... 1 min 30 secs                                         | 1 minute            |
+ * | 1 min 30 secs ... 44 mins 30 secs                                 | [2..44] minutes     |
+ * | 44 mins ... 30 secs ... 89 mins 30 secs                           | about 1 hour        |
+ * | 89 mins 30 secs ... 23 hrs 59 mins 30 secs                        | about [2..24] hours |
+ * | 23 hrs 59 mins 30 secs ... 41 hrs 59 mins 30 secs                 | 1 day               |
+ * | 41 hrs 59 mins 30 secs ... 29 days 23 hrs 59 mins 30 secs         | [2..30] days        |
+ * | 29 days 23 hrs 59 mins 30 secs ... 44 days 23 hrs 59 mins 30 secs | about 1 month       |
+ * | 44 days 23 hrs 59 mins 30 secs ... 59 days 23 hrs 59 mins 30 secs | about 2 months      |
+ * | 59 days 23 hrs 59 mins 30 secs ... 1 yr                           | [2..12] months      |
+ * | 1 yr ... 1 yr 3 months                                            | about 1 year        |
+ * | 1 yr 3 months ... 1 yr 9 month s                                  | over 1 year         |
+ * | 1 yr 9 months ... 2 yrs                                           | almost 2 years      |
+ * | N yrs ... N yrs 3 months                                          | about N years       |
+ * | N yrs 3 months ... N yrs 9 months                                 | over N years        |
+ * | N yrs 9 months ... N+1 yrs                                        | almost N+1 years    |
+ *
+ * With `options.includeSeconds == true`:
+ * | Distance to now     | Result               |
+ * |---------------------|----------------------|
+ * | 0 secs ... 5 secs   | less than 5 seconds  |
+ * | 5 secs ... 10 secs  | less than 10 seconds |
+ * | 10 secs ... 20 secs | less than 20 seconds |
+ * | 20 secs ... 40 secs | half a minute        |
+ * | 40 secs ... 60 secs | less than a minute   |
+ * | 60 secs ... 90 secs | 1 minute             |
+ *
+ * @param {Date|String|Number} date - the given date
+ * @param {Object} [options] - the object with options
+ * @param {Boolean} [options.includeSeconds=false] - distances less than a minute are more detailed
+ * @param {Boolean} [options.addSuffix=false] - result specifies if the second date is earlier or later than the first
+ * @param {Object} [options.locale=enLocale] - the locale object
+ * @returns {String} the distance in words
+ *
+ * @example
+ * // If today is 1 January 2015, what is the distance to 2 July 2014?
+ * var result = distanceInWordsToNow(
+ *   new Date(2014, 6, 2)
+ * )
+ * //=> '6 months'
+ *
+ * @example
+ * // If now is 1 January 2015 00:00:00,
+ * // what is the distance to 1 January 2015 00:00:15, including seconds?
+ * var result = distanceInWordsToNow(
+ *   new Date(2015, 0, 1, 0, 0, 15),
+ *   {includeSeconds: true}
+ * )
+ * //=> 'less than 20 seconds'
+ *
+ * @example
+ * // If today is 1 January 2015,
+ * // what is the distance to 1 January 2016, with a suffix?
+ * var result = distanceInWordsToNow(
+ *   new Date(2016, 0, 1),
+ *   {addSuffix: true}
+ * )
+ * //=> 'in about 1 year'
+ *
+ * @example
+ * // If today is 1 January 2015,
+ * // what is the distance to 1 August 2016 in Esperanto?
+ * var eoLocale = require('date-fns/locale/eo')
+ * var result = distanceInWordsToNow(
+ *   new Date(2016, 7, 1),
+ *   {locale: eoLocale}
+ * )
+ * //=> 'pli ol 1 jaro'
+ */
+function distanceInWordsToNow (dirtyDate, dirtyOptions) {
+  return distanceInWords(Date.now(), dirtyDate, dirtyOptions)
+}
+
+module.exports = distanceInWordsToNow
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/each_day/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/date-fns/each_day/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Return the array of dates within the specified range.
+ *
+ * @description
+ * Return the array of dates within the specified range.
+ *
+ * @param {Date|String|Number} startDate - the first date
+ * @param {Date|String|Number} endDate - the last date
+ * @param {Number} [step=1] - the step between each day
+ * @returns {Date[]} the array with starts of days from the day of startDate to the day of endDate
+ * @throws {Error} startDate cannot be after endDate
+ *
+ * @example
+ * // Each day between 6 October 2014 and 10 October 2014:
+ * var result = eachDay(
+ *   new Date(2014, 9, 6),
+ *   new Date(2014, 9, 10)
+ * )
+ * //=> [
+ * //   Mon Oct 06 2014 00:00:00,
+ * //   Tue Oct 07 2014 00:00:00,
+ * //   Wed Oct 08 2014 00:00:00,
+ * //   Thu Oct 09 2014 00:00:00,
+ * //   Fri Oct 10 2014 00:00:00
+ * // ]
+ */
+function eachDay (dirtyStartDate, dirtyEndDate, dirtyStep) {
+  var startDate = parse(dirtyStartDate)
+  var endDate = parse(dirtyEndDate)
+  var step = dirtyStep !== undefined ? dirtyStep : 1
+
+  var endTime = endDate.getTime()
+
+  if (startDate.getTime() > endTime) {
+    throw new Error('The first date cannot be after the second date')
+  }
+
+  var dates = []
+
+  var currentDate = startDate
+  currentDate.setHours(0, 0, 0, 0)
+
+  while (currentDate.getTime() <= endTime) {
+    dates.push(parse(currentDate))
+    currentDate.setDate(currentDate.getDate() + step)
+  }
+
+  return dates
+}
+
+module.exports = eachDay
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/end_of_day/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/date-fns/end_of_day/index.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Return the end of a day for the given date.
+ *
+ * @description
+ * Return the end of a day for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the end of a day
+ *
+ * @example
+ * // The end of a day for 2 September 2014 11:55:00:
+ * var result = endOfDay(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Tue Sep 02 2014 23:59:59.999
+ */
+function endOfDay (dirtyDate) {
+  var date = parse(dirtyDate)
+  date.setHours(23, 59, 59, 999)
+  return date
+}
+
+module.exports = endOfDay
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/end_of_hour/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/end_of_hour/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Hour Helpers
+ * @summary Return the end of an hour for the given date.
+ *
+ * @description
+ * Return the end of an hour for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the end of an hour
+ *
+ * @example
+ * // The end of an hour for 2 September 2014 11:55:00:
+ * var result = endOfHour(new Date(2014, 8, 2, 11, 55))
+ * //=> Tue Sep 02 2014 11:59:59.999
+ */
+function endOfHour (dirtyDate) {
+  var date = parse(dirtyDate)
+  date.setMinutes(59, 59, 999)
+  return date
+}
+
+module.exports = endOfHour
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/end_of_iso_week/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/date-fns/end_of_iso_week/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var endOfWeek = __webpack_require__(/*! ../end_of_week/index.js */ "./node_modules/date-fns/end_of_week/index.js")
+
+/**
+ * @category ISO Week Helpers
+ * @summary Return the end of an ISO week for the given date.
+ *
+ * @description
+ * Return the end of an ISO week for the given date.
+ * The result will be in the local timezone.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the end of an ISO week
+ *
+ * @example
+ * // The end of an ISO week for 2 September 2014 11:55:00:
+ * var result = endOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Sun Sep 07 2014 23:59:59.999
+ */
+function endOfISOWeek (dirtyDate) {
+  return endOfWeek(dirtyDate, {weekStartsOn: 1})
+}
+
+module.exports = endOfISOWeek
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/end_of_iso_year/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/date-fns/end_of_iso_year/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getISOYear = __webpack_require__(/*! ../get_iso_year/index.js */ "./node_modules/date-fns/get_iso_year/index.js")
+var startOfISOWeek = __webpack_require__(/*! ../start_of_iso_week/index.js */ "./node_modules/date-fns/start_of_iso_week/index.js")
+
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Return the end of an ISO week-numbering year for the given date.
+ *
+ * @description
+ * Return the end of an ISO week-numbering year,
+ * which always starts 3 days before the year's first Thursday.
+ * The result will be in the local timezone.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the end of an ISO week-numbering year
+ *
+ * @example
+ * // The end of an ISO week-numbering year for 2 July 2005:
+ * var result = endOfISOYear(new Date(2005, 6, 2))
+ * //=> Sun Jan 01 2006 23:59:59.999
+ */
+function endOfISOYear (dirtyDate) {
+  var year = getISOYear(dirtyDate)
+  var fourthOfJanuaryOfNextYear = new Date(0)
+  fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4)
+  fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0)
+  var date = startOfISOWeek(fourthOfJanuaryOfNextYear)
+  date.setMilliseconds(date.getMilliseconds() - 1)
+  return date
+}
+
+module.exports = endOfISOYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/end_of_minute/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/date-fns/end_of_minute/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Minute Helpers
+ * @summary Return the end of a minute for the given date.
+ *
+ * @description
+ * Return the end of a minute for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the end of a minute
+ *
+ * @example
+ * // The end of a minute for 1 December 2014 22:15:45.400:
+ * var result = endOfMinute(new Date(2014, 11, 1, 22, 15, 45, 400))
+ * //=> Mon Dec 01 2014 22:15:59.999
+ */
+function endOfMinute (dirtyDate) {
+  var date = parse(dirtyDate)
+  date.setSeconds(59, 999)
+  return date
+}
+
+module.exports = endOfMinute
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/end_of_month/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/end_of_month/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Return the end of a month for the given date.
+ *
+ * @description
+ * Return the end of a month for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the end of a month
+ *
+ * @example
+ * // The end of a month for 2 September 2014 11:55:00:
+ * var result = endOfMonth(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Tue Sep 30 2014 23:59:59.999
+ */
+function endOfMonth (dirtyDate) {
+  var date = parse(dirtyDate)
+  var month = date.getMonth()
+  date.setFullYear(date.getFullYear(), month + 1, 0)
+  date.setHours(23, 59, 59, 999)
+  return date
+}
+
+module.exports = endOfMonth
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/end_of_quarter/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/date-fns/end_of_quarter/index.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Quarter Helpers
+ * @summary Return the end of a year quarter for the given date.
+ *
+ * @description
+ * Return the end of a year quarter for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the end of a quarter
+ *
+ * @example
+ * // The end of a quarter for 2 September 2014 11:55:00:
+ * var result = endOfQuarter(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Tue Sep 30 2014 23:59:59.999
+ */
+function endOfQuarter (dirtyDate) {
+  var date = parse(dirtyDate)
+  var currentMonth = date.getMonth()
+  var month = currentMonth - currentMonth % 3 + 3
+  date.setMonth(month, 0)
+  date.setHours(23, 59, 59, 999)
+  return date
+}
+
+module.exports = endOfQuarter
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/end_of_second/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/date-fns/end_of_second/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Second Helpers
+ * @summary Return the end of a second for the given date.
+ *
+ * @description
+ * Return the end of a second for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the end of a second
+ *
+ * @example
+ * // The end of a second for 1 December 2014 22:15:45.400:
+ * var result = endOfSecond(new Date(2014, 11, 1, 22, 15, 45, 400))
+ * //=> Mon Dec 01 2014 22:15:45.999
+ */
+function endOfSecond (dirtyDate) {
+  var date = parse(dirtyDate)
+  date.setMilliseconds(999)
+  return date
+}
+
+module.exports = endOfSecond
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/end_of_today/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/end_of_today/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var endOfDay = __webpack_require__(/*! ../end_of_day/index.js */ "./node_modules/date-fns/end_of_day/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Return the end of today.
+ *
+ * @description
+ * Return the end of today.
+ *
+ * @returns {Date} the end of today
+ *
+ * @example
+ * // If today is 6 October 2014:
+ * var result = endOfToday()
+ * //=> Mon Oct 6 2014 23:59:59.999
+ */
+function endOfToday () {
+  return endOfDay(new Date())
+}
+
+module.exports = endOfToday
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/end_of_tomorrow/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/date-fns/end_of_tomorrow/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * @category Day Helpers
+ * @summary Return the end of tomorrow.
+ *
+ * @description
+ * Return the end of tomorrow.
+ *
+ * @returns {Date} the end of tomorrow
+ *
+ * @example
+ * // If today is 6 October 2014:
+ * var result = endOfTomorrow()
+ * //=> Tue Oct 7 2014 23:59:59.999
+ */
+function endOfTomorrow () {
+  var now = new Date()
+  var year = now.getFullYear()
+  var month = now.getMonth()
+  var day = now.getDate()
+
+  var date = new Date(0)
+  date.setFullYear(year, month, day + 1)
+  date.setHours(23, 59, 59, 999)
+  return date
+}
+
+module.exports = endOfTomorrow
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/end_of_week/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/end_of_week/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Week Helpers
+ * @summary Return the end of a week for the given date.
+ *
+ * @description
+ * Return the end of a week for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @param {Object} [options] - the object with options
+ * @param {Number} [options.weekStartsOn=0] - the index of the first day of the week (0 - Sunday)
+ * @returns {Date} the end of a week
+ *
+ * @example
+ * // The end of a week for 2 September 2014 11:55:00:
+ * var result = endOfWeek(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Sat Sep 06 2014 23:59:59.999
+ *
+ * @example
+ * // If the week starts on Monday, the end of the week for 2 September 2014 11:55:00:
+ * var result = endOfWeek(new Date(2014, 8, 2, 11, 55, 0), {weekStartsOn: 1})
+ * //=> Sun Sep 07 2014 23:59:59.999
+ */
+function endOfWeek (dirtyDate, dirtyOptions) {
+  var weekStartsOn = dirtyOptions ? (Number(dirtyOptions.weekStartsOn) || 0) : 0
+
+  var date = parse(dirtyDate)
+  var day = date.getDay()
+  var diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn)
+
+  date.setDate(date.getDate() + diff)
+  date.setHours(23, 59, 59, 999)
+  return date
+}
+
+module.exports = endOfWeek
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/end_of_year/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/end_of_year/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Year Helpers
+ * @summary Return the end of a year for the given date.
+ *
+ * @description
+ * Return the end of a year for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the end of a year
+ *
+ * @example
+ * // The end of a year for 2 September 2014 11:55:00:
+ * var result = endOfYear(new Date(2014, 8, 2, 11, 55, 00))
+ * //=> Wed Dec 31 2014 23:59:59.999
+ */
+function endOfYear (dirtyDate) {
+  var date = parse(dirtyDate)
+  var year = date.getFullYear()
+  date.setFullYear(year + 1, 0, 0)
+  date.setHours(23, 59, 59, 999)
+  return date
+}
+
+module.exports = endOfYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/end_of_yesterday/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/end_of_yesterday/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * @category Day Helpers
+ * @summary Return the end of yesterday.
+ *
+ * @description
+ * Return the end of yesterday.
+ *
+ * @returns {Date} the end of yesterday
+ *
+ * @example
+ * // If today is 6 October 2014:
+ * var result = endOfYesterday()
+ * //=> Sun Oct 5 2014 23:59:59.999
+ */
+function endOfYesterday () {
+  var now = new Date()
+  var year = now.getFullYear()
+  var month = now.getMonth()
+  var day = now.getDate()
+
+  var date = new Date(0)
+  date.setFullYear(year, month, day - 1)
+  date.setHours(23, 59, 59, 999)
+  return date
+}
+
+module.exports = endOfYesterday
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/format/index.js":
+/*!***********************************************!*\
+  !*** ./node_modules/date-fns/format/index.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getDayOfYear = __webpack_require__(/*! ../get_day_of_year/index.js */ "./node_modules/date-fns/get_day_of_year/index.js")
+var getISOWeek = __webpack_require__(/*! ../get_iso_week/index.js */ "./node_modules/date-fns/get_iso_week/index.js")
+var getISOYear = __webpack_require__(/*! ../get_iso_year/index.js */ "./node_modules/date-fns/get_iso_year/index.js")
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var isValid = __webpack_require__(/*! ../is_valid/index.js */ "./node_modules/date-fns/is_valid/index.js")
+var enLocale = __webpack_require__(/*! ../locale/en/index.js */ "./node_modules/date-fns/locale/en/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Format the date.
+ *
+ * @description
+ * Return the formatted date string in the given format.
+ *
+ * Accepted tokens:
+ * | Unit                    | Token | Result examples                  |
+ * |-------------------------|-------|----------------------------------|
+ * | Month                   | M     | 1, 2, ..., 12                    |
+ * |                         | Mo    | 1st, 2nd, ..., 12th              |
+ * |                         | MM    | 01, 02, ..., 12                  |
+ * |                         | MMM   | Jan, Feb, ..., Dec               |
+ * |                         | MMMM  | January, February, ..., December |
+ * | Quarter                 | Q     | 1, 2, 3, 4                       |
+ * |                         | Qo    | 1st, 2nd, 3rd, 4th               |
+ * | Day of month            | D     | 1, 2, ..., 31                    |
+ * |                         | Do    | 1st, 2nd, ..., 31st              |
+ * |                         | DD    | 01, 02, ..., 31                  |
+ * | Day of year             | DDD   | 1, 2, ..., 366                   |
+ * |                         | DDDo  | 1st, 2nd, ..., 366th             |
+ * |                         | DDDD  | 001, 002, ..., 366               |
+ * | Day of week             | d     | 0, 1, ..., 6                     |
+ * |                         | do    | 0th, 1st, ..., 6th               |
+ * |                         | dd    | Su, Mo, ..., Sa                  |
+ * |                         | ddd   | Sun, Mon, ..., Sat               |
+ * |                         | dddd  | Sunday, Monday, ..., Saturday    |
+ * | Day of ISO week         | E     | 1, 2, ..., 7                     |
+ * | ISO week                | W     | 1, 2, ..., 53                    |
+ * |                         | Wo    | 1st, 2nd, ..., 53rd              |
+ * |                         | WW    | 01, 02, ..., 53                  |
+ * | Year                    | YY    | 00, 01, ..., 99                  |
+ * |                         | YYYY  | 1900, 1901, ..., 2099            |
+ * | ISO week-numbering year | GG    | 00, 01, ..., 99                  |
+ * |                         | GGGG  | 1900, 1901, ..., 2099            |
+ * | AM/PM                   | A     | AM, PM                           |
+ * |                         | a     | am, pm                           |
+ * |                         | aa    | a.m., p.m.                       |
+ * | Hour                    | H     | 0, 1, ... 23                     |
+ * |                         | HH    | 00, 01, ... 23                   |
+ * |                         | h     | 1, 2, ..., 12                    |
+ * |                         | hh    | 01, 02, ..., 12                  |
+ * | Minute                  | m     | 0, 1, ..., 59                    |
+ * |                         | mm    | 00, 01, ..., 59                  |
+ * | Second                  | s     | 0, 1, ..., 59                    |
+ * |                         | ss    | 00, 01, ..., 59                  |
+ * | 1/10 of second          | S     | 0, 1, ..., 9                     |
+ * | 1/100 of second         | SS    | 00, 01, ..., 99                  |
+ * | Millisecond             | SSS   | 000, 001, ..., 999               |
+ * | Timezone                | Z     | -01:00, +00:00, ... +12:00       |
+ * |                         | ZZ    | -0100, +0000, ..., +1200         |
+ * | Seconds timestamp       | X     | 512969520                        |
+ * | Milliseconds timestamp  | x     | 512969520900                     |
+ *
+ * The characters wrapped in square brackets are escaped.
+ *
+ * The result may vary by locale.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @param {String} [format='YYYY-MM-DDTHH:mm:ss.SSSZ'] - the string of tokens
+ * @param {Object} [options] - the object with options
+ * @param {Object} [options.locale=enLocale] - the locale object
+ * @returns {String} the formatted date string
+ *
+ * @example
+ * // Represent 11 February 2014 in middle-endian format:
+ * var result = format(
+ *   new Date(2014, 1, 11),
+ *   'MM/DD/YYYY'
+ * )
+ * //=> '02/11/2014'
+ *
+ * @example
+ * // Represent 2 July 2014 in Esperanto:
+ * var eoLocale = require('date-fns/locale/eo')
+ * var result = format(
+ *   new Date(2014, 6, 2),
+ *   'Do [de] MMMM YYYY',
+ *   {locale: eoLocale}
+ * )
+ * //=> '2-a de julio 2014'
+ */
+function format (dirtyDate, dirtyFormatStr, dirtyOptions) {
+  var formatStr = dirtyFormatStr ? String(dirtyFormatStr) : 'YYYY-MM-DDTHH:mm:ss.SSSZ'
+  var options = dirtyOptions || {}
+
+  var locale = options.locale
+  var localeFormatters = enLocale.format.formatters
+  var formattingTokensRegExp = enLocale.format.formattingTokensRegExp
+  if (locale && locale.format && locale.format.formatters) {
+    localeFormatters = locale.format.formatters
+
+    if (locale.format.formattingTokensRegExp) {
+      formattingTokensRegExp = locale.format.formattingTokensRegExp
+    }
+  }
+
+  var date = parse(dirtyDate)
+
+  if (!isValid(date)) {
+    return 'Invalid Date'
+  }
+
+  var formatFn = buildFormatFn(formatStr, localeFormatters, formattingTokensRegExp)
+
+  return formatFn(date)
+}
+
+var formatters = {
+  // Month: 1, 2, ..., 12
+  'M': function (date) {
+    return date.getMonth() + 1
+  },
+
+  // Month: 01, 02, ..., 12
+  'MM': function (date) {
+    return addLeadingZeros(date.getMonth() + 1, 2)
+  },
+
+  // Quarter: 1, 2, 3, 4
+  'Q': function (date) {
+    return Math.ceil((date.getMonth() + 1) / 3)
+  },
+
+  // Day of month: 1, 2, ..., 31
+  'D': function (date) {
+    return date.getDate()
+  },
+
+  // Day of month: 01, 02, ..., 31
+  'DD': function (date) {
+    return addLeadingZeros(date.getDate(), 2)
+  },
+
+  // Day of year: 1, 2, ..., 366
+  'DDD': function (date) {
+    return getDayOfYear(date)
+  },
+
+  // Day of year: 001, 002, ..., 366
+  'DDDD': function (date) {
+    return addLeadingZeros(getDayOfYear(date), 3)
+  },
+
+  // Day of week: 0, 1, ..., 6
+  'd': function (date) {
+    return date.getDay()
+  },
+
+  // Day of ISO week: 1, 2, ..., 7
+  'E': function (date) {
+    return date.getDay() || 7
+  },
+
+  // ISO week: 1, 2, ..., 53
+  'W': function (date) {
+    return getISOWeek(date)
+  },
+
+  // ISO week: 01, 02, ..., 53
+  'WW': function (date) {
+    return addLeadingZeros(getISOWeek(date), 2)
+  },
+
+  // Year: 00, 01, ..., 99
+  'YY': function (date) {
+    return addLeadingZeros(date.getFullYear(), 4).substr(2)
+  },
+
+  // Year: 1900, 1901, ..., 2099
+  'YYYY': function (date) {
+    return addLeadingZeros(date.getFullYear(), 4)
+  },
+
+  // ISO week-numbering year: 00, 01, ..., 99
+  'GG': function (date) {
+    return String(getISOYear(date)).substr(2)
+  },
+
+  // ISO week-numbering year: 1900, 1901, ..., 2099
+  'GGGG': function (date) {
+    return getISOYear(date)
+  },
+
+  // Hour: 0, 1, ... 23
+  'H': function (date) {
+    return date.getHours()
+  },
+
+  // Hour: 00, 01, ..., 23
+  'HH': function (date) {
+    return addLeadingZeros(date.getHours(), 2)
+  },
+
+  // Hour: 1, 2, ..., 12
+  'h': function (date) {
+    var hours = date.getHours()
+    if (hours === 0) {
+      return 12
+    } else if (hours > 12) {
+      return hours % 12
+    } else {
+      return hours
+    }
+  },
+
+  // Hour: 01, 02, ..., 12
+  'hh': function (date) {
+    return addLeadingZeros(formatters['h'](date), 2)
+  },
+
+  // Minute: 0, 1, ..., 59
+  'm': function (date) {
+    return date.getMinutes()
+  },
+
+  // Minute: 00, 01, ..., 59
+  'mm': function (date) {
+    return addLeadingZeros(date.getMinutes(), 2)
+  },
+
+  // Second: 0, 1, ..., 59
+  's': function (date) {
+    return date.getSeconds()
+  },
+
+  // Second: 00, 01, ..., 59
+  'ss': function (date) {
+    return addLeadingZeros(date.getSeconds(), 2)
+  },
+
+  // 1/10 of second: 0, 1, ..., 9
+  'S': function (date) {
+    return Math.floor(date.getMilliseconds() / 100)
+  },
+
+  // 1/100 of second: 00, 01, ..., 99
+  'SS': function (date) {
+    return addLeadingZeros(Math.floor(date.getMilliseconds() / 10), 2)
+  },
+
+  // Millisecond: 000, 001, ..., 999
+  'SSS': function (date) {
+    return addLeadingZeros(date.getMilliseconds(), 3)
+  },
+
+  // Timezone: -01:00, +00:00, ... +12:00
+  'Z': function (date) {
+    return formatTimezone(date.getTimezoneOffset(), ':')
+  },
+
+  // Timezone: -0100, +0000, ... +1200
+  'ZZ': function (date) {
+    return formatTimezone(date.getTimezoneOffset())
+  },
+
+  // Seconds timestamp: 512969520
+  'X': function (date) {
+    return Math.floor(date.getTime() / 1000)
+  },
+
+  // Milliseconds timestamp: 512969520900
+  'x': function (date) {
+    return date.getTime()
+  }
+}
+
+function buildFormatFn (formatStr, localeFormatters, formattingTokensRegExp) {
+  var array = formatStr.match(formattingTokensRegExp)
+  var length = array.length
+
+  var i
+  var formatter
+  for (i = 0; i < length; i++) {
+    formatter = localeFormatters[array[i]] || formatters[array[i]]
+    if (formatter) {
+      array[i] = formatter
+    } else {
+      array[i] = removeFormattingTokens(array[i])
+    }
+  }
+
+  return function (date) {
+    var output = ''
+    for (var i = 0; i < length; i++) {
+      if (array[i] instanceof Function) {
+        output += array[i](date, formatters)
+      } else {
+        output += array[i]
+      }
+    }
+    return output
+  }
+}
+
+function removeFormattingTokens (input) {
+  if (input.match(/\[[\s\S]/)) {
+    return input.replace(/^\[|]$/g, '')
+  }
+  return input.replace(/\\/g, '')
+}
+
+function formatTimezone (offset, delimeter) {
+  delimeter = delimeter || ''
+  var sign = offset > 0 ? '-' : '+'
+  var absOffset = Math.abs(offset)
+  var hours = Math.floor(absOffset / 60)
+  var minutes = absOffset % 60
+  return sign + addLeadingZeros(hours, 2) + delimeter + addLeadingZeros(minutes, 2)
+}
+
+function addLeadingZeros (number, targetLength) {
+  var output = Math.abs(number).toString()
+  while (output.length < targetLength) {
+    output = '0' + output
+  }
+  return output
+}
+
+module.exports = format
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_date/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/date-fns/get_date/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Get the day of the month of the given date.
+ *
+ * @description
+ * Get the day of the month of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the day of month
+ *
+ * @example
+ * // Which day of the month is 29 February 2012?
+ * var result = getDate(new Date(2012, 1, 29))
+ * //=> 29
+ */
+function getDate (dirtyDate) {
+  var date = parse(dirtyDate)
+  var dayOfMonth = date.getDate()
+  return dayOfMonth
+}
+
+module.exports = getDate
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_day/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/date-fns/get_day/index.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Weekday Helpers
+ * @summary Get the day of the week of the given date.
+ *
+ * @description
+ * Get the day of the week of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the day of week
+ *
+ * @example
+ * // Which day of the week is 29 February 2012?
+ * var result = getDay(new Date(2012, 1, 29))
+ * //=> 3
+ */
+function getDay (dirtyDate) {
+  var date = parse(dirtyDate)
+  var day = date.getDay()
+  return day
+}
+
+module.exports = getDay
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_day_of_year/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/date-fns/get_day_of_year/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var startOfYear = __webpack_require__(/*! ../start_of_year/index.js */ "./node_modules/date-fns/start_of_year/index.js")
+var differenceInCalendarDays = __webpack_require__(/*! ../difference_in_calendar_days/index.js */ "./node_modules/date-fns/difference_in_calendar_days/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Get the day of the year of the given date.
+ *
+ * @description
+ * Get the day of the year of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the day of year
+ *
+ * @example
+ * // Which day of the year is 2 July 2014?
+ * var result = getDayOfYear(new Date(2014, 6, 2))
+ * //=> 183
+ */
+function getDayOfYear (dirtyDate) {
+  var date = parse(dirtyDate)
+  var diff = differenceInCalendarDays(date, startOfYear(date))
+  var dayOfYear = diff + 1
+  return dayOfYear
+}
+
+module.exports = getDayOfYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_days_in_month/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/date-fns/get_days_in_month/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Get the number of days in a month of the given date.
+ *
+ * @description
+ * Get the number of days in a month of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the number of days in a month
+ *
+ * @example
+ * // How many days are in February 2000?
+ * var result = getDaysInMonth(new Date(2000, 1))
+ * //=> 29
+ */
+function getDaysInMonth (dirtyDate) {
+  var date = parse(dirtyDate)
+  var year = date.getFullYear()
+  var monthIndex = date.getMonth()
+  var lastDayOfMonth = new Date(0)
+  lastDayOfMonth.setFullYear(year, monthIndex + 1, 0)
+  lastDayOfMonth.setHours(0, 0, 0, 0)
+  return lastDayOfMonth.getDate()
+}
+
+module.exports = getDaysInMonth
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_days_in_year/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/get_days_in_year/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isLeapYear = __webpack_require__(/*! ../is_leap_year/index.js */ "./node_modules/date-fns/is_leap_year/index.js")
+
+/**
+ * @category Year Helpers
+ * @summary Get the number of days in a year of the given date.
+ *
+ * @description
+ * Get the number of days in a year of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the number of days in a year
+ *
+ * @example
+ * // How many days are in 2012?
+ * var result = getDaysInYear(new Date(2012, 0, 1))
+ * //=> 366
+ */
+function getDaysInYear (dirtyDate) {
+  return isLeapYear(dirtyDate) ? 366 : 365
+}
+
+module.exports = getDaysInYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_hours/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/get_hours/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Hour Helpers
+ * @summary Get the hours of the given date.
+ *
+ * @description
+ * Get the hours of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the hours
+ *
+ * @example
+ * // Get the hours of 29 February 2012 11:45:00:
+ * var result = getHours(new Date(2012, 1, 29, 11, 45))
+ * //=> 11
+ */
+function getHours (dirtyDate) {
+  var date = parse(dirtyDate)
+  var hours = date.getHours()
+  return hours
+}
+
+module.exports = getHours
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_iso_day/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/get_iso_day/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Weekday Helpers
+ * @summary Get the day of the ISO week of the given date.
+ *
+ * @description
+ * Get the day of the ISO week of the given date,
+ * which is 7 for Sunday, 1 for Monday etc.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the day of ISO week
+ *
+ * @example
+ * // Which day of the ISO week is 26 February 2012?
+ * var result = getISODay(new Date(2012, 1, 26))
+ * //=> 7
+ */
+function getISODay (dirtyDate) {
+  var date = parse(dirtyDate)
+  var day = date.getDay()
+
+  if (day === 0) {
+    day = 7
+  }
+
+  return day
+}
+
+module.exports = getISODay
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_iso_week/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/get_iso_week/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var startOfISOWeek = __webpack_require__(/*! ../start_of_iso_week/index.js */ "./node_modules/date-fns/start_of_iso_week/index.js")
+var startOfISOYear = __webpack_require__(/*! ../start_of_iso_year/index.js */ "./node_modules/date-fns/start_of_iso_year/index.js")
+
+var MILLISECONDS_IN_WEEK = 604800000
+
+/**
+ * @category ISO Week Helpers
+ * @summary Get the ISO week of the given date.
+ *
+ * @description
+ * Get the ISO week of the given date.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the ISO week
+ *
+ * @example
+ * // Which week of the ISO-week numbering year is 2 January 2005?
+ * var result = getISOWeek(new Date(2005, 0, 2))
+ * //=> 53
+ */
+function getISOWeek (dirtyDate) {
+  var date = parse(dirtyDate)
+  var diff = startOfISOWeek(date).getTime() - startOfISOYear(date).getTime()
+
+  // Round the number of days to the nearest integer
+  // because the number of milliseconds in a week is not constant
+  // (e.g. it's different in the week of the daylight saving time clock shift)
+  return Math.round(diff / MILLISECONDS_IN_WEEK) + 1
+}
+
+module.exports = getISOWeek
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_iso_weeks_in_year/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/date-fns/get_iso_weeks_in_year/index.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfISOYear = __webpack_require__(/*! ../start_of_iso_year/index.js */ "./node_modules/date-fns/start_of_iso_year/index.js")
+var addWeeks = __webpack_require__(/*! ../add_weeks/index.js */ "./node_modules/date-fns/add_weeks/index.js")
+
+var MILLISECONDS_IN_WEEK = 604800000
+
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Get the number of weeks in an ISO week-numbering year of the given date.
+ *
+ * @description
+ * Get the number of weeks in an ISO week-numbering year of the given date.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the number of ISO weeks in a year
+ *
+ * @example
+ * // How many weeks are in ISO week-numbering year 2015?
+ * var result = getISOWeeksInYear(new Date(2015, 1, 11))
+ * //=> 53
+ */
+function getISOWeeksInYear (dirtyDate) {
+  var thisYear = startOfISOYear(dirtyDate)
+  var nextYear = startOfISOYear(addWeeks(thisYear, 60))
+  var diff = nextYear.valueOf() - thisYear.valueOf()
+  // Round the number of weeks to the nearest integer
+  // because the number of milliseconds in a week is not constant
+  // (e.g. it's different in the week of the daylight saving time clock shift)
+  return Math.round(diff / MILLISECONDS_IN_WEEK)
+}
+
+module.exports = getISOWeeksInYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_iso_year/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/get_iso_year/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var startOfISOWeek = __webpack_require__(/*! ../start_of_iso_week/index.js */ "./node_modules/date-fns/start_of_iso_week/index.js")
+
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Get the ISO week-numbering year of the given date.
+ *
+ * @description
+ * Get the ISO week-numbering year of the given date,
+ * which always starts 3 days before the year's first Thursday.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the ISO week-numbering year
+ *
+ * @example
+ * // Which ISO-week numbering year is 2 January 2005?
+ * var result = getISOYear(new Date(2005, 0, 2))
+ * //=> 2004
+ */
+function getISOYear (dirtyDate) {
+  var date = parse(dirtyDate)
+  var year = date.getFullYear()
+
+  var fourthOfJanuaryOfNextYear = new Date(0)
+  fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4)
+  fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0)
+  var startOfNextYear = startOfISOWeek(fourthOfJanuaryOfNextYear)
+
+  var fourthOfJanuaryOfThisYear = new Date(0)
+  fourthOfJanuaryOfThisYear.setFullYear(year, 0, 4)
+  fourthOfJanuaryOfThisYear.setHours(0, 0, 0, 0)
+  var startOfThisYear = startOfISOWeek(fourthOfJanuaryOfThisYear)
+
+  if (date.getTime() >= startOfNextYear.getTime()) {
+    return year + 1
+  } else if (date.getTime() >= startOfThisYear.getTime()) {
+    return year
+  } else {
+    return year - 1
+  }
+}
+
+module.exports = getISOYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_milliseconds/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/get_milliseconds/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Millisecond Helpers
+ * @summary Get the milliseconds of the given date.
+ *
+ * @description
+ * Get the milliseconds of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the milliseconds
+ *
+ * @example
+ * // Get the milliseconds of 29 February 2012 11:45:05.123:
+ * var result = getMilliseconds(new Date(2012, 1, 29, 11, 45, 5, 123))
+ * //=> 123
+ */
+function getMilliseconds (dirtyDate) {
+  var date = parse(dirtyDate)
+  var milliseconds = date.getMilliseconds()
+  return milliseconds
+}
+
+module.exports = getMilliseconds
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_minutes/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/get_minutes/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Minute Helpers
+ * @summary Get the minutes of the given date.
+ *
+ * @description
+ * Get the minutes of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the minutes
+ *
+ * @example
+ * // Get the minutes of 29 February 2012 11:45:05:
+ * var result = getMinutes(new Date(2012, 1, 29, 11, 45, 5))
+ * //=> 45
+ */
+function getMinutes (dirtyDate) {
+  var date = parse(dirtyDate)
+  var minutes = date.getMinutes()
+  return minutes
+}
+
+module.exports = getMinutes
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_month/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/get_month/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Get the month of the given date.
+ *
+ * @description
+ * Get the month of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the month
+ *
+ * @example
+ * // Which month is 29 February 2012?
+ * var result = getMonth(new Date(2012, 1, 29))
+ * //=> 1
+ */
+function getMonth (dirtyDate) {
+  var date = parse(dirtyDate)
+  var month = date.getMonth()
+  return month
+}
+
+module.exports = getMonth
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_overlapping_days_in_ranges/index.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/date-fns/get_overlapping_days_in_ranges/index.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+var MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000
+
+/**
+ * @category Range Helpers
+ * @summary Get the number of days that overlap in two date ranges
+ *
+ * @description
+ * Get the number of days that overlap in two date ranges
+ *
+ * @param {Date|String|Number} initialRangeStartDate - the start of the initial range
+ * @param {Date|String|Number} initialRangeEndDate - the end of the initial range
+ * @param {Date|String|Number} comparedRangeStartDate - the start of the range to compare it with
+ * @param {Date|String|Number} comparedRangeEndDate - the end of the range to compare it with
+ * @returns {Number} the number of days that overlap in two date ranges
+ * @throws {Error} startDate of a date range cannot be after its endDate
+ *
+ * @example
+ * // For overlapping date ranges adds 1 for each started overlapping day:
+ * getOverlappingDaysInRanges(
+ *   new Date(2014, 0, 10), new Date(2014, 0, 20), new Date(2014, 0, 17), new Date(2014, 0, 21)
+ * )
+ * //=> 3
+ *
+ * @example
+ * // For non-overlapping date ranges returns 0:
+ * getOverlappingDaysInRanges(
+ *   new Date(2014, 0, 10), new Date(2014, 0, 20), new Date(2014, 0, 21), new Date(2014, 0, 22)
+ * )
+ * //=> 0
+ */
+function getOverlappingDaysInRanges (dirtyInitialRangeStartDate, dirtyInitialRangeEndDate, dirtyComparedRangeStartDate, dirtyComparedRangeEndDate) {
+  var initialStartTime = parse(dirtyInitialRangeStartDate).getTime()
+  var initialEndTime = parse(dirtyInitialRangeEndDate).getTime()
+  var comparedStartTime = parse(dirtyComparedRangeStartDate).getTime()
+  var comparedEndTime = parse(dirtyComparedRangeEndDate).getTime()
+
+  if (initialStartTime > initialEndTime || comparedStartTime > comparedEndTime) {
+    throw new Error('The start of the range cannot be after the end of the range')
+  }
+
+  var isOverlapping = initialStartTime < comparedEndTime && comparedStartTime < initialEndTime
+
+  if (!isOverlapping) {
+    return 0
+  }
+
+  var overlapStartDate = comparedStartTime < initialStartTime
+    ? initialStartTime
+    : comparedStartTime
+
+  var overlapEndDate = comparedEndTime > initialEndTime
+    ? initialEndTime
+    : comparedEndTime
+
+  var differenceInMs = overlapEndDate - overlapStartDate
+
+  return Math.ceil(differenceInMs / MILLISECONDS_IN_DAY)
+}
+
+module.exports = getOverlappingDaysInRanges
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_quarter/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/get_quarter/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Quarter Helpers
+ * @summary Get the year quarter of the given date.
+ *
+ * @description
+ * Get the year quarter of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the quarter
+ *
+ * @example
+ * // Which quarter is 2 July 2014?
+ * var result = getQuarter(new Date(2014, 6, 2))
+ * //=> 3
+ */
+function getQuarter (dirtyDate) {
+  var date = parse(dirtyDate)
+  var quarter = Math.floor(date.getMonth() / 3) + 1
+  return quarter
+}
+
+module.exports = getQuarter
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_seconds/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/get_seconds/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Second Helpers
+ * @summary Get the seconds of the given date.
+ *
+ * @description
+ * Get the seconds of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the seconds
+ *
+ * @example
+ * // Get the seconds of 29 February 2012 11:45:05.123:
+ * var result = getSeconds(new Date(2012, 1, 29, 11, 45, 5, 123))
+ * //=> 5
+ */
+function getSeconds (dirtyDate) {
+  var date = parse(dirtyDate)
+  var seconds = date.getSeconds()
+  return seconds
+}
+
+module.exports = getSeconds
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_time/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/date-fns/get_time/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Timestamp Helpers
+ * @summary Get the milliseconds timestamp of the given date.
+ *
+ * @description
+ * Get the milliseconds timestamp of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the timestamp
+ *
+ * @example
+ * // Get the timestamp of 29 February 2012 11:45:05.123:
+ * var result = getTime(new Date(2012, 1, 29, 11, 45, 5, 123))
+ * //=> 1330515905123
+ */
+function getTime (dirtyDate) {
+  var date = parse(dirtyDate)
+  var timestamp = date.getTime()
+  return timestamp
+}
+
+module.exports = getTime
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/get_year/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/date-fns/get_year/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Year Helpers
+ * @summary Get the year of the given date.
+ *
+ * @description
+ * Get the year of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the year
+ *
+ * @example
+ * // Which year is 2 July 2014?
+ * var result = getYear(new Date(2014, 6, 2))
+ * //=> 2014
+ */
+function getYear (dirtyDate) {
+  var date = parse(dirtyDate)
+  var year = date.getFullYear()
+  return year
+}
+
+module.exports = getYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/index.js":
+/*!****************************************!*\
+  !*** ./node_modules/date-fns/index.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = {
+  addDays: __webpack_require__(/*! ./add_days/index.js */ "./node_modules/date-fns/add_days/index.js"),
+  addHours: __webpack_require__(/*! ./add_hours/index.js */ "./node_modules/date-fns/add_hours/index.js"),
+  addISOYears: __webpack_require__(/*! ./add_iso_years/index.js */ "./node_modules/date-fns/add_iso_years/index.js"),
+  addMilliseconds: __webpack_require__(/*! ./add_milliseconds/index.js */ "./node_modules/date-fns/add_milliseconds/index.js"),
+  addMinutes: __webpack_require__(/*! ./add_minutes/index.js */ "./node_modules/date-fns/add_minutes/index.js"),
+  addMonths: __webpack_require__(/*! ./add_months/index.js */ "./node_modules/date-fns/add_months/index.js"),
+  addQuarters: __webpack_require__(/*! ./add_quarters/index.js */ "./node_modules/date-fns/add_quarters/index.js"),
+  addSeconds: __webpack_require__(/*! ./add_seconds/index.js */ "./node_modules/date-fns/add_seconds/index.js"),
+  addWeeks: __webpack_require__(/*! ./add_weeks/index.js */ "./node_modules/date-fns/add_weeks/index.js"),
+  addYears: __webpack_require__(/*! ./add_years/index.js */ "./node_modules/date-fns/add_years/index.js"),
+  areRangesOverlapping: __webpack_require__(/*! ./are_ranges_overlapping/index.js */ "./node_modules/date-fns/are_ranges_overlapping/index.js"),
+  closestIndexTo: __webpack_require__(/*! ./closest_index_to/index.js */ "./node_modules/date-fns/closest_index_to/index.js"),
+  closestTo: __webpack_require__(/*! ./closest_to/index.js */ "./node_modules/date-fns/closest_to/index.js"),
+  compareAsc: __webpack_require__(/*! ./compare_asc/index.js */ "./node_modules/date-fns/compare_asc/index.js"),
+  compareDesc: __webpack_require__(/*! ./compare_desc/index.js */ "./node_modules/date-fns/compare_desc/index.js"),
+  differenceInCalendarDays: __webpack_require__(/*! ./difference_in_calendar_days/index.js */ "./node_modules/date-fns/difference_in_calendar_days/index.js"),
+  differenceInCalendarISOWeeks: __webpack_require__(/*! ./difference_in_calendar_iso_weeks/index.js */ "./node_modules/date-fns/difference_in_calendar_iso_weeks/index.js"),
+  differenceInCalendarISOYears: __webpack_require__(/*! ./difference_in_calendar_iso_years/index.js */ "./node_modules/date-fns/difference_in_calendar_iso_years/index.js"),
+  differenceInCalendarMonths: __webpack_require__(/*! ./difference_in_calendar_months/index.js */ "./node_modules/date-fns/difference_in_calendar_months/index.js"),
+  differenceInCalendarQuarters: __webpack_require__(/*! ./difference_in_calendar_quarters/index.js */ "./node_modules/date-fns/difference_in_calendar_quarters/index.js"),
+  differenceInCalendarWeeks: __webpack_require__(/*! ./difference_in_calendar_weeks/index.js */ "./node_modules/date-fns/difference_in_calendar_weeks/index.js"),
+  differenceInCalendarYears: __webpack_require__(/*! ./difference_in_calendar_years/index.js */ "./node_modules/date-fns/difference_in_calendar_years/index.js"),
+  differenceInDays: __webpack_require__(/*! ./difference_in_days/index.js */ "./node_modules/date-fns/difference_in_days/index.js"),
+  differenceInHours: __webpack_require__(/*! ./difference_in_hours/index.js */ "./node_modules/date-fns/difference_in_hours/index.js"),
+  differenceInISOYears: __webpack_require__(/*! ./difference_in_iso_years/index.js */ "./node_modules/date-fns/difference_in_iso_years/index.js"),
+  differenceInMilliseconds: __webpack_require__(/*! ./difference_in_milliseconds/index.js */ "./node_modules/date-fns/difference_in_milliseconds/index.js"),
+  differenceInMinutes: __webpack_require__(/*! ./difference_in_minutes/index.js */ "./node_modules/date-fns/difference_in_minutes/index.js"),
+  differenceInMonths: __webpack_require__(/*! ./difference_in_months/index.js */ "./node_modules/date-fns/difference_in_months/index.js"),
+  differenceInQuarters: __webpack_require__(/*! ./difference_in_quarters/index.js */ "./node_modules/date-fns/difference_in_quarters/index.js"),
+  differenceInSeconds: __webpack_require__(/*! ./difference_in_seconds/index.js */ "./node_modules/date-fns/difference_in_seconds/index.js"),
+  differenceInWeeks: __webpack_require__(/*! ./difference_in_weeks/index.js */ "./node_modules/date-fns/difference_in_weeks/index.js"),
+  differenceInYears: __webpack_require__(/*! ./difference_in_years/index.js */ "./node_modules/date-fns/difference_in_years/index.js"),
+  distanceInWords: __webpack_require__(/*! ./distance_in_words/index.js */ "./node_modules/date-fns/distance_in_words/index.js"),
+  distanceInWordsStrict: __webpack_require__(/*! ./distance_in_words_strict/index.js */ "./node_modules/date-fns/distance_in_words_strict/index.js"),
+  distanceInWordsToNow: __webpack_require__(/*! ./distance_in_words_to_now/index.js */ "./node_modules/date-fns/distance_in_words_to_now/index.js"),
+  eachDay: __webpack_require__(/*! ./each_day/index.js */ "./node_modules/date-fns/each_day/index.js"),
+  endOfDay: __webpack_require__(/*! ./end_of_day/index.js */ "./node_modules/date-fns/end_of_day/index.js"),
+  endOfHour: __webpack_require__(/*! ./end_of_hour/index.js */ "./node_modules/date-fns/end_of_hour/index.js"),
+  endOfISOWeek: __webpack_require__(/*! ./end_of_iso_week/index.js */ "./node_modules/date-fns/end_of_iso_week/index.js"),
+  endOfISOYear: __webpack_require__(/*! ./end_of_iso_year/index.js */ "./node_modules/date-fns/end_of_iso_year/index.js"),
+  endOfMinute: __webpack_require__(/*! ./end_of_minute/index.js */ "./node_modules/date-fns/end_of_minute/index.js"),
+  endOfMonth: __webpack_require__(/*! ./end_of_month/index.js */ "./node_modules/date-fns/end_of_month/index.js"),
+  endOfQuarter: __webpack_require__(/*! ./end_of_quarter/index.js */ "./node_modules/date-fns/end_of_quarter/index.js"),
+  endOfSecond: __webpack_require__(/*! ./end_of_second/index.js */ "./node_modules/date-fns/end_of_second/index.js"),
+  endOfToday: __webpack_require__(/*! ./end_of_today/index.js */ "./node_modules/date-fns/end_of_today/index.js"),
+  endOfTomorrow: __webpack_require__(/*! ./end_of_tomorrow/index.js */ "./node_modules/date-fns/end_of_tomorrow/index.js"),
+  endOfWeek: __webpack_require__(/*! ./end_of_week/index.js */ "./node_modules/date-fns/end_of_week/index.js"),
+  endOfYear: __webpack_require__(/*! ./end_of_year/index.js */ "./node_modules/date-fns/end_of_year/index.js"),
+  endOfYesterday: __webpack_require__(/*! ./end_of_yesterday/index.js */ "./node_modules/date-fns/end_of_yesterday/index.js"),
+  format: __webpack_require__(/*! ./format/index.js */ "./node_modules/date-fns/format/index.js"),
+  getDate: __webpack_require__(/*! ./get_date/index.js */ "./node_modules/date-fns/get_date/index.js"),
+  getDay: __webpack_require__(/*! ./get_day/index.js */ "./node_modules/date-fns/get_day/index.js"),
+  getDayOfYear: __webpack_require__(/*! ./get_day_of_year/index.js */ "./node_modules/date-fns/get_day_of_year/index.js"),
+  getDaysInMonth: __webpack_require__(/*! ./get_days_in_month/index.js */ "./node_modules/date-fns/get_days_in_month/index.js"),
+  getDaysInYear: __webpack_require__(/*! ./get_days_in_year/index.js */ "./node_modules/date-fns/get_days_in_year/index.js"),
+  getHours: __webpack_require__(/*! ./get_hours/index.js */ "./node_modules/date-fns/get_hours/index.js"),
+  getISODay: __webpack_require__(/*! ./get_iso_day/index.js */ "./node_modules/date-fns/get_iso_day/index.js"),
+  getISOWeek: __webpack_require__(/*! ./get_iso_week/index.js */ "./node_modules/date-fns/get_iso_week/index.js"),
+  getISOWeeksInYear: __webpack_require__(/*! ./get_iso_weeks_in_year/index.js */ "./node_modules/date-fns/get_iso_weeks_in_year/index.js"),
+  getISOYear: __webpack_require__(/*! ./get_iso_year/index.js */ "./node_modules/date-fns/get_iso_year/index.js"),
+  getMilliseconds: __webpack_require__(/*! ./get_milliseconds/index.js */ "./node_modules/date-fns/get_milliseconds/index.js"),
+  getMinutes: __webpack_require__(/*! ./get_minutes/index.js */ "./node_modules/date-fns/get_minutes/index.js"),
+  getMonth: __webpack_require__(/*! ./get_month/index.js */ "./node_modules/date-fns/get_month/index.js"),
+  getOverlappingDaysInRanges: __webpack_require__(/*! ./get_overlapping_days_in_ranges/index.js */ "./node_modules/date-fns/get_overlapping_days_in_ranges/index.js"),
+  getQuarter: __webpack_require__(/*! ./get_quarter/index.js */ "./node_modules/date-fns/get_quarter/index.js"),
+  getSeconds: __webpack_require__(/*! ./get_seconds/index.js */ "./node_modules/date-fns/get_seconds/index.js"),
+  getTime: __webpack_require__(/*! ./get_time/index.js */ "./node_modules/date-fns/get_time/index.js"),
+  getYear: __webpack_require__(/*! ./get_year/index.js */ "./node_modules/date-fns/get_year/index.js"),
+  isAfter: __webpack_require__(/*! ./is_after/index.js */ "./node_modules/date-fns/is_after/index.js"),
+  isBefore: __webpack_require__(/*! ./is_before/index.js */ "./node_modules/date-fns/is_before/index.js"),
+  isDate: __webpack_require__(/*! ./is_date/index.js */ "./node_modules/date-fns/is_date/index.js"),
+  isEqual: __webpack_require__(/*! ./is_equal/index.js */ "./node_modules/date-fns/is_equal/index.js"),
+  isFirstDayOfMonth: __webpack_require__(/*! ./is_first_day_of_month/index.js */ "./node_modules/date-fns/is_first_day_of_month/index.js"),
+  isFriday: __webpack_require__(/*! ./is_friday/index.js */ "./node_modules/date-fns/is_friday/index.js"),
+  isFuture: __webpack_require__(/*! ./is_future/index.js */ "./node_modules/date-fns/is_future/index.js"),
+  isLastDayOfMonth: __webpack_require__(/*! ./is_last_day_of_month/index.js */ "./node_modules/date-fns/is_last_day_of_month/index.js"),
+  isLeapYear: __webpack_require__(/*! ./is_leap_year/index.js */ "./node_modules/date-fns/is_leap_year/index.js"),
+  isMonday: __webpack_require__(/*! ./is_monday/index.js */ "./node_modules/date-fns/is_monday/index.js"),
+  isPast: __webpack_require__(/*! ./is_past/index.js */ "./node_modules/date-fns/is_past/index.js"),
+  isSameDay: __webpack_require__(/*! ./is_same_day/index.js */ "./node_modules/date-fns/is_same_day/index.js"),
+  isSameHour: __webpack_require__(/*! ./is_same_hour/index.js */ "./node_modules/date-fns/is_same_hour/index.js"),
+  isSameISOWeek: __webpack_require__(/*! ./is_same_iso_week/index.js */ "./node_modules/date-fns/is_same_iso_week/index.js"),
+  isSameISOYear: __webpack_require__(/*! ./is_same_iso_year/index.js */ "./node_modules/date-fns/is_same_iso_year/index.js"),
+  isSameMinute: __webpack_require__(/*! ./is_same_minute/index.js */ "./node_modules/date-fns/is_same_minute/index.js"),
+  isSameMonth: __webpack_require__(/*! ./is_same_month/index.js */ "./node_modules/date-fns/is_same_month/index.js"),
+  isSameQuarter: __webpack_require__(/*! ./is_same_quarter/index.js */ "./node_modules/date-fns/is_same_quarter/index.js"),
+  isSameSecond: __webpack_require__(/*! ./is_same_second/index.js */ "./node_modules/date-fns/is_same_second/index.js"),
+  isSameWeek: __webpack_require__(/*! ./is_same_week/index.js */ "./node_modules/date-fns/is_same_week/index.js"),
+  isSameYear: __webpack_require__(/*! ./is_same_year/index.js */ "./node_modules/date-fns/is_same_year/index.js"),
+  isSaturday: __webpack_require__(/*! ./is_saturday/index.js */ "./node_modules/date-fns/is_saturday/index.js"),
+  isSunday: __webpack_require__(/*! ./is_sunday/index.js */ "./node_modules/date-fns/is_sunday/index.js"),
+  isThisHour: __webpack_require__(/*! ./is_this_hour/index.js */ "./node_modules/date-fns/is_this_hour/index.js"),
+  isThisISOWeek: __webpack_require__(/*! ./is_this_iso_week/index.js */ "./node_modules/date-fns/is_this_iso_week/index.js"),
+  isThisISOYear: __webpack_require__(/*! ./is_this_iso_year/index.js */ "./node_modules/date-fns/is_this_iso_year/index.js"),
+  isThisMinute: __webpack_require__(/*! ./is_this_minute/index.js */ "./node_modules/date-fns/is_this_minute/index.js"),
+  isThisMonth: __webpack_require__(/*! ./is_this_month/index.js */ "./node_modules/date-fns/is_this_month/index.js"),
+  isThisQuarter: __webpack_require__(/*! ./is_this_quarter/index.js */ "./node_modules/date-fns/is_this_quarter/index.js"),
+  isThisSecond: __webpack_require__(/*! ./is_this_second/index.js */ "./node_modules/date-fns/is_this_second/index.js"),
+  isThisWeek: __webpack_require__(/*! ./is_this_week/index.js */ "./node_modules/date-fns/is_this_week/index.js"),
+  isThisYear: __webpack_require__(/*! ./is_this_year/index.js */ "./node_modules/date-fns/is_this_year/index.js"),
+  isThursday: __webpack_require__(/*! ./is_thursday/index.js */ "./node_modules/date-fns/is_thursday/index.js"),
+  isToday: __webpack_require__(/*! ./is_today/index.js */ "./node_modules/date-fns/is_today/index.js"),
+  isTomorrow: __webpack_require__(/*! ./is_tomorrow/index.js */ "./node_modules/date-fns/is_tomorrow/index.js"),
+  isTuesday: __webpack_require__(/*! ./is_tuesday/index.js */ "./node_modules/date-fns/is_tuesday/index.js"),
+  isValid: __webpack_require__(/*! ./is_valid/index.js */ "./node_modules/date-fns/is_valid/index.js"),
+  isWednesday: __webpack_require__(/*! ./is_wednesday/index.js */ "./node_modules/date-fns/is_wednesday/index.js"),
+  isWeekend: __webpack_require__(/*! ./is_weekend/index.js */ "./node_modules/date-fns/is_weekend/index.js"),
+  isWithinRange: __webpack_require__(/*! ./is_within_range/index.js */ "./node_modules/date-fns/is_within_range/index.js"),
+  isYesterday: __webpack_require__(/*! ./is_yesterday/index.js */ "./node_modules/date-fns/is_yesterday/index.js"),
+  lastDayOfISOWeek: __webpack_require__(/*! ./last_day_of_iso_week/index.js */ "./node_modules/date-fns/last_day_of_iso_week/index.js"),
+  lastDayOfISOYear: __webpack_require__(/*! ./last_day_of_iso_year/index.js */ "./node_modules/date-fns/last_day_of_iso_year/index.js"),
+  lastDayOfMonth: __webpack_require__(/*! ./last_day_of_month/index.js */ "./node_modules/date-fns/last_day_of_month/index.js"),
+  lastDayOfQuarter: __webpack_require__(/*! ./last_day_of_quarter/index.js */ "./node_modules/date-fns/last_day_of_quarter/index.js"),
+  lastDayOfWeek: __webpack_require__(/*! ./last_day_of_week/index.js */ "./node_modules/date-fns/last_day_of_week/index.js"),
+  lastDayOfYear: __webpack_require__(/*! ./last_day_of_year/index.js */ "./node_modules/date-fns/last_day_of_year/index.js"),
+  max: __webpack_require__(/*! ./max/index.js */ "./node_modules/date-fns/max/index.js"),
+  min: __webpack_require__(/*! ./min/index.js */ "./node_modules/date-fns/min/index.js"),
+  parse: __webpack_require__(/*! ./parse/index.js */ "./node_modules/date-fns/parse/index.js"),
+  setDate: __webpack_require__(/*! ./set_date/index.js */ "./node_modules/date-fns/set_date/index.js"),
+  setDay: __webpack_require__(/*! ./set_day/index.js */ "./node_modules/date-fns/set_day/index.js"),
+  setDayOfYear: __webpack_require__(/*! ./set_day_of_year/index.js */ "./node_modules/date-fns/set_day_of_year/index.js"),
+  setHours: __webpack_require__(/*! ./set_hours/index.js */ "./node_modules/date-fns/set_hours/index.js"),
+  setISODay: __webpack_require__(/*! ./set_iso_day/index.js */ "./node_modules/date-fns/set_iso_day/index.js"),
+  setISOWeek: __webpack_require__(/*! ./set_iso_week/index.js */ "./node_modules/date-fns/set_iso_week/index.js"),
+  setISOYear: __webpack_require__(/*! ./set_iso_year/index.js */ "./node_modules/date-fns/set_iso_year/index.js"),
+  setMilliseconds: __webpack_require__(/*! ./set_milliseconds/index.js */ "./node_modules/date-fns/set_milliseconds/index.js"),
+  setMinutes: __webpack_require__(/*! ./set_minutes/index.js */ "./node_modules/date-fns/set_minutes/index.js"),
+  setMonth: __webpack_require__(/*! ./set_month/index.js */ "./node_modules/date-fns/set_month/index.js"),
+  setQuarter: __webpack_require__(/*! ./set_quarter/index.js */ "./node_modules/date-fns/set_quarter/index.js"),
+  setSeconds: __webpack_require__(/*! ./set_seconds/index.js */ "./node_modules/date-fns/set_seconds/index.js"),
+  setYear: __webpack_require__(/*! ./set_year/index.js */ "./node_modules/date-fns/set_year/index.js"),
+  startOfDay: __webpack_require__(/*! ./start_of_day/index.js */ "./node_modules/date-fns/start_of_day/index.js"),
+  startOfHour: __webpack_require__(/*! ./start_of_hour/index.js */ "./node_modules/date-fns/start_of_hour/index.js"),
+  startOfISOWeek: __webpack_require__(/*! ./start_of_iso_week/index.js */ "./node_modules/date-fns/start_of_iso_week/index.js"),
+  startOfISOYear: __webpack_require__(/*! ./start_of_iso_year/index.js */ "./node_modules/date-fns/start_of_iso_year/index.js"),
+  startOfMinute: __webpack_require__(/*! ./start_of_minute/index.js */ "./node_modules/date-fns/start_of_minute/index.js"),
+  startOfMonth: __webpack_require__(/*! ./start_of_month/index.js */ "./node_modules/date-fns/start_of_month/index.js"),
+  startOfQuarter: __webpack_require__(/*! ./start_of_quarter/index.js */ "./node_modules/date-fns/start_of_quarter/index.js"),
+  startOfSecond: __webpack_require__(/*! ./start_of_second/index.js */ "./node_modules/date-fns/start_of_second/index.js"),
+  startOfToday: __webpack_require__(/*! ./start_of_today/index.js */ "./node_modules/date-fns/start_of_today/index.js"),
+  startOfTomorrow: __webpack_require__(/*! ./start_of_tomorrow/index.js */ "./node_modules/date-fns/start_of_tomorrow/index.js"),
+  startOfWeek: __webpack_require__(/*! ./start_of_week/index.js */ "./node_modules/date-fns/start_of_week/index.js"),
+  startOfYear: __webpack_require__(/*! ./start_of_year/index.js */ "./node_modules/date-fns/start_of_year/index.js"),
+  startOfYesterday: __webpack_require__(/*! ./start_of_yesterday/index.js */ "./node_modules/date-fns/start_of_yesterday/index.js"),
+  subDays: __webpack_require__(/*! ./sub_days/index.js */ "./node_modules/date-fns/sub_days/index.js"),
+  subHours: __webpack_require__(/*! ./sub_hours/index.js */ "./node_modules/date-fns/sub_hours/index.js"),
+  subISOYears: __webpack_require__(/*! ./sub_iso_years/index.js */ "./node_modules/date-fns/sub_iso_years/index.js"),
+  subMilliseconds: __webpack_require__(/*! ./sub_milliseconds/index.js */ "./node_modules/date-fns/sub_milliseconds/index.js"),
+  subMinutes: __webpack_require__(/*! ./sub_minutes/index.js */ "./node_modules/date-fns/sub_minutes/index.js"),
+  subMonths: __webpack_require__(/*! ./sub_months/index.js */ "./node_modules/date-fns/sub_months/index.js"),
+  subQuarters: __webpack_require__(/*! ./sub_quarters/index.js */ "./node_modules/date-fns/sub_quarters/index.js"),
+  subSeconds: __webpack_require__(/*! ./sub_seconds/index.js */ "./node_modules/date-fns/sub_seconds/index.js"),
+  subWeeks: __webpack_require__(/*! ./sub_weeks/index.js */ "./node_modules/date-fns/sub_weeks/index.js"),
+  subYears: __webpack_require__(/*! ./sub_years/index.js */ "./node_modules/date-fns/sub_years/index.js")
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_after/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/date-fns/is_after/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Is the first date after the second one?
+ *
+ * @description
+ * Is the first date after the second one?
+ *
+ * @param {Date|String|Number} date - the date that should be after the other one to return true
+ * @param {Date|String|Number} dateToCompare - the date to compare with
+ * @returns {Boolean} the first date is after the second date
+ *
+ * @example
+ * // Is 10 July 1989 after 11 February 1987?
+ * var result = isAfter(new Date(1989, 6, 10), new Date(1987, 1, 11))
+ * //=> true
+ */
+function isAfter (dirtyDate, dirtyDateToCompare) {
+  var date = parse(dirtyDate)
+  var dateToCompare = parse(dirtyDateToCompare)
+  return date.getTime() > dateToCompare.getTime()
+}
+
+module.exports = isAfter
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_before/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/is_before/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Is the first date before the second one?
+ *
+ * @description
+ * Is the first date before the second one?
+ *
+ * @param {Date|String|Number} date - the date that should be before the other one to return true
+ * @param {Date|String|Number} dateToCompare - the date to compare with
+ * @returns {Boolean} the first date is before the second date
+ *
+ * @example
+ * // Is 10 July 1989 before 11 February 1987?
+ * var result = isBefore(new Date(1989, 6, 10), new Date(1987, 1, 11))
+ * //=> false
+ */
+function isBefore (dirtyDate, dirtyDateToCompare) {
+  var date = parse(dirtyDate)
+  var dateToCompare = parse(dirtyDateToCompare)
+  return date.getTime() < dateToCompare.getTime()
+}
+
+module.exports = isBefore
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_date/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/date-fns/is_date/index.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * @category Common Helpers
+ * @summary Is the given argument an instance of Date?
+ *
+ * @description
+ * Is the given argument an instance of Date?
+ *
+ * @param {*} argument - the argument to check
+ * @returns {Boolean} the given argument is an instance of Date
+ *
+ * @example
+ * // Is 'mayonnaise' a Date?
+ * var result = isDate('mayonnaise')
+ * //=> false
+ */
+function isDate (argument) {
+  return argument instanceof Date
+}
+
+module.exports = isDate
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_equal/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/date-fns/is_equal/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Are the given dates equal?
+ *
+ * @description
+ * Are the given dates equal?
+ *
+ * @param {Date|String|Number} dateLeft - the first date to compare
+ * @param {Date|String|Number} dateRight - the second date to compare
+ * @returns {Boolean} the dates are equal
+ *
+ * @example
+ * // Are 2 July 2014 06:30:45.000 and 2 July 2014 06:30:45.500 equal?
+ * var result = isEqual(
+ *   new Date(2014, 6, 2, 6, 30, 45, 0)
+ *   new Date(2014, 6, 2, 6, 30, 45, 500)
+ * )
+ * //=> false
+ */
+function isEqual (dirtyLeftDate, dirtyRightDate) {
+  var dateLeft = parse(dirtyLeftDate)
+  var dateRight = parse(dirtyRightDate)
+  return dateLeft.getTime() === dateRight.getTime()
+}
+
+module.exports = isEqual
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_first_day_of_month/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/date-fns/is_first_day_of_month/index.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Is the given date the first day of a month?
+ *
+ * @description
+ * Is the given date the first day of a month?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is the first day of a month
+ *
+ * @example
+ * // Is 1 September 2014 the first day of a month?
+ * var result = isFirstDayOfMonth(new Date(2014, 8, 1))
+ * //=> true
+ */
+function isFirstDayOfMonth (dirtyDate) {
+  return parse(dirtyDate).getDate() === 1
+}
+
+module.exports = isFirstDayOfMonth
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_friday/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/is_friday/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Weekday Helpers
+ * @summary Is the given date Friday?
+ *
+ * @description
+ * Is the given date Friday?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is Friday
+ *
+ * @example
+ * // Is 26 September 2014 Friday?
+ * var result = isFriday(new Date(2014, 8, 26))
+ * //=> true
+ */
+function isFriday (dirtyDate) {
+  return parse(dirtyDate).getDay() === 5
+}
+
+module.exports = isFriday
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_future/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/is_future/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Is the given date in the future?
+ *
+ * @description
+ * Is the given date in the future?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is in the future
+ *
+ * @example
+ * // If today is 6 October 2014, is 31 December 2014 in the future?
+ * var result = isFuture(new Date(2014, 11, 31))
+ * //=> true
+ */
+function isFuture (dirtyDate) {
+  return parse(dirtyDate).getTime() > new Date().getTime()
+}
+
+module.exports = isFuture
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_last_day_of_month/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/date-fns/is_last_day_of_month/index.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var endOfDay = __webpack_require__(/*! ../end_of_day/index.js */ "./node_modules/date-fns/end_of_day/index.js")
+var endOfMonth = __webpack_require__(/*! ../end_of_month/index.js */ "./node_modules/date-fns/end_of_month/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Is the given date the last day of a month?
+ *
+ * @description
+ * Is the given date the last day of a month?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is the last day of a month
+ *
+ * @example
+ * // Is 28 February 2014 the last day of a month?
+ * var result = isLastDayOfMonth(new Date(2014, 1, 28))
+ * //=> true
+ */
+function isLastDayOfMonth (dirtyDate) {
+  var date = parse(dirtyDate)
+  return endOfDay(date).getTime() === endOfMonth(date).getTime()
+}
+
+module.exports = isLastDayOfMonth
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_leap_year/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/is_leap_year/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Year Helpers
+ * @summary Is the given date in the leap year?
+ *
+ * @description
+ * Is the given date in the leap year?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is in the leap year
+ *
+ * @example
+ * // Is 1 September 2012 in the leap year?
+ * var result = isLeapYear(new Date(2012, 8, 1))
+ * //=> true
+ */
+function isLeapYear (dirtyDate) {
+  var date = parse(dirtyDate)
+  var year = date.getFullYear()
+  return year % 400 === 0 || year % 4 === 0 && year % 100 !== 0
+}
+
+module.exports = isLeapYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_monday/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/is_monday/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Weekday Helpers
+ * @summary Is the given date Monday?
+ *
+ * @description
+ * Is the given date Monday?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is Monday
+ *
+ * @example
+ * // Is 22 September 2014 Monday?
+ * var result = isMonday(new Date(2014, 8, 22))
+ * //=> true
+ */
+function isMonday (dirtyDate) {
+  return parse(dirtyDate).getDay() === 1
+}
+
+module.exports = isMonday
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_past/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/date-fns/is_past/index.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Is the given date in the past?
+ *
+ * @description
+ * Is the given date in the past?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is in the past
+ *
+ * @example
+ * // If today is 6 October 2014, is 2 July 2014 in the past?
+ * var result = isPast(new Date(2014, 6, 2))
+ * //=> true
+ */
+function isPast (dirtyDate) {
+  return parse(dirtyDate).getTime() < new Date().getTime()
+}
+
+module.exports = isPast
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_same_day/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/is_same_day/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfDay = __webpack_require__(/*! ../start_of_day/index.js */ "./node_modules/date-fns/start_of_day/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Are the given dates in the same day?
+ *
+ * @description
+ * Are the given dates in the same day?
+ *
+ * @param {Date|String|Number} dateLeft - the first date to check
+ * @param {Date|String|Number} dateRight - the second date to check
+ * @returns {Boolean} the dates are in the same day
+ *
+ * @example
+ * // Are 4 September 06:00:00 and 4 September 18:00:00 in the same day?
+ * var result = isSameDay(
+ *   new Date(2014, 8, 4, 6, 0),
+ *   new Date(2014, 8, 4, 18, 0)
+ * )
+ * //=> true
+ */
+function isSameDay (dirtyDateLeft, dirtyDateRight) {
+  var dateLeftStartOfDay = startOfDay(dirtyDateLeft)
+  var dateRightStartOfDay = startOfDay(dirtyDateRight)
+
+  return dateLeftStartOfDay.getTime() === dateRightStartOfDay.getTime()
+}
+
+module.exports = isSameDay
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_same_hour/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/is_same_hour/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfHour = __webpack_require__(/*! ../start_of_hour/index.js */ "./node_modules/date-fns/start_of_hour/index.js")
+
+/**
+ * @category Hour Helpers
+ * @summary Are the given dates in the same hour?
+ *
+ * @description
+ * Are the given dates in the same hour?
+ *
+ * @param {Date|String|Number} dateLeft - the first date to check
+ * @param {Date|String|Number} dateRight - the second date to check
+ * @returns {Boolean} the dates are in the same hour
+ *
+ * @example
+ * // Are 4 September 2014 06:00:00 and 4 September 06:30:00 in the same hour?
+ * var result = isSameHour(
+ *   new Date(2014, 8, 4, 6, 0),
+ *   new Date(2014, 8, 4, 6, 30)
+ * )
+ * //=> true
+ */
+function isSameHour (dirtyDateLeft, dirtyDateRight) {
+  var dateLeftStartOfHour = startOfHour(dirtyDateLeft)
+  var dateRightStartOfHour = startOfHour(dirtyDateRight)
+
+  return dateLeftStartOfHour.getTime() === dateRightStartOfHour.getTime()
+}
+
+module.exports = isSameHour
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_same_iso_week/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/is_same_iso_week/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isSameWeek = __webpack_require__(/*! ../is_same_week/index.js */ "./node_modules/date-fns/is_same_week/index.js")
+
+/**
+ * @category ISO Week Helpers
+ * @summary Are the given dates in the same ISO week?
+ *
+ * @description
+ * Are the given dates in the same ISO week?
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} dateLeft - the first date to check
+ * @param {Date|String|Number} dateRight - the second date to check
+ * @returns {Boolean} the dates are in the same ISO week
+ *
+ * @example
+ * // Are 1 September 2014 and 7 September 2014 in the same ISO week?
+ * var result = isSameISOWeek(
+ *   new Date(2014, 8, 1),
+ *   new Date(2014, 8, 7)
+ * )
+ * //=> true
+ */
+function isSameISOWeek (dirtyDateLeft, dirtyDateRight) {
+  return isSameWeek(dirtyDateLeft, dirtyDateRight, {weekStartsOn: 1})
+}
+
+module.exports = isSameISOWeek
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_same_iso_year/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/is_same_iso_year/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfISOYear = __webpack_require__(/*! ../start_of_iso_year/index.js */ "./node_modules/date-fns/start_of_iso_year/index.js")
+
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Are the given dates in the same ISO week-numbering year?
+ *
+ * @description
+ * Are the given dates in the same ISO week-numbering year?
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} dateLeft - the first date to check
+ * @param {Date|String|Number} dateRight - the second date to check
+ * @returns {Boolean} the dates are in the same ISO week-numbering year
+ *
+ * @example
+ * // Are 29 December 2003 and 2 January 2005 in the same ISO week-numbering year?
+ * var result = isSameISOYear(
+ *   new Date(2003, 11, 29),
+ *   new Date(2005, 0, 2)
+ * )
+ * //=> true
+ */
+function isSameISOYear (dirtyDateLeft, dirtyDateRight) {
+  var dateLeftStartOfYear = startOfISOYear(dirtyDateLeft)
+  var dateRightStartOfYear = startOfISOYear(dirtyDateRight)
+
+  return dateLeftStartOfYear.getTime() === dateRightStartOfYear.getTime()
+}
+
+module.exports = isSameISOYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_same_minute/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/date-fns/is_same_minute/index.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfMinute = __webpack_require__(/*! ../start_of_minute/index.js */ "./node_modules/date-fns/start_of_minute/index.js")
+
+/**
+ * @category Minute Helpers
+ * @summary Are the given dates in the same minute?
+ *
+ * @description
+ * Are the given dates in the same minute?
+ *
+ * @param {Date|String|Number} dateLeft - the first date to check
+ * @param {Date|String|Number} dateRight - the second date to check
+ * @returns {Boolean} the dates are in the same minute
+ *
+ * @example
+ * // Are 4 September 2014 06:30:00 and 4 September 2014 06:30:15
+ * // in the same minute?
+ * var result = isSameMinute(
+ *   new Date(2014, 8, 4, 6, 30),
+ *   new Date(2014, 8, 4, 6, 30, 15)
+ * )
+ * //=> true
+ */
+function isSameMinute (dirtyDateLeft, dirtyDateRight) {
+  var dateLeftStartOfMinute = startOfMinute(dirtyDateLeft)
+  var dateRightStartOfMinute = startOfMinute(dirtyDateRight)
+
+  return dateLeftStartOfMinute.getTime() === dateRightStartOfMinute.getTime()
+}
+
+module.exports = isSameMinute
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_same_month/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/date-fns/is_same_month/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Are the given dates in the same month?
+ *
+ * @description
+ * Are the given dates in the same month?
+ *
+ * @param {Date|String|Number} dateLeft - the first date to check
+ * @param {Date|String|Number} dateRight - the second date to check
+ * @returns {Boolean} the dates are in the same month
+ *
+ * @example
+ * // Are 2 September 2014 and 25 September 2014 in the same month?
+ * var result = isSameMonth(
+ *   new Date(2014, 8, 2),
+ *   new Date(2014, 8, 25)
+ * )
+ * //=> true
+ */
+function isSameMonth (dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft)
+  var dateRight = parse(dirtyDateRight)
+  return dateLeft.getFullYear() === dateRight.getFullYear() &&
+    dateLeft.getMonth() === dateRight.getMonth()
+}
+
+module.exports = isSameMonth
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_same_quarter/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/date-fns/is_same_quarter/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfQuarter = __webpack_require__(/*! ../start_of_quarter/index.js */ "./node_modules/date-fns/start_of_quarter/index.js")
+
+/**
+ * @category Quarter Helpers
+ * @summary Are the given dates in the same year quarter?
+ *
+ * @description
+ * Are the given dates in the same year quarter?
+ *
+ * @param {Date|String|Number} dateLeft - the first date to check
+ * @param {Date|String|Number} dateRight - the second date to check
+ * @returns {Boolean} the dates are in the same quarter
+ *
+ * @example
+ * // Are 1 January 2014 and 8 March 2014 in the same quarter?
+ * var result = isSameQuarter(
+ *   new Date(2014, 0, 1),
+ *   new Date(2014, 2, 8)
+ * )
+ * //=> true
+ */
+function isSameQuarter (dirtyDateLeft, dirtyDateRight) {
+  var dateLeftStartOfQuarter = startOfQuarter(dirtyDateLeft)
+  var dateRightStartOfQuarter = startOfQuarter(dirtyDateRight)
+
+  return dateLeftStartOfQuarter.getTime() === dateRightStartOfQuarter.getTime()
+}
+
+module.exports = isSameQuarter
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_same_second/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/date-fns/is_same_second/index.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfSecond = __webpack_require__(/*! ../start_of_second/index.js */ "./node_modules/date-fns/start_of_second/index.js")
+
+/**
+ * @category Second Helpers
+ * @summary Are the given dates in the same second?
+ *
+ * @description
+ * Are the given dates in the same second?
+ *
+ * @param {Date|String|Number} dateLeft - the first date to check
+ * @param {Date|String|Number} dateRight - the second date to check
+ * @returns {Boolean} the dates are in the same second
+ *
+ * @example
+ * // Are 4 September 2014 06:30:15.000 and 4 September 2014 06:30.15.500
+ * // in the same second?
+ * var result = isSameSecond(
+ *   new Date(2014, 8, 4, 6, 30, 15),
+ *   new Date(2014, 8, 4, 6, 30, 15, 500)
+ * )
+ * //=> true
+ */
+function isSameSecond (dirtyDateLeft, dirtyDateRight) {
+  var dateLeftStartOfSecond = startOfSecond(dirtyDateLeft)
+  var dateRightStartOfSecond = startOfSecond(dirtyDateRight)
+
+  return dateLeftStartOfSecond.getTime() === dateRightStartOfSecond.getTime()
+}
+
+module.exports = isSameSecond
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_same_week/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/is_same_week/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfWeek = __webpack_require__(/*! ../start_of_week/index.js */ "./node_modules/date-fns/start_of_week/index.js")
+
+/**
+ * @category Week Helpers
+ * @summary Are the given dates in the same week?
+ *
+ * @description
+ * Are the given dates in the same week?
+ *
+ * @param {Date|String|Number} dateLeft - the first date to check
+ * @param {Date|String|Number} dateRight - the second date to check
+ * @param {Object} [options] - the object with options
+ * @param {Number} [options.weekStartsOn=0] - the index of the first day of the week (0 - Sunday)
+ * @returns {Boolean} the dates are in the same week
+ *
+ * @example
+ * // Are 31 August 2014 and 4 September 2014 in the same week?
+ * var result = isSameWeek(
+ *   new Date(2014, 7, 31),
+ *   new Date(2014, 8, 4)
+ * )
+ * //=> true
+ *
+ * @example
+ * // If week starts with Monday,
+ * // are 31 August 2014 and 4 September 2014 in the same week?
+ * var result = isSameWeek(
+ *   new Date(2014, 7, 31),
+ *   new Date(2014, 8, 4),
+ *   {weekStartsOn: 1}
+ * )
+ * //=> false
+ */
+function isSameWeek (dirtyDateLeft, dirtyDateRight, dirtyOptions) {
+  var dateLeftStartOfWeek = startOfWeek(dirtyDateLeft, dirtyOptions)
+  var dateRightStartOfWeek = startOfWeek(dirtyDateRight, dirtyOptions)
+
+  return dateLeftStartOfWeek.getTime() === dateRightStartOfWeek.getTime()
+}
+
+module.exports = isSameWeek
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_same_year/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/is_same_year/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Year Helpers
+ * @summary Are the given dates in the same year?
+ *
+ * @description
+ * Are the given dates in the same year?
+ *
+ * @param {Date|String|Number} dateLeft - the first date to check
+ * @param {Date|String|Number} dateRight - the second date to check
+ * @returns {Boolean} the dates are in the same year
+ *
+ * @example
+ * // Are 2 September 2014 and 25 September 2014 in the same year?
+ * var result = isSameYear(
+ *   new Date(2014, 8, 2),
+ *   new Date(2014, 8, 25)
+ * )
+ * //=> true
+ */
+function isSameYear (dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft)
+  var dateRight = parse(dirtyDateRight)
+  return dateLeft.getFullYear() === dateRight.getFullYear()
+}
+
+module.exports = isSameYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_saturday/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/is_saturday/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Weekday Helpers
+ * @summary Is the given date Saturday?
+ *
+ * @description
+ * Is the given date Saturday?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is Saturday
+ *
+ * @example
+ * // Is 27 September 2014 Saturday?
+ * var result = isSaturday(new Date(2014, 8, 27))
+ * //=> true
+ */
+function isSaturday (dirtyDate) {
+  return parse(dirtyDate).getDay() === 6
+}
+
+module.exports = isSaturday
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_sunday/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/is_sunday/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Weekday Helpers
+ * @summary Is the given date Sunday?
+ *
+ * @description
+ * Is the given date Sunday?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is Sunday
+ *
+ * @example
+ * // Is 21 September 2014 Sunday?
+ * var result = isSunday(new Date(2014, 8, 21))
+ * //=> true
+ */
+function isSunday (dirtyDate) {
+  return parse(dirtyDate).getDay() === 0
+}
+
+module.exports = isSunday
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_this_hour/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/is_this_hour/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isSameHour = __webpack_require__(/*! ../is_same_hour/index.js */ "./node_modules/date-fns/is_same_hour/index.js")
+
+/**
+ * @category Hour Helpers
+ * @summary Is the given date in the same hour as the current date?
+ *
+ * @description
+ * Is the given date in the same hour as the current date?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is in this hour
+ *
+ * @example
+ * // If now is 25 September 2014 18:30:15.500,
+ * // is 25 September 2014 18:00:00 in this hour?
+ * var result = isThisHour(new Date(2014, 8, 25, 18))
+ * //=> true
+ */
+function isThisHour (dirtyDate) {
+  return isSameHour(new Date(), dirtyDate)
+}
+
+module.exports = isThisHour
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_this_iso_week/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/is_this_iso_week/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isSameISOWeek = __webpack_require__(/*! ../is_same_iso_week/index.js */ "./node_modules/date-fns/is_same_iso_week/index.js")
+
+/**
+ * @category ISO Week Helpers
+ * @summary Is the given date in the same ISO week as the current date?
+ *
+ * @description
+ * Is the given date in the same ISO week as the current date?
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is in this ISO week
+ *
+ * @example
+ * // If today is 25 September 2014, is 22 September 2014 in this ISO week?
+ * var result = isThisISOWeek(new Date(2014, 8, 22))
+ * //=> true
+ */
+function isThisISOWeek (dirtyDate) {
+  return isSameISOWeek(new Date(), dirtyDate)
+}
+
+module.exports = isThisISOWeek
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_this_iso_year/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/is_this_iso_year/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isSameISOYear = __webpack_require__(/*! ../is_same_iso_year/index.js */ "./node_modules/date-fns/is_same_iso_year/index.js")
+
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Is the given date in the same ISO week-numbering year as the current date?
+ *
+ * @description
+ * Is the given date in the same ISO week-numbering year as the current date?
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is in this ISO week-numbering year
+ *
+ * @example
+ * // If today is 25 September 2014,
+ * // is 30 December 2013 in this ISO week-numbering year?
+ * var result = isThisISOYear(new Date(2013, 11, 30))
+ * //=> true
+ */
+function isThisISOYear (dirtyDate) {
+  return isSameISOYear(new Date(), dirtyDate)
+}
+
+module.exports = isThisISOYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_this_minute/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/date-fns/is_this_minute/index.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isSameMinute = __webpack_require__(/*! ../is_same_minute/index.js */ "./node_modules/date-fns/is_same_minute/index.js")
+
+/**
+ * @category Minute Helpers
+ * @summary Is the given date in the same minute as the current date?
+ *
+ * @description
+ * Is the given date in the same minute as the current date?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is in this minute
+ *
+ * @example
+ * // If now is 25 September 2014 18:30:15.500,
+ * // is 25 September 2014 18:30:00 in this minute?
+ * var result = isThisMinute(new Date(2014, 8, 25, 18, 30))
+ * //=> true
+ */
+function isThisMinute (dirtyDate) {
+  return isSameMinute(new Date(), dirtyDate)
+}
+
+module.exports = isThisMinute
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_this_month/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/date-fns/is_this_month/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isSameMonth = __webpack_require__(/*! ../is_same_month/index.js */ "./node_modules/date-fns/is_same_month/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Is the given date in the same month as the current date?
+ *
+ * @description
+ * Is the given date in the same month as the current date?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is in this month
+ *
+ * @example
+ * // If today is 25 September 2014, is 15 September 2014 in this month?
+ * var result = isThisMonth(new Date(2014, 8, 15))
+ * //=> true
+ */
+function isThisMonth (dirtyDate) {
+  return isSameMonth(new Date(), dirtyDate)
+}
+
+module.exports = isThisMonth
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_this_quarter/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/date-fns/is_this_quarter/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isSameQuarter = __webpack_require__(/*! ../is_same_quarter/index.js */ "./node_modules/date-fns/is_same_quarter/index.js")
+
+/**
+ * @category Quarter Helpers
+ * @summary Is the given date in the same quarter as the current date?
+ *
+ * @description
+ * Is the given date in the same quarter as the current date?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is in this quarter
+ *
+ * @example
+ * // If today is 25 September 2014, is 2 July 2014 in this quarter?
+ * var result = isThisQuarter(new Date(2014, 6, 2))
+ * //=> true
+ */
+function isThisQuarter (dirtyDate) {
+  return isSameQuarter(new Date(), dirtyDate)
+}
+
+module.exports = isThisQuarter
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_this_second/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/date-fns/is_this_second/index.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isSameSecond = __webpack_require__(/*! ../is_same_second/index.js */ "./node_modules/date-fns/is_same_second/index.js")
+
+/**
+ * @category Second Helpers
+ * @summary Is the given date in the same second as the current date?
+ *
+ * @description
+ * Is the given date in the same second as the current date?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is in this second
+ *
+ * @example
+ * // If now is 25 September 2014 18:30:15.500,
+ * // is 25 September 2014 18:30:15.000 in this second?
+ * var result = isThisSecond(new Date(2014, 8, 25, 18, 30, 15))
+ * //=> true
+ */
+function isThisSecond (dirtyDate) {
+  return isSameSecond(new Date(), dirtyDate)
+}
+
+module.exports = isThisSecond
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_this_week/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/is_this_week/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isSameWeek = __webpack_require__(/*! ../is_same_week/index.js */ "./node_modules/date-fns/is_same_week/index.js")
+
+/**
+ * @category Week Helpers
+ * @summary Is the given date in the same week as the current date?
+ *
+ * @description
+ * Is the given date in the same week as the current date?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @param {Object} [options] - the object with options
+ * @param {Number} [options.weekStartsOn=0] - the index of the first day of the week (0 - Sunday)
+ * @returns {Boolean} the date is in this week
+ *
+ * @example
+ * // If today is 25 September 2014, is 21 September 2014 in this week?
+ * var result = isThisWeek(new Date(2014, 8, 21))
+ * //=> true
+ *
+ * @example
+ * // If today is 25 September 2014 and week starts with Monday
+ * // is 21 September 2014 in this week?
+ * var result = isThisWeek(new Date(2014, 8, 21), {weekStartsOn: 1})
+ * //=> false
+ */
+function isThisWeek (dirtyDate, dirtyOptions) {
+  return isSameWeek(new Date(), dirtyDate, dirtyOptions)
+}
+
+module.exports = isThisWeek
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_this_year/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/is_this_year/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isSameYear = __webpack_require__(/*! ../is_same_year/index.js */ "./node_modules/date-fns/is_same_year/index.js")
+
+/**
+ * @category Year Helpers
+ * @summary Is the given date in the same year as the current date?
+ *
+ * @description
+ * Is the given date in the same year as the current date?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is in this year
+ *
+ * @example
+ * // If today is 25 September 2014, is 2 July 2014 in this year?
+ * var result = isThisYear(new Date(2014, 6, 2))
+ * //=> true
+ */
+function isThisYear (dirtyDate) {
+  return isSameYear(new Date(), dirtyDate)
+}
+
+module.exports = isThisYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_thursday/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/is_thursday/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Weekday Helpers
+ * @summary Is the given date Thursday?
+ *
+ * @description
+ * Is the given date Thursday?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is Thursday
+ *
+ * @example
+ * // Is 25 September 2014 Thursday?
+ * var result = isThursday(new Date(2014, 8, 25))
+ * //=> true
+ */
+function isThursday (dirtyDate) {
+  return parse(dirtyDate).getDay() === 4
+}
+
+module.exports = isThursday
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_today/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/date-fns/is_today/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfDay = __webpack_require__(/*! ../start_of_day/index.js */ "./node_modules/date-fns/start_of_day/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Is the given date today?
+ *
+ * @description
+ * Is the given date today?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is today
+ *
+ * @example
+ * // If today is 6 October 2014, is 6 October 14:00:00 today?
+ * var result = isToday(new Date(2014, 9, 6, 14, 0))
+ * //=> true
+ */
+function isToday (dirtyDate) {
+  return startOfDay(dirtyDate).getTime() === startOfDay(new Date()).getTime()
+}
+
+module.exports = isToday
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_tomorrow/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/is_tomorrow/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfDay = __webpack_require__(/*! ../start_of_day/index.js */ "./node_modules/date-fns/start_of_day/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Is the given date tomorrow?
+ *
+ * @description
+ * Is the given date tomorrow?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is tomorrow
+ *
+ * @example
+ * // If today is 6 October 2014, is 7 October 14:00:00 tomorrow?
+ * var result = isTomorrow(new Date(2014, 9, 7, 14, 0))
+ * //=> true
+ */
+function isTomorrow (dirtyDate) {
+  var tomorrow = new Date()
+  tomorrow.setDate(tomorrow.getDate() + 1)
+  return startOfDay(dirtyDate).getTime() === startOfDay(tomorrow).getTime()
+}
+
+module.exports = isTomorrow
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_tuesday/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/date-fns/is_tuesday/index.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Weekday Helpers
+ * @summary Is the given date Tuesday?
+ *
+ * @description
+ * Is the given date Tuesday?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is Tuesday
+ *
+ * @example
+ * // Is 23 September 2014 Tuesday?
+ * var result = isTuesday(new Date(2014, 8, 23))
+ * //=> true
+ */
+function isTuesday (dirtyDate) {
+  return parse(dirtyDate).getDay() === 2
+}
+
+module.exports = isTuesday
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_valid/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/date-fns/is_valid/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isDate = __webpack_require__(/*! ../is_date/index.js */ "./node_modules/date-fns/is_date/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Is the given date valid?
+ *
+ * @description
+ * Returns false if argument is Invalid Date and true otherwise.
+ * Invalid Date is a Date, whose time value is NaN.
+ *
+ * Time value of Date: http://es5.github.io/#x15.9.1.1
+ *
+ * @param {Date} date - the date to check
+ * @returns {Boolean} the date is valid
+ * @throws {TypeError} argument must be an instance of Date
+ *
+ * @example
+ * // For the valid date:
+ * var result = isValid(new Date(2014, 1, 31))
+ * //=> true
+ *
+ * @example
+ * // For the invalid date:
+ * var result = isValid(new Date(''))
+ * //=> false
+ */
+function isValid (dirtyDate) {
+  if (isDate(dirtyDate)) {
+    return !isNaN(dirtyDate)
+  } else {
+    throw new TypeError(toString.call(dirtyDate) + ' is not an instance of Date')
+  }
+}
+
+module.exports = isValid
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_wednesday/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/is_wednesday/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Weekday Helpers
+ * @summary Is the given date Wednesday?
+ *
+ * @description
+ * Is the given date Wednesday?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is Wednesday
+ *
+ * @example
+ * // Is 24 September 2014 Wednesday?
+ * var result = isWednesday(new Date(2014, 8, 24))
+ * //=> true
+ */
+function isWednesday (dirtyDate) {
+  return parse(dirtyDate).getDay() === 3
+}
+
+module.exports = isWednesday
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_weekend/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/date-fns/is_weekend/index.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Weekday Helpers
+ * @summary Does the given date fall on a weekend?
+ *
+ * @description
+ * Does the given date fall on a weekend?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date falls on a weekend
+ *
+ * @example
+ * // Does 5 October 2014 fall on a weekend?
+ * var result = isWeekend(new Date(2014, 9, 5))
+ * //=> true
+ */
+function isWeekend (dirtyDate) {
+  var date = parse(dirtyDate)
+  var day = date.getDay()
+  return day === 0 || day === 6
+}
+
+module.exports = isWeekend
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_within_range/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/date-fns/is_within_range/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Range Helpers
+ * @summary Is the given date within the range?
+ *
+ * @description
+ * Is the given date within the range?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @param {Date|String|Number} startDate - the start of range
+ * @param {Date|String|Number} endDate - the end of range
+ * @returns {Boolean} the date is within the range
+ * @throws {Error} startDate cannot be after endDate
+ *
+ * @example
+ * // For the date within the range:
+ * isWithinRange(
+ *   new Date(2014, 0, 3), new Date(2014, 0, 1), new Date(2014, 0, 7)
+ * )
+ * //=> true
+ *
+ * @example
+ * // For the date outside of the range:
+ * isWithinRange(
+ *   new Date(2014, 0, 10), new Date(2014, 0, 1), new Date(2014, 0, 7)
+ * )
+ * //=> false
+ */
+function isWithinRange (dirtyDate, dirtyStartDate, dirtyEndDate) {
+  var time = parse(dirtyDate).getTime()
+  var startTime = parse(dirtyStartDate).getTime()
+  var endTime = parse(dirtyEndDate).getTime()
+
+  if (startTime > endTime) {
+    throw new Error('The start of the range cannot be after the end of the range')
+  }
+
+  return time >= startTime && time <= endTime
+}
+
+module.exports = isWithinRange
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/is_yesterday/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/is_yesterday/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfDay = __webpack_require__(/*! ../start_of_day/index.js */ "./node_modules/date-fns/start_of_day/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Is the given date yesterday?
+ *
+ * @description
+ * Is the given date yesterday?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is yesterday
+ *
+ * @example
+ * // If today is 6 October 2014, is 5 October 14:00:00 yesterday?
+ * var result = isYesterday(new Date(2014, 9, 5, 14, 0))
+ * //=> true
+ */
+function isYesterday (dirtyDate) {
+  var yesterday = new Date()
+  yesterday.setDate(yesterday.getDate() - 1)
+  return startOfDay(dirtyDate).getTime() === startOfDay(yesterday).getTime()
+}
+
+module.exports = isYesterday
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/last_day_of_iso_week/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/date-fns/last_day_of_iso_week/index.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var lastDayOfWeek = __webpack_require__(/*! ../last_day_of_week/index.js */ "./node_modules/date-fns/last_day_of_week/index.js")
+
+/**
+ * @category ISO Week Helpers
+ * @summary Return the last day of an ISO week for the given date.
+ *
+ * @description
+ * Return the last day of an ISO week for the given date.
+ * The result will be in the local timezone.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the last day of an ISO week
+ *
+ * @example
+ * // The last day of an ISO week for 2 September 2014 11:55:00:
+ * var result = lastDayOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Sun Sep 07 2014 00:00:00
+ */
+function lastDayOfISOWeek (dirtyDate) {
+  return lastDayOfWeek(dirtyDate, {weekStartsOn: 1})
+}
+
+module.exports = lastDayOfISOWeek
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/last_day_of_iso_year/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/date-fns/last_day_of_iso_year/index.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getISOYear = __webpack_require__(/*! ../get_iso_year/index.js */ "./node_modules/date-fns/get_iso_year/index.js")
+var startOfISOWeek = __webpack_require__(/*! ../start_of_iso_week/index.js */ "./node_modules/date-fns/start_of_iso_week/index.js")
+
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Return the last day of an ISO week-numbering year for the given date.
+ *
+ * @description
+ * Return the last day of an ISO week-numbering year,
+ * which always starts 3 days before the year's first Thursday.
+ * The result will be in the local timezone.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the end of an ISO week-numbering year
+ *
+ * @example
+ * // The last day of an ISO week-numbering year for 2 July 2005:
+ * var result = lastDayOfISOYear(new Date(2005, 6, 2))
+ * //=> Sun Jan 01 2006 00:00:00
+ */
+function lastDayOfISOYear (dirtyDate) {
+  var year = getISOYear(dirtyDate)
+  var fourthOfJanuary = new Date(0)
+  fourthOfJanuary.setFullYear(year + 1, 0, 4)
+  fourthOfJanuary.setHours(0, 0, 0, 0)
+  var date = startOfISOWeek(fourthOfJanuary)
+  date.setDate(date.getDate() - 1)
+  return date
+}
+
+module.exports = lastDayOfISOYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/last_day_of_month/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/date-fns/last_day_of_month/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Return the last day of a month for the given date.
+ *
+ * @description
+ * Return the last day of a month for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the last day of a month
+ *
+ * @example
+ * // The last day of a month for 2 September 2014 11:55:00:
+ * var result = lastDayOfMonth(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Tue Sep 30 2014 00:00:00
+ */
+function lastDayOfMonth (dirtyDate) {
+  var date = parse(dirtyDate)
+  var month = date.getMonth()
+  date.setFullYear(date.getFullYear(), month + 1, 0)
+  date.setHours(0, 0, 0, 0)
+  return date
+}
+
+module.exports = lastDayOfMonth
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/last_day_of_quarter/index.js":
+/*!************************************************************!*\
+  !*** ./node_modules/date-fns/last_day_of_quarter/index.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Quarter Helpers
+ * @summary Return the last day of a year quarter for the given date.
+ *
+ * @description
+ * Return the last day of a year quarter for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the last day of a quarter
+ *
+ * @example
+ * // The last day of a quarter for 2 September 2014 11:55:00:
+ * var result = lastDayOfQuarter(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Tue Sep 30 2014 00:00:00
+ */
+function lastDayOfQuarter (dirtyDate) {
+  var date = parse(dirtyDate)
+  var currentMonth = date.getMonth()
+  var month = currentMonth - currentMonth % 3 + 3
+  date.setMonth(month, 0)
+  date.setHours(0, 0, 0, 0)
+  return date
+}
+
+module.exports = lastDayOfQuarter
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/last_day_of_week/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/last_day_of_week/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Week Helpers
+ * @summary Return the last day of a week for the given date.
+ *
+ * @description
+ * Return the last day of a week for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @param {Object} [options] - the object with options
+ * @param {Number} [options.weekStartsOn=0] - the index of the first day of the week (0 - Sunday)
+ * @returns {Date} the last day of a week
+ *
+ * @example
+ * // The last day of a week for 2 September 2014 11:55:00:
+ * var result = lastDayOfWeek(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Sat Sep 06 2014 00:00:00
+ *
+ * @example
+ * // If the week starts on Monday, the last day of the week for 2 September 2014 11:55:00:
+ * var result = lastDayOfWeek(new Date(2014, 8, 2, 11, 55, 0), {weekStartsOn: 1})
+ * //=> Sun Sep 07 2014 00:00:00
+ */
+function lastDayOfWeek (dirtyDate, dirtyOptions) {
+  var weekStartsOn = dirtyOptions ? (Number(dirtyOptions.weekStartsOn) || 0) : 0
+
+  var date = parse(dirtyDate)
+  var day = date.getDay()
+  var diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn)
+
+  date.setHours(0, 0, 0, 0)
+  date.setDate(date.getDate() + diff)
+  return date
+}
+
+module.exports = lastDayOfWeek
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/last_day_of_year/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/last_day_of_year/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Year Helpers
+ * @summary Return the last day of a year for the given date.
+ *
+ * @description
+ * Return the last day of a year for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the last day of a year
+ *
+ * @example
+ * // The last day of a year for 2 September 2014 11:55:00:
+ * var result = lastDayOfYear(new Date(2014, 8, 2, 11, 55, 00))
+ * //=> Wed Dec 31 2014 00:00:00
+ */
+function lastDayOfYear (dirtyDate) {
+  var date = parse(dirtyDate)
+  var year = date.getFullYear()
+  date.setFullYear(year + 1, 0, 0)
+  date.setHours(0, 0, 0, 0)
+  return date
+}
+
+module.exports = lastDayOfYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/locale/_lib/build_formatting_tokens_reg_exp/index.js":
+/*!************************************************************************************!*\
+  !*** ./node_modules/date-fns/locale/_lib/build_formatting_tokens_reg_exp/index.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var commonFormatterKeys = [
+  'M', 'MM', 'Q', 'D', 'DD', 'DDD', 'DDDD', 'd',
+  'E', 'W', 'WW', 'YY', 'YYYY', 'GG', 'GGGG',
+  'H', 'HH', 'h', 'hh', 'm', 'mm',
+  's', 'ss', 'S', 'SS', 'SSS',
+  'Z', 'ZZ', 'X', 'x'
+]
+
+function buildFormattingTokensRegExp (formatters) {
+  var formatterKeys = []
+  for (var key in formatters) {
+    if (formatters.hasOwnProperty(key)) {
+      formatterKeys.push(key)
+    }
+  }
+
+  var formattingTokens = commonFormatterKeys
+    .concat(formatterKeys)
+    .sort()
+    .reverse()
+  var formattingTokensRegExp = new RegExp(
+    '(\\[[^\\[]*\\])|(\\\\)?' + '(' + formattingTokens.join('|') + '|.)', 'g'
+  )
+
+  return formattingTokensRegExp
+}
+
+module.exports = buildFormattingTokensRegExp
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/locale/en/build_distance_in_words_locale/index.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/date-fns/locale/en/build_distance_in_words_locale/index.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function buildDistanceInWordsLocale () {
+  var distanceInWordsLocale = {
+    lessThanXSeconds: {
+      one: 'less than a second',
+      other: 'less than {{count}} seconds'
+    },
+
+    xSeconds: {
+      one: '1 second',
+      other: '{{count}} seconds'
+    },
+
+    halfAMinute: 'half a minute',
+
+    lessThanXMinutes: {
+      one: 'less than a minute',
+      other: 'less than {{count}} minutes'
+    },
+
+    xMinutes: {
+      one: '1 minute',
+      other: '{{count}} minutes'
+    },
+
+    aboutXHours: {
+      one: 'about 1 hour',
+      other: 'about {{count}} hours'
+    },
+
+    xHours: {
+      one: '1 hour',
+      other: '{{count}} hours'
+    },
+
+    xDays: {
+      one: '1 day',
+      other: '{{count}} days'
+    },
+
+    aboutXMonths: {
+      one: 'about 1 month',
+      other: 'about {{count}} months'
+    },
+
+    xMonths: {
+      one: '1 month',
+      other: '{{count}} months'
+    },
+
+    aboutXYears: {
+      one: 'about 1 year',
+      other: 'about {{count}} years'
+    },
+
+    xYears: {
+      one: '1 year',
+      other: '{{count}} years'
+    },
+
+    overXYears: {
+      one: 'over 1 year',
+      other: 'over {{count}} years'
+    },
+
+    almostXYears: {
+      one: 'almost 1 year',
+      other: 'almost {{count}} years'
+    }
+  }
+
+  function localize (token, count, options) {
+    options = options || {}
+
+    var result
+    if (typeof distanceInWordsLocale[token] === 'string') {
+      result = distanceInWordsLocale[token]
+    } else if (count === 1) {
+      result = distanceInWordsLocale[token].one
+    } else {
+      result = distanceInWordsLocale[token].other.replace('{{count}}', count)
+    }
+
+    if (options.addSuffix) {
+      if (options.comparison > 0) {
+        return 'in ' + result
+      } else {
+        return result + ' ago'
+      }
+    }
+
+    return result
+  }
+
+  return {
+    localize: localize
+  }
+}
+
+module.exports = buildDistanceInWordsLocale
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/locale/en/build_format_locale/index.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/date-fns/locale/en/build_format_locale/index.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var buildFormattingTokensRegExp = __webpack_require__(/*! ../../_lib/build_formatting_tokens_reg_exp/index.js */ "./node_modules/date-fns/locale/_lib/build_formatting_tokens_reg_exp/index.js")
+
+function buildFormatLocale () {
+  // Note: in English, the names of days of the week and months are capitalized.
+  // If you are making a new locale based on this one, check if the same is true for the language you're working on.
+  // Generally, formatted dates should look like they are in the middle of a sentence,
+  // e.g. in Spanish language the weekdays and months should be in the lowercase.
+  var months3char = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  var monthsFull = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  var weekdays2char = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+  var weekdays3char = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  var weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  var meridiemUppercase = ['AM', 'PM']
+  var meridiemLowercase = ['am', 'pm']
+  var meridiemFull = ['a.m.', 'p.m.']
+
+  var formatters = {
+    // Month: Jan, Feb, ..., Dec
+    'MMM': function (date) {
+      return months3char[date.getMonth()]
+    },
+
+    // Month: January, February, ..., December
+    'MMMM': function (date) {
+      return monthsFull[date.getMonth()]
+    },
+
+    // Day of week: Su, Mo, ..., Sa
+    'dd': function (date) {
+      return weekdays2char[date.getDay()]
+    },
+
+    // Day of week: Sun, Mon, ..., Sat
+    'ddd': function (date) {
+      return weekdays3char[date.getDay()]
+    },
+
+    // Day of week: Sunday, Monday, ..., Saturday
+    'dddd': function (date) {
+      return weekdaysFull[date.getDay()]
+    },
+
+    // AM, PM
+    'A': function (date) {
+      return (date.getHours() / 12) >= 1 ? meridiemUppercase[1] : meridiemUppercase[0]
+    },
+
+    // am, pm
+    'a': function (date) {
+      return (date.getHours() / 12) >= 1 ? meridiemLowercase[1] : meridiemLowercase[0]
+    },
+
+    // a.m., p.m.
+    'aa': function (date) {
+      return (date.getHours() / 12) >= 1 ? meridiemFull[1] : meridiemFull[0]
+    }
+  }
+
+  // Generate ordinal version of formatters: M -> Mo, D -> Do, etc.
+  var ordinalFormatters = ['M', 'D', 'DDD', 'd', 'Q', 'W']
+  ordinalFormatters.forEach(function (formatterToken) {
+    formatters[formatterToken + 'o'] = function (date, formatters) {
+      return ordinal(formatters[formatterToken](date))
+    }
+  })
+
+  return {
+    formatters: formatters,
+    formattingTokensRegExp: buildFormattingTokensRegExp(formatters)
+  }
+}
+
+function ordinal (number) {
+  var rem100 = number % 100
+  if (rem100 > 20 || rem100 < 10) {
+    switch (rem100 % 10) {
+      case 1:
+        return number + 'st'
+      case 2:
+        return number + 'nd'
+      case 3:
+        return number + 'rd'
+    }
+  }
+  return number + 'th'
+}
+
+module.exports = buildFormatLocale
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/locale/en/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/locale/en/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var buildDistanceInWordsLocale = __webpack_require__(/*! ./build_distance_in_words_locale/index.js */ "./node_modules/date-fns/locale/en/build_distance_in_words_locale/index.js")
+var buildFormatLocale = __webpack_require__(/*! ./build_format_locale/index.js */ "./node_modules/date-fns/locale/en/build_format_locale/index.js")
+
+/**
+ * @category Locales
+ * @summary English locale.
+ */
+module.exports = {
+  distanceInWords: buildDistanceInWordsLocale(),
+  format: buildFormatLocale()
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/max/index.js":
+/*!********************************************!*\
+  !*** ./node_modules/date-fns/max/index.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Return the latest of the given dates.
+ *
+ * @description
+ * Return the latest of the given dates.
+ *
+ * @param {...(Date|String|Number)} dates - the dates to compare
+ * @returns {Date} the latest of the dates
+ *
+ * @example
+ * // Which of these dates is the latest?
+ * var result = max(
+ *   new Date(1989, 6, 10),
+ *   new Date(1987, 1, 11),
+ *   new Date(1995, 6, 2),
+ *   new Date(1990, 0, 1)
+ * )
+ * //=> Sun Jul 02 1995 00:00:00
+ */
+function max () {
+  var dirtyDates = Array.prototype.slice.call(arguments)
+  var dates = dirtyDates.map(function (dirtyDate) {
+    return parse(dirtyDate)
+  })
+  var latestTimestamp = Math.max.apply(null, dates)
+  return new Date(latestTimestamp)
+}
+
+module.exports = max
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/min/index.js":
+/*!********************************************!*\
+  !*** ./node_modules/date-fns/min/index.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Common Helpers
+ * @summary Return the earliest of the given dates.
+ *
+ * @description
+ * Return the earliest of the given dates.
+ *
+ * @param {...(Date|String|Number)} dates - the dates to compare
+ * @returns {Date} the earliest of the dates
+ *
+ * @example
+ * // Which of these dates is the earliest?
+ * var result = min(
+ *   new Date(1989, 6, 10),
+ *   new Date(1987, 1, 11),
+ *   new Date(1995, 6, 2),
+ *   new Date(1990, 0, 1)
+ * )
+ * //=> Wed Feb 11 1987 00:00:00
+ */
+function min () {
+  var dirtyDates = Array.prototype.slice.call(arguments)
+  var dates = dirtyDates.map(function (dirtyDate) {
+    return parse(dirtyDate)
+  })
+  var earliestTimestamp = Math.min.apply(null, dates)
+  return new Date(earliestTimestamp)
+}
+
+module.exports = min
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/parse/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/date-fns/parse/index.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getTimezoneOffsetInMilliseconds = __webpack_require__(/*! ../_lib/getTimezoneOffsetInMilliseconds/index.js */ "./node_modules/date-fns/_lib/getTimezoneOffsetInMilliseconds/index.js")
+var isDate = __webpack_require__(/*! ../is_date/index.js */ "./node_modules/date-fns/is_date/index.js")
+
+var MILLISECONDS_IN_HOUR = 3600000
+var MILLISECONDS_IN_MINUTE = 60000
+var DEFAULT_ADDITIONAL_DIGITS = 2
+
+var parseTokenDateTimeDelimeter = /[T ]/
+var parseTokenPlainTime = /:/
+
+// year tokens
+var parseTokenYY = /^(\d{2})$/
+var parseTokensYYY = [
+  /^([+-]\d{2})$/, // 0 additional digits
+  /^([+-]\d{3})$/, // 1 additional digit
+  /^([+-]\d{4})$/ // 2 additional digits
+]
+
+var parseTokenYYYY = /^(\d{4})/
+var parseTokensYYYYY = [
+  /^([+-]\d{4})/, // 0 additional digits
+  /^([+-]\d{5})/, // 1 additional digit
+  /^([+-]\d{6})/ // 2 additional digits
+]
+
+// date tokens
+var parseTokenMM = /^-(\d{2})$/
+var parseTokenDDD = /^-?(\d{3})$/
+var parseTokenMMDD = /^-?(\d{2})-?(\d{2})$/
+var parseTokenWww = /^-?W(\d{2})$/
+var parseTokenWwwD = /^-?W(\d{2})-?(\d{1})$/
+
+// time tokens
+var parseTokenHH = /^(\d{2}([.,]\d*)?)$/
+var parseTokenHHMM = /^(\d{2}):?(\d{2}([.,]\d*)?)$/
+var parseTokenHHMMSS = /^(\d{2}):?(\d{2}):?(\d{2}([.,]\d*)?)$/
+
+// timezone tokens
+var parseTokenTimezone = /([Z+-].*)$/
+var parseTokenTimezoneZ = /^(Z)$/
+var parseTokenTimezoneHH = /^([+-])(\d{2})$/
+var parseTokenTimezoneHHMM = /^([+-])(\d{2}):?(\d{2})$/
+
+/**
+ * @category Common Helpers
+ * @summary Convert the given argument to an instance of Date.
+ *
+ * @description
+ * Convert the given argument to an instance of Date.
+ *
+ * If the argument is an instance of Date, the function returns its clone.
+ *
+ * If the argument is a number, it is treated as a timestamp.
+ *
+ * If an argument is a string, the function tries to parse it.
+ * Function accepts complete ISO 8601 formats as well as partial implementations.
+ * ISO 8601: http://en.wikipedia.org/wiki/ISO_8601
+ *
+ * If all above fails, the function passes the given argument to Date constructor.
+ *
+ * @param {Date|String|Number} argument - the value to convert
+ * @param {Object} [options] - the object with options
+ * @param {0 | 1 | 2} [options.additionalDigits=2] - the additional number of digits in the extended year format
+ * @returns {Date} the parsed date in the local time zone
+ *
+ * @example
+ * // Convert string '2014-02-11T11:30:30' to date:
+ * var result = parse('2014-02-11T11:30:30')
+ * //=> Tue Feb 11 2014 11:30:30
+ *
+ * @example
+ * // Parse string '+02014101',
+ * // if the additional number of digits in the extended year format is 1:
+ * var result = parse('+02014101', {additionalDigits: 1})
+ * //=> Fri Apr 11 2014 00:00:00
+ */
+function parse (argument, dirtyOptions) {
+  if (isDate(argument)) {
+    // Prevent the date to lose the milliseconds when passed to new Date() in IE10
+    return new Date(argument.getTime())
+  } else if (typeof argument !== 'string') {
+    return new Date(argument)
+  }
+
+  var options = dirtyOptions || {}
+  var additionalDigits = options.additionalDigits
+  if (additionalDigits == null) {
+    additionalDigits = DEFAULT_ADDITIONAL_DIGITS
+  } else {
+    additionalDigits = Number(additionalDigits)
+  }
+
+  var dateStrings = splitDateString(argument)
+
+  var parseYearResult = parseYear(dateStrings.date, additionalDigits)
+  var year = parseYearResult.year
+  var restDateString = parseYearResult.restDateString
+
+  var date = parseDate(restDateString, year)
+
+  if (date) {
+    var timestamp = date.getTime()
+    var time = 0
+    var offset
+
+    if (dateStrings.time) {
+      time = parseTime(dateStrings.time)
+    }
+
+    if (dateStrings.timezone) {
+      offset = parseTimezone(dateStrings.timezone) * MILLISECONDS_IN_MINUTE
+    } else {
+      var fullTime = timestamp + time
+      var fullTimeDate = new Date(fullTime)
+
+      offset = getTimezoneOffsetInMilliseconds(fullTimeDate)
+
+      // Adjust time when it's coming from DST
+      var fullTimeDateNextDay = new Date(fullTime)
+      fullTimeDateNextDay.setDate(fullTimeDate.getDate() + 1)
+      var offsetDiff =
+        getTimezoneOffsetInMilliseconds(fullTimeDateNextDay) -
+        getTimezoneOffsetInMilliseconds(fullTimeDate)
+      if (offsetDiff > 0) {
+        offset += offsetDiff
+      }
+    }
+
+    return new Date(timestamp + time + offset)
+  } else {
+    return new Date(argument)
+  }
+}
+
+function splitDateString (dateString) {
+  var dateStrings = {}
+  var array = dateString.split(parseTokenDateTimeDelimeter)
+  var timeString
+
+  if (parseTokenPlainTime.test(array[0])) {
+    dateStrings.date = null
+    timeString = array[0]
+  } else {
+    dateStrings.date = array[0]
+    timeString = array[1]
+  }
+
+  if (timeString) {
+    var token = parseTokenTimezone.exec(timeString)
+    if (token) {
+      dateStrings.time = timeString.replace(token[1], '')
+      dateStrings.timezone = token[1]
+    } else {
+      dateStrings.time = timeString
+    }
+  }
+
+  return dateStrings
+}
+
+function parseYear (dateString, additionalDigits) {
+  var parseTokenYYY = parseTokensYYY[additionalDigits]
+  var parseTokenYYYYY = parseTokensYYYYY[additionalDigits]
+
+  var token
+
+  // YYYY or ±YYYYY
+  token = parseTokenYYYY.exec(dateString) || parseTokenYYYYY.exec(dateString)
+  if (token) {
+    var yearString = token[1]
+    return {
+      year: parseInt(yearString, 10),
+      restDateString: dateString.slice(yearString.length)
+    }
+  }
+
+  // YY or ±YYY
+  token = parseTokenYY.exec(dateString) || parseTokenYYY.exec(dateString)
+  if (token) {
+    var centuryString = token[1]
+    return {
+      year: parseInt(centuryString, 10) * 100,
+      restDateString: dateString.slice(centuryString.length)
+    }
+  }
+
+  // Invalid ISO-formatted year
+  return {
+    year: null
+  }
+}
+
+function parseDate (dateString, year) {
+  // Invalid ISO-formatted year
+  if (year === null) {
+    return null
+  }
+
+  var token
+  var date
+  var month
+  var week
+
+  // YYYY
+  if (dateString.length === 0) {
+    date = new Date(0)
+    date.setUTCFullYear(year)
+    return date
+  }
+
+  // YYYY-MM
+  token = parseTokenMM.exec(dateString)
+  if (token) {
+    date = new Date(0)
+    month = parseInt(token[1], 10) - 1
+    date.setUTCFullYear(year, month)
+    return date
+  }
+
+  // YYYY-DDD or YYYYDDD
+  token = parseTokenDDD.exec(dateString)
+  if (token) {
+    date = new Date(0)
+    var dayOfYear = parseInt(token[1], 10)
+    date.setUTCFullYear(year, 0, dayOfYear)
+    return date
+  }
+
+  // YYYY-MM-DD or YYYYMMDD
+  token = parseTokenMMDD.exec(dateString)
+  if (token) {
+    date = new Date(0)
+    month = parseInt(token[1], 10) - 1
+    var day = parseInt(token[2], 10)
+    date.setUTCFullYear(year, month, day)
+    return date
+  }
+
+  // YYYY-Www or YYYYWww
+  token = parseTokenWww.exec(dateString)
+  if (token) {
+    week = parseInt(token[1], 10) - 1
+    return dayOfISOYear(year, week)
+  }
+
+  // YYYY-Www-D or YYYYWwwD
+  token = parseTokenWwwD.exec(dateString)
+  if (token) {
+    week = parseInt(token[1], 10) - 1
+    var dayOfWeek = parseInt(token[2], 10) - 1
+    return dayOfISOYear(year, week, dayOfWeek)
+  }
+
+  // Invalid ISO-formatted date
+  return null
+}
+
+function parseTime (timeString) {
+  var token
+  var hours
+  var minutes
+
+  // hh
+  token = parseTokenHH.exec(timeString)
+  if (token) {
+    hours = parseFloat(token[1].replace(',', '.'))
+    return (hours % 24) * MILLISECONDS_IN_HOUR
+  }
+
+  // hh:mm or hhmm
+  token = parseTokenHHMM.exec(timeString)
+  if (token) {
+    hours = parseInt(token[1], 10)
+    minutes = parseFloat(token[2].replace(',', '.'))
+    return (hours % 24) * MILLISECONDS_IN_HOUR +
+      minutes * MILLISECONDS_IN_MINUTE
+  }
+
+  // hh:mm:ss or hhmmss
+  token = parseTokenHHMMSS.exec(timeString)
+  if (token) {
+    hours = parseInt(token[1], 10)
+    minutes = parseInt(token[2], 10)
+    var seconds = parseFloat(token[3].replace(',', '.'))
+    return (hours % 24) * MILLISECONDS_IN_HOUR +
+      minutes * MILLISECONDS_IN_MINUTE +
+      seconds * 1000
+  }
+
+  // Invalid ISO-formatted time
+  return null
+}
+
+function parseTimezone (timezoneString) {
+  var token
+  var absoluteOffset
+
+  // Z
+  token = parseTokenTimezoneZ.exec(timezoneString)
+  if (token) {
+    return 0
+  }
+
+  // ±hh
+  token = parseTokenTimezoneHH.exec(timezoneString)
+  if (token) {
+    absoluteOffset = parseInt(token[2], 10) * 60
+    return (token[1] === '+') ? -absoluteOffset : absoluteOffset
+  }
+
+  // ±hh:mm or ±hhmm
+  token = parseTokenTimezoneHHMM.exec(timezoneString)
+  if (token) {
+    absoluteOffset = parseInt(token[2], 10) * 60 + parseInt(token[3], 10)
+    return (token[1] === '+') ? -absoluteOffset : absoluteOffset
+  }
+
+  return 0
+}
+
+function dayOfISOYear (isoYear, week, day) {
+  week = week || 0
+  day = day || 0
+  var date = new Date(0)
+  date.setUTCFullYear(isoYear, 0, 4)
+  var fourthOfJanuaryDay = date.getUTCDay() || 7
+  var diff = week * 7 + day + 1 - fourthOfJanuaryDay
+  date.setUTCDate(date.getUTCDate() + diff)
+  return date
+}
+
+module.exports = parse
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/set_date/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/date-fns/set_date/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Set the day of the month to the given date.
+ *
+ * @description
+ * Set the day of the month to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} dayOfMonth - the day of the month of the new date
+ * @returns {Date} the new date with the day of the month setted
+ *
+ * @example
+ * // Set the 30th day of the month to 1 September 2014:
+ * var result = setDate(new Date(2014, 8, 1), 30)
+ * //=> Tue Sep 30 2014 00:00:00
+ */
+function setDate (dirtyDate, dirtyDayOfMonth) {
+  var date = parse(dirtyDate)
+  var dayOfMonth = Number(dirtyDayOfMonth)
+  date.setDate(dayOfMonth)
+  return date
+}
+
+module.exports = setDate
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/set_day/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/date-fns/set_day/index.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var addDays = __webpack_require__(/*! ../add_days/index.js */ "./node_modules/date-fns/add_days/index.js")
+
+/**
+ * @category Weekday Helpers
+ * @summary Set the day of the week to the given date.
+ *
+ * @description
+ * Set the day of the week to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} day - the day of the week of the new date
+ * @param {Object} [options] - the object with options
+ * @param {Number} [options.weekStartsOn=0] - the index of the first day of the week (0 - Sunday)
+ * @returns {Date} the new date with the day of the week setted
+ *
+ * @example
+ * // Set Sunday to 1 September 2014:
+ * var result = setDay(new Date(2014, 8, 1), 0)
+ * //=> Sun Aug 31 2014 00:00:00
+ *
+ * @example
+ * // If week starts with Monday, set Sunday to 1 September 2014:
+ * var result = setDay(new Date(2014, 8, 1), 0, {weekStartsOn: 1})
+ * //=> Sun Sep 07 2014 00:00:00
+ */
+function setDay (dirtyDate, dirtyDay, dirtyOptions) {
+  var weekStartsOn = dirtyOptions ? (Number(dirtyOptions.weekStartsOn) || 0) : 0
+  var date = parse(dirtyDate)
+  var day = Number(dirtyDay)
+  var currentDay = date.getDay()
+
+  var remainder = day % 7
+  var dayIndex = (remainder + 7) % 7
+
+  var diff = (dayIndex < weekStartsOn ? 7 : 0) + day - currentDay
+  return addDays(date, diff)
+}
+
+module.exports = setDay
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/set_day_of_year/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/date-fns/set_day_of_year/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Set the day of the year to the given date.
+ *
+ * @description
+ * Set the day of the year to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} dayOfYear - the day of the year of the new date
+ * @returns {Date} the new date with the day of the year setted
+ *
+ * @example
+ * // Set the 2nd day of the year to 2 July 2014:
+ * var result = setDayOfYear(new Date(2014, 6, 2), 2)
+ * //=> Thu Jan 02 2014 00:00:00
+ */
+function setDayOfYear (dirtyDate, dirtyDayOfYear) {
+  var date = parse(dirtyDate)
+  var dayOfYear = Number(dirtyDayOfYear)
+  date.setMonth(0)
+  date.setDate(dayOfYear)
+  return date
+}
+
+module.exports = setDayOfYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/set_hours/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/set_hours/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Hour Helpers
+ * @summary Set the hours to the given date.
+ *
+ * @description
+ * Set the hours to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} hours - the hours of the new date
+ * @returns {Date} the new date with the hours setted
+ *
+ * @example
+ * // Set 4 hours to 1 September 2014 11:30:00:
+ * var result = setHours(new Date(2014, 8, 1, 11, 30), 4)
+ * //=> Mon Sep 01 2014 04:30:00
+ */
+function setHours (dirtyDate, dirtyHours) {
+  var date = parse(dirtyDate)
+  var hours = Number(dirtyHours)
+  date.setHours(hours)
+  return date
+}
+
+module.exports = setHours
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/set_iso_day/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/set_iso_day/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var addDays = __webpack_require__(/*! ../add_days/index.js */ "./node_modules/date-fns/add_days/index.js")
+var getISODay = __webpack_require__(/*! ../get_iso_day/index.js */ "./node_modules/date-fns/get_iso_day/index.js")
+
+/**
+ * @category Weekday Helpers
+ * @summary Set the day of the ISO week to the given date.
+ *
+ * @description
+ * Set the day of the ISO week to the given date.
+ * ISO week starts with Monday.
+ * 7 is the index of Sunday, 1 is the index of Monday etc.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} day - the day of the ISO week of the new date
+ * @returns {Date} the new date with the day of the ISO week setted
+ *
+ * @example
+ * // Set Sunday to 1 September 2014:
+ * var result = setISODay(new Date(2014, 8, 1), 7)
+ * //=> Sun Sep 07 2014 00:00:00
+ */
+function setISODay (dirtyDate, dirtyDay) {
+  var date = parse(dirtyDate)
+  var day = Number(dirtyDay)
+  var currentDay = getISODay(date)
+  var diff = day - currentDay
+  return addDays(date, diff)
+}
+
+module.exports = setISODay
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/set_iso_week/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/set_iso_week/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var getISOWeek = __webpack_require__(/*! ../get_iso_week/index.js */ "./node_modules/date-fns/get_iso_week/index.js")
+
+/**
+ * @category ISO Week Helpers
+ * @summary Set the ISO week to the given date.
+ *
+ * @description
+ * Set the ISO week to the given date, saving the weekday number.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} isoWeek - the ISO week of the new date
+ * @returns {Date} the new date with the ISO week setted
+ *
+ * @example
+ * // Set the 53rd ISO week to 7 August 2004:
+ * var result = setISOWeek(new Date(2004, 7, 7), 53)
+ * //=> Sat Jan 01 2005 00:00:00
+ */
+function setISOWeek (dirtyDate, dirtyISOWeek) {
+  var date = parse(dirtyDate)
+  var isoWeek = Number(dirtyISOWeek)
+  var diff = getISOWeek(date) - isoWeek
+  date.setDate(date.getDate() - diff * 7)
+  return date
+}
+
+module.exports = setISOWeek
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/set_iso_year/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/set_iso_year/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var startOfISOYear = __webpack_require__(/*! ../start_of_iso_year/index.js */ "./node_modules/date-fns/start_of_iso_year/index.js")
+var differenceInCalendarDays = __webpack_require__(/*! ../difference_in_calendar_days/index.js */ "./node_modules/date-fns/difference_in_calendar_days/index.js")
+
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Set the ISO week-numbering year to the given date.
+ *
+ * @description
+ * Set the ISO week-numbering year to the given date,
+ * saving the week number and the weekday number.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} isoYear - the ISO week-numbering year of the new date
+ * @returns {Date} the new date with the ISO week-numbering year setted
+ *
+ * @example
+ * // Set ISO week-numbering year 2007 to 29 December 2008:
+ * var result = setISOYear(new Date(2008, 11, 29), 2007)
+ * //=> Mon Jan 01 2007 00:00:00
+ */
+function setISOYear (dirtyDate, dirtyISOYear) {
+  var date = parse(dirtyDate)
+  var isoYear = Number(dirtyISOYear)
+  var diff = differenceInCalendarDays(date, startOfISOYear(date))
+  var fourthOfJanuary = new Date(0)
+  fourthOfJanuary.setFullYear(isoYear, 0, 4)
+  fourthOfJanuary.setHours(0, 0, 0, 0)
+  date = startOfISOYear(fourthOfJanuary)
+  date.setDate(date.getDate() + diff)
+  return date
+}
+
+module.exports = setISOYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/set_milliseconds/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/set_milliseconds/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Millisecond Helpers
+ * @summary Set the milliseconds to the given date.
+ *
+ * @description
+ * Set the milliseconds to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} milliseconds - the milliseconds of the new date
+ * @returns {Date} the new date with the milliseconds setted
+ *
+ * @example
+ * // Set 300 milliseconds to 1 September 2014 11:30:40.500:
+ * var result = setMilliseconds(new Date(2014, 8, 1, 11, 30, 40, 500), 300)
+ * //=> Mon Sep 01 2014 11:30:40.300
+ */
+function setMilliseconds (dirtyDate, dirtyMilliseconds) {
+  var date = parse(dirtyDate)
+  var milliseconds = Number(dirtyMilliseconds)
+  date.setMilliseconds(milliseconds)
+  return date
+}
+
+module.exports = setMilliseconds
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/set_minutes/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/set_minutes/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Minute Helpers
+ * @summary Set the minutes to the given date.
+ *
+ * @description
+ * Set the minutes to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} minutes - the minutes of the new date
+ * @returns {Date} the new date with the minutes setted
+ *
+ * @example
+ * // Set 45 minutes to 1 September 2014 11:30:40:
+ * var result = setMinutes(new Date(2014, 8, 1, 11, 30, 40), 45)
+ * //=> Mon Sep 01 2014 11:45:40
+ */
+function setMinutes (dirtyDate, dirtyMinutes) {
+  var date = parse(dirtyDate)
+  var minutes = Number(dirtyMinutes)
+  date.setMinutes(minutes)
+  return date
+}
+
+module.exports = setMinutes
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/set_month/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/set_month/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var getDaysInMonth = __webpack_require__(/*! ../get_days_in_month/index.js */ "./node_modules/date-fns/get_days_in_month/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Set the month to the given date.
+ *
+ * @description
+ * Set the month to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} month - the month of the new date
+ * @returns {Date} the new date with the month setted
+ *
+ * @example
+ * // Set February to 1 September 2014:
+ * var result = setMonth(new Date(2014, 8, 1), 1)
+ * //=> Sat Feb 01 2014 00:00:00
+ */
+function setMonth (dirtyDate, dirtyMonth) {
+  var date = parse(dirtyDate)
+  var month = Number(dirtyMonth)
+  var year = date.getFullYear()
+  var day = date.getDate()
+
+  var dateWithDesiredMonth = new Date(0)
+  dateWithDesiredMonth.setFullYear(year, month, 15)
+  dateWithDesiredMonth.setHours(0, 0, 0, 0)
+  var daysInMonth = getDaysInMonth(dateWithDesiredMonth)
+  // Set the last day of the new month
+  // if the original date was the last day of the longer month
+  date.setMonth(month, Math.min(day, daysInMonth))
+  return date
+}
+
+module.exports = setMonth
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/set_quarter/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/set_quarter/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+var setMonth = __webpack_require__(/*! ../set_month/index.js */ "./node_modules/date-fns/set_month/index.js")
+
+/**
+ * @category Quarter Helpers
+ * @summary Set the year quarter to the given date.
+ *
+ * @description
+ * Set the year quarter to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} quarter - the quarter of the new date
+ * @returns {Date} the new date with the quarter setted
+ *
+ * @example
+ * // Set the 2nd quarter to 2 July 2014:
+ * var result = setQuarter(new Date(2014, 6, 2), 2)
+ * //=> Wed Apr 02 2014 00:00:00
+ */
+function setQuarter (dirtyDate, dirtyQuarter) {
+  var date = parse(dirtyDate)
+  var quarter = Number(dirtyQuarter)
+  var oldQuarter = Math.floor(date.getMonth() / 3) + 1
+  var diff = quarter - oldQuarter
+  return setMonth(date, date.getMonth() + diff * 3)
+}
+
+module.exports = setQuarter
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/set_seconds/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/set_seconds/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Second Helpers
+ * @summary Set the seconds to the given date.
+ *
+ * @description
+ * Set the seconds to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} seconds - the seconds of the new date
+ * @returns {Date} the new date with the seconds setted
+ *
+ * @example
+ * // Set 45 seconds to 1 September 2014 11:30:40:
+ * var result = setSeconds(new Date(2014, 8, 1, 11, 30, 40), 45)
+ * //=> Mon Sep 01 2014 11:30:45
+ */
+function setSeconds (dirtyDate, dirtySeconds) {
+  var date = parse(dirtyDate)
+  var seconds = Number(dirtySeconds)
+  date.setSeconds(seconds)
+  return date
+}
+
+module.exports = setSeconds
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/set_year/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/date-fns/set_year/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Year Helpers
+ * @summary Set the year to the given date.
+ *
+ * @description
+ * Set the year to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} year - the year of the new date
+ * @returns {Date} the new date with the year setted
+ *
+ * @example
+ * // Set year 2013 to 1 September 2014:
+ * var result = setYear(new Date(2014, 8, 1), 2013)
+ * //=> Sun Sep 01 2013 00:00:00
+ */
+function setYear (dirtyDate, dirtyYear) {
+  var date = parse(dirtyDate)
+  var year = Number(dirtyYear)
+  date.setFullYear(year)
+  return date
+}
+
+module.exports = setYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/start_of_day/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/start_of_day/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Return the start of a day for the given date.
+ *
+ * @description
+ * Return the start of a day for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the start of a day
+ *
+ * @example
+ * // The start of a day for 2 September 2014 11:55:00:
+ * var result = startOfDay(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Tue Sep 02 2014 00:00:00
+ */
+function startOfDay (dirtyDate) {
+  var date = parse(dirtyDate)
+  date.setHours(0, 0, 0, 0)
+  return date
+}
+
+module.exports = startOfDay
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/start_of_hour/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/date-fns/start_of_hour/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Hour Helpers
+ * @summary Return the start of an hour for the given date.
+ *
+ * @description
+ * Return the start of an hour for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the start of an hour
+ *
+ * @example
+ * // The start of an hour for 2 September 2014 11:55:00:
+ * var result = startOfHour(new Date(2014, 8, 2, 11, 55))
+ * //=> Tue Sep 02 2014 11:00:00
+ */
+function startOfHour (dirtyDate) {
+  var date = parse(dirtyDate)
+  date.setMinutes(0, 0, 0)
+  return date
+}
+
+module.exports = startOfHour
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/start_of_iso_week/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/date-fns/start_of_iso_week/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfWeek = __webpack_require__(/*! ../start_of_week/index.js */ "./node_modules/date-fns/start_of_week/index.js")
+
+/**
+ * @category ISO Week Helpers
+ * @summary Return the start of an ISO week for the given date.
+ *
+ * @description
+ * Return the start of an ISO week for the given date.
+ * The result will be in the local timezone.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the start of an ISO week
+ *
+ * @example
+ * // The start of an ISO week for 2 September 2014 11:55:00:
+ * var result = startOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Mon Sep 01 2014 00:00:00
+ */
+function startOfISOWeek (dirtyDate) {
+  return startOfWeek(dirtyDate, {weekStartsOn: 1})
+}
+
+module.exports = startOfISOWeek
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/start_of_iso_year/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/date-fns/start_of_iso_year/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getISOYear = __webpack_require__(/*! ../get_iso_year/index.js */ "./node_modules/date-fns/get_iso_year/index.js")
+var startOfISOWeek = __webpack_require__(/*! ../start_of_iso_week/index.js */ "./node_modules/date-fns/start_of_iso_week/index.js")
+
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Return the start of an ISO week-numbering year for the given date.
+ *
+ * @description
+ * Return the start of an ISO week-numbering year,
+ * which always starts 3 days before the year's first Thursday.
+ * The result will be in the local timezone.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the start of an ISO year
+ *
+ * @example
+ * // The start of an ISO week-numbering year for 2 July 2005:
+ * var result = startOfISOYear(new Date(2005, 6, 2))
+ * //=> Mon Jan 03 2005 00:00:00
+ */
+function startOfISOYear (dirtyDate) {
+  var year = getISOYear(dirtyDate)
+  var fourthOfJanuary = new Date(0)
+  fourthOfJanuary.setFullYear(year, 0, 4)
+  fourthOfJanuary.setHours(0, 0, 0, 0)
+  var date = startOfISOWeek(fourthOfJanuary)
+  return date
+}
+
+module.exports = startOfISOYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/start_of_minute/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/date-fns/start_of_minute/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Minute Helpers
+ * @summary Return the start of a minute for the given date.
+ *
+ * @description
+ * Return the start of a minute for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the start of a minute
+ *
+ * @example
+ * // The start of a minute for 1 December 2014 22:15:45.400:
+ * var result = startOfMinute(new Date(2014, 11, 1, 22, 15, 45, 400))
+ * //=> Mon Dec 01 2014 22:15:00
+ */
+function startOfMinute (dirtyDate) {
+  var date = parse(dirtyDate)
+  date.setSeconds(0, 0)
+  return date
+}
+
+module.exports = startOfMinute
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/start_of_month/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/date-fns/start_of_month/index.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Return the start of a month for the given date.
+ *
+ * @description
+ * Return the start of a month for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the start of a month
+ *
+ * @example
+ * // The start of a month for 2 September 2014 11:55:00:
+ * var result = startOfMonth(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Mon Sep 01 2014 00:00:00
+ */
+function startOfMonth (dirtyDate) {
+  var date = parse(dirtyDate)
+  date.setDate(1)
+  date.setHours(0, 0, 0, 0)
+  return date
+}
+
+module.exports = startOfMonth
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/start_of_quarter/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/start_of_quarter/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Quarter Helpers
+ * @summary Return the start of a year quarter for the given date.
+ *
+ * @description
+ * Return the start of a year quarter for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the start of a quarter
+ *
+ * @example
+ * // The start of a quarter for 2 September 2014 11:55:00:
+ * var result = startOfQuarter(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Tue Jul 01 2014 00:00:00
+ */
+function startOfQuarter (dirtyDate) {
+  var date = parse(dirtyDate)
+  var currentMonth = date.getMonth()
+  var month = currentMonth - currentMonth % 3
+  date.setMonth(month, 1)
+  date.setHours(0, 0, 0, 0)
+  return date
+}
+
+module.exports = startOfQuarter
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/start_of_second/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/date-fns/start_of_second/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Second Helpers
+ * @summary Return the start of a second for the given date.
+ *
+ * @description
+ * Return the start of a second for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the start of a second
+ *
+ * @example
+ * // The start of a second for 1 December 2014 22:15:45.400:
+ * var result = startOfSecond(new Date(2014, 11, 1, 22, 15, 45, 400))
+ * //=> Mon Dec 01 2014 22:15:45.000
+ */
+function startOfSecond (dirtyDate) {
+  var date = parse(dirtyDate)
+  date.setMilliseconds(0)
+  return date
+}
+
+module.exports = startOfSecond
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/start_of_today/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/date-fns/start_of_today/index.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var startOfDay = __webpack_require__(/*! ../start_of_day/index.js */ "./node_modules/date-fns/start_of_day/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Return the start of today.
+ *
+ * @description
+ * Return the start of today.
+ *
+ * @returns {Date} the start of today
+ *
+ * @example
+ * // If today is 6 October 2014:
+ * var result = startOfToday()
+ * //=> Mon Oct 6 2014 00:00:00
+ */
+function startOfToday () {
+  return startOfDay(new Date())
+}
+
+module.exports = startOfToday
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/start_of_tomorrow/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/date-fns/start_of_tomorrow/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * @category Day Helpers
+ * @summary Return the start of tomorrow.
+ *
+ * @description
+ * Return the start of tomorrow.
+ *
+ * @returns {Date} the start of tomorrow
+ *
+ * @example
+ * // If today is 6 October 2014:
+ * var result = startOfTomorrow()
+ * //=> Tue Oct 7 2014 00:00:00
+ */
+function startOfTomorrow () {
+  var now = new Date()
+  var year = now.getFullYear()
+  var month = now.getMonth()
+  var day = now.getDate()
+
+  var date = new Date(0)
+  date.setFullYear(year, month, day + 1)
+  date.setHours(0, 0, 0, 0)
+  return date
+}
+
+module.exports = startOfTomorrow
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/start_of_week/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/date-fns/start_of_week/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Week Helpers
+ * @summary Return the start of a week for the given date.
+ *
+ * @description
+ * Return the start of a week for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @param {Object} [options] - the object with options
+ * @param {Number} [options.weekStartsOn=0] - the index of the first day of the week (0 - Sunday)
+ * @returns {Date} the start of a week
+ *
+ * @example
+ * // The start of a week for 2 September 2014 11:55:00:
+ * var result = startOfWeek(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Sun Aug 31 2014 00:00:00
+ *
+ * @example
+ * // If the week starts on Monday, the start of the week for 2 September 2014 11:55:00:
+ * var result = startOfWeek(new Date(2014, 8, 2, 11, 55, 0), {weekStartsOn: 1})
+ * //=> Mon Sep 01 2014 00:00:00
+ */
+function startOfWeek (dirtyDate, dirtyOptions) {
+  var weekStartsOn = dirtyOptions ? (Number(dirtyOptions.weekStartsOn) || 0) : 0
+
+  var date = parse(dirtyDate)
+  var day = date.getDay()
+  var diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn
+
+  date.setDate(date.getDate() - diff)
+  date.setHours(0, 0, 0, 0)
+  return date
+}
+
+module.exports = startOfWeek
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/start_of_year/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/date-fns/start_of_year/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
+
+/**
+ * @category Year Helpers
+ * @summary Return the start of a year for the given date.
+ *
+ * @description
+ * Return the start of a year for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the start of a year
+ *
+ * @example
+ * // The start of a year for 2 September 2014 11:55:00:
+ * var result = startOfYear(new Date(2014, 8, 2, 11, 55, 00))
+ * //=> Wed Jan 01 2014 00:00:00
+ */
+function startOfYear (dirtyDate) {
+  var cleanDate = parse(dirtyDate)
+  var date = new Date(0)
+  date.setFullYear(cleanDate.getFullYear(), 0, 1)
+  date.setHours(0, 0, 0, 0)
+  return date
+}
+
+module.exports = startOfYear
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/start_of_yesterday/index.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/date-fns/start_of_yesterday/index.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * @category Day Helpers
+ * @summary Return the start of yesterday.
+ *
+ * @description
+ * Return the start of yesterday.
+ *
+ * @returns {Date} the start of yesterday
+ *
+ * @example
+ * // If today is 6 October 2014:
+ * var result = startOfYesterday()
+ * //=> Sun Oct 5 2014 00:00:00
+ */
+function startOfYesterday () {
+  var now = new Date()
+  var year = now.getFullYear()
+  var month = now.getMonth()
+  var day = now.getDate()
+
+  var date = new Date(0)
+  date.setFullYear(year, month, day - 1)
+  date.setHours(0, 0, 0, 0)
+  return date
+}
+
+module.exports = startOfYesterday
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/sub_days/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/date-fns/sub_days/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addDays = __webpack_require__(/*! ../add_days/index.js */ "./node_modules/date-fns/add_days/index.js")
+
+/**
+ * @category Day Helpers
+ * @summary Subtract the specified number of days from the given date.
+ *
+ * @description
+ * Subtract the specified number of days from the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of days to be subtracted
+ * @returns {Date} the new date with the days subtracted
+ *
+ * @example
+ * // Subtract 10 days from 1 September 2014:
+ * var result = subDays(new Date(2014, 8, 1), 10)
+ * //=> Fri Aug 22 2014 00:00:00
+ */
+function subDays (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addDays(dirtyDate, -amount)
+}
+
+module.exports = subDays
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/sub_hours/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/sub_hours/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addHours = __webpack_require__(/*! ../add_hours/index.js */ "./node_modules/date-fns/add_hours/index.js")
+
+/**
+ * @category Hour Helpers
+ * @summary Subtract the specified number of hours from the given date.
+ *
+ * @description
+ * Subtract the specified number of hours from the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of hours to be subtracted
+ * @returns {Date} the new date with the hours subtracted
+ *
+ * @example
+ * // Subtract 2 hours from 11 July 2014 01:00:00:
+ * var result = subHours(new Date(2014, 6, 11, 1, 0), 2)
+ * //=> Thu Jul 10 2014 23:00:00
+ */
+function subHours (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addHours(dirtyDate, -amount)
+}
+
+module.exports = subHours
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/sub_iso_years/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/date-fns/sub_iso_years/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addISOYears = __webpack_require__(/*! ../add_iso_years/index.js */ "./node_modules/date-fns/add_iso_years/index.js")
+
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Subtract the specified number of ISO week-numbering years from the given date.
+ *
+ * @description
+ * Subtract the specified number of ISO week-numbering years from the given date.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of ISO week-numbering years to be subtracted
+ * @returns {Date} the new date with the ISO week-numbering years subtracted
+ *
+ * @example
+ * // Subtract 5 ISO week-numbering years from 1 September 2014:
+ * var result = subISOYears(new Date(2014, 8, 1), 5)
+ * //=> Mon Aug 31 2009 00:00:00
+ */
+function subISOYears (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addISOYears(dirtyDate, -amount)
+}
+
+module.exports = subISOYears
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/sub_milliseconds/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/date-fns/sub_milliseconds/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addMilliseconds = __webpack_require__(/*! ../add_milliseconds/index.js */ "./node_modules/date-fns/add_milliseconds/index.js")
+
+/**
+ * @category Millisecond Helpers
+ * @summary Subtract the specified number of milliseconds from the given date.
+ *
+ * @description
+ * Subtract the specified number of milliseconds from the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of milliseconds to be subtracted
+ * @returns {Date} the new date with the milliseconds subtracted
+ *
+ * @example
+ * // Subtract 750 milliseconds from 10 July 2014 12:45:30.000:
+ * var result = subMilliseconds(new Date(2014, 6, 10, 12, 45, 30, 0), 750)
+ * //=> Thu Jul 10 2014 12:45:29.250
+ */
+function subMilliseconds (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addMilliseconds(dirtyDate, -amount)
+}
+
+module.exports = subMilliseconds
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/sub_minutes/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/sub_minutes/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addMinutes = __webpack_require__(/*! ../add_minutes/index.js */ "./node_modules/date-fns/add_minutes/index.js")
+
+/**
+ * @category Minute Helpers
+ * @summary Subtract the specified number of minutes from the given date.
+ *
+ * @description
+ * Subtract the specified number of minutes from the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of minutes to be subtracted
+ * @returns {Date} the new date with the mintues subtracted
+ *
+ * @example
+ * // Subtract 30 minutes from 10 July 2014 12:00:00:
+ * var result = subMinutes(new Date(2014, 6, 10, 12, 0), 30)
+ * //=> Thu Jul 10 2014 11:30:00
+ */
+function subMinutes (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addMinutes(dirtyDate, -amount)
+}
+
+module.exports = subMinutes
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/sub_months/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/date-fns/sub_months/index.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addMonths = __webpack_require__(/*! ../add_months/index.js */ "./node_modules/date-fns/add_months/index.js")
+
+/**
+ * @category Month Helpers
+ * @summary Subtract the specified number of months from the given date.
+ *
+ * @description
+ * Subtract the specified number of months from the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of months to be subtracted
+ * @returns {Date} the new date with the months subtracted
+ *
+ * @example
+ * // Subtract 5 months from 1 February 2015:
+ * var result = subMonths(new Date(2015, 1, 1), 5)
+ * //=> Mon Sep 01 2014 00:00:00
+ */
+function subMonths (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addMonths(dirtyDate, -amount)
+}
+
+module.exports = subMonths
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/sub_quarters/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/sub_quarters/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addQuarters = __webpack_require__(/*! ../add_quarters/index.js */ "./node_modules/date-fns/add_quarters/index.js")
+
+/**
+ * @category Quarter Helpers
+ * @summary Subtract the specified number of year quarters from the given date.
+ *
+ * @description
+ * Subtract the specified number of year quarters from the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of quarters to be subtracted
+ * @returns {Date} the new date with the quarters subtracted
+ *
+ * @example
+ * // Subtract 3 quarters from 1 September 2014:
+ * var result = subQuarters(new Date(2014, 8, 1), 3)
+ * //=> Sun Dec 01 2013 00:00:00
+ */
+function subQuarters (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addQuarters(dirtyDate, -amount)
+}
+
+module.exports = subQuarters
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/sub_seconds/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/sub_seconds/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addSeconds = __webpack_require__(/*! ../add_seconds/index.js */ "./node_modules/date-fns/add_seconds/index.js")
+
+/**
+ * @category Second Helpers
+ * @summary Subtract the specified number of seconds from the given date.
+ *
+ * @description
+ * Subtract the specified number of seconds from the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of seconds to be subtracted
+ * @returns {Date} the new date with the seconds subtracted
+ *
+ * @example
+ * // Subtract 30 seconds from 10 July 2014 12:45:00:
+ * var result = subSeconds(new Date(2014, 6, 10, 12, 45, 0), 30)
+ * //=> Thu Jul 10 2014 12:44:30
+ */
+function subSeconds (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addSeconds(dirtyDate, -amount)
+}
+
+module.exports = subSeconds
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/sub_weeks/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/sub_weeks/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addWeeks = __webpack_require__(/*! ../add_weeks/index.js */ "./node_modules/date-fns/add_weeks/index.js")
+
+/**
+ * @category Week Helpers
+ * @summary Subtract the specified number of weeks from the given date.
+ *
+ * @description
+ * Subtract the specified number of weeks from the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of weeks to be subtracted
+ * @returns {Date} the new date with the weeks subtracted
+ *
+ * @example
+ * // Subtract 4 weeks from 1 September 2014:
+ * var result = subWeeks(new Date(2014, 8, 1), 4)
+ * //=> Mon Aug 04 2014 00:00:00
+ */
+function subWeeks (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addWeeks(dirtyDate, -amount)
+}
+
+module.exports = subWeeks
+
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/sub_years/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/date-fns/sub_years/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addYears = __webpack_require__(/*! ../add_years/index.js */ "./node_modules/date-fns/add_years/index.js")
+
+/**
+ * @category Year Helpers
+ * @summary Subtract the specified number of years from the given date.
+ *
+ * @description
+ * Subtract the specified number of years from the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of years to be subtracted
+ * @returns {Date} the new date with the years subtracted
+ *
+ * @example
+ * // Subtract 5 years from 1 September 2014:
+ * var result = subYears(new Date(2014, 8, 1), 5)
+ * //=> Tue Sep 01 2009 00:00:00
+ */
+function subYears (dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount)
+  return addYears(dirtyDate, -amount)
+}
+
+module.exports = subYears
+
+
+/***/ }),
+
 /***/ "./node_modules/define-properties/index.js":
 /*!*************************************************!*\
   !*** ./node_modules/define-properties/index.js ***!
@@ -16566,6 +25719,158 @@ fclone.default = fclone;
 
 /***/ }),
 
+/***/ "./node_modules/framesync/dist/framesync.es.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/framesync/dist/framesync.es.js ***!
+  \*****************************************************/
+/*! exports provided: default, cancelSync, getFrameData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cancelSync", function() { return cancelSync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFrameData", function() { return getFrameData; });
+/* harmony import */ var hey_listen__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! hey-listen */ "./node_modules/hey-listen/dist/hey-listen.es.js");
+
+
+var prevTime = 0;
+var onNextFrame = typeof window !== 'undefined' && window.requestAnimationFrame !== undefined
+    ? function (callback) { return window.requestAnimationFrame(callback); }
+    : function (callback) {
+        var timestamp = Date.now();
+        var timeToCall = Math.max(0, 16.7 - (timestamp - prevTime));
+        prevTime = timestamp + timeToCall;
+        setTimeout(function () { return callback(prevTime); }, timeToCall);
+    };
+
+var createStep = (function (setRunNextFrame) {
+    var processToRun = [];
+    var processToRunNextFrame = [];
+    var numThisFrame = 0;
+    var isProcessing = false;
+    var i = 0;
+    var cancelled = new WeakSet();
+    var toKeepAlive = new WeakSet();
+    var renderStep = {
+        cancel: function (process) {
+            var indexOfCallback = processToRunNextFrame.indexOf(process);
+            cancelled.add(process);
+            if (indexOfCallback !== -1) {
+                processToRunNextFrame.splice(indexOfCallback, 1);
+            }
+        },
+        process: function (frame) {
+            var _a;
+            isProcessing = true;
+            _a = [
+                processToRunNextFrame,
+                processToRun
+            ], processToRun = _a[0], processToRunNextFrame = _a[1];
+            processToRunNextFrame.length = 0;
+            numThisFrame = processToRun.length;
+            if (numThisFrame) {
+                var process_1;
+                for (i = 0; i < numThisFrame; i++) {
+                    process_1 = processToRun[i];
+                    process_1(frame);
+                    if (toKeepAlive.has(process_1) === true && !cancelled.has(process_1)) {
+                        renderStep.schedule(process_1);
+                        setRunNextFrame(true);
+                    }
+                }
+            }
+            isProcessing = false;
+        },
+        schedule: function (process, keepAlive, immediate) {
+            Object(hey_listen__WEBPACK_IMPORTED_MODULE_0__["invariant"])(typeof process === 'function', 'Argument must be a function');
+            var addToCurrentBuffer = immediate && isProcessing;
+            var buffer = addToCurrentBuffer ? processToRun : processToRunNextFrame;
+            if (keepAlive)
+                toKeepAlive.add(process);
+            if (buffer.indexOf(process) === -1) {
+                buffer.push(process);
+                if (addToCurrentBuffer)
+                    numThisFrame = processToRun.length;
+            }
+        }
+    };
+    return renderStep;
+});
+
+var StepId;
+(function (StepId) {
+    StepId["Read"] = "read";
+    StepId["Update"] = "update";
+    StepId["Render"] = "render";
+    StepId["PostRender"] = "postRender";
+    StepId["FixedUpdate"] = "fixedUpdate";
+})(StepId || (StepId = {}));
+
+var maxElapsed = 40;
+var defaultElapsed = (1 / 60) * 1000;
+var useDefaultElapsed = true;
+var willRunNextFrame = false;
+var isProcessing = false;
+var frame = {
+    delta: 0,
+    timestamp: 0
+};
+var stepsOrder = [
+    StepId.Read,
+    StepId.Update,
+    StepId.Render,
+    StepId.PostRender
+];
+var setWillRunNextFrame = function (willRun) { return (willRunNextFrame = willRun); };
+var _a = stepsOrder.reduce(function (acc, key) {
+    var step = createStep(setWillRunNextFrame);
+    acc.sync[key] = function (process, keepAlive, immediate) {
+        if (keepAlive === void 0) { keepAlive = false; }
+        if (immediate === void 0) { immediate = false; }
+        if (!willRunNextFrame)
+            startLoop();
+        step.schedule(process, keepAlive, immediate);
+        return process;
+    };
+    acc.cancelSync[key] = function (process) { return step.cancel(process); };
+    acc.steps[key] = step;
+    return acc;
+}, {
+    steps: {},
+    sync: {},
+    cancelSync: {}
+}), steps = _a.steps, sync = _a.sync, cancelSync = _a.cancelSync;
+var processStep = function (stepId) { return steps[stepId].process(frame); };
+var processFrame = function (timestamp) {
+    willRunNextFrame = false;
+    frame.delta = useDefaultElapsed
+        ? defaultElapsed
+        : Math.max(Math.min(timestamp - frame.timestamp, maxElapsed), 1);
+    if (!useDefaultElapsed)
+        defaultElapsed = frame.delta;
+    frame.timestamp = timestamp;
+    isProcessing = true;
+    stepsOrder.forEach(processStep);
+    isProcessing = false;
+    if (willRunNextFrame) {
+        useDefaultElapsed = false;
+        onNextFrame(processFrame);
+    }
+};
+var startLoop = function () {
+    willRunNextFrame = true;
+    useDefaultElapsed = true;
+    if (!isProcessing)
+        onNextFrame(processFrame);
+};
+var getFrameData = function () { return frame; };
+
+/* harmony default export */ __webpack_exports__["default"] = (sync);
+
+
+
+/***/ }),
+
 /***/ "./node_modules/function-bind/implementation.js":
 /*!******************************************************!*\
   !*** ./node_modules/function-bind/implementation.js ***!
@@ -16644,6 +25949,89 @@ var implementation = __webpack_require__(/*! ./implementation */ "./node_modules
 
 module.exports = Function.prototype.bind || implementation;
 
+
+/***/ }),
+
+/***/ "./node_modules/get-user-locale/dist/entry.js":
+/*!****************************************************!*\
+  !*** ./node_modules/get-user-locale/dist/entry.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.getUserLocale = exports.getUserLocales = void 0;
+
+var _lodash = _interopRequireDefault(__webpack_require__(/*! lodash.once */ "./node_modules/lodash.once/index.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+var filterDuplicates = function filterDuplicates(arr) {
+  return arr.filter(function (el, index, self) {
+    return self.indexOf(el) === index;
+  });
+};
+
+var fixLowercaseProperties = function fixLowercaseProperties(arr) {
+  return arr.map(function (el) {
+    if (!el || el.indexOf('-') === -1 || el.toLowerCase() !== el) {
+      return el;
+    }
+
+    var splitEl = el.split('-');
+    return "".concat(splitEl[0], "-").concat(splitEl[1].toUpperCase());
+  });
+};
+
+var getUserLocales = (0, _lodash.default)(function () {
+  var languageList = [];
+
+  if (typeof window !== 'undefined') {
+    if (window.navigator.languages) {
+      languageList.push.apply(languageList, _toConsumableArray(window.navigator.languages));
+    }
+
+    if (window.navigator.language) {
+      languageList.push(window.navigator.language);
+    }
+
+    if (window.navigator.userLanguage) {
+      languageList.push(window.navigator.userLanguage);
+    }
+
+    if (window.navigator.browserLanguage) {
+      languageList.push(window.navigator.browserLanguage);
+    }
+
+    if (window.navigator.systemLanguage) {
+      languageList.push(window.navigator.systemLanguage);
+    }
+  }
+
+  languageList.push('en-US'); // Fallback
+
+  return fixLowercaseProperties(filterDuplicates(languageList));
+});
+exports.getUserLocales = getUserLocales;
+var getUserLocale = (0, _lodash.default)(function () {
+  return getUserLocales()[0];
+});
+exports.getUserLocale = getUserLocale;
+var _default = getUserLocale;
+exports.default = _default;
 
 /***/ }),
 
@@ -36172,6 +45560,38 @@ module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
 /***/ }),
 
+/***/ "./node_modules/hey-listen/dist/hey-listen.es.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/hey-listen/dist/hey-listen.es.js ***!
+  \*******************************************************/
+/*! exports provided: warning, invariant */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "warning", function() { return warning; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "invariant", function() { return invariant; });
+var HEY_LISTEN = 'Hey, listen! ';
+var warning = function () { };
+var invariant = function () { };
+if (true) {
+    warning = function (check, message) {
+        if (!check && typeof console !== 'undefined') {
+            console.warn(HEY_LISTEN + message);
+        }
+    };
+    invariant = function (check, message) {
+        if (!check) {
+            throw new Error(HEY_LISTEN.toUpperCase() + message);
+        }
+    };
+}
+
+
+
+
+/***/ }),
+
 /***/ "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js":
 /*!**********************************************************************************!*\
   !*** ./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js ***!
@@ -37620,6 +47040,311 @@ function toNumber(value) {
 module.exports = debounce;
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/lodash.once/index.js":
+/*!*******************************************!*\
+  !*** ./node_modules/lodash.once/index.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * lodash (Custom Build) <https://lodash.com/>
+ * Build: `lodash modularize exports="npm" -o ./`
+ * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+ * Released under MIT license <https://lodash.com/license>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ */
+
+/** Used as the `TypeError` message for "Functions" methods. */
+var FUNC_ERROR_TEXT = 'Expected a function';
+
+/** Used as references for various `Number` constants. */
+var INFINITY = 1 / 0,
+    MAX_INTEGER = 1.7976931348623157e+308,
+    NAN = 0 / 0;
+
+/** `Object#toString` result references. */
+var symbolTag = '[object Symbol]';
+
+/** Used to match leading and trailing whitespace. */
+var reTrim = /^\s+|\s+$/g;
+
+/** Used to detect bad signed hexadecimal string values. */
+var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+
+/** Used to detect binary string values. */
+var reIsBinary = /^0b[01]+$/i;
+
+/** Used to detect octal string values. */
+var reIsOctal = /^0o[0-7]+$/i;
+
+/** Built-in method references without a dependency on `root`. */
+var freeParseInt = parseInt;
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var objectToString = objectProto.toString;
+
+/**
+ * Creates a function that invokes `func`, with the `this` binding and arguments
+ * of the created function, while it's called less than `n` times. Subsequent
+ * calls to the created function return the result of the last `func` invocation.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category Function
+ * @param {number} n The number of calls at which `func` is no longer invoked.
+ * @param {Function} func The function to restrict.
+ * @returns {Function} Returns the new restricted function.
+ * @example
+ *
+ * jQuery(element).on('click', _.before(5, addContactToList));
+ * // => Allows adding up to 4 contacts to the list.
+ */
+function before(n, func) {
+  var result;
+  if (typeof func != 'function') {
+    throw new TypeError(FUNC_ERROR_TEXT);
+  }
+  n = toInteger(n);
+  return function() {
+    if (--n > 0) {
+      result = func.apply(this, arguments);
+    }
+    if (n <= 1) {
+      func = undefined;
+    }
+    return result;
+  };
+}
+
+/**
+ * Creates a function that is restricted to invoking `func` once. Repeat calls
+ * to the function return the value of the first invocation. The `func` is
+ * invoked with the `this` binding and arguments of the created function.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Function
+ * @param {Function} func The function to restrict.
+ * @returns {Function} Returns the new restricted function.
+ * @example
+ *
+ * var initialize = _.once(createApplication);
+ * initialize();
+ * initialize();
+ * // => `createApplication` is invoked once
+ */
+function once(func) {
+  return before(2, func);
+}
+
+/**
+ * Checks if `value` is the
+ * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+ * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(_.noop);
+ * // => true
+ *
+ * _.isObject(null);
+ * // => false
+ */
+function isObject(value) {
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return !!value && typeof value == 'object';
+}
+
+/**
+ * Checks if `value` is classified as a `Symbol` primitive or object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+ * @example
+ *
+ * _.isSymbol(Symbol.iterator);
+ * // => true
+ *
+ * _.isSymbol('abc');
+ * // => false
+ */
+function isSymbol(value) {
+  return typeof value == 'symbol' ||
+    (isObjectLike(value) && objectToString.call(value) == symbolTag);
+}
+
+/**
+ * Converts `value` to a finite number.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.12.0
+ * @category Lang
+ * @param {*} value The value to convert.
+ * @returns {number} Returns the converted number.
+ * @example
+ *
+ * _.toFinite(3.2);
+ * // => 3.2
+ *
+ * _.toFinite(Number.MIN_VALUE);
+ * // => 5e-324
+ *
+ * _.toFinite(Infinity);
+ * // => 1.7976931348623157e+308
+ *
+ * _.toFinite('3.2');
+ * // => 3.2
+ */
+function toFinite(value) {
+  if (!value) {
+    return value === 0 ? value : 0;
+  }
+  value = toNumber(value);
+  if (value === INFINITY || value === -INFINITY) {
+    var sign = (value < 0 ? -1 : 1);
+    return sign * MAX_INTEGER;
+  }
+  return value === value ? value : 0;
+}
+
+/**
+ * Converts `value` to an integer.
+ *
+ * **Note:** This method is loosely based on
+ * [`ToInteger`](http://www.ecma-international.org/ecma-262/7.0/#sec-tointeger).
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to convert.
+ * @returns {number} Returns the converted integer.
+ * @example
+ *
+ * _.toInteger(3.2);
+ * // => 3
+ *
+ * _.toInteger(Number.MIN_VALUE);
+ * // => 0
+ *
+ * _.toInteger(Infinity);
+ * // => 1.7976931348623157e+308
+ *
+ * _.toInteger('3.2');
+ * // => 3
+ */
+function toInteger(value) {
+  var result = toFinite(value),
+      remainder = result % 1;
+
+  return result === result ? (remainder ? result - remainder : result) : 0;
+}
+
+/**
+ * Converts `value` to a number.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to process.
+ * @returns {number} Returns the number.
+ * @example
+ *
+ * _.toNumber(3.2);
+ * // => 3.2
+ *
+ * _.toNumber(Number.MIN_VALUE);
+ * // => 5e-324
+ *
+ * _.toNumber(Infinity);
+ * // => Infinity
+ *
+ * _.toNumber('3.2');
+ * // => 3.2
+ */
+function toNumber(value) {
+  if (typeof value == 'number') {
+    return value;
+  }
+  if (isSymbol(value)) {
+    return NAN;
+  }
+  if (isObject(value)) {
+    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+    value = isObject(other) ? (other + '') : other;
+  }
+  if (typeof value != 'string') {
+    return value === 0 ? value : +value;
+  }
+  value = value.replace(reTrim, '');
+  var isBinary = reIsBinary.test(value);
+  return (isBinary || reIsOctal.test(value))
+    ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
+    : (reIsBadHex.test(value) ? NAN : +value);
+}
+
+module.exports = once;
+
 
 /***/ }),
 
@@ -39355,6 +49080,35 @@ lodash.prototype.constructor = lodash;
 
 module.exports = lodash;
 
+
+/***/ }),
+
+/***/ "./node_modules/merge-class-names/build/entry.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/merge-class-names/build/entry.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var mergeClassNames = function mergeClassNames() {
+  for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+
+  return args.reduce(function (classList, arg) {
+    return typeof arg === 'string' || arg instanceof Array ? classList.concat(arg) : classList;
+  }, []).filter(function (className) {
+    return className;
+  }).join(' ');
+};
+
+exports.default = mergeClassNames;
 
 /***/ }),
 
@@ -43425,6 +53179,2729 @@ module.exports = function shimAssign() {
 
 /***/ }),
 
+/***/ "./node_modules/popmotion-pose/dist/popmotion-pose.es.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/popmotion-pose/dist/popmotion-pose.es.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var popmotion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! popmotion */ "./node_modules/popmotion/dist/popmotion.es.js");
+/* harmony import */ var _popmotion_easing__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @popmotion/easing */ "./node_modules/@popmotion/easing/dist/easing.es.js");
+/* harmony import */ var style_value_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! style-value-types */ "./node_modules/style-value-types/dist/style-value-types.es.js");
+/* harmony import */ var pose_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! pose-core */ "./node_modules/pose-core/dist/pose-core.es.js");
+/* harmony import */ var hey_listen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! hey-listen */ "./node_modules/hey-listen/dist/hey-listen.es.js");
+
+
+
+
+
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+
+var __assign = function () {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0) t[p[i]] = s[p[i]];
+    return t;
+}
+
+var BoundingBoxDimension;
+(function (BoundingBoxDimension) {
+    BoundingBoxDimension["width"] = "width";
+    BoundingBoxDimension["height"] = "height";
+    BoundingBoxDimension["left"] = "left";
+    BoundingBoxDimension["right"] = "right";
+    BoundingBoxDimension["top"] = "top";
+    BoundingBoxDimension["bottom"] = "bottom";
+})(BoundingBoxDimension || (BoundingBoxDimension = {}));
+
+var measureWithoutTransform = function (element) {
+    var transform$$1 = element.style.transform;
+    element.style.transform = '';
+    var bbox = element.getBoundingClientRect();
+    element.style.transform = transform$$1;
+    return bbox;
+};
+var resolveProp = function (target, props) {
+    return typeof target === 'function' ? target(props) : target;
+};
+
+var interpolate = popmotion__WEBPACK_IMPORTED_MODULE_0__["transform"].interpolate;
+var singleAxisPointer = function (axis) {
+    return function (from) {
+        var _a;
+        return Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["pointer"])((_a = {}, _a[axis] = typeof from === 'string' ? parseFloat(from) : from, _a)).pipe(function (v) {
+            return v[axis];
+        });
+    };
+};
+var pointerX = /*#__PURE__*/singleAxisPointer('x');
+var pointerY = /*#__PURE__*/singleAxisPointer('y');
+var createPointer = function (axisPointerCreator, min, max, measurement) {
+    return function (transitionProps) {
+        var from = transitionProps.from,
+            type = transitionProps.type,
+            dimensions = transitionProps.dimensions,
+            dragBounds = transitionProps.dragBounds;
+        var axisPointer = axisPointerCreator(dimensions.measurementAsPixels(measurement, from, type));
+        var transformQueue = [];
+        if (dragBounds) {
+            var resolvedDragBounds_1 = resolveProp(dragBounds, transitionProps);
+            if (resolvedDragBounds_1[min] !== undefined) {
+                transformQueue.push(function (v) {
+                    return Math.max(v, dimensions.measurementAsPixels(measurement, resolvedDragBounds_1[min], type));
+                });
+            }
+            if (resolvedDragBounds_1[max] !== undefined) {
+                transformQueue.push(function (v) {
+                    return Math.min(v, dimensions.measurementAsPixels(measurement, resolvedDragBounds_1[max], type));
+                });
+            }
+        }
+        if (type === style_value_types__WEBPACK_IMPORTED_MODULE_2__["percent"]) {
+            transformQueue.push(interpolate([0, dimensions.get(measurement)], [0, 100]), function (v) {
+                return v + '%';
+            });
+        }
+        return transformQueue.length ? axisPointer.pipe.apply(axisPointer, transformQueue) : axisPointer;
+    };
+};
+var just = function (from) {
+    return Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["action"])(function (_a) {
+        var update = _a.update,
+            complete = _a.complete;
+        update(from);
+        complete();
+    });
+};
+var underDampedSpring = function (_a) {
+    var from = _a.from,
+        velocity = _a.velocity,
+        to = _a.to;
+    return Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["spring"])({
+        from: from,
+        to: to,
+        velocity: velocity,
+        stiffness: 500,
+        damping: 25,
+        restDelta: 0.5,
+        restSpeed: 10
+    });
+};
+var overDampedSpring = function (_a) {
+    var from = _a.from,
+        velocity = _a.velocity,
+        to = _a.to;
+    return Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["spring"])({ from: from, to: to, velocity: velocity, stiffness: 700, damping: to === 0 ? 100 : 35 });
+};
+var linearTween = function (_a) {
+    var from = _a.from,
+        to = _a.to;
+    return Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["tween"])({ from: from, to: to, ease: _popmotion_easing__WEBPACK_IMPORTED_MODULE_1__["linear"] });
+};
+var intelligentTransition = {
+    x: underDampedSpring,
+    y: underDampedSpring,
+    z: underDampedSpring,
+    rotate: underDampedSpring,
+    rotateX: underDampedSpring,
+    rotateY: underDampedSpring,
+    rotateZ: underDampedSpring,
+    scaleX: overDampedSpring,
+    scaleY: overDampedSpring,
+    scale: overDampedSpring,
+    opacity: linearTween,
+    default: popmotion__WEBPACK_IMPORTED_MODULE_0__["tween"]
+};
+var dragAction = /*#__PURE__*/__assign({}, intelligentTransition, { x: /*#__PURE__*/createPointer(pointerX, 'left', 'right', BoundingBoxDimension.width), y: /*#__PURE__*/createPointer(pointerY, 'top', 'bottom', BoundingBoxDimension.height) });
+var justAxis = function (_a) {
+    var from = _a.from;
+    return just(from);
+};
+var intelligentDragEnd = /*#__PURE__*/__assign({}, intelligentTransition, { x: justAxis, y: justAxis });
+var defaultTransitions = /*#__PURE__*/new Map([['default', intelligentTransition], ['drag', dragAction], ['dragEnd', intelligentDragEnd]]);
+
+var auto = {
+    test: function (v) {
+        return v === 'auto';
+    },
+    parse: function (v) {
+        return v;
+    }
+};
+var valueTypeTests = [style_value_types__WEBPACK_IMPORTED_MODULE_2__["number"], style_value_types__WEBPACK_IMPORTED_MODULE_2__["degrees"], style_value_types__WEBPACK_IMPORTED_MODULE_2__["percent"], style_value_types__WEBPACK_IMPORTED_MODULE_2__["px"], style_value_types__WEBPACK_IMPORTED_MODULE_2__["vw"], style_value_types__WEBPACK_IMPORTED_MODULE_2__["vh"], auto];
+var testValueType = function (v) {
+    return function (type) {
+        return type.test(v);
+    };
+};
+var getValueType = function (v) {
+    return valueTypeTests.find(testValueType(v));
+};
+
+var createPassiveValue = function (init, parent, transform$$1) {
+    var raw = Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["value"])(transform$$1(init));
+    parent.raw.subscribe(function (v) {
+        return raw.update(transform$$1(v));
+    });
+    return { raw: raw };
+};
+var createValue = function (init) {
+    var type = getValueType(init);
+    var raw = Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["value"])(init);
+    return { raw: raw, type: type };
+};
+var addActionDelay = function (delay$$1, transition) {
+    if (delay$$1 === void 0) {
+        delay$$1 = 0;
+    }
+    return Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["chain"])(Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["delay"])(delay$$1), transition);
+};
+var animationLookup = {
+    tween: popmotion__WEBPACK_IMPORTED_MODULE_0__["tween"],
+    spring: popmotion__WEBPACK_IMPORTED_MODULE_0__["spring"],
+    decay: popmotion__WEBPACK_IMPORTED_MODULE_0__["decay"],
+    keyframes: popmotion__WEBPACK_IMPORTED_MODULE_0__["keyframes"],
+    physics: popmotion__WEBPACK_IMPORTED_MODULE_0__["physics"]
+};
+var linear$1 = popmotion__WEBPACK_IMPORTED_MODULE_0__["easing"].linear,
+    easeIn = popmotion__WEBPACK_IMPORTED_MODULE_0__["easing"].easeIn,
+    easeOut = popmotion__WEBPACK_IMPORTED_MODULE_0__["easing"].easeOut,
+    easeInOut = popmotion__WEBPACK_IMPORTED_MODULE_0__["easing"].easeInOut,
+    circIn = popmotion__WEBPACK_IMPORTED_MODULE_0__["easing"].circIn,
+    circOut = popmotion__WEBPACK_IMPORTED_MODULE_0__["easing"].circOut,
+    circInOut = popmotion__WEBPACK_IMPORTED_MODULE_0__["easing"].circInOut,
+    backIn = popmotion__WEBPACK_IMPORTED_MODULE_0__["easing"].backIn,
+    backOut = popmotion__WEBPACK_IMPORTED_MODULE_0__["easing"].backOut,
+    backInOut = popmotion__WEBPACK_IMPORTED_MODULE_0__["easing"].backInOut,
+    anticipate = popmotion__WEBPACK_IMPORTED_MODULE_0__["easing"].anticipate;
+var easingLookup = {
+    linear: linear$1,
+    easeIn: easeIn,
+    easeOut: easeOut,
+    easeInOut: easeInOut,
+    circIn: circIn,
+    circOut: circOut,
+    circInOut: circInOut,
+    backIn: backIn,
+    backOut: backOut,
+    backInOut: backInOut,
+    anticipate: anticipate
+};
+var getAction = function (v, _a, _b) {
+    var from = _b.from,
+        to = _b.to,
+        velocity = _b.velocity;
+    var _c = _a.type,
+        type = _c === void 0 ? 'tween' : _c,
+        ease = _a.ease,
+        def = __rest(_a, ["type", "ease"]);
+    Object(hey_listen__WEBPACK_IMPORTED_MODULE_4__["invariant"])(animationLookup[type] !== undefined, "Invalid transition type '" + type + "'. Valid transition types are: tween, spring, decay, physics and keyframes.");
+    if (type === 'tween') {
+        var typeOfEase = typeof ease;
+        if (typeOfEase !== 'function') {
+            if (typeOfEase === 'string') {
+                Object(hey_listen__WEBPACK_IMPORTED_MODULE_4__["invariant"])(easingLookup[ease] !== undefined, "Invalid easing type '" + ease + "'. popmotion.io/pose/api/config");
+                ease = easingLookup[ease];
+            } else if (Array.isArray(ease)) {
+                Object(hey_listen__WEBPACK_IMPORTED_MODULE_4__["invariant"])(ease.length === 4, "Cubic bezier arrays must contain four numerical values.");
+                var x1 = ease[0],
+                    y1 = ease[1],
+                    x2 = ease[2],
+                    y2 = ease[3];
+                ease = popmotion__WEBPACK_IMPORTED_MODULE_0__["easing"].cubicBezier(x1, y1, x2, y2);
+            }
+        }
+    }
+    var baseProps = type !== 'keyframes' ? {
+        from: from,
+        to: to,
+        velocity: velocity,
+        ease: ease
+    } : { ease: ease };
+    return animationLookup[type](__assign({}, baseProps, def));
+};
+var isAction = function (action$$1) {
+    return typeof action$$1.start !== 'undefined';
+};
+var pose = function (_a) {
+    var transformPose = _a.transformPose,
+        addListenerToValue = _a.addListenerToValue,
+        extendAPI = _a.extendAPI,
+        readValueFromSource = _a.readValueFromSource,
+        posePriority = _a.posePriority,
+        setValueNative = _a.setValueNative;
+    return Object(pose_core__WEBPACK_IMPORTED_MODULE_3__["default"])({
+        bindOnChange: function (values, onChange) {
+            return function (key) {
+                if (!values.has(key)) return;
+                var raw = values.get(key).raw;
+                raw.subscribe(onChange[key]);
+            };
+        },
+        readValue: function (_a) {
+            var raw = _a.raw;
+            return raw.get();
+        },
+        setValue: function (_a, to) {
+            var raw = _a.raw;
+            return raw.update(to);
+        },
+        createValue: function (init, key, _a, _b) {
+            var elementStyler = _a.elementStyler;
+            var _c = _b === void 0 ? {} : _b,
+                passiveParent = _c.passiveParent,
+                passiveProps = _c.passiveProps;
+            var val = passiveParent ? createPassiveValue(init, passiveParent, passiveProps) : createValue(init);
+            if (addListenerToValue) {
+                val.raw.subscribe(addListenerToValue(key, elementStyler));
+            }
+            return val;
+        },
+        convertValue: function (raw, key, _a) {
+            var elementStyler = _a.elementStyler;
+            if (addListenerToValue) {
+                raw.subscribe(addListenerToValue(key, elementStyler));
+            }
+            return {
+                raw: raw,
+                type: getValueType(raw.get())
+            };
+        },
+        getTransitionProps: function (_a, to) {
+            var raw = _a.raw,
+                type = _a.type;
+            return {
+                from: raw.get(),
+                velocity: raw.getVelocity(),
+                to: to,
+                type: type
+            };
+        },
+        resolveTarget: function (_, to) {
+            return to;
+        },
+        selectValueToRead: function (_a) {
+            var raw = _a.raw;
+            return raw;
+        },
+        startAction: function (_a, action$$1, complete) {
+            var raw = _a.raw;
+            var reaction = {
+                update: function (v) {
+                    return raw.update(v);
+                },
+                complete: complete
+            };
+            return action$$1.start(reaction);
+        },
+        stopAction: function (action$$1) {
+            return action$$1.stop();
+        },
+        getInstantTransition: function (_, _a) {
+            var to = _a.to;
+            return just(to);
+        },
+        convertTransitionDefinition: function (val, def, props) {
+            if (isAction(def)) return def;
+            var delay$$1 = def.delay,
+                min = def.min,
+                max = def.max,
+                round = def.round,
+                remainingDef = __rest(def, ["delay", "min", "max", "round"]);
+            var action$$1 = getAction(val, remainingDef, props);
+            var outputPipe = [];
+            if (delay$$1) action$$1 = addActionDelay(delay$$1, action$$1);
+            if (min !== undefined) outputPipe.push(function (v) {
+                return Math.max(v, min);
+            });
+            if (max !== undefined) outputPipe.push(function (v) {
+                return Math.min(v, max);
+            });
+            if (round) outputPipe.push(Math.round);
+            return outputPipe.length ? action$$1.pipe.apply(action$$1, outputPipe) : action$$1;
+        },
+        setValueNative: setValueNative,
+        addActionDelay: addActionDelay,
+        defaultTransitions: defaultTransitions,
+        transformPose: transformPose,
+        readValueFromSource: readValueFromSource,
+        posePriority: posePriority,
+        extendAPI: extendAPI
+    });
+};
+
+var createDimensions = function (element) {
+    var hasMeasured = false;
+    var current = {
+        width: 0,
+        height: 0,
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0
+    };
+    return {
+        get: function (measurement) {
+            return measurement ? current[measurement] : current;
+        },
+        measure: function () {
+            current = element.getBoundingClientRect();
+            hasMeasured = true;
+            return current;
+        },
+        measurementAsPixels: function (measurement, value$$1, type) {
+            return type === style_value_types__WEBPACK_IMPORTED_MODULE_2__["percent"] ? (typeof value$$1 === 'string' ? parseFloat(value$$1) : value$$1) / 100 * current[measurement] : value$$1;
+        },
+        has: function () {
+            return hasMeasured;
+        }
+    };
+};
+
+var makeUIEventApplicator = function (_a) {
+    var startEvents = _a.startEvents,
+        endEvents = _a.endEvents,
+        startPose = _a.startPose,
+        endPose = _a.endPose,
+        startCallback = _a.startCallback,
+        endCallback = _a.endCallback,
+        useDocumentToEnd = _a.useDocumentToEnd,
+        preventScroll = _a.preventScroll;
+    return function (element, activeActions, poser, config) {
+        var startListener = startPose + 'Start';
+        var endListener = startPose + 'End';
+        var moveListener = startPose + 'Move';
+        var eventStartListener = Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["listen"])(element, startEvents).start(function (startEvent) {
+            if (preventScroll) {
+                var touchMoveListener = Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["listen"])(element, 'touchmove', {
+                    passive: false
+                }).start(function (e) {
+                    e.preventDefault();
+                });
+                activeActions.set(moveListener, touchMoveListener);
+            }
+            poser.set(startPose);
+            if (startCallback && config[startCallback]) config[startCallback](startEvent);
+            var eventEndListener = Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["listen"])(useDocumentToEnd ? document.documentElement : element, endEvents + (useDocumentToEnd ? ' mouseenter' : '')).start(function (endEvent) {
+                if (useDocumentToEnd && endEvent.type === 'mouseenter' && endEvent.buttons === 1) {
+                    return;
+                }
+                if (preventScroll) activeActions.get(moveListener).stop();
+                activeActions.get(endListener).stop();
+                poser.unset(startPose);
+                poser.set(endPose);
+                if (endCallback && config[endCallback]) config[endCallback](endEvent);
+            });
+            activeActions.set(endListener, eventEndListener);
+        });
+        activeActions.set(startListener, eventStartListener);
+    };
+};
+var events = {
+    draggable: /*#__PURE__*/makeUIEventApplicator({
+        startEvents: 'mousedown touchstart',
+        endEvents: 'mouseup touchend',
+        startPose: 'drag',
+        endPose: 'dragEnd',
+        startCallback: 'onDragStart',
+        endCallback: 'onDragEnd',
+        useDocumentToEnd: true,
+        preventScroll: true
+    }),
+    hoverable: /*#__PURE__*/makeUIEventApplicator({
+        startEvents: 'mouseenter',
+        endEvents: 'mouseleave',
+        startPose: 'hover',
+        endPose: 'hoverEnd'
+    }),
+    focusable: /*#__PURE__*/makeUIEventApplicator({
+        startEvents: 'focus',
+        endEvents: 'blur',
+        startPose: 'focus',
+        endPose: 'blur'
+    }),
+    pressable: /*#__PURE__*/makeUIEventApplicator({
+        startEvents: 'mousedown touchstart',
+        endEvents: 'mouseup touchend',
+        startPose: 'press',
+        endPose: 'pressEnd',
+        startCallback: 'onPressStart',
+        endCallback: 'onPressEnd',
+        useDocumentToEnd: true
+    })
+};
+var eventKeys = /*#__PURE__*/Object.keys(events);
+var appendEventListeners = function (element, activeActions, poser, _a) {
+    var props = _a.props;
+    return eventKeys.forEach(function (key) {
+        if (props[key]) events[key](element, activeActions, poser, props);
+    });
+};
+
+var ORIGIN_START = 0;
+var ORIGIN_CENTER = '50%';
+var ORIGIN_END = '100%';
+var findCenter = function (_a) {
+    var top = _a.top,
+        right = _a.right,
+        bottom = _a.bottom,
+        left = _a.left;
+    return {
+        x: (left + right) / 2,
+        y: (top + bottom) / 2
+    };
+};
+var positionalProps = ['width', 'height', 'top', 'left', 'bottom', 'right'];
+var positionalPropsDict = /*#__PURE__*/new Set(positionalProps);
+var checkPositionalProp = function (key) {
+    return positionalPropsDict.has(key);
+};
+var hasPositionalProps = function (pose) {
+    return Object.keys(pose).some(checkPositionalProp);
+};
+var isFlipPose = function (flip, key, state) {
+    return state.props.element instanceof HTMLElement && (flip === true || key === 'flip');
+};
+var setValue = function (_a, key, to) {
+    var values = _a.values,
+        props = _a.props;
+    if (values.has(key)) {
+        var raw = values.get(key).raw;
+        raw.update(to);
+        raw.update(to);
+    } else {
+        values.set(key, {
+            raw: Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["value"])(to, function (v) {
+                return props.elementStyler.set(key, v);
+            })
+        });
+    }
+};
+var explicitlyFlipPose = function (state, nextPose) {
+    var _a = state.props,
+        dimensions = _a.dimensions,
+        elementStyler = _a.elementStyler;
+    dimensions.measure();
+    var width = nextPose.width,
+        height = nextPose.height,
+        top = nextPose.top,
+        left = nextPose.left,
+        bottom = nextPose.bottom,
+        right = nextPose.right,
+        position = nextPose.position,
+        remainingPose = __rest(nextPose, ["width", "height", "top", "left", "bottom", "right", "position"]);
+    var propsToSet = positionalProps.concat('position').reduce(function (acc, key) {
+        if (nextPose[key] !== undefined) {
+            acc[key] = resolveProp(nextPose[key], state.props);
+        }
+        return acc;
+    }, {});
+    elementStyler.set(propsToSet).render();
+    return implicitlyFlipPose(state, remainingPose);
+};
+var implicitlyFlipPose = function (state, nextPose) {
+    var _a = state.props,
+        dimensions = _a.dimensions,
+        element = _a.element,
+        elementStyler = _a.elementStyler;
+    if (!dimensions.has()) return {};
+    var prev = dimensions.get();
+    var next = measureWithoutTransform(element);
+    var originX = prev.left === next.left ? ORIGIN_START : prev.right === next.right ? ORIGIN_END : ORIGIN_CENTER;
+    var originY = prev.top === next.top ? ORIGIN_START : prev.bottom === next.bottom ? ORIGIN_END : ORIGIN_CENTER;
+    elementStyler.set({ originX: originX, originY: originY });
+    if (prev.width !== next.width) {
+        setValue(state, 'scaleX', prev.width / next.width);
+        nextPose.scaleX = 1;
+    }
+    if (prev.height !== next.height) {
+        setValue(state, 'scaleY', prev.height / next.height);
+        nextPose.scaleY = 1;
+    }
+    var prevCenter = findCenter(prev);
+    var nextCenter = findCenter(next);
+    if (originX === ORIGIN_CENTER) {
+        setValue(state, 'x', prevCenter.x - nextCenter.x);
+        nextPose.x = 0;
+    }
+    if (originY === ORIGIN_CENTER) {
+        setValue(state, 'y', prevCenter.y - nextCenter.y);
+        nextPose.y = 0;
+    }
+    elementStyler.render();
+    return nextPose;
+};
+var flipPose = function (props, nextPose) {
+    return hasPositionalProps(nextPose) ? explicitlyFlipPose(props, nextPose) : implicitlyFlipPose(props, nextPose);
+};
+
+var getPosFromMatrix = function (matrix, pos) {
+    return parseFloat(matrix.split(', ')[pos]);
+};
+var getTranslateFromMatrix = function (pos2, pos3) {
+    return function (element, bbox, _a) {
+        var transform$$1 = _a.transform;
+        if (transform$$1 === 'none') return 0;
+        var matrix3d = transform$$1.match(/^matrix3d\((.+)\)$/);
+        if (matrix3d) return getPosFromMatrix(matrix3d[1], pos3);
+        return getPosFromMatrix(transform$$1.match(/^matrix\((.+)\)$/)[1], pos2);
+    };
+};
+var positionalValues = {
+    width: function (element, _a) {
+        var width = _a.width;
+        return width;
+    },
+    height: function (element, _a) {
+        var height = _a.height;
+        return height;
+    },
+    top: function (element, bbox, _a) {
+        var top = _a.top;
+        return parseFloat(top);
+    },
+    left: function (element, bbox, _a) {
+        var left = _a.left;
+        return parseFloat(left);
+    },
+    bottom: function (element, _a, _b) {
+        var height = _a.height;
+        var top = _b.top;
+        return parseFloat(top) + height;
+    },
+    right: function (element, _a, _b) {
+        var width = _a.width;
+        var left = _b.left;
+        return parseFloat(left) + width;
+    },
+    x: /*#__PURE__*/getTranslateFromMatrix(4, 13),
+    y: /*#__PURE__*/getTranslateFromMatrix(5, 14)
+};
+var isPositionalKey = function (v) {
+    return positionalValues[v] !== undefined;
+};
+var isPositional = function (pose) {
+    return Object.keys(pose).some(isPositionalKey);
+};
+var convertPositionalUnits = function (state, nextPose) {
+    var values = state.values,
+        props = state.props;
+    var element = props.element,
+        elementStyler = props.elementStyler;
+    var positionalPoseKeys = Object.keys(nextPose).filter(isPositionalKey);
+    var changedPositionalKeys = [];
+    var elementComputedStyle = getComputedStyle(element);
+    var applyAtEndHasBeenCopied = false;
+    positionalPoseKeys.forEach(function (key) {
+        var value$$1 = values.get(key);
+        var fromValueType = getValueType(value$$1.raw.get());
+        var to = resolveProp(nextPose[key], props);
+        var toValueType = getValueType(to);
+        if (fromValueType !== toValueType) {
+            changedPositionalKeys.push(key);
+            if (!applyAtEndHasBeenCopied) {
+                applyAtEndHasBeenCopied = true;
+                nextPose.applyAtEnd = nextPose.applyAtEnd ? __assign({}, nextPose.applyAtEnd) : {};
+            }
+            nextPose.applyAtEnd[key] = nextPose.applyAtEnd[key] || nextPose[key];
+            setValue(state, key, to);
+        }
+    });
+    if (!changedPositionalKeys.length) return nextPose;
+    var originBbox = element.getBoundingClientRect();
+    var top = elementComputedStyle.top,
+        left = elementComputedStyle.left,
+        bottom = elementComputedStyle.bottom,
+        right = elementComputedStyle.right,
+        transform$$1 = elementComputedStyle.transform;
+    var originComputedStyle = { top: top, left: left, bottom: bottom, right: right, transform: transform$$1 };
+    elementStyler.render();
+    var targetBbox = element.getBoundingClientRect();
+    changedPositionalKeys.forEach(function (key) {
+        setValue(state, key, positionalValues[key](element, originBbox, originComputedStyle));
+        nextPose[key] = positionalValues[key](element, targetBbox, elementComputedStyle);
+    });
+    elementStyler.render();
+    return nextPose;
+};
+
+var dragPoses = function (draggable) {
+    var drag = {
+        preTransition: function (_a) {
+            var dimensions = _a.dimensions;
+            return dimensions.measure();
+        }
+    };
+    var dragEnd = {};
+    if (draggable === true || draggable === 'x') drag.x = dragEnd.x = 0;
+    if (draggable === true || draggable === 'y') drag.y = dragEnd.y = 0;
+    return { drag: drag, dragEnd: dragEnd };
+};
+var createPoseConfig = function (element, _a) {
+    var onDragStart = _a.onDragStart,
+        onDragEnd = _a.onDragEnd,
+        onPressStart = _a.onPressStart,
+        onPressEnd = _a.onPressEnd,
+        draggable = _a.draggable,
+        hoverable = _a.hoverable,
+        focusable = _a.focusable,
+        pressable = _a.pressable,
+        dragBounds = _a.dragBounds,
+        config = __rest(_a, ["onDragStart", "onDragEnd", "onPressStart", "onPressEnd", "draggable", "hoverable", "focusable", "pressable", "dragBounds"]);
+    var poseConfig = __assign({ flip: {} }, config, { props: __assign({}, config.props, { onDragStart: onDragStart,
+            onDragEnd: onDragEnd,
+            onPressStart: onPressStart,
+            onPressEnd: onPressEnd,
+            dragBounds: dragBounds,
+            draggable: draggable,
+            hoverable: hoverable,
+            focusable: focusable,
+            pressable: pressable,
+            element: element, elementStyler: Object(popmotion__WEBPACK_IMPORTED_MODULE_0__["styler"])(element, { preparseOutput: false }), dimensions: createDimensions(element) }) });
+    if (draggable) {
+        var _b = dragPoses(draggable),
+            drag = _b.drag,
+            dragEnd = _b.dragEnd;
+        poseConfig.drag = __assign({}, poseConfig.drag, drag);
+        poseConfig.dragEnd = __assign({}, poseConfig.dragEnd, dragEnd);
+    }
+    return poseConfig;
+};
+var domPose = /*#__PURE__*/pose({
+    posePriority: ['drag', 'press', 'focus', 'hover'],
+    transformPose: function (_a, name, state) {
+        var flip = _a.flip,
+            pose$$1 = __rest(_a, ["flip"]);
+        if (isFlipPose(flip, name, state)) {
+            return flipPose(state, pose$$1);
+        } else if (isPositional(pose$$1)) {
+            return convertPositionalUnits(state, pose$$1);
+        }
+        return pose$$1;
+    },
+    addListenerToValue: function (key, elementStyler) {
+        return function (v) {
+            return elementStyler.set(key, v);
+        };
+    },
+    readValueFromSource: function (key, _a) {
+        var elementStyler = _a.elementStyler,
+            dragBounds = _a.dragBounds;
+        var value$$1 = elementStyler.get(key);
+        if (dragBounds && (key === 'x' || key === 'y')) {
+            var bound = key === 'x' ? dragBounds.left || dragBounds.right : dragBounds.top || dragBounds.bottom;
+            if (bound) {
+                var boundType = getValueType(bound);
+                value$$1 = boundType.transform(value$$1);
+            }
+        }
+        return isNaN(value$$1) ? value$$1 : parseFloat(value$$1);
+    },
+    setValueNative: function (key, to, _a) {
+        var elementStyler = _a.elementStyler;
+        return elementStyler.set(key, to);
+    },
+    extendAPI: function (api, _a, config) {
+        var props = _a.props,
+            activeActions = _a.activeActions;
+        var measure = props.dimensions.measure;
+        var poserApi = __assign({}, api, { addChild: function (element, childConfig) {
+                return api._addChild(createPoseConfig(element, childConfig), domPose);
+            }, measure: measure, flip: function (op) {
+                if (op) {
+                    measure();
+                    op();
+                }
+                return api.set('flip');
+            } });
+        props.elementStyler.render();
+        appendEventListeners(props.element, activeActions, poserApi, config);
+        return poserApi;
+    }
+});
+var domPose$1 = function (element, config) {
+    return domPose(createPoseConfig(element, config));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (domPose$1);
+
+
+/***/ }),
+
+/***/ "./node_modules/popmotion/dist/popmotion.es.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/popmotion/dist/popmotion.es.js ***!
+  \*****************************************************/
+/*! exports provided: valueTypes, easing, styler, action, multicast, value, decay, keyframes, everyFrame, physics, spring, timeline, tween, listen, pointer, mouse, multitouch, chain, composite, crossfade, delay, merge, parallel, schedule, stagger, calc, transform, css, svg, Action, ValueReaction */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "action", function() { return action; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "multicast", function() { return multicast; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "value", function() { return value; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decay", function() { return vectorDecay; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "keyframes", function() { return keyframes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "everyFrame", function() { return frame; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "physics", function() { return vectorPhysics; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "spring", function() { return vectorSpring; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "timeline", function() { return timeline; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tween", function() { return tween; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listen", function() { return listen; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pointer", function() { return index; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mouse", function() { return mouse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "multitouch", function() { return multitouch; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chain", function() { return chain; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "composite", function() { return composite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "crossfade", function() { return crossfade; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "delay", function() { return delay; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "merge", function() { return merge; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parallel", function() { return parallel$1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "schedule", function() { return schedule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stagger", function() { return stagger; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "calc", function() { return calc; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transform", function() { return transformers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "css", function() { return css; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "svg", function() { return svg; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Action", function() { return Action; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ValueReaction", function() { return ValueReaction; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @popmotion/popcorn */ "./node_modules/@popmotion/popcorn/dist/popcorn.es.js");
+/* harmony import */ var framesync__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! framesync */ "./node_modules/framesync/dist/framesync.es.js");
+/* harmony import */ var style_value_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! style-value-types */ "./node_modules/style-value-types/dist/style-value-types.es.js");
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "valueTypes", function() { return style_value_types__WEBPACK_IMPORTED_MODULE_3__; });
+/* harmony import */ var hey_listen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! hey-listen */ "./node_modules/hey-listen/dist/hey-listen.es.js");
+/* harmony import */ var _popmotion_easing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @popmotion/easing */ "./node_modules/@popmotion/easing/dist/easing.es.js");
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "easing", function() { return _popmotion_easing__WEBPACK_IMPORTED_MODULE_5__; });
+/* harmony import */ var stylefire__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! stylefire */ "./node_modules/stylefire/dist/stylefire.es.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "styler", function() { return stylefire__WEBPACK_IMPORTED_MODULE_6__["default"]; });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Chainable = /*#__PURE__*/function () {
+    function Chainable(props) {
+        if (props === void 0) {
+            props = {};
+        }
+        this.props = props;
+    }
+    Chainable.prototype.applyMiddleware = function (middleware) {
+        return this.create(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.props, { middleware: this.props.middleware ? [middleware].concat(this.props.middleware) : [middleware] }));
+    };
+    Chainable.prototype.pipe = function () {
+        var funcs = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            funcs[_i] = arguments[_i];
+        }
+        var pipedUpdate = funcs.length === 1 ? funcs[0] : _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["pipe"].apply(void 0, funcs);
+        return this.applyMiddleware(function (update) {
+            return function (v) {
+                return update(pipedUpdate(v));
+            };
+        });
+    };
+    Chainable.prototype.while = function (predicate) {
+        return this.applyMiddleware(function (update, complete) {
+            return function (v) {
+                return predicate(v) ? update(v) : complete();
+            };
+        });
+    };
+    Chainable.prototype.filter = function (predicate) {
+        return this.applyMiddleware(function (update) {
+            return function (v) {
+                return predicate(v) && update(v);
+            };
+        });
+    };
+    return Chainable;
+}();
+
+var Observer = /*#__PURE__*/function () {
+    function Observer(_a, observer) {
+        var middleware = _a.middleware,
+            onComplete = _a.onComplete;
+        var _this = this;
+        this.isActive = true;
+        this.update = function (v) {
+            if (_this.observer.update) _this.updateObserver(v);
+        };
+        this.complete = function () {
+            if (_this.observer.complete && _this.isActive) _this.observer.complete();
+            if (_this.onComplete) _this.onComplete();
+            _this.isActive = false;
+        };
+        this.error = function (err) {
+            if (_this.observer.error && _this.isActive) _this.observer.error(err);
+            _this.isActive = false;
+        };
+        this.observer = observer;
+        this.updateObserver = function (v) {
+            return observer.update(v);
+        };
+        this.onComplete = onComplete;
+        if (observer.update && middleware && middleware.length) {
+            middleware.forEach(function (m) {
+                return _this.updateObserver = m(_this.updateObserver, _this.complete);
+            });
+        }
+    }
+    return Observer;
+}();
+var createObserver = function (observerCandidate, _a, onComplete) {
+    var middleware = _a.middleware;
+    if (typeof observerCandidate === 'function') {
+        return new Observer({ middleware: middleware, onComplete: onComplete }, { update: observerCandidate });
+    } else {
+        return new Observer({ middleware: middleware, onComplete: onComplete }, observerCandidate);
+    }
+};
+
+var Action = /*#__PURE__*/function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(Action, _super);
+    function Action() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Action.prototype.create = function (props) {
+        return new Action(props);
+    };
+    Action.prototype.start = function (observerCandidate) {
+        if (observerCandidate === void 0) {
+            observerCandidate = {};
+        }
+        var isComplete = false;
+        var subscription = {
+            stop: function () {
+                return undefined;
+            }
+        };
+        var _a = this.props,
+            init = _a.init,
+            observerProps = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["init"]);
+        var observer = createObserver(observerCandidate, observerProps, function () {
+            isComplete = true;
+            subscription.stop();
+        });
+        var api = init(observer);
+        subscription = api ? Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, subscription, api) : subscription;
+        if (observerCandidate.registerParent) {
+            observerCandidate.registerParent(subscription);
+        }
+        if (isComplete) subscription.stop();
+        return subscription;
+    };
+    return Action;
+}(Chainable);
+var action = function (init) {
+    return new Action({ init: init });
+};
+
+var BaseMulticast = /*#__PURE__*/function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(BaseMulticast, _super);
+    function BaseMulticast() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.subscribers = [];
+        return _this;
+    }
+    BaseMulticast.prototype.complete = function () {
+        this.subscribers.forEach(function (subscriber) {
+            return subscriber.complete();
+        });
+    };
+    BaseMulticast.prototype.error = function (err) {
+        this.subscribers.forEach(function (subscriber) {
+            return subscriber.error(err);
+        });
+    };
+    BaseMulticast.prototype.update = function (v) {
+        for (var i = 0; i < this.subscribers.length; i++) {
+            this.subscribers[i].update(v);
+        }
+    };
+    BaseMulticast.prototype.subscribe = function (observerCandidate) {
+        var _this = this;
+        var observer = createObserver(observerCandidate, this.props);
+        this.subscribers.push(observer);
+        var subscription = {
+            unsubscribe: function () {
+                var index = _this.subscribers.indexOf(observer);
+                if (index !== -1) _this.subscribers.splice(index, 1);
+            }
+        };
+        return subscription;
+    };
+    BaseMulticast.prototype.stop = function () {
+        if (this.parent) this.parent.stop();
+    };
+    BaseMulticast.prototype.registerParent = function (subscription) {
+        this.stop();
+        this.parent = subscription;
+    };
+    return BaseMulticast;
+}(Chainable);
+
+var Multicast = /*#__PURE__*/function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(Multicast, _super);
+    function Multicast() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Multicast.prototype.create = function (props) {
+        return new Multicast(props);
+    };
+    return Multicast;
+}(BaseMulticast);
+var multicast = function () {
+    return new Multicast();
+};
+
+var stepProgress = function (steps, progress$$1) {
+    var segment = 1 / (steps - 1);
+    var subsegment = 1 / (2 * (steps - 1));
+    var percentProgressOfTarget = Math.min(progress$$1, 1);
+    var subsegmentProgressOfTarget = percentProgressOfTarget / subsegment;
+    var segmentProgressOfTarget = Math.floor((subsegmentProgressOfTarget + 1) / 2);
+    return segmentProgressOfTarget * segment;
+};
+
+var calc = /*#__PURE__*/Object.freeze({
+    angle: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["angle"],
+    degreesToRadians: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["degreesToRadians"],
+    distance: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["distance"],
+    isPoint3D: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["isPoint3D"],
+    isPoint: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["isPoint"],
+    dilate: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["mix"],
+    getValueFromProgress: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["mix"],
+    pointFromAngleAndDistance: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["pointFromVector"],
+    getProgressFromValue: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["progress"],
+    radiansToDegrees: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["radiansToDegrees"],
+    smooth: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["smoothFrame"],
+    speedPerFrame: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["velocityPerFrame"],
+    speedPerSecond: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["velocityPerSecond"],
+    stepProgress: stepProgress
+});
+
+var isValueList = function (v) {
+    return Array.isArray(v);
+};
+var isSingleValue = function (v) {
+    var typeOfV = typeof v;
+    return typeOfV === 'string' || typeOfV === 'number';
+};
+var ValueReaction = /*#__PURE__*/function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(ValueReaction, _super);
+    function ValueReaction(props) {
+        var _this = _super.call(this, props) || this;
+        _this.scheduleVelocityCheck = function () {
+            return framesync__WEBPACK_IMPORTED_MODULE_2__["default"].postRender(_this.velocityCheck);
+        };
+        _this.velocityCheck = function (_a) {
+            var timestamp = _a.timestamp;
+            if (timestamp !== _this.lastUpdated) {
+                _this.prev = _this.current;
+            }
+        };
+        _this.prev = _this.current = props.value || 0;
+        if (isSingleValue(_this.current)) {
+            _this.updateCurrent = function (v) {
+                return _this.current = v;
+            };
+            _this.getVelocityOfCurrent = function () {
+                return _this.getSingleVelocity(_this.current, _this.prev);
+            };
+        } else if (isValueList(_this.current)) {
+            _this.updateCurrent = function (v) {
+                return _this.current = v.slice();
+            };
+            _this.getVelocityOfCurrent = function () {
+                return _this.getListVelocity();
+            };
+        } else {
+            _this.updateCurrent = function (v) {
+                _this.current = {};
+                for (var key in v) {
+                    if (v.hasOwnProperty(key)) {
+                        _this.current[key] = v[key];
+                    }
+                }
+            };
+            _this.getVelocityOfCurrent = function () {
+                return _this.getMapVelocity();
+            };
+        }
+        if (props.initialSubscription) _this.subscribe(props.initialSubscription);
+        return _this;
+    }
+    ValueReaction.prototype.create = function (props) {
+        return new ValueReaction(props);
+    };
+    ValueReaction.prototype.get = function () {
+        return this.current;
+    };
+    ValueReaction.prototype.getVelocity = function () {
+        return this.getVelocityOfCurrent();
+    };
+    ValueReaction.prototype.update = function (v) {
+        _super.prototype.update.call(this, v);
+        this.prev = this.current;
+        this.updateCurrent(v);
+        var _a = Object(framesync__WEBPACK_IMPORTED_MODULE_2__["getFrameData"])(),
+            delta = _a.delta,
+            timestamp = _a.timestamp;
+        this.timeDelta = delta;
+        this.lastUpdated = timestamp;
+        framesync__WEBPACK_IMPORTED_MODULE_2__["default"].postRender(this.scheduleVelocityCheck);
+    };
+    ValueReaction.prototype.subscribe = function (observerCandidate) {
+        var sub = _super.prototype.subscribe.call(this, observerCandidate);
+        this.subscribers[this.subscribers.length - 1].update(this.current);
+        return sub;
+    };
+    ValueReaction.prototype.getSingleVelocity = function (current, prev) {
+        return typeof current === 'number' && typeof prev === 'number' ? Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["velocityPerSecond"])(current - prev, this.timeDelta) : Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["velocityPerSecond"])(parseFloat(current) - parseFloat(prev), this.timeDelta) || 0;
+    };
+    ValueReaction.prototype.getListVelocity = function () {
+        var _this = this;
+        return this.current.map(function (c, i) {
+            return _this.getSingleVelocity(c, _this.prev[i]);
+        });
+    };
+    ValueReaction.prototype.getMapVelocity = function () {
+        var velocity = {};
+        for (var key in this.current) {
+            if (this.current.hasOwnProperty(key)) {
+                velocity[key] = this.getSingleVelocity(this.current[key], this.prev[key]);
+            }
+        }
+        return velocity;
+    };
+    return ValueReaction;
+}(BaseMulticast);
+var value = function (value, initialSubscription) {
+    return new ValueReaction({ value: value, initialSubscription: initialSubscription });
+};
+
+var multi = function (_a) {
+    var getCount = _a.getCount,
+        getFirst = _a.getFirst,
+        getOutput = _a.getOutput,
+        mapApi = _a.mapApi,
+        setProp = _a.setProp,
+        startActions = _a.startActions;
+    return function (actions) {
+        return action(function (_a) {
+            var update = _a.update,
+                complete = _a.complete,
+                error = _a.error;
+            var numActions = getCount(actions);
+            var output = getOutput();
+            var updateOutput = function () {
+                return update(output);
+            };
+            var numCompletedActions = 0;
+            var subs = startActions(actions, function (a, name) {
+                var hasCompleted = false;
+                return a.start({
+                    complete: function () {
+                        if (!hasCompleted) {
+                            hasCompleted = true;
+                            numCompletedActions++;
+                            if (numCompletedActions === numActions) framesync__WEBPACK_IMPORTED_MODULE_2__["default"].update(complete);
+                        }
+                    },
+                    error: error,
+                    update: function (v) {
+                        setProp(output, name, v);
+                        framesync__WEBPACK_IMPORTED_MODULE_2__["default"].update(updateOutput, false, true);
+                    }
+                });
+            });
+            return Object.keys(getFirst(subs)).reduce(function (api, methodName) {
+                api[methodName] = mapApi(subs, methodName);
+                return api;
+            }, {});
+        });
+    };
+};
+
+var composite = /*#__PURE__*/multi({
+    getOutput: function () {
+        return {};
+    },
+    getCount: function (subs) {
+        return Object.keys(subs).length;
+    },
+    getFirst: function (subs) {
+        return subs[Object.keys(subs)[0]];
+    },
+    mapApi: function (subs, methodName) {
+        return function () {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            return Object.keys(subs).reduce(function (output, propKey) {
+                var _a;
+                if (subs[propKey][methodName]) {
+                    args[0] && args[0][propKey] !== undefined ? output[propKey] = subs[propKey][methodName](args[0][propKey]) : output[propKey] = (_a = subs[propKey])[methodName].apply(_a, args);
+                }
+                return output;
+            }, {});
+        };
+    },
+    setProp: function (output, name, v) {
+        return output[name] = v;
+    },
+    startActions: function (actions, starter) {
+        return Object.keys(actions).reduce(function (subs, key) {
+            subs[key] = starter(actions[key], key);
+            return subs;
+        }, {});
+    }
+});
+
+var parallel = /*#__PURE__*/multi({
+    getOutput: function () {
+        return [];
+    },
+    getCount: function (subs) {
+        return subs.length;
+    },
+    getFirst: function (subs) {
+        return subs[0];
+    },
+    mapApi: function (subs, methodName) {
+        return function () {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            return subs.map(function (sub, i) {
+                if (sub[methodName]) {
+                    return Array.isArray(args[0]) ? sub[methodName](args[0][i]) : sub[methodName].apply(sub, args);
+                }
+            });
+        };
+    },
+    setProp: function (output, name, v) {
+        return output[name] = v;
+    },
+    startActions: function (actions, starter) {
+        return actions.map(function (action, i) {
+            return starter(action, i);
+        });
+    }
+});
+var parallel$1 = function () {
+    var actions = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        actions[_i] = arguments[_i];
+    }
+    return parallel(actions);
+};
+
+var createVectorTests = function (typeTests) {
+    var testNames = Object.keys(typeTests);
+    var isVectorProp = function (prop, key) {
+        return prop !== undefined && !typeTests[key](prop);
+    };
+    var getVectorKeys = function (props) {
+        return testNames.reduce(function (vectorKeys, key) {
+            if (isVectorProp(props[key], key)) vectorKeys.push(key);
+            return vectorKeys;
+        }, []);
+    };
+    var testVectorProps = function (props) {
+        return props && testNames.some(function (key) {
+            return isVectorProp(props[key], key);
+        });
+    };
+    return { getVectorKeys: getVectorKeys, testVectorProps: testVectorProps };
+};
+var unitTypes = [style_value_types__WEBPACK_IMPORTED_MODULE_3__["px"], style_value_types__WEBPACK_IMPORTED_MODULE_3__["percent"], style_value_types__WEBPACK_IMPORTED_MODULE_3__["degrees"], style_value_types__WEBPACK_IMPORTED_MODULE_3__["vh"], style_value_types__WEBPACK_IMPORTED_MODULE_3__["vw"]];
+var findUnitType = function (prop) {
+    return unitTypes.find(function (type) {
+        return type.test(prop);
+    });
+};
+var isUnitProp = function (prop) {
+    return Boolean(findUnitType(prop));
+};
+var createAction = function (action, props) {
+    return action(props);
+};
+var reduceArrayValue = function (i) {
+    return function (props, key) {
+        props[key] = props[key][i];
+        return props;
+    };
+};
+var createArrayAction = function (action, props, vectorKeys) {
+    var firstVectorKey = vectorKeys[0];
+    var actionList = props[firstVectorKey].map(function (v, i) {
+        var childActionProps = vectorKeys.reduce(reduceArrayValue(i), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, props));
+        return getActionCreator(v)(action, childActionProps);
+    });
+    return parallel$1.apply(void 0, actionList);
+};
+var reduceObjectValue = function (key) {
+    return function (props, propKey) {
+        props[propKey] = props[propKey][key];
+        return props;
+    };
+};
+var createObjectAction = function (action, props, vectorKeys) {
+    var firstVectorKey = vectorKeys[0];
+    var actionMap = Object.keys(props[firstVectorKey]).reduce(function (map, key) {
+        var childActionProps = vectorKeys.reduce(reduceObjectValue(key), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, props));
+        map[key] = getActionCreator(props[firstVectorKey][key])(action, childActionProps);
+        return map;
+    }, {});
+    return composite(actionMap);
+};
+var createUnitAction = function (action, _a) {
+    var from = _a.from,
+        to = _a.to,
+        props = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["from", "to"]);
+    var unitType = findUnitType(from) || findUnitType(to);
+    var transform = unitType.transform,
+        parse = unitType.parse;
+    return action(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, props, { from: typeof from === 'string' ? parse(from) : from, to: typeof to === 'string' ? parse(to) : to })).pipe(transform);
+};
+var createColorAction = function (action, _a) {
+    var from = _a.from,
+        to = _a.to,
+        props = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["from", "to"]);
+    return action(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, props, { from: 0, to: 1 })).pipe(Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["mixColor"])(from, to), style_value_types__WEBPACK_IMPORTED_MODULE_3__["color"].transform);
+};
+var createComplexAction = function (action, _a) {
+    var from = _a.from,
+        to = _a.to,
+        props = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["from", "to"]);
+    var valueTemplate = style_value_types__WEBPACK_IMPORTED_MODULE_3__["complex"].createTransformer(from);
+    Object(hey_listen__WEBPACK_IMPORTED_MODULE_4__["invariant"])(valueTemplate(from) === style_value_types__WEBPACK_IMPORTED_MODULE_3__["complex"].createTransformer(to)(from), "Values '" + from + "' and '" + to + "' are of different format, or a value might have changed value type.");
+    return action(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, props, { from: 0, to: 1 })).pipe(Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["mixArray"])(style_value_types__WEBPACK_IMPORTED_MODULE_3__["complex"].parse(from), style_value_types__WEBPACK_IMPORTED_MODULE_3__["complex"].parse(to)), valueTemplate);
+};
+var createVectorAction = function (action, typeTests) {
+    var _a = createVectorTests(typeTests),
+        testVectorProps = _a.testVectorProps,
+        getVectorKeys = _a.getVectorKeys;
+    var vectorAction = function (props) {
+        var isVector = testVectorProps(props);
+        if (!isVector) return action(props);
+        var vectorKeys = getVectorKeys(props);
+        var testKey = vectorKeys[0];
+        var testProp = props[testKey];
+        return getActionCreator(testProp)(action, props, vectorKeys);
+    };
+    return vectorAction;
+};
+var getActionCreator = function (prop) {
+    var actionCreator = createAction;
+    if (typeof prop === 'number') {
+        actionCreator = createAction;
+    } else if (Array.isArray(prop)) {
+        actionCreator = createArrayAction;
+    } else if (isUnitProp(prop)) {
+        actionCreator = createUnitAction;
+    } else if (style_value_types__WEBPACK_IMPORTED_MODULE_3__["color"].test(prop)) {
+        actionCreator = createColorAction;
+    } else if (style_value_types__WEBPACK_IMPORTED_MODULE_3__["complex"].test(prop)) {
+        actionCreator = createComplexAction;
+    } else if (typeof prop === 'object') {
+        actionCreator = createObjectAction;
+    }
+    return actionCreator;
+};
+
+var decay = function (props) {
+    if (props === void 0) {
+        props = {};
+    }
+    return action(function (_a) {
+        var complete = _a.complete,
+            update = _a.update;
+        var _b = props.velocity,
+            velocity = _b === void 0 ? 0 : _b,
+            _c = props.from,
+            from = _c === void 0 ? 0 : _c,
+            _d = props.power,
+            power = _d === void 0 ? 0.8 : _d,
+            _e = props.timeConstant,
+            timeConstant = _e === void 0 ? 350 : _e,
+            _f = props.restDelta,
+            restDelta = _f === void 0 ? 0.5 : _f,
+            modifyTarget = props.modifyTarget;
+        var elapsed = 0;
+        var amplitude = power * velocity;
+        var idealTarget = Math.round(from + amplitude);
+        var target = typeof modifyTarget === 'undefined' ? idealTarget : modifyTarget(idealTarget);
+        var process = framesync__WEBPACK_IMPORTED_MODULE_2__["default"].update(function (_a) {
+            var frameDelta = _a.delta;
+            elapsed += frameDelta;
+            var delta = -amplitude * Math.exp(-elapsed / timeConstant);
+            var isMoving = delta > restDelta || delta < -restDelta;
+            var current = isMoving ? target + delta : target;
+            update(current);
+            if (!isMoving) {
+                framesync__WEBPACK_IMPORTED_MODULE_2__["cancelSync"].update(process);
+                complete();
+            }
+        }, true);
+        return {
+            stop: function () {
+                return framesync__WEBPACK_IMPORTED_MODULE_2__["cancelSync"].update(process);
+            }
+        };
+    });
+};
+var vectorDecay = /*#__PURE__*/createVectorAction(decay, {
+    from: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test,
+    modifyTarget: function (func) {
+        return typeof func === 'function';
+    },
+    velocity: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test
+});
+
+var frame = function () {
+    return action(function (_a) {
+        var update = _a.update;
+        var initialTime = 0;
+        var process = framesync__WEBPACK_IMPORTED_MODULE_2__["default"].update(function (_a) {
+            var timestamp = _a.timestamp;
+            if (!initialTime) initialTime = timestamp;
+            update(timestamp - initialTime);
+        }, true, true);
+        return {
+            stop: function () {
+                return framesync__WEBPACK_IMPORTED_MODULE_2__["cancelSync"].update(process);
+            }
+        };
+    });
+};
+
+var scrubber = function (_a) {
+    var _b = _a.from,
+        from = _b === void 0 ? 0 : _b,
+        _c = _a.to,
+        to = _c === void 0 ? 1 : _c,
+        _d = _a.ease,
+        ease = _d === void 0 ? _popmotion_easing__WEBPACK_IMPORTED_MODULE_5__["linear"] : _d;
+    return action(function (_a) {
+        var update = _a.update;
+        return {
+            seek: function (progress$$1) {
+                return update(progress$$1);
+            }
+        };
+    }).pipe(ease, function (v) {
+        return Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["mix"])(from, to, v);
+    });
+};
+var vectorScrubber = /*#__PURE__*/createVectorAction(scrubber, {
+    ease: function (func) {
+        return typeof func === 'function';
+    },
+    from: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test,
+    to: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test
+});
+
+var clampProgress = /*#__PURE__*/Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["clamp"])(0, 1);
+var tween = function (props) {
+    if (props === void 0) {
+        props = {};
+    }
+    return action(function (_a) {
+        var update = _a.update,
+            complete = _a.complete;
+        var _b = props.duration,
+            duration = _b === void 0 ? 300 : _b,
+            _c = props.ease,
+            ease = _c === void 0 ? _popmotion_easing__WEBPACK_IMPORTED_MODULE_5__["easeOut"] : _c,
+            _d = props.flip,
+            flip = _d === void 0 ? 0 : _d,
+            _e = props.loop,
+            loop = _e === void 0 ? 0 : _e,
+            _f = props.yoyo,
+            yoyo = _f === void 0 ? 0 : _f;
+        var _g = props.from,
+            from = _g === void 0 ? 0 : _g,
+            _h = props.to,
+            to = _h === void 0 ? 1 : _h,
+            _j = props.elapsed,
+            elapsed = _j === void 0 ? 0 : _j,
+            _k = props.playDirection,
+            playDirection = _k === void 0 ? 1 : _k,
+            _l = props.flipCount,
+            flipCount = _l === void 0 ? 0 : _l,
+            _m = props.yoyoCount,
+            yoyoCount = _m === void 0 ? 0 : _m,
+            _o = props.loopCount,
+            loopCount = _o === void 0 ? 0 : _o;
+        var playhead = vectorScrubber({ from: from, to: to, ease: ease }).start(update);
+        var currentProgress = 0;
+        var process;
+        var isActive = false;
+        var reverseTween = function () {
+            return playDirection *= -1;
+        };
+        var isTweenComplete = function () {
+            var _a;
+            var isComplete = playDirection === 1 ? isActive && elapsed >= duration : isActive && elapsed <= 0;
+            if (!isComplete) return false;
+            if (isComplete && !loop && !flip && !yoyo) return true;
+            var isStepTaken = false;
+            if (loop && loopCount < loop) {
+                elapsed = 0;
+                loopCount++;
+                isStepTaken = true;
+            } else if (flip && flipCount < flip) {
+                elapsed = duration - elapsed;
+                _a = [to, from], from = _a[0], to = _a[1];
+                playhead = vectorScrubber({ from: from, to: to, ease: ease }).start(update);
+                flipCount++;
+                isStepTaken = true;
+            } else if (yoyo && yoyoCount < yoyo) {
+                reverseTween();
+                yoyoCount++;
+                isStepTaken = true;
+            }
+            return !isStepTaken;
+        };
+        var updateTween = function () {
+            currentProgress = clampProgress(Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["progress"])(0, duration, elapsed));
+            playhead.seek(currentProgress);
+        };
+        var startTimer = function () {
+            isActive = true;
+            process = framesync__WEBPACK_IMPORTED_MODULE_2__["default"].update(function (_a) {
+                var delta = _a.delta;
+                elapsed += delta * playDirection;
+                updateTween();
+                if (isTweenComplete() && complete) {
+                    framesync__WEBPACK_IMPORTED_MODULE_2__["cancelSync"].update(process);
+                    framesync__WEBPACK_IMPORTED_MODULE_2__["default"].update(complete, false, true);
+                }
+            }, true);
+        };
+        var stopTimer = function () {
+            isActive = false;
+            if (process) framesync__WEBPACK_IMPORTED_MODULE_2__["cancelSync"].update(process);
+        };
+        startTimer();
+        return {
+            isActive: function () {
+                return isActive;
+            },
+            getElapsed: function () {
+                return Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["clamp"])(0, duration, elapsed);
+            },
+            getProgress: function () {
+                return currentProgress;
+            },
+            stop: function () {
+                stopTimer();
+            },
+            pause: function () {
+                stopTimer();
+                return this;
+            },
+            resume: function () {
+                if (!isActive) startTimer();
+                return this;
+            },
+            seek: function (newProgress) {
+                elapsed = Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["mix"])(0, duration, newProgress);
+                framesync__WEBPACK_IMPORTED_MODULE_2__["default"].update(updateTween, false, true);
+                return this;
+            },
+            reverse: function () {
+                reverseTween();
+                return this;
+            }
+        };
+    });
+};
+
+var clampProgress$1 = /*#__PURE__*/Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["clamp"])(0, 1);
+var defaultEasings = function (values, easing$$1) {
+    return values.map(function () {
+        return easing$$1 || _popmotion_easing__WEBPACK_IMPORTED_MODULE_5__["easeOut"];
+    }).splice(0, values.length - 1);
+};
+var defaultTimings = function (values) {
+    var numValues = values.length;
+    return values.map(function (value, i) {
+        return i !== 0 ? i / (numValues - 1) : 0;
+    });
+};
+var interpolateScrubbers = function (input, scrubbers, update) {
+    var rangeLength = input.length;
+    var finalInputIndex = rangeLength - 1;
+    var finalScrubberIndex = finalInputIndex - 1;
+    var subs = scrubbers.map(function (scrub) {
+        return scrub.start(update);
+    });
+    return function (v) {
+        if (v <= input[0]) {
+            subs[0].seek(0);
+        }
+        if (v >= input[finalInputIndex]) {
+            subs[finalScrubberIndex].seek(1);
+        }
+        var i = 1;
+        for (; i < rangeLength; i++) {
+            if (input[i] > v || i === finalInputIndex) break;
+        }
+        var progressInRange = Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["progress"])(input[i - 1], input[i], v);
+        subs[i - 1].seek(clampProgress$1(progressInRange));
+    };
+};
+var keyframes = function (_a) {
+    var easings = _a.easings,
+        _b = _a.ease,
+        ease = _b === void 0 ? _popmotion_easing__WEBPACK_IMPORTED_MODULE_5__["linear"] : _b,
+        times = _a.times,
+        values = _a.values,
+        tweenProps = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["easings", "ease", "times", "values"]);
+    easings = Array.isArray(easings) ? easings : defaultEasings(values, easings);
+    times = times || defaultTimings(values);
+    var scrubbers = easings.map(function (easing$$1, i) {
+        return vectorScrubber({
+            from: values[i],
+            to: values[i + 1],
+            ease: easing$$1
+        });
+    });
+    return tween(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, tweenProps, { ease: ease })).applyMiddleware(function (update) {
+        return interpolateScrubbers(times, scrubbers, update);
+    });
+};
+
+var physics = function (props) {
+    if (props === void 0) {
+        props = {};
+    }
+    return action(function (_a) {
+        var complete = _a.complete,
+            update = _a.update;
+        var _b = props.acceleration,
+            acceleration = _b === void 0 ? 0 : _b,
+            _c = props.friction,
+            friction = _c === void 0 ? 0 : _c,
+            _d = props.velocity,
+            velocity = _d === void 0 ? 0 : _d,
+            springStrength = props.springStrength,
+            to = props.to;
+        var _e = props.restSpeed,
+            restSpeed = _e === void 0 ? 0.001 : _e,
+            _f = props.from,
+            from = _f === void 0 ? 0 : _f;
+        var current = from;
+        var process = framesync__WEBPACK_IMPORTED_MODULE_2__["default"].update(function (_a) {
+            var delta = _a.delta;
+            var elapsed = Math.max(delta, 16);
+            if (acceleration) velocity += Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["velocityPerFrame"])(acceleration, elapsed);
+            if (friction) velocity *= Math.pow(1 - friction, elapsed / 100);
+            if (springStrength !== undefined && to !== undefined) {
+                var distanceToTarget = to - current;
+                velocity += distanceToTarget * Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["velocityPerFrame"])(springStrength, elapsed);
+            }
+            current += Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["velocityPerFrame"])(velocity, elapsed);
+            update(current);
+            var isComplete = restSpeed !== false && (!velocity || Math.abs(velocity) <= restSpeed);
+            if (isComplete) {
+                framesync__WEBPACK_IMPORTED_MODULE_2__["cancelSync"].update(process);
+                complete();
+            }
+        }, true);
+        return {
+            set: function (v) {
+                current = v;
+                return this;
+            },
+            setAcceleration: function (v) {
+                acceleration = v;
+                return this;
+            },
+            setFriction: function (v) {
+                friction = v;
+                return this;
+            },
+            setSpringStrength: function (v) {
+                springStrength = v;
+                return this;
+            },
+            setSpringTarget: function (v) {
+                to = v;
+                return this;
+            },
+            setVelocity: function (v) {
+                velocity = v;
+                return this;
+            },
+            stop: function () {
+                return framesync__WEBPACK_IMPORTED_MODULE_2__["cancelSync"].update(process);
+            }
+        };
+    });
+};
+var vectorPhysics = /*#__PURE__*/createVectorAction(physics, {
+    acceleration: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test,
+    friction: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test,
+    velocity: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test,
+    from: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test,
+    to: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test,
+    springStrength: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test
+});
+
+var spring = function (props) {
+    if (props === void 0) {
+        props = {};
+    }
+    return action(function (_a) {
+        var update = _a.update,
+            complete = _a.complete;
+        var _b = props.velocity,
+            velocity = _b === void 0 ? 0.0 : _b;
+        var _c = props.from,
+            from = _c === void 0 ? 0.0 : _c,
+            _d = props.to,
+            to = _d === void 0 ? 0.0 : _d,
+            _e = props.stiffness,
+            stiffness = _e === void 0 ? 100 : _e,
+            _f = props.damping,
+            damping = _f === void 0 ? 10 : _f,
+            _g = props.mass,
+            mass = _g === void 0 ? 1.0 : _g,
+            _h = props.restSpeed,
+            restSpeed = _h === void 0 ? 0.01 : _h,
+            _j = props.restDelta,
+            restDelta = _j === void 0 ? 0.01 : _j;
+        var initialVelocity = velocity ? -(velocity / 1000) : 0.0;
+        var t = 0;
+        var delta = to - from;
+        var position = from;
+        var prevPosition = position;
+        var process = framesync__WEBPACK_IMPORTED_MODULE_2__["default"].update(function (_a) {
+            var timeDelta = _a.delta;
+            t += timeDelta;
+            var dampingRatio = damping / (2 * Math.sqrt(stiffness * mass));
+            var angularFreq = Math.sqrt(stiffness / mass) / 1000;
+            prevPosition = position;
+            if (dampingRatio < 1) {
+                var envelope = Math.exp(-dampingRatio * angularFreq * t);
+                var expoDecay = angularFreq * Math.sqrt(1.0 - dampingRatio * dampingRatio);
+                position = to - envelope * ((initialVelocity + dampingRatio * angularFreq * delta) / expoDecay * Math.sin(expoDecay * t) + delta * Math.cos(expoDecay * t));
+            } else {
+                var envelope = Math.exp(-angularFreq * t);
+                position = to - envelope * (delta + (initialVelocity + angularFreq * delta) * t);
+            }
+            velocity = Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["velocityPerSecond"])(position - prevPosition, timeDelta);
+            var isBelowVelocityThreshold = Math.abs(velocity) <= restSpeed;
+            var isBelowDisplacementThreshold = Math.abs(to - position) <= restDelta;
+            if (isBelowVelocityThreshold && isBelowDisplacementThreshold) {
+                position = to;
+                update(position);
+                framesync__WEBPACK_IMPORTED_MODULE_2__["cancelSync"].update(process);
+                complete();
+            } else {
+                update(position);
+            }
+        }, true);
+        return {
+            stop: function () {
+                return framesync__WEBPACK_IMPORTED_MODULE_2__["cancelSync"].update(process);
+            }
+        };
+    });
+};
+var vectorSpring = /*#__PURE__*/createVectorAction(spring, {
+    from: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test,
+    to: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test,
+    stiffness: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test,
+    damping: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test,
+    mass: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test,
+    velocity: style_value_types__WEBPACK_IMPORTED_MODULE_3__["number"].test
+});
+
+var DEFAULT_DURATION = 300;
+var flattenTimings = function (instructions) {
+    var flatInstructions = [];
+    var lastArg = instructions[instructions.length - 1];
+    var isStaggered = typeof lastArg === 'number';
+    var staggerDelay = isStaggered ? lastArg : 0;
+    var segments = isStaggered ? instructions.slice(0, -1) : instructions;
+    var numSegments = segments.length;
+    var offset = 0;
+    segments.forEach(function (item, i) {
+        flatInstructions.push(item);
+        if (i !== numSegments - 1) {
+            var duration = item.duration || DEFAULT_DURATION;
+            offset += staggerDelay;
+            flatInstructions.push("-" + (duration - offset));
+        }
+    });
+    return flatInstructions;
+};
+var flattenArrayInstructions = function (instructions, instruction) {
+    Array.isArray(instruction) ? instructions.push.apply(instructions, flattenTimings(instruction)) : instructions.push(instruction);
+    return instructions;
+};
+var convertDefToProps = function (props, def, i) {
+    var duration = props.duration,
+        easings = props.easings,
+        times = props.times,
+        values = props.values;
+    var numValues = values.length;
+    var prevTimeTo = times[numValues - 1];
+    var timeFrom = def.at === 0 ? 0 : def.at / duration;
+    var timeTo = (def.at + def.duration) / duration;
+    if (i === 0) {
+        values.push(def.from);
+        times.push(timeFrom);
+    } else {
+        if (prevTimeTo !== timeFrom) {
+            if (def.from !== undefined) {
+                values.push(values[numValues - 1]);
+                times.push(timeFrom);
+                easings.push(_popmotion_easing__WEBPACK_IMPORTED_MODULE_5__["linear"]);
+            }
+            var from = def.from !== undefined ? def.from : values[numValues - 1];
+            values.push(from);
+            times.push(timeFrom);
+            easings.push(_popmotion_easing__WEBPACK_IMPORTED_MODULE_5__["linear"]);
+        } else if (def.from !== undefined) {
+            values.push(def.from);
+            times.push(timeFrom);
+            easings.push(_popmotion_easing__WEBPACK_IMPORTED_MODULE_5__["linear"]);
+        }
+    }
+    values.push(def.to);
+    times.push(timeTo);
+    easings.push(def.ease || _popmotion_easing__WEBPACK_IMPORTED_MODULE_5__["easeInOut"]);
+    return props;
+};
+var timeline = function (instructions, _a) {
+    var _b = _a === void 0 ? {} : _a,
+        duration = _b.duration,
+        elapsed = _b.elapsed,
+        ease = _b.ease,
+        loop = _b.loop,
+        flip = _b.flip,
+        yoyo = _b.yoyo;
+    var playhead = 0;
+    var calculatedDuration = 0;
+    var flatInstructions = instructions.reduce(flattenArrayInstructions, []);
+    var animationDefs = [];
+    flatInstructions.forEach(function (instruction) {
+        if (typeof instruction === 'string') {
+            playhead += parseFloat(instruction);
+        } else if (typeof instruction === 'number') {
+            playhead = instruction;
+        } else {
+            var def = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, instruction, { at: playhead });
+            def.duration = def.duration === undefined ? DEFAULT_DURATION : def.duration;
+            animationDefs.push(def);
+            playhead += def.duration;
+            calculatedDuration = Math.max(calculatedDuration, def.at + def.duration);
+        }
+    });
+    var tracks = {};
+    var numDefs = animationDefs.length;
+    for (var i = 0; i < numDefs; i++) {
+        var def = animationDefs[i];
+        var track = def.track;
+        if (track === undefined) {
+            throw new Error('No track defined');
+        }
+        if (!tracks.hasOwnProperty(track)) tracks[track] = [];
+        tracks[track].push(def);
+    }
+    var trackKeyframes = {};
+    for (var key in tracks) {
+        if (tracks.hasOwnProperty(key)) {
+            var keyframeProps = tracks[key].reduce(convertDefToProps, {
+                duration: calculatedDuration,
+                easings: [],
+                times: [],
+                values: []
+            });
+            trackKeyframes[key] = keyframes(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, keyframeProps, { duration: duration || calculatedDuration, ease: ease,
+                elapsed: elapsed,
+                loop: loop,
+                yoyo: yoyo,
+                flip: flip }));
+        }
+    }
+    return composite(trackKeyframes);
+};
+
+var listen = function (element, events, options) {
+    return action(function (_a) {
+        var update = _a.update;
+        var eventNames = events.split(' ').map(function (eventName) {
+            element.addEventListener(eventName, update, options);
+            return eventName;
+        });
+        return {
+            stop: function () {
+                return eventNames.forEach(function (eventName) {
+                    return element.removeEventListener(eventName, update, options);
+                });
+            }
+        };
+    });
+};
+
+var defaultPointerPos = function () {
+    return {
+        clientX: 0,
+        clientY: 0,
+        pageX: 0,
+        pageY: 0,
+        x: 0,
+        y: 0
+    };
+};
+var eventToPoint = function (e, point) {
+    if (point === void 0) {
+        point = defaultPointerPos();
+    }
+    point.clientX = point.x = e.clientX;
+    point.clientY = point.y = e.clientY;
+    point.pageX = e.pageX;
+    point.pageY = e.pageY;
+    return point;
+};
+
+var points = [/*#__PURE__*/defaultPointerPos()];
+var isTouchDevice = false;
+if (typeof document !== 'undefined') {
+    var updatePointsLocation = function (_a) {
+        var touches = _a.touches;
+        isTouchDevice = true;
+        var numTouches = touches.length;
+        points.length = 0;
+        for (var i = 0; i < numTouches; i++) {
+            var thisTouch = touches[i];
+            points.push(eventToPoint(thisTouch));
+        }
+    };
+    listen(document, 'touchstart touchmove', {
+        passive: true,
+        capture: true
+    }).start(updatePointsLocation);
+}
+var multitouch = function (_a) {
+    var _b = _a === void 0 ? {} : _a,
+        _c = _b.preventDefault,
+        preventDefault = _c === void 0 ? true : _c,
+        _d = _b.scale,
+        scale = _d === void 0 ? 1.0 : _d,
+        _e = _b.rotate,
+        rotate = _e === void 0 ? 0.0 : _e;
+    return action(function (_a) {
+        var update = _a.update;
+        var output = {
+            touches: points,
+            scale: scale,
+            rotate: rotate
+        };
+        var initialDistance = 0.0;
+        var initialRotation = 0.0;
+        var isGesture = points.length > 1;
+        if (isGesture) {
+            var firstTouch = points[0],
+                secondTouch = points[1];
+            initialDistance = Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["distance"])(firstTouch, secondTouch);
+            initialRotation = Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["angle"])(firstTouch, secondTouch);
+        }
+        var updatePoint = function () {
+            if (isGesture) {
+                var firstTouch = points[0],
+                    secondTouch = points[1];
+                var newDistance = Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["distance"])(firstTouch, secondTouch);
+                var newRotation = Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["angle"])(firstTouch, secondTouch);
+                output.scale = scale * (newDistance / initialDistance);
+                output.rotate = rotate + (newRotation - initialRotation);
+            }
+            update(output);
+        };
+        var onMove = function (e) {
+            if (preventDefault || e.touches.length > 1) e.preventDefault();
+            framesync__WEBPACK_IMPORTED_MODULE_2__["default"].update(updatePoint);
+        };
+        var updateOnMove = listen(document, 'touchmove', {
+            passive: !preventDefault
+        }).start(onMove);
+        if (isTouchDevice) framesync__WEBPACK_IMPORTED_MODULE_2__["default"].update(updatePoint);
+        return {
+            stop: function () {
+                framesync__WEBPACK_IMPORTED_MODULE_2__["cancelSync"].update(updatePoint);
+                updateOnMove.stop();
+            }
+        };
+    });
+};
+var getIsTouchDevice = function () {
+    return isTouchDevice;
+};
+
+var point = /*#__PURE__*/defaultPointerPos();
+var isMouseDevice = false;
+if (typeof document !== 'undefined') {
+    var updatePointLocation = function (e) {
+        isMouseDevice = true;
+        eventToPoint(e, point);
+    };
+    listen(document, 'mousedown mousemove', true).start(updatePointLocation);
+}
+var mouse = function (_a) {
+    var _b = (_a === void 0 ? {} : _a).preventDefault,
+        preventDefault = _b === void 0 ? true : _b;
+    return action(function (_a) {
+        var update = _a.update;
+        var updatePoint = function () {
+            return update(point);
+        };
+        var onMove = function (e) {
+            if (preventDefault) e.preventDefault();
+            framesync__WEBPACK_IMPORTED_MODULE_2__["default"].update(updatePoint);
+        };
+        var updateOnMove = listen(document, 'mousemove').start(onMove);
+        if (isMouseDevice) framesync__WEBPACK_IMPORTED_MODULE_2__["default"].update(updatePoint);
+        return {
+            stop: function () {
+                framesync__WEBPACK_IMPORTED_MODULE_2__["cancelSync"].update(updatePoint);
+                updateOnMove.stop();
+            }
+        };
+    });
+};
+
+var getFirstTouch = function (_a) {
+    var firstTouch = _a[0];
+    return firstTouch;
+};
+var pointer = function (props) {
+    if (props === void 0) {
+        props = {};
+    }
+    return getIsTouchDevice() ? multitouch(props).pipe(function (_a) {
+        var touches = _a.touches;
+        return touches;
+    }, getFirstTouch) : mouse(props);
+};
+var index = function (_a) {
+    if (_a === void 0) {
+        _a = {};
+    }
+    var x = _a.x,
+        y = _a.y,
+        props = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["x", "y"]);
+    if (x !== undefined || y !== undefined) {
+        var applyXOffset_1 = Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["applyOffset"])(x || 0);
+        var applyYOffset_1 = Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["applyOffset"])(y || 0);
+        var delta_1 = { x: 0, y: 0 };
+        return pointer(props).pipe(function (point) {
+            delta_1.x = applyXOffset_1(point.x);
+            delta_1.y = applyYOffset_1(point.y);
+            return delta_1;
+        });
+    } else {
+        return pointer(props);
+    }
+};
+
+var chain = function () {
+    var actions = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        actions[_i] = arguments[_i];
+    }
+    return action(function (_a) {
+        var update = _a.update,
+            complete = _a.complete;
+        var i = 0;
+        var current;
+        var playCurrent = function () {
+            current = actions[i].start({
+                complete: function () {
+                    i++;
+                    i >= actions.length ? complete() : playCurrent();
+                },
+                update: update
+            });
+        };
+        playCurrent();
+        return {
+            stop: function () {
+                return current && current.stop();
+            }
+        };
+    });
+};
+
+var crossfade = function (a, b) {
+    return action(function (observer) {
+        var balance = 0;
+        var fadable = parallel$1(a, b).start(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, observer, { update: function (_a) {
+                var va = _a[0],
+                    vb = _a[1];
+                observer.update(Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["mix"])(va, vb, balance));
+            } }));
+        return {
+            setBalance: function (v) {
+                return balance = v;
+            },
+            stop: function () {
+                return fadable.stop();
+            }
+        };
+    });
+};
+
+var delay = function (timeToDelay) {
+    return action(function (_a) {
+        var complete = _a.complete;
+        var timeout = setTimeout(complete, timeToDelay);
+        return {
+            stop: function () {
+                return clearTimeout(timeout);
+            }
+        };
+    });
+};
+
+var merge = function () {
+    var actions = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        actions[_i] = arguments[_i];
+    }
+    return action(function (observer) {
+        var subs = actions.map(function (thisAction) {
+            return thisAction.start(observer);
+        });
+        return {
+            stop: function () {
+                return subs.forEach(function (sub) {
+                    return sub.stop();
+                });
+            }
+        };
+    });
+};
+
+var schedule = function (scheduler, schedulee) {
+    return action(function (_a) {
+        var update = _a.update,
+            complete = _a.complete;
+        var latest;
+        var schedulerSub = scheduler.start({
+            update: function () {
+                return latest !== undefined && update(latest);
+            },
+            complete: complete
+        });
+        var scheduleeSub = schedulee.start({
+            update: function (v) {
+                return latest = v;
+            },
+            complete: complete
+        });
+        return {
+            stop: function () {
+                schedulerSub.stop();
+                scheduleeSub.stop();
+            }
+        };
+    });
+};
+
+var stagger = function (actions, interval) {
+    var intervalIsNumber = typeof interval === 'number';
+    var actionsWithDelay = actions.map(function (a, i) {
+        var timeToDelay = intervalIsNumber ? interval * i : interval(i);
+        return chain(delay(timeToDelay), a);
+    });
+    return parallel$1.apply(void 0, actionsWithDelay);
+};
+
+var appendUnit = function (unit) {
+    return function (v) {
+        return "" + v + unit;
+    };
+};
+var steps = function (st, min, max) {
+    if (min === void 0) {
+        min = 0;
+    }
+    if (max === void 0) {
+        max = 1;
+    }
+    return function (v) {
+        var current = Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["progress"])(min, max, v);
+        return Object(_popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["mix"])(min, max, stepProgress(st, current));
+    };
+};
+var transformMap = function (childTransformers) {
+    return function (v) {
+        var output = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, v);
+        for (var key in childTransformers) {
+            if (childTransformers.hasOwnProperty(key)) {
+                var childTransformer = childTransformers[key];
+                output[key] = childTransformer(v[key]);
+            }
+        }
+        return output;
+    };
+};
+
+var transformers = /*#__PURE__*/Object.freeze({
+    applyOffset: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["applyOffset"],
+    clamp: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["clamp"],
+    conditional: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["conditional"],
+    interpolate: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["interpolate"],
+    blendArray: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["mixArray"],
+    blendColor: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["mixColor"],
+    pipe: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["pipe"],
+    smooth: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["smooth"],
+    snap: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["snap"],
+    generateStaticSpring: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["springForce"],
+    nonlinearSpring: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["springForceExpo"],
+    linearSpring: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["springForceLinear"],
+    wrap: _popmotion_popcorn__WEBPACK_IMPORTED_MODULE_1__["wrap"],
+    appendUnit: appendUnit,
+    steps: steps,
+    transformMap: transformMap
+});
+
+var css = function (element, props) {
+    Object(hey_listen__WEBPACK_IMPORTED_MODULE_4__["warning"])(false, 'css() is deprecated, use styler instead');
+    return Object(stylefire__WEBPACK_IMPORTED_MODULE_6__["default"])(element, props);
+};
+var svg = function (element, props) {
+    Object(hey_listen__WEBPACK_IMPORTED_MODULE_4__["warning"])(false, 'svg() is deprecated, use styler instead');
+    return Object(stylefire__WEBPACK_IMPORTED_MODULE_6__["default"])(element, props);
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/pose-core/dist/pose-core.es.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/pose-core/dist/pose-core.es.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var hey_listen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! hey-listen */ "./node_modules/hey-listen/dist/hey-listen.es.js");
+
+
+
+var getPoseValues = function (_a) {
+    var transition = _a.transition,
+        flip = _a.flip,
+        delay = _a.delay,
+        delayChildren = _a.delayChildren,
+        staggerChildren = _a.staggerChildren,
+        staggerDirection = _a.staggerDirection,
+        afterChildren = _a.afterChildren,
+        beforeChildren = _a.beforeChildren,
+        preTransition = _a.preTransition,
+        applyAtStart = _a.applyAtStart,
+        applyAtEnd = _a.applyAtEnd,
+        props = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["transition", "flip", "delay", "delayChildren", "staggerChildren", "staggerDirection", "afterChildren", "beforeChildren", "preTransition", "applyAtStart", "applyAtEnd"]);
+    return props;
+};
+var selectPoses = function (_a) {
+    var label = _a.label,
+        props = _a.props,
+        values = _a.values,
+        parentValues = _a.parentValues,
+        ancestorValues = _a.ancestorValues,
+        onChange = _a.onChange,
+        passive = _a.passive,
+        initialPose = _a.initialPose,
+        poses = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["label", "props", "values", "parentValues", "ancestorValues", "onChange", "passive", "initialPose"]);
+    return poses;
+};
+var selectAllValues = function (values, selectValue) {
+    var allValues = {};
+    values.forEach(function (value, key) {
+        return allValues[key] = selectValue(value);
+    });
+    return allValues;
+};
+
+var resolveProp = function (target, props) {
+    return typeof target === 'function' ? target(props) : target;
+};
+var poseDefault = function (pose, prop, defaultValue, resolveProps) {
+    return pose && pose[prop] !== undefined ? resolveProp(pose[prop], resolveProps) : defaultValue;
+};
+var startChildAnimations = function (children, next, pose, props) {
+    var animations = [];
+    var delay = poseDefault(pose, 'delayChildren', 0, props);
+    var stagger = poseDefault(pose, 'staggerChildren', 0, props);
+    var staggerDirection = poseDefault(pose, 'staggerDirection', 1, props);
+    var maxStaggerDuration = (children.size - 1) * stagger;
+    var generateStaggerDuration = staggerDirection === 1 ? function (i) {
+        return i * stagger;
+    } : function (i) {
+        return maxStaggerDuration - i * stagger;
+    };
+    Array.from(children).forEach(function (child, i) {
+        animations.push(child.set(next, {
+            delay: delay + generateStaggerDuration(i)
+        }));
+    });
+    return animations;
+};
+var resolveTransition = function (transition, key, value, props, convertTransitionDefinition, getInstantTransition) {
+    var resolvedTransition;
+    if (typeof transition === 'function') {
+        resolvedTransition = transition(props);
+    } else if (transition[key] || transition.default) {
+        var keyTransition = transition[key] || transition.default;
+        if (typeof keyTransition === 'function') {
+            resolvedTransition = keyTransition(props);
+        } else {
+            resolvedTransition = keyTransition;
+        }
+    } else {
+        resolvedTransition = transition;
+    }
+    return resolvedTransition === false ? getInstantTransition(value, props) : convertTransitionDefinition(value, resolvedTransition, props);
+};
+var findInsertionIndex = function (poseList, priorityList, priorityIndex) {
+    var insertionIndex = 0;
+    for (var i = priorityIndex - 1; i >= 0; i--) {
+        var nextHighestPriorityIndex = poseList.indexOf(priorityList[i]);
+        if (nextHighestPriorityIndex !== -1) {
+            insertionIndex = nextHighestPriorityIndex + 1;
+            break;
+        }
+    }
+    return insertionIndex;
+};
+var applyValues = function (toApply, values, props, setValue, setValueNative) {
+    Object(hey_listen__WEBPACK_IMPORTED_MODULE_1__["invariant"])(typeof toApply === 'object', 'applyAtStart and applyAtEnd must be of type object');
+    return Object.keys(toApply).forEach(function (key) {
+        var valueToSet = resolveProp(toApply[key], props);
+        values.has(key) ? setValue(values.get(key), valueToSet) : setValueNative(key, valueToSet, props);
+    });
+};
+var createPoseSetter = function (setterProps) {
+    var state = setterProps.state,
+        poses = setterProps.poses,
+        startAction = setterProps.startAction,
+        stopAction = setterProps.stopAction,
+        getInstantTransition = setterProps.getInstantTransition,
+        addActionDelay = setterProps.addActionDelay,
+        getTransitionProps = setterProps.getTransitionProps,
+        resolveTarget = setterProps.resolveTarget,
+        transformPose = setterProps.transformPose,
+        posePriority = setterProps.posePriority,
+        convertTransitionDefinition = setterProps.convertTransitionDefinition,
+        setValue = setterProps.setValue,
+        setValueNative = setterProps.setValueNative;
+    return function (next, nextProps, propagate) {
+        if (nextProps === void 0) {
+            nextProps = {};
+        }
+        if (propagate === void 0) {
+            propagate = true;
+        }
+        var children = state.children,
+            values = state.values,
+            props = state.props,
+            activeActions = state.activeActions,
+            activePoses = state.activePoses;
+        var _a = nextProps.delay,
+            delay = _a === void 0 ? 0 : _a;
+        var hasChildren = children.size;
+        var baseTransitionProps = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, props, nextProps);
+        var nextPose = poses[next];
+        var getChildAnimations = function () {
+            return hasChildren && propagate ? startChildAnimations(children, next, nextPose, baseTransitionProps) : [];
+        };
+        var getParentAnimations = function () {
+            if (!nextPose) return [];
+            if (transformPose) nextPose = transformPose(nextPose, next, state);
+            var preTransition = nextPose.preTransition,
+                getTransition = nextPose.transition,
+                applyAtStart = nextPose.applyAtStart,
+                applyAtEnd = nextPose.applyAtEnd;
+            if (preTransition) preTransition(baseTransitionProps);
+            if (applyAtStart) {
+                applyValues(applyAtStart, values, baseTransitionProps, setValue, setValueNative);
+            }
+            var animations = Object.keys(getPoseValues(nextPose)).map(function (key) {
+                var valuePoses = activePoses.has(key) ? activePoses.get(key) : (activePoses.set(key, []), activePoses.get(key));
+                var existingIndex = valuePoses.indexOf(next);
+                if (existingIndex !== -1) valuePoses.splice(existingIndex, 1);
+                var priority = posePriority ? posePriority.indexOf(next) : 0;
+                var insertionIndex = priority <= 0 ? 0 : findInsertionIndex(valuePoses, posePriority, priority);
+                valuePoses.splice(insertionIndex, 0, next);
+                return insertionIndex === 0 ? new Promise(function (complete) {
+                    var value = values.get(key);
+                    var transitionProps = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, baseTransitionProps, { key: key,
+                        value: value });
+                    var target = resolveTarget(value, resolveProp(nextPose[key], transitionProps));
+                    if (activeActions.has(key)) stopAction(activeActions.get(key));
+                    var resolveTransitionProps = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({ to: target }, transitionProps, getTransitionProps(value, target, transitionProps));
+                    var transition = resolveTransition(getTransition, key, value, resolveTransitionProps, convertTransitionDefinition, getInstantTransition);
+                    var poseDelay = delay || resolveProp(nextPose.delay, transitionProps);
+                    if (poseDelay) {
+                        transition = addActionDelay(poseDelay, transition);
+                    }
+                    activeActions.set(key, startAction(value, transition, complete));
+                }) : Promise.resolve();
+            });
+            return applyAtEnd ? [Promise.all(animations).then(function () {
+                applyValues(applyAtEnd, values, baseTransitionProps, setValue, setValueNative);
+            })] : animations;
+        };
+        if (nextPose && hasChildren) {
+            if (resolveProp(nextPose.beforeChildren, baseTransitionProps)) {
+                return Promise.all(getParentAnimations()).then(function () {
+                    return Promise.all(getChildAnimations());
+                });
+            } else if (resolveProp(nextPose.afterChildren, baseTransitionProps)) {
+                return Promise.all(getChildAnimations()).then(function () {
+                    return Promise.all(getParentAnimations());
+                });
+            }
+        }
+        return Promise.all(getParentAnimations().concat(getChildAnimations()));
+    };
+};
+
+var DEFAULT_INITIAL_POSE = 'init';
+var isScale = function (key) {
+    return key.includes('scale');
+};
+var defaultReadValueFromSource = function (key) {
+    return isScale(key) ? 1 : 0;
+};
+var readValueFromPose = function (pose, key, props) {
+    var valueToResolve = pose.applyAtEnd && pose.applyAtEnd[key] !== undefined ? pose.applyAtEnd[key] : pose[key] !== undefined ? pose[key] : pose.applyAtStart && pose.applyAtStart[key] !== undefined ? pose.applyAtStart[key] : 0;
+    return resolveProp(valueToResolve, props);
+};
+var getPosesToSearch = function (pose) {
+    var posesToSearch = Array.isArray(pose) ? pose : [pose];
+    posesToSearch.push(DEFAULT_INITIAL_POSE);
+    return posesToSearch;
+};
+var getInitialValue = function (poses, key, initialPose, props, readValueFromSource, activePoses) {
+    if (readValueFromSource === void 0) {
+        readValueFromSource = defaultReadValueFromSource;
+    }
+    var posesToSearch = getPosesToSearch(initialPose);
+    var pose = posesToSearch.filter(Boolean).find(function (name) {
+        var thisPose = poses[name];
+        return thisPose && (thisPose[key] !== undefined || thisPose.applyAtStart && thisPose.applyAtStart[key] !== undefined || thisPose.applyAtEnd && thisPose.applyAtEnd[key] !== undefined);
+    });
+    activePoses.set(key, [pose || DEFAULT_INITIAL_POSE]);
+    return pose ? readValueFromPose(poses[pose], key, props) : readValueFromSource(key, props);
+};
+var createValues = function (values, _a) {
+    var userSetValues = _a.userSetValues,
+        createValue = _a.createValue,
+        convertValue = _a.convertValue,
+        readValueFromSource = _a.readValueFromSource,
+        initialPose = _a.initialPose,
+        poses = _a.poses,
+        activePoses = _a.activePoses,
+        props = _a.props;
+    return function (key) {
+        if (values.has(key)) return;
+        var value;
+        if (userSetValues && userSetValues[key] !== undefined) {
+            value = convertValue(userSetValues[key], key, props);
+        } else {
+            var initValue = getInitialValue(poses, key, initialPose, props, readValueFromSource, activePoses);
+            value = createValue(initValue, key, props);
+        }
+        values.set(key, value);
+    };
+};
+var scrapeValuesFromPose = function (values, props) {
+    return function (key) {
+        var pose = props.poses[key];
+        Object.keys(getPoseValues(pose)).forEach(createValues(values, props));
+    };
+};
+var getAncestorValue = function (key, fromParent, ancestors) {
+    if (fromParent === true) {
+        return ancestors[0] && ancestors[0].values.get(key);
+    } else {
+        var foundAncestor = ancestors.find(function (_a) {
+            var label = _a.label;
+            return label === fromParent;
+        });
+        return foundAncestor && foundAncestor.values.get(key);
+    }
+};
+var bindPassiveValues = function (values, _a) {
+    var passive = _a.passive,
+        ancestorValues = _a.ancestorValues,
+        createValue = _a.createValue,
+        readValue = _a.readValue,
+        props = _a.props;
+    return function (key) {
+        var _a = passive[key],
+            valueKey = _a[0],
+            passiveProps = _a[1],
+            fromParent = _a[2];
+        var valueToBind = fromParent && ancestorValues.length ? getAncestorValue(valueKey, fromParent, ancestorValues) : values.has(valueKey) ? values.get(valueKey) : false;
+        if (!valueToBind) return;
+        var newValue = createValue(readValue(valueToBind), key, props, {
+            passiveParentKey: valueKey,
+            passiveParent: valueToBind,
+            passiveProps: passiveProps
+        });
+        values.set(key, newValue);
+    };
+};
+var setNativeValues = function (_a) {
+    var setValueNative = _a.setValueNative,
+        initialPose = _a.initialPose,
+        props = _a.props,
+        poses = _a.poses;
+    var valuesHaveSet = new Set();
+    var setValues = function (pose, propKey) {
+        if (pose[propKey]) {
+            for (var key in pose[propKey]) {
+                if (!valuesHaveSet.has(key)) {
+                    valuesHaveSet.add(key);
+                    setValueNative(key, resolveProp(pose[propKey][key], props), props);
+                }
+            }
+        }
+    };
+    getPosesToSearch(initialPose).forEach(function (poseKey) {
+        var pose = poses[poseKey];
+        if (pose) {
+            setValues(pose, 'applyAtEnd');
+            setValues(pose, 'applyAtStart');
+        }
+    });
+};
+var createValueMap = function (props) {
+    var poses = props.poses,
+        passive = props.passive;
+    var values = new Map();
+    Object.keys(poses).forEach(scrapeValuesFromPose(values, props));
+    setNativeValues(props);
+    if (passive) Object.keys(passive).forEach(bindPassiveValues(values, props));
+    return values;
+};
+
+var applyDefaultTransition = function (pose, key, defaultTransitions) {
+    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, pose, { transition: defaultTransitions.has(key) ? defaultTransitions.get(key) : defaultTransitions.get('default') });
+};
+var generateTransitions = function (poses, defaultTransitions) {
+    Object.keys(poses).forEach(function (key) {
+        var pose = poses[key];
+        Object(hey_listen__WEBPACK_IMPORTED_MODULE_1__["invariant"])(typeof pose === 'object', "Pose '" + key + "' is of invalid type. All poses should be objects.");
+        poses[key] = pose.transition !== undefined ? pose : applyDefaultTransition(pose, key, defaultTransitions);
+    });
+    return poses;
+};
+
+var sortByReversePriority = function (priorityOrder) {
+    return function (a, b) {
+        var aP = priorityOrder.indexOf(a);
+        var bP = priorityOrder.indexOf(b);
+        if (aP === -1 && bP !== -1) return -1;
+        if (aP !== -1 && bP === -1) return 1;
+        return aP - bP;
+    };
+};
+
+var poseFactory = function (_a) {
+    var getDefaultProps = _a.getDefaultProps,
+        defaultTransitions = _a.defaultTransitions,
+        bindOnChange = _a.bindOnChange,
+        startAction = _a.startAction,
+        stopAction = _a.stopAction,
+        readValue = _a.readValue,
+        readValueFromSource = _a.readValueFromSource,
+        resolveTarget = _a.resolveTarget,
+        setValue = _a.setValue,
+        setValueNative = _a.setValueNative,
+        createValue = _a.createValue,
+        convertValue = _a.convertValue,
+        getInstantTransition = _a.getInstantTransition,
+        getTransitionProps = _a.getTransitionProps,
+        addActionDelay = _a.addActionDelay,
+        selectValueToRead = _a.selectValueToRead,
+        convertTransitionDefinition = _a.convertTransitionDefinition,
+        transformPose = _a.transformPose,
+        posePriority = _a.posePriority,
+        extendAPI = _a.extendAPI;
+    return function (config) {
+        var parentValues = config.parentValues,
+            _a = config.ancestorValues,
+            ancestorValues = _a === void 0 ? [] : _a;
+        if (parentValues) ancestorValues.unshift({ values: parentValues });
+        var activeActions = new Map();
+        var activePoses = new Map();
+        var children = new Set();
+        var poses = generateTransitions(selectPoses(config), defaultTransitions);
+        var _b = config.props,
+            props = _b === void 0 ? {} : _b;
+        if (getDefaultProps) props = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, getDefaultProps(config), props);
+        var passive = config.passive,
+            userSetValues = config.values,
+            _c = config.initialPose,
+            initialPose = _c === void 0 ? DEFAULT_INITIAL_POSE : _c;
+        var values = createValueMap({
+            poses: poses,
+            passive: passive,
+            ancestorValues: ancestorValues,
+            readValue: readValue,
+            setValueNative: setValueNative,
+            createValue: createValue,
+            convertValue: convertValue,
+            readValueFromSource: readValueFromSource,
+            userSetValues: userSetValues,
+            initialPose: initialPose,
+            activePoses: activePoses,
+            props: props
+        });
+        var state = {
+            activeActions: activeActions,
+            activePoses: activePoses,
+            children: children,
+            props: props,
+            values: values
+        };
+        var onChange = config.onChange;
+        if (onChange) Object.keys(onChange).forEach(bindOnChange(values, onChange));
+        var set = createPoseSetter({
+            state: state,
+            poses: poses,
+            getInstantTransition: getInstantTransition,
+            getTransitionProps: getTransitionProps,
+            convertTransitionDefinition: convertTransitionDefinition,
+            setValue: setValue,
+            setValueNative: setValueNative,
+            startAction: startAction,
+            stopAction: stopAction,
+            resolveTarget: resolveTarget,
+            addActionDelay: addActionDelay,
+            transformPose: transformPose,
+            posePriority: posePriority
+        });
+        var has = function (poseName) {
+            return !!poses[poseName];
+        };
+        var api = {
+            set: set,
+            unset: function (poseName, poseProps) {
+                var posesToSet = [];
+                activePoses.forEach(function (valuePoses) {
+                    var poseIndex = valuePoses.indexOf(poseName);
+                    if (poseIndex === -1) return;
+                    var currentPose = valuePoses[0];
+                    valuePoses.splice(poseIndex, 1);
+                    var nextPose = valuePoses[0];
+                    if (nextPose === currentPose) return;
+                    if (posesToSet.indexOf(nextPose) === -1) {
+                        posesToSet.push(nextPose);
+                    }
+                });
+                var animationsToResolve = posesToSet.sort(sortByReversePriority(posePriority)).map(function (poseToSet) {
+                    return set(poseToSet, poseProps, false);
+                });
+                children.forEach(function (child) {
+                    return animationsToResolve.push(child.unset(poseName));
+                });
+                return Promise.all(animationsToResolve);
+            },
+            get: function (valueName) {
+                return valueName ? selectValueToRead(values.get(valueName)) : selectAllValues(values, selectValueToRead);
+            },
+            has: has,
+            setProps: function (newProps) {
+                return state.props = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state.props, newProps);
+            },
+            _addChild: function (childConfig, factory) {
+                var child = factory(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({ initialPose: initialPose }, childConfig, { ancestorValues: [{ label: config.label, values: values }].concat(ancestorValues) }));
+                children.add(child);
+                return child;
+            },
+            removeChild: function (child) {
+                return children.delete(child);
+            },
+            clearChildren: function () {
+                children.forEach(function (child) {
+                    return child.destroy();
+                });
+                children.clear();
+            },
+            destroy: function () {
+                activeActions.forEach(stopAction);
+                children.forEach(function (child) {
+                    return child.destroy();
+                });
+            }
+        };
+        return extendAPI(api, state, config);
+    };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (poseFactory);
+
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -46103,6 +58580,3829 @@ module.exports = hoistNonReactStatics;
 
 /***/ }),
 
+/***/ "./node_modules/react-calendar/dist/Calendar.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-calendar/dist/Calendar.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactLifecyclesCompat = __webpack_require__(/*! react-lifecycles-compat */ "./node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js");
+
+var _mergeClassNames = __webpack_require__(/*! merge-class-names */ "./node_modules/merge-class-names/build/entry.js");
+
+var _mergeClassNames2 = _interopRequireDefault(_mergeClassNames);
+
+var _Navigation = __webpack_require__(/*! ./Calendar/Navigation */ "./node_modules/react-calendar/dist/Calendar/Navigation.js");
+
+var _Navigation2 = _interopRequireDefault(_Navigation);
+
+var _CenturyView = __webpack_require__(/*! ./CenturyView */ "./node_modules/react-calendar/dist/CenturyView.js");
+
+var _CenturyView2 = _interopRequireDefault(_CenturyView);
+
+var _DecadeView = __webpack_require__(/*! ./DecadeView */ "./node_modules/react-calendar/dist/DecadeView.js");
+
+var _DecadeView2 = _interopRequireDefault(_DecadeView);
+
+var _YearView = __webpack_require__(/*! ./YearView */ "./node_modules/react-calendar/dist/YearView.js");
+
+var _YearView2 = _interopRequireDefault(_YearView);
+
+var _MonthView = __webpack_require__(/*! ./MonthView */ "./node_modules/react-calendar/dist/MonthView.js");
+
+var _MonthView2 = _interopRequireDefault(_MonthView);
+
+var _dates = __webpack_require__(/*! ./shared/dates */ "./node_modules/react-calendar/dist/shared/dates.js");
+
+var _propTypes3 = __webpack_require__(/*! ./shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+var _utils = __webpack_require__(/*! ./shared/utils */ "./node_modules/react-calendar/dist/shared/utils.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var allViews = ['century', 'decade', 'year', 'month'];
+var allValueTypes = [].concat(_toConsumableArray(allViews.slice(1)), ['day']);
+
+var datesAreDifferent = function datesAreDifferent(date1, date2) {
+  return date1 && !date2 || !date1 && date2 || date1 && date2 && date1.getTime() !== date2.getTime();
+};
+
+/**
+ * Returns views array with disallowed values cut off.
+ */
+var getLimitedViews = function getLimitedViews(minDetail, maxDetail) {
+  return allViews.slice(allViews.indexOf(minDetail), allViews.indexOf(maxDetail) + 1);
+};
+
+var getView = function getView(view, minDetail, maxDetail) {
+  if (view && getLimitedViews(minDetail, maxDetail).indexOf(view) !== -1) {
+    return view;
+  }
+
+  return getLimitedViews(minDetail, maxDetail).pop();
+};
+
+/**
+ * Determines whether a given view is allowed with currently applied settings.
+ */
+var isViewAllowed = function isViewAllowed(view, minDetail, maxDetail) {
+  var views = getLimitedViews(minDetail, maxDetail);
+
+  return views.indexOf(view) !== -1;
+};
+
+/**
+ * Returns value type that can be returned with currently applied settings.
+ */
+var getValueType = function getValueType(maxDetail) {
+  return allValueTypes[allViews.indexOf(maxDetail)];
+};
+
+var getValueFrom = function getValueFrom(value) {
+  if (!value) {
+    return null;
+  }
+
+  var rawValueFrom = value instanceof Array && value.length === 2 ? value[0] : value;
+
+  if (!rawValueFrom) {
+    return null;
+  }
+
+  var valueFromDate = new Date(rawValueFrom);
+
+  if (isNaN(valueFromDate.getTime())) {
+    throw new Error('Invalid date: ' + value);
+  }
+
+  return valueFromDate;
+};
+
+var getDetailValueFrom = function getDetailValueFrom(value, minDate, maxDate, maxDetail) {
+  var valueFrom = getValueFrom(value);
+
+  if (!valueFrom) {
+    return null;
+  }
+
+  var detailValueFrom = (0, _dates.getBegin)(getValueType(maxDetail), valueFrom);
+
+  return (0, _utils.between)(detailValueFrom, minDate, maxDate);
+};
+
+var getValueTo = function getValueTo(value) {
+  if (!value) {
+    return null;
+  }
+
+  var rawValueTo = value instanceof Array && value.length === 2 ? value[1] : value;
+
+  if (!rawValueTo) {
+    return null;
+  }
+
+  var valueToDate = new Date(rawValueTo);
+
+  if (isNaN(valueToDate.getTime())) {
+    throw new Error('Invalid date: ' + value);
+  }
+
+  return valueToDate;
+};
+
+var getDetailValueTo = function getDetailValueTo(value, minDate, maxDate, maxDetail) {
+  var valueTo = getValueTo(value);
+
+  if (!valueTo) {
+    return null;
+  }
+
+  var detailValueTo = (0, _dates.getEnd)(getValueType(maxDetail), valueTo);
+
+  return (0, _utils.between)(detailValueTo, minDate, maxDate);
+};
+
+var getDetailValueArray = function getDetailValueArray(value, minDate, maxDate, maxDetail) {
+  if (value instanceof Array) {
+    return value;
+  }
+
+  return [getDetailValueFrom(value, minDate, maxDate, maxDetail), getDetailValueTo(value, minDate, maxDate, maxDetail)];
+};
+
+var getActiveStartDate = function getActiveStartDate(props) {
+  var activeStartDate = props.activeStartDate,
+      maxDate = props.maxDate,
+      maxDetail = props.maxDetail,
+      minDate = props.minDate,
+      minDetail = props.minDetail,
+      value = props.value,
+      view = props.view;
+
+
+  var rangeType = getView(view, minDetail, maxDetail);
+  var valueFrom = getDetailValueFrom(value, minDate, maxDate, maxDetail) || activeStartDate || new Date();
+  return (0, _dates.getBegin)(rangeType, valueFrom);
+};
+
+var Calendar = function (_Component) {
+  _inherits(Calendar, _Component);
+
+  function Calendar() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Calendar);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Calendar.__proto__ || Object.getPrototypeOf(Calendar)).call.apply(_ref, [this].concat(args))), _this), _this.state = {}, _this.setActiveStartDate = function (activeStartDate) {
+      var onActiveDateChange = _this.props.onActiveDateChange;
+
+
+      _this.setState({ activeStartDate: activeStartDate }, function () {
+        var view = _this.state.view;
+
+
+        (0, _utils.callIfDefined)(onActiveDateChange, {
+          activeStartDate: activeStartDate,
+          view: view
+        });
+      });
+    }, _this.drillDown = function (activeStartDate) {
+      if (!_this.drillDownAvailable) {
+        return;
+      }
+
+      var _this$props = _this.props,
+          maxDetail = _this$props.maxDetail,
+          minDetail = _this$props.minDetail,
+          onDrillDown = _this$props.onDrillDown;
+
+
+      var views = getLimitedViews(minDetail, maxDetail);
+
+      _this.setState(function (prevState) {
+        var nextView = views[views.indexOf(prevState.view) + 1];
+        return {
+          activeStartDate: activeStartDate,
+          view: nextView
+        };
+      }, function () {
+        var view = _this.state.view;
+
+
+        (0, _utils.callIfDefined)(onDrillDown, {
+          activeStartDate: activeStartDate,
+          view: view
+        });
+      });
+    }, _this.drillUp = function () {
+      if (!_this.drillUpAvailable) {
+        return;
+      }
+
+      var _this$props2 = _this.props,
+          maxDetail = _this$props2.maxDetail,
+          minDetail = _this$props2.minDetail,
+          onDrillUp = _this$props2.onDrillUp;
+
+
+      var views = getLimitedViews(minDetail, maxDetail);
+
+      _this.setState(function (prevState) {
+        var nextView = views[views.indexOf(prevState.view) - 1];
+        var activeStartDate = (0, _dates.getBegin)(nextView, prevState.activeStartDate);
+
+        return {
+          activeStartDate: activeStartDate,
+          view: nextView
+        };
+      }, function () {
+        var _this$state = _this.state,
+            activeStartDate = _this$state.activeStartDate,
+            view = _this$state.view;
+
+
+        (0, _utils.callIfDefined)(onDrillUp, {
+          activeStartDate: activeStartDate,
+          view: view
+        });
+      });
+    }, _this.onChange = function (value) {
+      var _this$props3 = _this.props,
+          onChange = _this$props3.onChange,
+          selectRange = _this$props3.selectRange;
+
+
+      var nextValue = void 0;
+      var callback = void 0;
+      if (selectRange) {
+        var previousValue = _this.state.value;
+        // Range selection turned on
+
+        if (!previousValue || [].concat(previousValue).length !== 1 // 0 or 2 - either way we're starting a new array
+        ) {
+            // First value
+            nextValue = (0, _dates.getBegin)(_this.valueType, value);
+          } else {
+          // Second value
+          nextValue = (0, _dates.getValueRange)(_this.valueType, previousValue, value);
+          callback = function callback() {
+            return (0, _utils.callIfDefined)(onChange, nextValue);
+          };
+        }
+      } else {
+        // Range selection turned off
+        nextValue = _this.getProcessedValue(value);
+        callback = function callback() {
+          return (0, _utils.callIfDefined)(onChange, nextValue);
+        };
+      }
+
+      _this.setState({ value: nextValue }, callback);
+    }, _this.onMouseOver = function (value) {
+      _this.setState({ hover: value });
+    }, _this.onMouseOut = function () {
+      _this.setState({ hover: null });
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Calendar, [{
+    key: 'getProcessedValue',
+
+
+    /**
+     * Gets current value in a desired format.
+     */
+    value: function getProcessedValue(value) {
+      var _props = this.props,
+          minDate = _props.minDate,
+          maxDate = _props.maxDate,
+          maxDetail = _props.maxDetail,
+          returnValue = _props.returnValue;
+
+
+      switch (returnValue) {
+        case 'start':
+          return getDetailValueFrom(value, minDate, maxDate, maxDetail);
+        case 'end':
+          return getDetailValueTo(value, minDate, maxDate, maxDetail);
+        case 'range':
+          return getDetailValueArray(value, minDate, maxDate, maxDetail);
+        default:
+          throw new Error('Invalid returnValue.');
+      }
+    }
+  }, {
+    key: 'renderContent',
+    value: function renderContent() {
+      var _props2 = this.props,
+          calendarType = _props2.calendarType,
+          locale = _props2.locale,
+          maxDate = _props2.maxDate,
+          minDate = _props2.minDate,
+          renderChildren = _props2.renderChildren,
+          selectRange = _props2.selectRange,
+          tileClassName = _props2.tileClassName,
+          tileContent = _props2.tileContent,
+          tileDisabled = _props2.tileDisabled;
+      var _state = this.state,
+          activeStartDate = _state.activeStartDate,
+          hover = _state.hover,
+          value = _state.value,
+          view = _state.view;
+      var onMouseOver = this.onMouseOver,
+          valueType = this.valueType;
+
+
+      var commonProps = {
+        activeStartDate: activeStartDate,
+        hover: hover,
+        locale: locale,
+        maxDate: maxDate,
+        minDate: minDate,
+        onMouseOver: selectRange ? onMouseOver : null,
+        tileClassName: tileClassName,
+        tileContent: tileContent || renderChildren, // For backwards compatibility
+        tileDisabled: tileDisabled,
+        value: value,
+        valueType: valueType
+      };
+
+      var clickAction = this.drillDownAvailable ? this.drillDown : this.onChange;
+
+      switch (view) {
+        case 'century':
+          {
+            var onClickDecade = this.props.onClickDecade;
+
+
+            return _react2.default.createElement(_CenturyView2.default, _extends({
+              onClick: (0, _utils.mergeFunctions)(clickAction, onClickDecade)
+            }, commonProps));
+          }
+        case 'decade':
+          {
+            var onClickYear = this.props.onClickYear;
+
+
+            return _react2.default.createElement(_DecadeView2.default, _extends({
+              onClick: (0, _utils.mergeFunctions)(clickAction, onClickYear)
+            }, commonProps));
+          }
+        case 'year':
+          {
+            var _props3 = this.props,
+                formatMonth = _props3.formatMonth,
+                onClickMonth = _props3.onClickMonth;
+
+
+            return _react2.default.createElement(_YearView2.default, _extends({
+              formatMonth: formatMonth,
+              onClick: (0, _utils.mergeFunctions)(clickAction, onClickMonth)
+            }, commonProps));
+          }
+        case 'month':
+          {
+            var _props4 = this.props,
+                formatShortWeekday = _props4.formatShortWeekday,
+                onClickDay = _props4.onClickDay,
+                onClickWeekNumber = _props4.onClickWeekNumber,
+                showFixedNumberOfWeeks = _props4.showFixedNumberOfWeeks,
+                showNeighboringMonth = _props4.showNeighboringMonth,
+                showWeekNumbers = _props4.showWeekNumbers;
+
+
+            return _react2.default.createElement(_MonthView2.default, _extends({
+              calendarType: calendarType,
+              formatShortWeekday: formatShortWeekday,
+              onClick: (0, _utils.mergeFunctions)(clickAction, onClickDay),
+              onClickWeekNumber: onClickWeekNumber,
+              showFixedNumberOfWeeks: showFixedNumberOfWeeks,
+              showNeighboringMonth: showNeighboringMonth,
+              showWeekNumbers: showWeekNumbers
+            }, commonProps));
+          }
+        default:
+          throw new Error('Invalid view: ' + view + '.');
+      }
+    }
+  }, {
+    key: 'renderNavigation',
+    value: function renderNavigation() {
+      var showNavigation = this.props.showNavigation;
+
+
+      if (!showNavigation) {
+        return null;
+      }
+
+      var _props5 = this.props,
+          formatMonthYear = _props5.formatMonthYear,
+          locale = _props5.locale,
+          maxDate = _props5.maxDate,
+          maxDetail = _props5.maxDetail,
+          minDate = _props5.minDate,
+          minDetail = _props5.minDetail,
+          next2Label = _props5.next2Label,
+          nextLabel = _props5.nextLabel,
+          navigationLabel = _props5.navigationLabel,
+          prev2Label = _props5.prev2Label,
+          prevLabel = _props5.prevLabel;
+      var _state2 = this.state,
+          activeRange = _state2.activeRange,
+          activeStartDate = _state2.activeStartDate,
+          view = _state2.view;
+
+
+      return _react2.default.createElement(_Navigation2.default, {
+        activeRange: activeRange,
+        activeStartDate: activeStartDate,
+        drillUp: this.drillUp,
+        formatMonthYear: formatMonthYear,
+        locale: locale,
+        maxDate: maxDate,
+        minDate: minDate,
+        next2Label: next2Label,
+        nextLabel: nextLabel,
+        navigationLabel: navigationLabel,
+        prev2Label: prev2Label,
+        prevLabel: prevLabel,
+        setActiveStartDate: this.setActiveStartDate,
+        view: view,
+        views: getLimitedViews(minDetail, maxDetail)
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props6 = this.props,
+          className = _props6.className,
+          selectRange = _props6.selectRange;
+      var value = this.state.value;
+      var onMouseOut = this.onMouseOut;
+
+      var valueArray = [].concat(value);
+
+      return _react2.default.createElement(
+        'div',
+        {
+          className: (0, _mergeClassNames2.default)('react-calendar', selectRange && valueArray.length === 1 && 'react-calendar--selectRange', className),
+          onMouseOut: selectRange ? onMouseOut : null,
+          onBlur: selectRange ? onMouseOut : null
+        },
+        this.renderNavigation(),
+        this.renderContent()
+      );
+    }
+  }, {
+    key: 'drillDownAvailable',
+    get: function get() {
+      var _props7 = this.props,
+          maxDetail = _props7.maxDetail,
+          minDetail = _props7.minDetail;
+      var view = this.state.view;
+
+
+      var views = getLimitedViews(minDetail, maxDetail);
+
+      return views.indexOf(view) < views.length - 1;
+    }
+  }, {
+    key: 'drillUpAvailable',
+    get: function get() {
+      var _props8 = this.props,
+          maxDetail = _props8.maxDetail,
+          minDetail = _props8.minDetail;
+      var view = this.state.view;
+
+
+      var views = getLimitedViews(minDetail, maxDetail);
+
+      return views.indexOf(view) > 0;
+    }
+  }, {
+    key: 'valueType',
+    get: function get() {
+      var maxDetail = this.props.maxDetail;
+
+
+      return getValueType(maxDetail);
+    }
+  }], [{
+    key: 'getDerivedStateFromProps',
+    value: function getDerivedStateFromProps(nextProps, prevState) {
+      var minDate = nextProps.minDate,
+          maxDate = nextProps.maxDate,
+          minDetail = nextProps.minDetail,
+          maxDetail = nextProps.maxDetail;
+
+
+      var nextState = {};
+
+      /**
+       * If the next activeStartDate is different from the current one, update
+       * activeStartDate (for display) and activeStartDateProps (for future comparisons)
+       */
+      var nextActiveStartDate = getActiveStartDate(nextProps);
+      if (datesAreDifferent(nextActiveStartDate, prevState.activeStartDateProps)) {
+        nextState.activeStartDate = nextActiveStartDate;
+        nextState.activeStartDateProps = nextActiveStartDate;
+      }
+
+      /**
+       * If the next view is different from the current one, and the previously set view is not
+       * valid based on minDetail and maxDetail, get a new one.
+       */
+      var nextView = getView(nextProps.view, minDetail, maxDetail);
+      if (nextView !== prevState.viewProps && !isViewAllowed(prevState.view, minDetail, maxDetail)) {
+        nextState.view = nextView;
+        nextState.viewProps = nextView;
+      }
+
+      /**
+       * If the next value is different from the current one (with an exception of situation in
+       * which values provided are limited by minDate and maxDate so that the dates are the same),
+       * get a new one.
+       */
+      var values = [nextProps.value, prevState.valueProps];
+      if (nextState.view // Allowed view changed
+      || datesAreDifferent.apply(undefined, _toConsumableArray(values.map(function (value) {
+        return getValueFrom(value, minDate, maxDate, maxDetail);
+      }))) || datesAreDifferent.apply(undefined, _toConsumableArray(values.map(function (value) {
+        return getValueTo(value, minDate, maxDate, maxDetail);
+      })))) {
+        nextState.value = nextProps.value;
+        nextState.valueProps = nextProps.value;
+      }
+
+      if (!nextProps.selectRange && prevState.hover) {
+        nextState.hover = null;
+      }
+
+      return nextState;
+    }
+
+    /**
+     * Called when the user uses navigation buttons.
+     */
+
+  }]);
+
+  return Calendar;
+}(_react.Component);
+
+exports.default = Calendar;
+
+
+Calendar.defaultProps = {
+  maxDetail: 'month',
+  minDetail: 'century',
+  returnValue: 'start',
+  showNavigation: true,
+  showNeighboringMonth: true,
+  view: 'month'
+};
+
+Calendar.propTypes = {
+  activeStartDate: _propTypes2.default.instanceOf(Date),
+  calendarType: _propTypes3.isCalendarType,
+  className: _propTypes3.isClassName,
+  formatMonth: _propTypes2.default.func,
+  formatMonthYear: _propTypes2.default.func,
+  formatShortWeekday: _propTypes2.default.func,
+  locale: _propTypes2.default.string,
+  maxDate: _propTypes3.isMaxDate,
+  maxDetail: _propTypes2.default.oneOf(allViews),
+  minDate: _propTypes3.isMinDate,
+  minDetail: _propTypes2.default.oneOf(allViews),
+  navigationLabel: _propTypes2.default.func,
+  next2Label: _propTypes2.default.node,
+  nextLabel: _propTypes2.default.node,
+  onActiveDateChange: _propTypes2.default.func,
+  onChange: _propTypes2.default.func,
+  onClickDay: _propTypes2.default.func,
+  onClickDecade: _propTypes2.default.func,
+  onClickMonth: _propTypes2.default.func,
+  onClickWeekNumber: _propTypes2.default.func,
+  onClickYear: _propTypes2.default.func,
+  onDrillDown: _propTypes2.default.func,
+  onDrillUp: _propTypes2.default.func,
+  prev2Label: _propTypes2.default.node,
+  prevLabel: _propTypes2.default.node,
+  renderChildren: _propTypes2.default.func, // For backwards compatibility
+  returnValue: _propTypes2.default.oneOf(['start', 'end', 'range']),
+  selectRange: _propTypes2.default.bool,
+  showFixedNumberOfWeeks: _propTypes2.default.bool,
+  showNavigation: _propTypes2.default.bool,
+  showNeighboringMonth: _propTypes2.default.bool,
+  showWeekNumbers: _propTypes2.default.bool,
+  tileClassName: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes3.isClassName]),
+  tileContent: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.node]),
+  tileDisabled: _propTypes2.default.func,
+  value: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes3.isValue]),
+  view: _propTypes2.default.oneOf(allViews)
+};
+
+(0, _reactLifecyclesCompat.polyfill)(Calendar);
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/Calendar/Navigation.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/react-calendar/dist/Calendar/Navigation.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _dates = __webpack_require__(/*! ../shared/dates */ "./node_modules/react-calendar/dist/shared/dates.js");
+
+var _dateFormatter = __webpack_require__(/*! ../shared/dateFormatter */ "./node_modules/react-calendar/dist/shared/dateFormatter.js");
+
+var _propTypes3 = __webpack_require__(/*! ../shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Navigation = function (_PureComponent) {
+  _inherits(Navigation, _PureComponent);
+
+  function Navigation() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Navigation);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Navigation.__proto__ || Object.getPrototypeOf(Navigation)).call.apply(_ref, [this].concat(args))), _this), _this.onClickPrevious = function () {
+      var _this$props = _this.props,
+          date = _this$props.activeStartDate,
+          view = _this$props.view,
+          setActiveStartDate = _this$props.setActiveStartDate;
+
+      setActiveStartDate((0, _dates.getBeginPrevious)(view, date));
+    }, _this.onClickNext = function () {
+      var _this$props2 = _this.props,
+          date = _this$props2.activeStartDate,
+          view = _this$props2.view,
+          setActiveStartDate = _this$props2.setActiveStartDate;
+
+      setActiveStartDate((0, _dates.getBeginNext)(view, date));
+    }, _this.onClickPrevious2 = function () {
+      var _this$props3 = _this.props,
+          date = _this$props3.activeStartDate,
+          view = _this$props3.view,
+          setActiveStartDate = _this$props3.setActiveStartDate;
+
+      setActiveStartDate((0, _dates.getBeginPrevious2)(view, date));
+    }, _this.onClickNext2 = function () {
+      var _this$props4 = _this.props,
+          date = _this$props4.activeStartDate,
+          view = _this$props4.view,
+          setActiveStartDate = _this$props4.setActiveStartDate;
+
+      setActiveStartDate((0, _dates.getBeginNext2)(view, date));
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Navigation, [{
+    key: 'render',
+    value: function render() {
+      var label = this.label;
+      var _props = this.props,
+          date = _props.activeStartDate,
+          drillUp = _props.drillUp,
+          navigationLabel = _props.navigationLabel,
+          next2Label = _props.next2Label,
+          nextLabel = _props.nextLabel,
+          prev2Label = _props.prev2Label,
+          prevLabel = _props.prevLabel,
+          view = _props.view;
+
+
+      var className = 'react-calendar__navigation';
+
+      return _react2.default.createElement(
+        'div',
+        {
+          className: className,
+          style: { display: 'flex' }
+        },
+        prev2Label !== null && view !== 'century' && _react2.default.createElement(
+          'button',
+          {
+            className: className + '__arrow ' + className + '__prev2-button',
+            disabled: this.prev2ButtonDisabled,
+            onClick: this.onClickPrevious2,
+            type: 'button'
+          },
+          prev2Label
+        ),
+        _react2.default.createElement(
+          'button',
+          {
+            className: className + '__arrow ' + className + '__prev-button',
+            disabled: this.prevButtonDisabled,
+            onClick: this.onClickPrevious,
+            type: 'button'
+          },
+          prevLabel
+        ),
+        _react2.default.createElement(
+          'button',
+          {
+            className: 'react-calendar__navigation__label',
+            onClick: drillUp,
+            disabled: !this.drillUpAvailable,
+            style: { flexGrow: 1 },
+            type: 'button'
+          },
+          navigationLabel ? navigationLabel({ date: date, view: view, label: label }) : label
+        ),
+        _react2.default.createElement(
+          'button',
+          {
+            className: className + '__arrow ' + className + '__next-button',
+            disabled: this.nextButtonDisabled,
+            onClick: this.onClickNext,
+            type: 'button'
+          },
+          nextLabel
+        ),
+        next2Label !== null && view !== 'century' && _react2.default.createElement(
+          'button',
+          {
+            className: className + '__arrow ' + className + '__next2-button',
+            disabled: this.next2ButtonDisabled,
+            onClick: this.onClickNext2,
+            type: 'button'
+          },
+          next2Label
+        )
+      );
+    }
+  }, {
+    key: 'drillUpAvailable',
+    get: function get() {
+      var _props2 = this.props,
+          view = _props2.view,
+          views = _props2.views;
+
+      return views.indexOf(view) > 0;
+    }
+  }, {
+    key: 'prevButtonDisabled',
+    get: function get() {
+      var _props3 = this.props,
+          date = _props3.activeStartDate,
+          minDate = _props3.minDate,
+          view = _props3.view;
+
+      var previousActiveStartDate = (0, _dates.getBeginPrevious)(view, date);
+      if (previousActiveStartDate.getFullYear() < 1000) {
+        return true;
+      }
+      var previousActiveEndDate = (0, _dates.getEndPrevious)(view, date);
+      return minDate && minDate >= previousActiveEndDate;
+    }
+  }, {
+    key: 'prev2ButtonDisabled',
+    get: function get() {
+      var _props4 = this.props,
+          date = _props4.activeStartDate,
+          minDate = _props4.minDate,
+          view = _props4.view;
+
+      var previousActiveStartDate = (0, _dates.getBeginPrevious2)(view, date);
+      if (previousActiveStartDate.getFullYear() < 1000) {
+        return true;
+      }
+      var previousActiveEndDate = (0, _dates.getEndPrevious2)(view, date);
+      return minDate && minDate >= previousActiveEndDate;
+    }
+  }, {
+    key: 'nextButtonDisabled',
+    get: function get() {
+      var _props5 = this.props,
+          date = _props5.activeStartDate,
+          maxDate = _props5.maxDate,
+          view = _props5.view;
+
+      var nextActiveStartDate = (0, _dates.getBeginNext)(view, date);
+      return maxDate && maxDate <= nextActiveStartDate;
+    }
+  }, {
+    key: 'next2ButtonDisabled',
+    get: function get() {
+      var _props6 = this.props,
+          date = _props6.activeStartDate,
+          maxDate = _props6.maxDate,
+          view = _props6.view;
+
+      var nextActiveStartDate = (0, _dates.getBeginNext2)(view, date);
+      return maxDate && maxDate <= nextActiveStartDate;
+    }
+  }, {
+    key: 'label',
+    get: function get() {
+      var _props7 = this.props,
+          date = _props7.activeStartDate,
+          formatMonthYear = _props7.formatMonthYear,
+          locale = _props7.locale,
+          view = _props7.view;
+
+
+      switch (view) {
+        case 'century':
+          return (0, _dates.getCenturyLabel)(date);
+        case 'decade':
+          return (0, _dates.getDecadeLabel)(date);
+        case 'year':
+          return (0, _dates.getYear)(date);
+        case 'month':
+          return formatMonthYear(date, locale);
+        default:
+          throw new Error('Invalid view: ' + view + '.');
+      }
+    }
+  }]);
+
+  return Navigation;
+}(_react.PureComponent);
+
+exports.default = Navigation;
+
+
+Navigation.defaultProps = {
+  formatMonthYear: _dateFormatter.formatMonthYear,
+  next2Label: '»',
+  nextLabel: '›',
+  prev2Label: '«',
+  prevLabel: '‹'
+};
+
+Navigation.propTypes = {
+  activeStartDate: _propTypes2.default.instanceOf(Date).isRequired,
+  drillUp: _propTypes2.default.func.isRequired,
+  formatMonthYear: _propTypes2.default.func,
+  locale: _propTypes2.default.string,
+  maxDate: _propTypes2.default.instanceOf(Date),
+  minDate: _propTypes2.default.instanceOf(Date),
+  next2Label: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.node]),
+  nextLabel: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.node]),
+  navigationLabel: _propTypes2.default.func,
+  prev2Label: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.node]),
+  prevLabel: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.node]),
+  setActiveStartDate: _propTypes2.default.func.isRequired,
+  view: _propTypes3.isView.isRequired,
+  views: _propTypes3.isViews.isRequired
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/CenturyView.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-calendar/dist/CenturyView.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Decades = __webpack_require__(/*! ./CenturyView/Decades */ "./node_modules/react-calendar/dist/CenturyView/Decades.js");
+
+var _Decades2 = _interopRequireDefault(_Decades);
+
+var _propTypes3 = __webpack_require__(/*! ./shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CenturyView = function (_PureComponent) {
+  _inherits(CenturyView, _PureComponent);
+
+  function CenturyView() {
+    _classCallCheck(this, CenturyView);
+
+    return _possibleConstructorReturn(this, (CenturyView.__proto__ || Object.getPrototypeOf(CenturyView)).apply(this, arguments));
+  }
+
+  _createClass(CenturyView, [{
+    key: 'renderDecades',
+    value: function renderDecades() {
+      return _react2.default.createElement(_Decades2.default, this.props);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'react-calendar__century-view' },
+        this.renderDecades()
+      );
+    }
+  }]);
+
+  return CenturyView;
+}(_react.PureComponent);
+
+exports.default = CenturyView;
+
+
+CenturyView.propTypes = {
+  activeStartDate: _propTypes2.default.instanceOf(Date).isRequired,
+  maxDate: _propTypes3.isMaxDate,
+  minDate: _propTypes3.isMinDate,
+  onChange: _propTypes2.default.func,
+  setActiveRange: _propTypes2.default.func,
+  value: _propTypes3.isValue,
+  valueType: _propTypes2.default.string
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/CenturyView/Decade.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-calendar/dist/CenturyView/Decade.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Tile = __webpack_require__(/*! ../Tile */ "./node_modules/react-calendar/dist/Tile.js");
+
+var _Tile2 = _interopRequireDefault(_Tile);
+
+var _dates = __webpack_require__(/*! ../shared/dates */ "./node_modules/react-calendar/dist/shared/dates.js");
+
+var _propTypes3 = __webpack_require__(/*! ../shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var className = 'react-calendar__century-view__decades__decade';
+
+var Decade = function Decade(_ref) {
+  var classes = _ref.classes,
+      point = _ref.point,
+      otherProps = _objectWithoutProperties(_ref, ['classes', 'point']);
+
+  return _react2.default.createElement(
+    _Tile2.default,
+    _extends({}, otherProps, {
+      classes: [].concat(_toConsumableArray(classes), [className]),
+      dateTime: point + 'T00:00:00.000',
+      maxDateTransform: _dates.getEndOfDecade,
+      minDateTransform: _dates.getBeginOfDecade,
+      view: 'century'
+    }),
+    (0, _dates.getDecadeLabel)(point)
+  );
+};
+
+Decade.propTypes = _extends({
+  point: _propTypes2.default.number.isRequired
+}, _propTypes3.tileProps);
+
+exports.default = Decade;
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/CenturyView/Decades.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/react-calendar/dist/CenturyView/Decades.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _TileGroup = __webpack_require__(/*! ../TileGroup */ "./node_modules/react-calendar/dist/TileGroup.js");
+
+var _TileGroup2 = _interopRequireDefault(_TileGroup);
+
+var _Decade = __webpack_require__(/*! ./Decade */ "./node_modules/react-calendar/dist/CenturyView/Decade.js");
+
+var _Decade2 = _interopRequireDefault(_Decade);
+
+var _dates = __webpack_require__(/*! ../shared/dates */ "./node_modules/react-calendar/dist/shared/dates.js");
+
+var _propTypes = __webpack_require__(/*! ../shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Decades = function (_PureComponent) {
+  _inherits(Decades, _PureComponent);
+
+  function Decades() {
+    _classCallCheck(this, Decades);
+
+    return _possibleConstructorReturn(this, (Decades.__proto__ || Object.getPrototypeOf(Decades)).apply(this, arguments));
+  }
+
+  _createClass(Decades, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(_TileGroup2.default, _extends({}, this.props, {
+        className: 'react-calendar__century-view__decades',
+        dateTransform: _dates.getBeginOfDecade,
+        dateType: 'decade',
+        end: this.end,
+        start: this.start,
+        step: 10,
+        tile: _Decade2.default
+      }));
+    }
+  }, {
+    key: 'start',
+    get: function get() {
+      var activeStartDate = this.props.activeStartDate;
+
+      return (0, _dates.getBeginOfCenturyYear)(activeStartDate);
+    }
+  }, {
+    key: 'end',
+    get: function get() {
+      return this.start + 99;
+    }
+  }]);
+
+  return Decades;
+}(_react.PureComponent);
+
+exports.default = Decades;
+
+
+Decades.propTypes = _extends({}, _propTypes.tileGroupProps);
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/DecadeView.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-calendar/dist/DecadeView.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Years = __webpack_require__(/*! ./DecadeView/Years */ "./node_modules/react-calendar/dist/DecadeView/Years.js");
+
+var _Years2 = _interopRequireDefault(_Years);
+
+var _propTypes3 = __webpack_require__(/*! ./shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DecadeView = function (_PureComponent) {
+  _inherits(DecadeView, _PureComponent);
+
+  function DecadeView() {
+    _classCallCheck(this, DecadeView);
+
+    return _possibleConstructorReturn(this, (DecadeView.__proto__ || Object.getPrototypeOf(DecadeView)).apply(this, arguments));
+  }
+
+  _createClass(DecadeView, [{
+    key: 'renderYears',
+    value: function renderYears() {
+      return _react2.default.createElement(_Years2.default, this.props);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'react-calendar__decade-view' },
+        this.renderYears()
+      );
+    }
+  }]);
+
+  return DecadeView;
+}(_react.PureComponent);
+
+exports.default = DecadeView;
+
+
+DecadeView.propTypes = {
+  activeStartDate: _propTypes2.default.instanceOf(Date).isRequired,
+  maxDate: _propTypes3.isMaxDate,
+  minDate: _propTypes3.isMinDate,
+  onChange: _propTypes2.default.func,
+  setActiveRange: _propTypes2.default.func,
+  value: _propTypes3.isValue,
+  valueType: _propTypes2.default.string
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/DecadeView/Year.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/react-calendar/dist/DecadeView/Year.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Tile = __webpack_require__(/*! ../Tile */ "./node_modules/react-calendar/dist/Tile.js");
+
+var _Tile2 = _interopRequireDefault(_Tile);
+
+var _dates = __webpack_require__(/*! ../shared/dates */ "./node_modules/react-calendar/dist/shared/dates.js");
+
+var _propTypes3 = __webpack_require__(/*! ../shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var className = 'react-calendar__decade-view__years__year';
+
+var Year = function Year(_ref) {
+  var classes = _ref.classes,
+      point = _ref.point,
+      otherProps = _objectWithoutProperties(_ref, ['classes', 'point']);
+
+  return _react2.default.createElement(
+    _Tile2.default,
+    _extends({}, otherProps, {
+      classes: [].concat(_toConsumableArray(classes), [className]),
+      dateTime: point + 'T00:00:00.000',
+      maxDateTransform: _dates.getEndOfYear,
+      minDateTransform: _dates.getBeginOfYear,
+      view: 'decade'
+    }),
+    point
+  );
+};
+
+Year.propTypes = _extends({
+  point: _propTypes2.default.number.isRequired
+}, _propTypes3.tileProps);
+
+exports.default = Year;
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/DecadeView/Years.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/react-calendar/dist/DecadeView/Years.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _TileGroup = __webpack_require__(/*! ../TileGroup */ "./node_modules/react-calendar/dist/TileGroup.js");
+
+var _TileGroup2 = _interopRequireDefault(_TileGroup);
+
+var _Year = __webpack_require__(/*! ./Year */ "./node_modules/react-calendar/dist/DecadeView/Year.js");
+
+var _Year2 = _interopRequireDefault(_Year);
+
+var _dates = __webpack_require__(/*! ../shared/dates */ "./node_modules/react-calendar/dist/shared/dates.js");
+
+var _propTypes = __webpack_require__(/*! ../shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Years = function (_PureComponent) {
+  _inherits(Years, _PureComponent);
+
+  function Years() {
+    _classCallCheck(this, Years);
+
+    return _possibleConstructorReturn(this, (Years.__proto__ || Object.getPrototypeOf(Years)).apply(this, arguments));
+  }
+
+  _createClass(Years, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(_TileGroup2.default, _extends({}, this.props, {
+        className: 'react-calendar__decade-view__years',
+        dateTransform: function dateTransform(year) {
+          return new Date(year, 0, 1);
+        },
+        dateType: 'year',
+        end: this.end,
+        start: this.start,
+        tile: _Year2.default
+      }));
+    }
+  }, {
+    key: 'start',
+    get: function get() {
+      var activeStartDate = this.props.activeStartDate;
+
+      return (0, _dates.getBeginOfDecadeYear)(activeStartDate);
+    }
+  }, {
+    key: 'end',
+    get: function get() {
+      return this.start + 9;
+    }
+  }]);
+
+  return Years;
+}(_react.PureComponent);
+
+exports.default = Years;
+
+
+Years.propTypes = _extends({}, _propTypes.tileGroupProps);
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/Flex.js":
+/*!**************************************************!*\
+  !*** ./node_modules/react-calendar/dist/Flex.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var toPercent = function toPercent(num) {
+  return num + '%';
+};
+
+var Flex = function Flex(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      direction = _ref.direction,
+      count = _ref.count,
+      offset = _ref.offset,
+      style = _ref.style,
+      wrap = _ref.wrap,
+      otherProps = _objectWithoutProperties(_ref, ['children', 'className', 'direction', 'count', 'offset', 'style', 'wrap']);
+
+  return _react2.default.createElement(
+    'div',
+    _extends({
+      className: className,
+      style: _extends({
+        display: 'flex',
+        flexDirection: direction,
+        flexWrap: wrap ? 'wrap' : 'no-wrap'
+      }, style)
+    }, otherProps),
+    _react2.default.Children.map(children, function (child, index) {
+      return _react2.default.cloneElement(child, _extends({}, child.props, {
+        style: {
+          flexBasis: toPercent(100 / count),
+          maxWidth: toPercent(100 / count),
+          overflow: 'hidden',
+          marginLeft: offset && index === 0 ? toPercent(100 * offset / count) : null
+        }
+      }));
+    })
+  );
+};
+
+Flex.propTypes = {
+  children: _propTypes2.default.node,
+  className: _propTypes2.default.string,
+  count: _propTypes2.default.number.isRequired,
+  direction: _propTypes2.default.string,
+  offset: _propTypes2.default.number,
+  style: _propTypes2.default.objectOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])),
+  wrap: _propTypes2.default.bool
+};
+
+exports.default = Flex;
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/MonthView.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-calendar/dist/MonthView.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Days = __webpack_require__(/*! ./MonthView/Days */ "./node_modules/react-calendar/dist/MonthView/Days.js");
+
+var _Days2 = _interopRequireDefault(_Days);
+
+var _Weekdays = __webpack_require__(/*! ./MonthView/Weekdays */ "./node_modules/react-calendar/dist/MonthView/Weekdays.js");
+
+var _Weekdays2 = _interopRequireDefault(_Weekdays);
+
+var _WeekNumbers = __webpack_require__(/*! ./MonthView/WeekNumbers */ "./node_modules/react-calendar/dist/MonthView/WeekNumbers.js");
+
+var _WeekNumbers2 = _interopRequireDefault(_WeekNumbers);
+
+var _propTypes3 = __webpack_require__(/*! ./shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var MonthView = function (_PureComponent) {
+  _inherits(MonthView, _PureComponent);
+
+  function MonthView() {
+    _classCallCheck(this, MonthView);
+
+    return _possibleConstructorReturn(this, (MonthView.__proto__ || Object.getPrototypeOf(MonthView)).apply(this, arguments));
+  }
+
+  _createClass(MonthView, [{
+    key: 'renderWeekdays',
+    value: function renderWeekdays() {
+      var _props = this.props,
+          activeStartDate = _props.activeStartDate,
+          formatShortWeekday = _props.formatShortWeekday,
+          locale = _props.locale;
+
+
+      return _react2.default.createElement(_Weekdays2.default, {
+        calendarType: this.calendarType,
+        locale: locale,
+        month: activeStartDate,
+        formatShortWeekday: formatShortWeekday
+      });
+    }
+  }, {
+    key: 'renderWeekNumbers',
+    value: function renderWeekNumbers() {
+      var showWeekNumbers = this.props.showWeekNumbers;
+
+
+      if (!showWeekNumbers) {
+        return null;
+      }
+
+      var _props2 = this.props,
+          activeStartDate = _props2.activeStartDate,
+          onClickWeekNumber = _props2.onClickWeekNumber,
+          showFixedNumberOfWeeks = _props2.showFixedNumberOfWeeks;
+
+
+      return _react2.default.createElement(_WeekNumbers2.default, {
+        activeStartDate: activeStartDate,
+        calendarType: this.calendarType,
+        onClickWeekNumber: onClickWeekNumber,
+        showFixedNumberOfWeeks: showFixedNumberOfWeeks
+      });
+    }
+  }, {
+    key: 'renderDays',
+    value: function renderDays() {
+      var _props3 = this.props,
+          calendarType = _props3.calendarType,
+          showWeekNumbers = _props3.showWeekNumbers,
+          childProps = _objectWithoutProperties(_props3, ['calendarType', 'showWeekNumbers']);
+
+      return _react2.default.createElement(_Days2.default, _extends({
+        calendarType: this.calendarType
+      }, childProps));
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var showWeekNumbers = this.props.showWeekNumbers;
+
+
+      var className = 'react-calendar__month-view';
+
+      return _react2.default.createElement(
+        'div',
+        {
+          className: [className, showWeekNumbers ? className + '--weekNumbers' : ''].join(' ')
+        },
+        _react2.default.createElement(
+          'div',
+          {
+            style: {
+              display: 'flex',
+              alignItems: 'flex-end'
+            }
+          },
+          this.renderWeekNumbers(),
+          _react2.default.createElement(
+            'div',
+            {
+              style: {
+                flexGrow: 1,
+                width: '100%'
+              }
+            },
+            this.renderWeekdays(),
+            this.renderDays()
+          )
+        )
+      );
+    }
+  }, {
+    key: 'calendarType',
+    get: function get() {
+      var _props4 = this.props,
+          calendarType = _props4.calendarType,
+          locale = _props4.locale;
+
+
+      if (calendarType) {
+        return calendarType;
+      }
+
+      switch (locale) {
+        case 'en-CA':
+        case 'en-US':
+        case 'es-AR':
+        case 'es-BO':
+        case 'es-CL':
+        case 'es-CO':
+        case 'es-CR':
+        case 'es-DO':
+        case 'es-EC':
+        case 'es-GT':
+        case 'es-HN':
+        case 'es-MX':
+        case 'es-NI':
+        case 'es-PA':
+        case 'es-PE':
+        case 'es-PR':
+        case 'es-SV':
+        case 'es-VE':
+        case 'pt-BR':
+          return 'US';
+        // ar-LB, ar-MA intentionally missing
+        case 'ar':
+        case 'ar-AE':
+        case 'ar-BH':
+        case 'ar-DZ':
+        case 'ar-EG':
+        case 'ar-IQ':
+        case 'ar-JO':
+        case 'ar-KW':
+        case 'ar-LY':
+        case 'ar-OM':
+        case 'ar-QA':
+        case 'ar-SA':
+        case 'ar-SD':
+        case 'ar-SY':
+        case 'ar-YE':
+        case 'dv':
+        case 'dv-MV':
+        case 'ps':
+        case 'ps-AR':
+          return 'Arabic';
+        case 'he':
+        case 'he-IL':
+          return 'Hebrew';
+        default:
+          return 'ISO 8601';
+      }
+    }
+  }]);
+
+  return MonthView;
+}(_react.PureComponent);
+
+exports.default = MonthView;
+
+
+MonthView.propTypes = {
+  activeStartDate: _propTypes2.default.instanceOf(Date).isRequired,
+  calendarType: _propTypes3.isCalendarType,
+  formatShortWeekday: _propTypes2.default.func,
+  locale: _propTypes2.default.string,
+  maxDate: _propTypes3.isMaxDate,
+  minDate: _propTypes3.isMinDate,
+  onChange: _propTypes2.default.func,
+  onClickWeekNumber: _propTypes2.default.func,
+  setActiveRange: _propTypes2.default.func,
+  showFixedNumberOfWeeks: _propTypes2.default.bool,
+  showNeighboringMonth: _propTypes2.default.bool,
+  showWeekNumbers: _propTypes2.default.bool,
+  value: _propTypes3.isValue,
+  valueType: _propTypes2.default.string
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/MonthView/Day.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-calendar/dist/MonthView/Day.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Tile = __webpack_require__(/*! ../Tile */ "./node_modules/react-calendar/dist/Tile.js");
+
+var _Tile2 = _interopRequireDefault(_Tile);
+
+var _dates = __webpack_require__(/*! ../shared/dates */ "./node_modules/react-calendar/dist/shared/dates.js");
+
+var _propTypes3 = __webpack_require__(/*! ../shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var className = 'react-calendar__month-view__days__day';
+
+var Day = function Day(_ref) {
+  var calendarType = _ref.calendarType,
+      classes = _ref.classes,
+      currentMonthIndex = _ref.currentMonthIndex,
+      date = _ref.date,
+      otherProps = _objectWithoutProperties(_ref, ['calendarType', 'classes', 'currentMonthIndex', 'date']);
+
+  return _react2.default.createElement(
+    _Tile2.default,
+    _extends({}, otherProps, {
+      classes: [].concat(_toConsumableArray(classes), [className, (0, _dates.isWeekend)(date, calendarType) ? className + '--weekend' : null, date.getMonth() !== currentMonthIndex ? className + '--neighboringMonth' : null]),
+      date: date,
+      dateTime: (0, _dates.getISOLocalDate)(date) + 'T00:00:00.000',
+      maxDateTransform: _dates.getEndOfDay,
+      minDateTransform: _dates.getBeginOfDay,
+      view: 'month'
+    }),
+    (0, _dates.getDay)(date)
+  );
+};
+
+Day.propTypes = _extends({
+  currentMonthIndex: _propTypes2.default.number.isRequired
+}, _propTypes3.tileProps);
+
+exports.default = Day;
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/MonthView/Days.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-calendar/dist/MonthView/Days.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _TileGroup = __webpack_require__(/*! ../TileGroup */ "./node_modules/react-calendar/dist/TileGroup.js");
+
+var _TileGroup2 = _interopRequireDefault(_TileGroup);
+
+var _Day = __webpack_require__(/*! ./Day */ "./node_modules/react-calendar/dist/MonthView/Day.js");
+
+var _Day2 = _interopRequireDefault(_Day);
+
+var _dates = __webpack_require__(/*! ../shared/dates */ "./node_modules/react-calendar/dist/shared/dates.js");
+
+var _propTypes3 = __webpack_require__(/*! ../shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Days = function (_PureComponent) {
+  _inherits(Days, _PureComponent);
+
+  function Days() {
+    _classCallCheck(this, Days);
+
+    return _possibleConstructorReturn(this, (Days.__proto__ || Object.getPrototypeOf(Days)).apply(this, arguments));
+  }
+
+  _createClass(Days, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var monthIndex = this.monthIndex;
+
+      var _props = this.props,
+          showNeighboringMonth = _props.showNeighboringMonth,
+          otherProps = _objectWithoutProperties(_props, ['showNeighboringMonth']);
+
+      return _react2.default.createElement(_TileGroup2.default, _extends({}, otherProps, {
+        className: 'react-calendar__month-view__days',
+        count: 7,
+        dateTransform: function dateTransform(day) {
+          return new Date(_this2.year, monthIndex, day);
+        },
+        dateType: 'day',
+        end: this.end,
+        offset: this.offset,
+        start: this.start,
+        tile: _Day2.default
+        // Tile props
+        , currentMonthIndex: monthIndex
+      }));
+    }
+  }, {
+    key: 'offset',
+    get: function get() {
+      var _props2 = this.props,
+          showFixedNumberOfWeeks = _props2.showFixedNumberOfWeeks,
+          showNeighboringMonth = _props2.showNeighboringMonth;
+
+
+      if (showFixedNumberOfWeeks || showNeighboringMonth) {
+        return 0;
+      }
+
+      var _props3 = this.props,
+          activeStartDate = _props3.activeStartDate,
+          calendarType = _props3.calendarType;
+
+
+      return (0, _dates.getDayOfWeek)(activeStartDate, calendarType);
+    }
+
+    /**
+     * Defines on which day of the month the grid shall start. If we simply show current
+     * month, we obviously start on day one, but if showNeighboringMonth is set to
+     * true, we need to find the beginning of the week the first day of the month is in.
+     */
+
+  }, {
+    key: 'start',
+    get: function get() {
+      var _props4 = this.props,
+          showFixedNumberOfWeeks = _props4.showFixedNumberOfWeeks,
+          showNeighboringMonth = _props4.showNeighboringMonth;
+
+
+      if (showFixedNumberOfWeeks || showNeighboringMonth) {
+        var _props5 = this.props,
+            activeStartDate = _props5.activeStartDate,
+            calendarType = _props5.calendarType;
+
+        return -(0, _dates.getDayOfWeek)(activeStartDate, calendarType) + 1;
+      }
+
+      return 1;
+    }
+
+    /**
+     * Defines on which day of the month the grid shall end. If we simply show current
+     * month, we need to stop on the last day of the month, but if showNeighboringMonth
+     * is set to true, we need to find the end of the week the last day of the month is in.
+     */
+
+  }, {
+    key: 'end',
+    get: function get() {
+      var _props6 = this.props,
+          activeStartDate = _props6.activeStartDate,
+          showFixedNumberOfWeeks = _props6.showFixedNumberOfWeeks,
+          showNeighboringMonth = _props6.showNeighboringMonth;
+
+      var daysInMonth = (0, _dates.getDaysInMonth)(activeStartDate);
+
+      if (showFixedNumberOfWeeks) {
+        // Always show 6 weeks
+        return this.start + 6 * 7 - 1;
+      }
+
+      if (showNeighboringMonth) {
+        var year = this.year,
+            monthIndex = this.monthIndex;
+        var calendarType = this.props.calendarType;
+
+        var activeEndDate = new Date(year, monthIndex, daysInMonth);
+        return daysInMonth + (7 - (0, _dates.getDayOfWeek)(activeEndDate, calendarType) - 1);
+      }
+
+      return daysInMonth;
+    }
+  }, {
+    key: 'year',
+    get: function get() {
+      var activeStartDate = this.props.activeStartDate;
+
+      return (0, _dates.getYear)(activeStartDate);
+    }
+  }, {
+    key: 'monthIndex',
+    get: function get() {
+      var activeStartDate = this.props.activeStartDate;
+
+      return (0, _dates.getMonthIndex)(activeStartDate);
+    }
+  }]);
+
+  return Days;
+}(_react.PureComponent);
+
+exports.default = Days;
+
+
+Days.propTypes = _extends({
+  calendarType: _propTypes3.isCalendarType.isRequired,
+  showFixedNumberOfWeeks: _propTypes2.default.bool,
+  showNeighboringMonth: _propTypes2.default.bool
+}, _propTypes3.tileGroupProps);
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/MonthView/WeekNumber.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/react-calendar/dist/MonthView/WeekNumber.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var WeekNumber = function WeekNumber(_ref) {
+  var date = _ref.date,
+      onClickWeekNumber = _ref.onClickWeekNumber,
+      weekNumber = _ref.weekNumber;
+  return onClickWeekNumber ? _react2.default.createElement(
+    'button',
+    {
+      className: 'react-calendar__tile',
+      onClick: function onClick() {
+        return onClickWeekNumber(weekNumber, date);
+      },
+      style: { flexGrow: 1 },
+      type: 'button'
+    },
+    _react2.default.createElement(
+      'span',
+      null,
+      weekNumber
+    )
+  ) : _react2.default.createElement(
+    'div',
+    {
+      className: 'react-calendar__tile',
+      style: { flexGrow: 1 }
+    },
+    _react2.default.createElement(
+      'span',
+      null,
+      weekNumber
+    )
+  );
+};
+
+WeekNumber.propTypes = {
+  date: _propTypes2.default.instanceOf(Date).isRequired,
+  onClickWeekNumber: _propTypes2.default.func,
+  weekNumber: _propTypes2.default.number.isRequired
+};
+
+exports.default = WeekNumber;
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/MonthView/WeekNumbers.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-calendar/dist/MonthView/WeekNumbers.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _WeekNumber = __webpack_require__(/*! ./WeekNumber */ "./node_modules/react-calendar/dist/MonthView/WeekNumber.js");
+
+var _WeekNumber2 = _interopRequireDefault(_WeekNumber);
+
+var _Flex = __webpack_require__(/*! ../Flex */ "./node_modules/react-calendar/dist/Flex.js");
+
+var _Flex2 = _interopRequireDefault(_Flex);
+
+var _dates = __webpack_require__(/*! ../shared/dates */ "./node_modules/react-calendar/dist/shared/dates.js");
+
+var _propTypes3 = __webpack_require__(/*! ../shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var WeekNumbers = function (_PureComponent) {
+  _inherits(WeekNumbers, _PureComponent);
+
+  function WeekNumbers() {
+    _classCallCheck(this, WeekNumbers);
+
+    return _possibleConstructorReturn(this, (WeekNumbers.__proto__ || Object.getPrototypeOf(WeekNumbers)).apply(this, arguments));
+  }
+
+  _createClass(WeekNumbers, [{
+    key: 'render',
+    value: function render() {
+      var dates = this.dates,
+          numberOfWeeks = this.numberOfWeeks,
+          weekNumbers = this.weekNumbers;
+      var onClickWeekNumber = this.props.onClickWeekNumber;
+
+
+      return _react2.default.createElement(
+        _Flex2.default,
+        {
+          className: 'react-calendar__month-view__weekNumbers',
+          count: numberOfWeeks,
+          direction: 'column',
+          style: { flexBasis: 'calc(100% * (1 / 8)', flexShrink: 0 }
+        },
+        weekNumbers.map(function (weekNumber, weekIndex) {
+          return _react2.default.createElement(_WeekNumber2.default, {
+            date: dates[weekIndex],
+            key: weekNumber,
+            onClickWeekNumber: onClickWeekNumber,
+            weekNumber: weekNumber
+          });
+        })
+      );
+    }
+  }, {
+    key: 'startWeekday',
+    get: function get() {
+      var _props = this.props,
+          activeStartDate = _props.activeStartDate,
+          calendarType = _props.calendarType;
+
+      return (0, _dates.getDayOfWeek)(activeStartDate, calendarType);
+    }
+  }, {
+    key: 'numberOfDays',
+    get: function get() {
+      var activeStartDate = this.props.activeStartDate;
+
+      return (0, _dates.getDaysInMonth)(activeStartDate);
+    }
+  }, {
+    key: 'numberOfWeeks',
+    get: function get() {
+      var showFixedNumberOfWeeks = this.props.showFixedNumberOfWeeks;
+
+
+      if (showFixedNumberOfWeeks) {
+        return 6;
+      }
+
+      var days = this.numberOfDays - (7 - this.startWeekday);
+      return 1 + Math.ceil(days / 7);
+    }
+  }, {
+    key: 'year',
+    get: function get() {
+      var activeStartDate = this.props.activeStartDate;
+
+      return (0, _dates.getYear)(activeStartDate);
+    }
+  }, {
+    key: 'monthIndex',
+    get: function get() {
+      var activeStartDate = this.props.activeStartDate;
+
+      return (0, _dates.getMonthIndex)(activeStartDate);
+    }
+  }, {
+    key: 'day',
+    get: function get() {
+      var activeStartDate = this.props.activeStartDate;
+
+      return (0, _dates.getDay)(activeStartDate);
+    }
+  }, {
+    key: 'dates',
+    get: function get() {
+      var year = this.year,
+          monthIndex = this.monthIndex,
+          numberOfWeeks = this.numberOfWeeks,
+          day = this.day;
+      var calendarType = this.props.calendarType;
+
+
+      var dates = [];
+      for (var index = 0; index < numberOfWeeks; index += 1) {
+        dates.push((0, _dates.getBeginOfWeek)(new Date(year, monthIndex, day + index * 7), calendarType));
+      }
+      return dates;
+    }
+  }, {
+    key: 'weekNumbers',
+    get: function get() {
+      var dates = this.dates;
+      var calendarType = this.props.calendarType;
+
+      return dates.map(function (date) {
+        return (0, _dates.getWeekNumber)(date, calendarType);
+      });
+    }
+  }]);
+
+  return WeekNumbers;
+}(_react.PureComponent);
+
+exports.default = WeekNumbers;
+
+
+WeekNumbers.propTypes = {
+  activeStartDate: _propTypes2.default.instanceOf(Date).isRequired,
+  calendarType: _propTypes3.isCalendarType.isRequired,
+  onClickWeekNumber: _propTypes2.default.func,
+  showFixedNumberOfWeeks: _propTypes2.default.bool
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/MonthView/Weekdays.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-calendar/dist/MonthView/Weekdays.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Flex = __webpack_require__(/*! ../Flex */ "./node_modules/react-calendar/dist/Flex.js");
+
+var _Flex2 = _interopRequireDefault(_Flex);
+
+var _dates = __webpack_require__(/*! ../shared/dates */ "./node_modules/react-calendar/dist/shared/dates.js");
+
+var _dateFormatter = __webpack_require__(/*! ../shared/dateFormatter */ "./node_modules/react-calendar/dist/shared/dateFormatter.js");
+
+var _propTypes3 = __webpack_require__(/*! ../shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Weekdays = function (_Component) {
+  _inherits(Weekdays, _Component);
+
+  function Weekdays() {
+    _classCallCheck(this, Weekdays);
+
+    return _possibleConstructorReturn(this, (Weekdays.__proto__ || Object.getPrototypeOf(Weekdays)).apply(this, arguments));
+  }
+
+  _createClass(Weekdays, [{
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate(nextProps) {
+      var _props = this.props,
+          calendarType = _props.calendarType,
+          locale = _props.locale;
+
+
+      return nextProps.calendarType !== calendarType || nextProps.locale !== locale;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props2 = this.props,
+          calendarType = _props2.calendarType,
+          formatShortWeekday = _props2.formatShortWeekday,
+          locale = _props2.locale;
+      var beginOfMonth = this.beginOfMonth,
+          year = this.year,
+          monthIndex = this.monthIndex;
+
+
+      var weekdays = [];
+
+      for (var weekday = 1; weekday <= 7; weekday += 1) {
+        var weekdayDate = new Date(year, monthIndex, weekday - (0, _dates.getDayOfWeek)(beginOfMonth, calendarType));
+
+        weekdays.push(_react2.default.createElement(
+          'div',
+          {
+            className: 'react-calendar__month-view__weekdays__weekday',
+            key: weekday,
+            style: { flexGrow: 1 }
+          },
+          formatShortWeekday(weekdayDate, locale).replace('.', '')
+        ));
+      }
+
+      return _react2.default.createElement(
+        _Flex2.default,
+        {
+          className: 'react-calendar__month-view__weekdays',
+          count: 7
+        },
+        weekdays
+      );
+    }
+  }, {
+    key: 'beginOfMonth',
+    get: function get() {
+      var month = this.props.month;
+
+
+      return (0, _dates.getBeginOfMonth)(month);
+    }
+  }, {
+    key: 'year',
+    get: function get() {
+      var beginOfMonth = this.beginOfMonth;
+
+
+      return (0, _dates.getYear)(beginOfMonth);
+    }
+  }, {
+    key: 'monthIndex',
+    get: function get() {
+      var beginOfMonth = this.beginOfMonth;
+
+
+      return (0, _dates.getMonthIndex)(beginOfMonth);
+    }
+  }]);
+
+  return Weekdays;
+}(_react.Component);
+
+exports.default = Weekdays;
+
+
+Weekdays.defaultProps = {
+  formatShortWeekday: _dateFormatter.formatShortWeekday
+};
+
+Weekdays.propTypes = {
+  calendarType: _propTypes3.isCalendarType.isRequired,
+  formatShortWeekday: _propTypes2.default.func,
+  locale: _propTypes2.default.string,
+  month: _propTypes2.default.oneOfType([_propTypes2.default.string, // Only strings that are parseable to integer
+  _propTypes2.default.number, _propTypes2.default.instanceOf(Date)]).isRequired
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/Tile.js":
+/*!**************************************************!*\
+  !*** ./node_modules/react-calendar/dist/Tile.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _mergeClassNames = __webpack_require__(/*! merge-class-names */ "./node_modules/merge-class-names/build/entry.js");
+
+var _mergeClassNames2 = _interopRequireDefault(_mergeClassNames);
+
+var _propTypes3 = __webpack_require__(/*! ./shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Tile = function Tile(_ref) {
+  var activeStartDate = _ref.activeStartDate,
+      children = _ref.children,
+      classes = _ref.classes,
+      date = _ref.date,
+      dateTime = _ref.dateTime,
+      maxDate = _ref.maxDate,
+      maxDateTransform = _ref.maxDateTransform,
+      minDate = _ref.minDate,
+      minDateTransform = _ref.minDateTransform,
+      onClick = _ref.onClick,
+      onMouseOver = _ref.onMouseOver,
+      style = _ref.style,
+      tileClassName = _ref.tileClassName,
+      tileContent = _ref.tileContent,
+      tileDisabled = _ref.tileDisabled,
+      view = _ref.view;
+  return _react2.default.createElement(
+    'button',
+    {
+      className: (0, _mergeClassNames2.default)(classes, tileClassName instanceof Function ? tileClassName({ date: date, view: view }) : tileClassName),
+      disabled: minDate && minDateTransform(minDate) > date || maxDate && maxDateTransform(maxDate) < date || tileDisabled && tileDisabled({ activeStartDate: activeStartDate, date: date, view: view }),
+      onClick: onClick && function () {
+        return onClick(date);
+      },
+      onMouseOver: onMouseOver && function () {
+        return onMouseOver(date);
+      },
+      onFocus: onMouseOver && function () {
+        return onMouseOver(date);
+      },
+      style: style,
+      type: 'button'
+    },
+    _react2.default.createElement(
+      'time',
+      { dateTime: dateTime },
+      children
+    ),
+    typeof tileContent === 'function' ? tileContent({ date: date, view: view }) : tileContent
+  );
+};
+
+Tile.propTypes = _extends({}, _propTypes3.tileProps, {
+  children: _propTypes2.default.node.isRequired,
+  dateTime: _propTypes2.default.string.isRequired,
+  maxDateTransform: _propTypes2.default.func.isRequired,
+  minDateTransform: _propTypes2.default.func.isRequired
+});
+
+exports.default = Tile;
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/TileGroup.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-calendar/dist/TileGroup.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Flex = __webpack_require__(/*! ./Flex */ "./node_modules/react-calendar/dist/Flex.js");
+
+var _Flex2 = _interopRequireDefault(_Flex);
+
+var _utils = __webpack_require__(/*! ./shared/utils */ "./node_modules/react-calendar/dist/shared/utils.js");
+
+var _propTypes3 = __webpack_require__(/*! ./shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var TileGroup = function TileGroup(_ref) {
+  var className = _ref.className,
+      count = _ref.count,
+      dateTransform = _ref.dateTransform,
+      dateType = _ref.dateType,
+      end = _ref.end,
+      hover = _ref.hover,
+      offset = _ref.offset,
+      start = _ref.start,
+      step = _ref.step,
+      Tile = _ref.tile,
+      value = _ref.value,
+      valueType = _ref.valueType,
+      tileProps = _objectWithoutProperties(_ref, ['className', 'count', 'dateTransform', 'dateType', 'end', 'hover', 'offset', 'start', 'step', 'tile', 'value', 'valueType']);
+
+  var tiles = [];
+  for (var point = start; point <= end; point += step) {
+    var date = dateTransform(point);
+
+    tiles.push(_react2.default.createElement(Tile, _extends({
+      classes: (0, _utils.getTileClasses)({
+        value: value, valueType: valueType, date: date, dateType: dateType, hover: hover
+      }),
+      date: date,
+      point: point,
+      key: date.getTime()
+    }, tileProps)));
+  }
+
+  return _react2.default.createElement(
+    _Flex2.default,
+    {
+      className: className,
+      count: count,
+      offset: offset,
+      wrap: true
+    },
+    tiles
+  );
+};
+
+TileGroup.propTypes = _extends({}, _propTypes3.tileGroupProps, {
+  activeStartDate: _propTypes2.default.instanceOf(Date),
+  count: _propTypes2.default.number,
+  dateTransform: _propTypes2.default.func.isRequired,
+  offset: _propTypes2.default.number,
+  tile: _propTypes2.default.func.isRequired,
+  step: _propTypes2.default.number
+});
+
+TileGroup.defaultProps = {
+  count: 3,
+  step: 1
+};
+
+exports.default = TileGroup;
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/YearView.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-calendar/dist/YearView.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Months = __webpack_require__(/*! ./YearView/Months */ "./node_modules/react-calendar/dist/YearView/Months.js");
+
+var _Months2 = _interopRequireDefault(_Months);
+
+var _propTypes3 = __webpack_require__(/*! ./shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var YearView = function (_PureComponent) {
+  _inherits(YearView, _PureComponent);
+
+  function YearView() {
+    _classCallCheck(this, YearView);
+
+    return _possibleConstructorReturn(this, (YearView.__proto__ || Object.getPrototypeOf(YearView)).apply(this, arguments));
+  }
+
+  _createClass(YearView, [{
+    key: 'renderMonths',
+    value: function renderMonths() {
+      return _react2.default.createElement(_Months2.default, this.props);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'react-calendar__year-view' },
+        this.renderMonths()
+      );
+    }
+  }]);
+
+  return YearView;
+}(_react.PureComponent);
+
+exports.default = YearView;
+
+
+YearView.propTypes = {
+  activeStartDate: _propTypes2.default.instanceOf(Date).isRequired,
+  formatMonth: _propTypes2.default.func,
+  locale: _propTypes2.default.string,
+  maxDate: _propTypes3.isMaxDate,
+  minDate: _propTypes3.isMinDate,
+  onChange: _propTypes2.default.func,
+  setActiveRange: _propTypes2.default.func,
+  value: _propTypes3.isValue,
+  valueType: _propTypes2.default.string
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/YearView/Month.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-calendar/dist/YearView/Month.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Tile = __webpack_require__(/*! ../Tile */ "./node_modules/react-calendar/dist/Tile.js");
+
+var _Tile2 = _interopRequireDefault(_Tile);
+
+var _dates = __webpack_require__(/*! ../shared/dates */ "./node_modules/react-calendar/dist/shared/dates.js");
+
+var _dateFormatter = __webpack_require__(/*! ../shared/dateFormatter */ "./node_modules/react-calendar/dist/shared/dateFormatter.js");
+
+var _propTypes3 = __webpack_require__(/*! ../shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var className = 'react-calendar__year-view__months__month';
+
+var Month = function Month(_ref) {
+  var classes = _ref.classes,
+      date = _ref.date,
+      formatMonth = _ref.formatMonth,
+      locale = _ref.locale,
+      otherProps = _objectWithoutProperties(_ref, ['classes', 'date', 'formatMonth', 'locale']);
+
+  return _react2.default.createElement(
+    _Tile2.default,
+    _extends({}, otherProps, {
+      classes: [].concat(_toConsumableArray(classes), [className]),
+      date: date,
+      dateTime: (0, _dates.getISOLocalMonth)(date) + 'T00:00:00.000',
+      maxDateTransform: _dates.getEndOfMonth,
+      minDateTransform: _dates.getBeginOfMonth,
+      view: 'year'
+    }),
+    formatMonth(date, locale)
+  );
+};
+
+Month.defaultProps = {
+  formatMonth: _dateFormatter.formatMonth
+};
+
+Month.propTypes = _extends({}, _propTypes3.tileProps, {
+  formatMonth: _propTypes2.default.func,
+  locale: _propTypes2.default.string
+});
+
+exports.default = Month;
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/YearView/Months.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/react-calendar/dist/YearView/Months.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _TileGroup = __webpack_require__(/*! ../TileGroup */ "./node_modules/react-calendar/dist/TileGroup.js");
+
+var _TileGroup2 = _interopRequireDefault(_TileGroup);
+
+var _Month = __webpack_require__(/*! ./Month */ "./node_modules/react-calendar/dist/YearView/Month.js");
+
+var _Month2 = _interopRequireDefault(_Month);
+
+var _dates = __webpack_require__(/*! ../shared/dates */ "./node_modules/react-calendar/dist/shared/dates.js");
+
+var _propTypes3 = __webpack_require__(/*! ../shared/propTypes */ "./node_modules/react-calendar/dist/shared/propTypes.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Months = function (_PureComponent) {
+  _inherits(Months, _PureComponent);
+
+  function Months() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Months);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Months.__proto__ || Object.getPrototypeOf(Months)).call.apply(_ref, [this].concat(args))), _this), _this.start = 0, _this.end = 11, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Months, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(_TileGroup2.default, _extends({}, this.props, {
+        className: 'react-calendar__year-view__months',
+        dateTransform: function dateTransform(monthIndex) {
+          return new Date(_this2.year, monthIndex, 1);
+        },
+        dateType: 'month',
+        end: this.end,
+        start: this.start,
+        tile: _Month2.default
+      }));
+    }
+  }, {
+    key: 'year',
+    get: function get() {
+      var activeStartDate = this.props.activeStartDate;
+
+      return (0, _dates.getYear)(activeStartDate);
+    }
+  }]);
+
+  return Months;
+}(_react.PureComponent);
+
+exports.default = Months;
+
+
+Months.propTypes = _extends({}, _propTypes3.tileGroupProps, {
+  locale: _propTypes2.default.string
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/entry.nostyle.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-calendar/dist/entry.nostyle.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MonthView = exports.YearView = exports.DecadeView = exports.CenturyView = exports.Calendar = undefined;
+
+var _Calendar = __webpack_require__(/*! ./Calendar */ "./node_modules/react-calendar/dist/Calendar.js");
+
+var _Calendar2 = _interopRequireDefault(_Calendar);
+
+var _CenturyView = __webpack_require__(/*! ./CenturyView */ "./node_modules/react-calendar/dist/CenturyView.js");
+
+var _CenturyView2 = _interopRequireDefault(_CenturyView);
+
+var _DecadeView = __webpack_require__(/*! ./DecadeView */ "./node_modules/react-calendar/dist/DecadeView.js");
+
+var _DecadeView2 = _interopRequireDefault(_DecadeView);
+
+var _YearView = __webpack_require__(/*! ./YearView */ "./node_modules/react-calendar/dist/YearView.js");
+
+var _YearView2 = _interopRequireDefault(_YearView);
+
+var _MonthView = __webpack_require__(/*! ./MonthView */ "./node_modules/react-calendar/dist/MonthView.js");
+
+var _MonthView2 = _interopRequireDefault(_MonthView);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Calendar2.default;
+exports.Calendar = _Calendar2.default;
+exports.CenturyView = _CenturyView2.default;
+exports.DecadeView = _DecadeView2.default;
+exports.YearView = _YearView2.default;
+exports.MonthView = _MonthView2.default;
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/shared/dateFormatter.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/react-calendar/dist/shared/dateFormatter.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.formatShortWeekday = exports.formatMonth = exports.formatMonthYear = exports.formatDate = undefined;
+
+var _getUserLocale = __webpack_require__(/*! get-user-locale */ "./node_modules/get-user-locale/dist/entry.js");
+
+var _getUserLocale2 = _interopRequireDefault(_getUserLocale);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var formatterCache = {};
+
+/**
+ * Gets Intl-based date formatter from formatter cache. If it doesn't exist in cache
+ * just yet, it will be created on the fly.
+ */
+var getFormatter = function getFormatter(options, locale) {
+  if (!locale) {
+    // Default parameter is not enough as it does not protect us from null values
+    // eslint-disable-next-line no-param-reassign
+    locale = (0, _getUserLocale2.default)();
+  }
+
+  var stringifiedOptions = JSON.stringify(options);
+
+  if (!formatterCache[locale]) {
+    formatterCache[locale] = {};
+  }
+
+  if (!formatterCache[locale][stringifiedOptions]) {
+    formatterCache[locale][stringifiedOptions] = new Intl.DateTimeFormat(locale, options).format;
+  }
+
+  return formatterCache[locale][stringifiedOptions];
+};
+
+/**
+ * Changes the hour in a Date to ensure right date formatting even if DST is messed up.
+ * Workaround for bug in WebKit and Firefox with historical dates.
+ * For more details, see:
+ * https://bugs.chromium.org/p/chromium/issues/detail?id=750465
+ * https://bugzilla.mozilla.org/show_bug.cgi?id=1385643
+ *
+ * @param {Date} date Date.
+ */
+var toSafeHour = function toSafeHour(date) {
+  var safeDate = new Date(date);
+  return new Date(safeDate.setHours(12));
+};
+
+var formatDate = exports.formatDate = function formatDate(date, locale) {
+  return getFormatter({ day: 'numeric', month: 'numeric', year: 'numeric' }, locale)(toSafeHour(date));
+};
+
+var formatMonthYear = exports.formatMonthYear = function formatMonthYear(date, locale) {
+  return getFormatter({ month: 'long', year: 'numeric' }, locale)(toSafeHour(date));
+};
+
+var formatMonth = exports.formatMonth = function formatMonth(date, locale) {
+  return getFormatter({ month: 'long' }, locale)(toSafeHour(date));
+};
+
+var formatShortWeekday = exports.formatShortWeekday = function formatShortWeekday(date, locale) {
+  return getFormatter({ weekday: 'short' }, locale)(toSafeHour(date));
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/shared/dates.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/react-calendar/dist/shared/dates.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var _map = [].concat(_toConsumableArray(Array(7))).map(function (el, index) {
+  return index;
+}),
+    _map2 = _slicedToArray(_map, 7),
+
+// eslint-disable-next-line no-unused-vars
+SUNDAY = _map2[0],
+    MONDAY = _map2[1],
+    TUESDAY = _map2[2],
+    WEDNESDAY = _map2[3],
+    THURSDAY = _map2[4],
+    FRIDAY = _map2[5],
+    SATURDAY = _map2[6];
+
+/* Simple getters - getting a property of a given point in time */
+
+var getYear = exports.getYear = function getYear(date) {
+  if (date instanceof Date) {
+    return date.getFullYear();
+  }
+
+  if (typeof date === 'number') {
+    return date;
+  }
+
+  var year = parseInt(date, 10);
+
+  if (typeof date === 'string' && !isNaN(year)) {
+    return year;
+  }
+
+  throw new Error('Failed to get year from date: ' + date + '.');
+};
+
+var getMonth = exports.getMonth = function getMonth(date) {
+  return date.getMonth() + 1;
+};
+
+var getMonthIndex = exports.getMonthIndex = function getMonthIndex(date) {
+  return date.getMonth();
+};
+
+var getDay = exports.getDay = function getDay(date) {
+  return date.getDate();
+};
+
+var getDayOfWeek = exports.getDayOfWeek = function getDayOfWeek(date) {
+  var calendarType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'ISO 8601';
+
+  var weekday = date.getDay();
+
+  switch (calendarType) {
+    case 'ISO 8601':
+      // Shifts days of the week so that Monday is 0, Sunday is 6
+      return (weekday + 6) % 7;
+    case 'Arabic':
+      return (weekday + 1) % 7;
+    case 'Hebrew':
+    case 'US':
+      return weekday;
+    default:
+      throw new Error('Unsupported calendar type.');
+  }
+};
+
+/* Complex getters - getting a property somehow related to a given point in time */
+
+var getBeginOfCenturyYear = exports.getBeginOfCenturyYear = function getBeginOfCenturyYear(date) {
+  var year = getYear(date) - 1;
+  return year + -year % 100 + 1;
+};
+
+var getBeginOfCentury = exports.getBeginOfCentury = function getBeginOfCentury(date) {
+  var beginOfCenturyYear = getBeginOfCenturyYear(date);
+  return new Date(beginOfCenturyYear, 0, 1);
+};
+
+var getEndOfCentury = exports.getEndOfCentury = function getEndOfCentury(date) {
+  var beginOfCenturyYear = getBeginOfCenturyYear(date);
+  return new Date(beginOfCenturyYear + 100, 0, 1, 0, 0, 0, -1);
+};
+
+var getCenturyRange = exports.getCenturyRange = function getCenturyRange(date) {
+  return [getBeginOfCentury(date), getEndOfCentury(date)];
+};
+
+var getBeginOfPreviousCentury = exports.getBeginOfPreviousCentury = function getBeginOfPreviousCentury(date) {
+  var previousCenturyYear = getYear(date) - 100;
+  return getBeginOfCentury(previousCenturyYear);
+};
+
+var getEndOfPreviousCentury = exports.getEndOfPreviousCentury = function getEndOfPreviousCentury(date) {
+  var previousCenturyYear = getYear(date) - 100;
+  return getEndOfCentury(previousCenturyYear);
+};
+
+var getBeginOfNextCentury = exports.getBeginOfNextCentury = function getBeginOfNextCentury(date) {
+  var nextCenturyYear = getYear(date) + 100;
+  return getBeginOfCentury(nextCenturyYear);
+};
+
+var getBeginOfDecadeYear = exports.getBeginOfDecadeYear = function getBeginOfDecadeYear(date) {
+  var year = getYear(date) - 1;
+  return year + -year % 10 + 1;
+};
+
+var getBeginOfDecade = exports.getBeginOfDecade = function getBeginOfDecade(date) {
+  var beginOfDecadeYear = getBeginOfDecadeYear(date);
+  return new Date(beginOfDecadeYear, 0, 1);
+};
+
+var getEndOfDecade = exports.getEndOfDecade = function getEndOfDecade(date) {
+  var beginOfDecadeYear = getBeginOfDecadeYear(date);
+  return new Date(beginOfDecadeYear + 10, 0, 1, 0, 0, 0, -1);
+};
+
+var getDecadeRange = exports.getDecadeRange = function getDecadeRange(date) {
+  return [getBeginOfDecade(date), getEndOfDecade(date)];
+};
+
+var getBeginOfPreviousDecade = exports.getBeginOfPreviousDecade = function getBeginOfPreviousDecade(date) {
+  var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
+
+  var previousDecadeYear = getBeginOfDecadeYear(date) - offset;
+  return getBeginOfDecade(previousDecadeYear);
+};
+
+var getEndOfPreviousDecade = exports.getEndOfPreviousDecade = function getEndOfPreviousDecade(date) {
+  var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
+
+  var previousDecadeYear = getBeginOfDecadeYear(date) - offset;
+  return getEndOfDecade(previousDecadeYear);
+};
+
+var getBeginOfNextDecade = exports.getBeginOfNextDecade = function getBeginOfNextDecade(date) {
+  var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
+
+  var nextDecadeYear = getBeginOfDecadeYear(date) + offset;
+  return getBeginOfDecade(nextDecadeYear);
+};
+
+/**
+ * Returns the beginning of a given year.
+ *
+ * @param {Date} date Date.
+ */
+var getBeginOfYear = exports.getBeginOfYear = function getBeginOfYear(date) {
+  var year = getYear(date);
+  return new Date(year, 0, 1);
+};
+
+/**
+ * Returns the end of a given year.
+ *
+ * @param {Date} date Date.
+ */
+var getEndOfYear = exports.getEndOfYear = function getEndOfYear(date) {
+  var year = getYear(date);
+  return new Date(year + 1, 0, 1, 0, 0, 0, -1);
+};
+
+/**
+ * Returns an array with the beginning and the end of a given year.
+ *
+ * @param {Date} date Date.
+ */
+var getYearRange = exports.getYearRange = function getYearRange(date) {
+  return [getBeginOfYear(date), getEndOfYear(date)];
+};
+
+var getBeginOfPreviousYear = exports.getBeginOfPreviousYear = function getBeginOfPreviousYear(date) {
+  var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+  var previousYear = getYear(date) - offset;
+  return getBeginOfYear(previousYear);
+};
+
+var getEndOfPreviousYear = exports.getEndOfPreviousYear = function getEndOfPreviousYear(date) {
+  var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+  var previousYear = getYear(date) - offset;
+  return getEndOfYear(previousYear);
+};
+
+var getBeginOfNextYear = exports.getBeginOfNextYear = function getBeginOfNextYear(date) {
+  var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+  var nextYear = getYear(date) + offset;
+  return getBeginOfYear(nextYear);
+};
+
+/**
+ * Returns the beginning of a given month.
+ *
+ * @param {Date} date Date.
+ */
+var getBeginOfMonth = exports.getBeginOfMonth = function getBeginOfMonth(date) {
+  var year = getYear(date);
+  var monthIndex = getMonthIndex(date);
+  return new Date(year, monthIndex, 1);
+};
+
+/**
+ * Returns the end of a given month.
+ *
+ * @param {Date} date Date.
+ */
+var getEndOfMonth = exports.getEndOfMonth = function getEndOfMonth(date) {
+  var year = getYear(date);
+  var monthIndex = getMonthIndex(date);
+  return new Date(year, monthIndex + 1, 1, 0, 0, 0, -1);
+};
+
+/**
+ * Returns the beginning of a given week.
+ *
+ * @param {Date} date Date.
+ * @param {String} calendarType Calendar type. Can be ISO 8601 or US.
+ */
+var getBeginOfWeek = exports.getBeginOfWeek = function getBeginOfWeek(date) {
+  var calendarType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'ISO 8601';
+
+  var year = getYear(date);
+  var monthIndex = getMonthIndex(date);
+  var day = date.getDate() - getDayOfWeek(date, calendarType);
+  return new Date(year, monthIndex, day);
+};
+
+/**
+ * Returns an array with the beginning and the end of a given month.
+ *
+ * @param {Date} date Date.
+ */
+var getMonthRange = exports.getMonthRange = function getMonthRange(date) {
+  return [getBeginOfMonth(date), getEndOfMonth(date)];
+};
+
+var getDifferentMonth = function getDifferentMonth(date, offset) {
+  var year = getYear(date);
+  var previousMonthIndex = getMonthIndex(date) + offset;
+  return new Date(year, previousMonthIndex, 1);
+};
+
+var getBeginOfPreviousMonth = exports.getBeginOfPreviousMonth = function getBeginOfPreviousMonth(date) {
+  var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+  var previousMonth = getDifferentMonth(date, -offset);
+  return getBeginOfMonth(previousMonth);
+};
+
+var getEndOfPreviousMonth = exports.getEndOfPreviousMonth = function getEndOfPreviousMonth(date) {
+  var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+  var previousMonth = getDifferentMonth(date, -offset);
+  return getEndOfMonth(previousMonth);
+};
+
+var getBeginOfNextMonth = exports.getBeginOfNextMonth = function getBeginOfNextMonth(date) {
+  var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+  var nextMonth = getDifferentMonth(date, offset);
+  return getBeginOfMonth(nextMonth);
+};
+
+var getBeginOfDay = exports.getBeginOfDay = function getBeginOfDay(date) {
+  var year = getYear(date);
+  var monthIndex = getMonthIndex(date);
+  var day = getDay(date);
+  return new Date(year, monthIndex, day);
+};
+
+var getEndOfDay = exports.getEndOfDay = function getEndOfDay(date) {
+  var year = getYear(date);
+  var monthIndex = getMonthIndex(date);
+  var day = getDay(date);
+  return new Date(year, monthIndex, day + 1, 0, 0, 0, -1);
+};
+
+/**
+ * Returns an array with the beginning and the end of a given day.
+ *
+ * @param {Date} date Date.
+ */
+var getDayRange = exports.getDayRange = function getDayRange(date) {
+  return [getBeginOfDay(date), getEndOfDay(date)];
+};
+
+/**
+ * Gets week number according to ISO 8601 or US standard.
+ * In ISO 8601, Arabic and Hebrew week 1 is the one with January 4.
+ * In US calendar week 1 is the one with January 1.
+ *
+ * @param {Date} date Date.
+ * @param {String} calendarType Calendar type. Can be ISO 8601 or US.
+ */
+var getWeekNumber = exports.getWeekNumber = function getWeekNumber(date) {
+  var calendarType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'ISO 8601';
+
+  var calendarTypeForWeekNumber = calendarType === 'US' ? 'US' : 'ISO 8601';
+  var beginOfWeek = getBeginOfWeek(date, calendarTypeForWeekNumber);
+  var year = getYear(date) + 1;
+  var dayInWeekOne = void 0;
+  var beginOfFirstWeek = void 0;
+
+  // Look for the first week one that does not come after a given date
+  do {
+    dayInWeekOne = new Date(year, 0, calendarTypeForWeekNumber === 'ISO 8601' ? 4 : 1);
+    beginOfFirstWeek = getBeginOfWeek(dayInWeekOne, calendarTypeForWeekNumber);
+    year -= 1;
+  } while (date - beginOfFirstWeek < 0);
+
+  return Math.round((beginOfWeek - beginOfFirstWeek) / (8.64e7 * 7)) + 1;
+};
+
+/**
+ * Returns the beginning of a given range.
+ *
+ * @param {String} rangeType Range type (e.g. 'day')
+ * @param {Date} date Date.
+ */
+var getBegin = exports.getBegin = function getBegin(rangeType, date) {
+  switch (rangeType) {
+    case 'century':
+      return getBeginOfCentury(date);
+    case 'decade':
+      return getBeginOfDecade(date);
+    case 'year':
+      return getBeginOfYear(date);
+    case 'month':
+      return getBeginOfMonth(date);
+    case 'day':
+      return getBeginOfDay(date);
+    default:
+      throw new Error('Invalid rangeType: ' + rangeType);
+  }
+};
+
+var getBeginPrevious = exports.getBeginPrevious = function getBeginPrevious(rangeType, date) {
+  switch (rangeType) {
+    case 'century':
+      return getBeginOfPreviousCentury(date);
+    case 'decade':
+      return getBeginOfPreviousDecade(date);
+    case 'year':
+      return getBeginOfPreviousYear(date);
+    case 'month':
+      return getBeginOfPreviousMonth(date);
+    default:
+      throw new Error('Invalid rangeType: ' + rangeType);
+  }
+};
+
+var getBeginNext = exports.getBeginNext = function getBeginNext(rangeType, date) {
+  switch (rangeType) {
+    case 'century':
+      return getBeginOfNextCentury(date);
+    case 'decade':
+      return getBeginOfNextDecade(date);
+    case 'year':
+      return getBeginOfNextYear(date);
+    case 'month':
+      return getBeginOfNextMonth(date);
+    default:
+      throw new Error('Invalid rangeType: ' + rangeType);
+  }
+};
+
+var getBeginPrevious2 = exports.getBeginPrevious2 = function getBeginPrevious2(rangeType, date) {
+  switch (rangeType) {
+    case 'decade':
+      return getBeginOfPreviousDecade(date, 100);
+    case 'year':
+      return getBeginOfPreviousYear(date, 10);
+    case 'month':
+      return getBeginOfPreviousMonth(date, 12);
+    default:
+      throw new Error('Invalid rangeType: ' + rangeType);
+  }
+};
+
+var getBeginNext2 = exports.getBeginNext2 = function getBeginNext2(rangeType, date) {
+  switch (rangeType) {
+    case 'decade':
+      return getBeginOfNextDecade(date, 100);
+    case 'year':
+      return getBeginOfNextYear(date, 10);
+    case 'month':
+      return getBeginOfNextMonth(date, 12);
+    default:
+      throw new Error('Invalid rangeType: ' + rangeType);
+  }
+};
+
+/**
+ * Returns the end of a given range.
+ *
+ * @param {String} rangeType Range type (e.g. 'day')
+ * @param {Date} date Date.
+ */
+var getEnd = exports.getEnd = function getEnd(rangeType, date) {
+  switch (rangeType) {
+    case 'century':
+      return getEndOfCentury(date);
+    case 'decade':
+      return getEndOfDecade(date);
+    case 'year':
+      return getEndOfYear(date);
+    case 'month':
+      return getEndOfMonth(date);
+    case 'day':
+      return getEndOfDay(date);
+    default:
+      throw new Error('Invalid rangeType: ' + rangeType);
+  }
+};
+
+var getEndPrevious = exports.getEndPrevious = function getEndPrevious(rangeType, date) {
+  switch (rangeType) {
+    case 'century':
+      return getEndOfPreviousCentury(date);
+    case 'decade':
+      return getEndOfPreviousDecade(date);
+    case 'year':
+      return getEndOfPreviousYear(date);
+    case 'month':
+      return getEndOfPreviousMonth(date);
+    default:
+      throw new Error('Invalid rangeType: ' + rangeType);
+  }
+};
+
+var getEndPrevious2 = exports.getEndPrevious2 = function getEndPrevious2(rangeType, date) {
+  switch (rangeType) {
+    case 'decade':
+      return getEndOfPreviousDecade(date, 100);
+    case 'year':
+      return getEndOfPreviousYear(date, 10);
+    case 'month':
+      return getEndOfPreviousMonth(date, 12);
+    default:
+      throw new Error('Invalid rangeType: ' + rangeType);
+  }
+};
+
+/**
+ * Returns an array with the beginning and the end of a given range.
+ *
+ * @param {String} rangeType Range type (e.g. 'day')
+ * @param {Date} date Date.
+ */
+var getRange = exports.getRange = function getRange(rangeType, date) {
+  switch (rangeType) {
+    case 'century':
+      return getCenturyRange(date);
+    case 'decade':
+      return getDecadeRange(date);
+    case 'year':
+      return getYearRange(date);
+    case 'month':
+      return getMonthRange(date);
+    case 'day':
+      return getDayRange(date);
+    default:
+      throw new Error('Invalid rangeType: ' + rangeType);
+  }
+};
+
+/**
+ * Creates a range out of two values, ensuring they are in order and covering entire period ranges.
+ *
+ * @param {String} rangeType Range type (e.g. 'day')
+ * @param {Date} date1 First date.
+ * @param {Date} date2 Second date.
+ */
+var getValueRange = exports.getValueRange = function getValueRange(rangeType, date1, date2) {
+  // Need to change to number and back due to https://bugs.chromium.org/p/v8/issues/detail?id=8379
+  var rawNextValue = [date1, date2].map(function (d) {
+    return d.getTime();
+  }).sort().map(function (d) {
+    return new Date(d);
+  });
+  return [getBegin(rangeType, rawNextValue[0]), getEnd(rangeType, rawNextValue[1])];
+};
+
+/**
+ * Returns a number of days in a month of a given date.
+ *
+ * @param {Date} date Date.
+ */
+var getDaysInMonth = exports.getDaysInMonth = function getDaysInMonth(date) {
+  var year = getYear(date);
+  var monthIndex = getMonthIndex(date);
+  return new Date(year, monthIndex + 1, 0).getDate();
+};
+
+var toYearLabel = function toYearLabel(_ref) {
+  var _ref2 = _slicedToArray(_ref, 2),
+      start = _ref2[0],
+      end = _ref2[1];
+
+  return getYear(start) + ' \u2013 ' + getYear(end);
+};
+
+/**
+ * Returns a string labelling a century of a given date.
+ * For example, for 2017 it will return 2001-2100.
+ *
+ * @param {Date|String|Number} date Date or a year as a string or as a number.
+ */
+var getCenturyLabel = exports.getCenturyLabel = function getCenturyLabel(date) {
+  return toYearLabel(getCenturyRange(date));
+};
+
+/**
+ * Returns a string labelling a century of a given date.
+ * For example, for 2017 it will return 2011-2020.
+ *
+ * @param {Date|String|Number} date Date or a year as a string or as a number.
+ */
+var getDecadeLabel = exports.getDecadeLabel = function getDecadeLabel(date) {
+  return toYearLabel(getDecadeRange(date));
+};
+
+/**
+ * Returns a boolean determining whether a given date is on Saturday or Sunday.
+ *
+ * @param {Date} date Date.
+ */
+var isWeekend = exports.isWeekend = function isWeekend(date) {
+  var calendarType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'ISO 8601';
+
+  var weekday = date.getDay();
+  switch (calendarType) {
+    case 'Arabic':
+    case 'Hebrew':
+      return weekday === FRIDAY || weekday === SATURDAY;
+    case 'ISO 8601':
+    case 'US':
+      return weekday === SATURDAY || weekday === SUNDAY;
+    default:
+      throw new Error('Unsupported calendar type.');
+  }
+};
+
+/**
+ * Returns local month in ISO-like format (YYYY-MM).
+ */
+var getISOLocalMonth = exports.getISOLocalMonth = function getISOLocalMonth(value) {
+  if (!value) {
+    return value;
+  }
+
+  var date = new Date(value);
+
+  if (isNaN(date.getTime())) {
+    throw new Error('Invalid date: ' + value);
+  }
+
+  var year = getYear(date);
+  var month = ('0' + getMonth(date)).slice(-2);
+
+  return year + '-' + month;
+};
+
+/**
+ * Returns local date in ISO-like format (YYYY-MM-DD).
+ */
+var getISOLocalDate = exports.getISOLocalDate = function getISOLocalDate(value) {
+  if (!value) {
+    return value;
+  }
+
+  var date = new Date(value);
+
+  if (isNaN(date.getTime())) {
+    throw new Error('Invalid date: ' + value);
+  }
+
+  var year = getYear(date);
+  var month = ('0' + getMonth(date)).slice(-2);
+  var day = ('0' + getDay(date)).slice(-2);
+
+  return year + '-' + month + '-' + day;
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/shared/propTypes.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/react-calendar/dist/shared/propTypes.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.tileProps = exports.tileGroupProps = exports.isView = exports.isClassName = exports.isViews = exports.isValue = exports.isMaxDate = exports.isMinDate = exports.isCalendarType = undefined;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var calendarTypes = ['ISO 8601', 'US', 'Arabic', 'Hebrew'];
+var allViews = ['century', 'decade', 'year', 'month'];
+
+var isCalendarType = exports.isCalendarType = _propTypes2.default.oneOf(calendarTypes);
+
+var isMinDate = exports.isMinDate = function isMinDate(props, propName, componentName) {
+  var minDate = props[propName];
+
+
+  if (minDate) {
+    if (!(minDate instanceof Date)) {
+      return new Error('Invalid prop `' + propName + '` of type `' + (typeof minDate === 'undefined' ? 'undefined' : _typeof(minDate)) + '` supplied to `' + componentName + '`, expected instance of `Date`.');
+    }
+
+    var maxDate = props.maxDate;
+
+
+    if (maxDate && minDate > maxDate) {
+      return new Error('Invalid prop `' + propName + '` of type `' + (typeof minDate === 'undefined' ? 'undefined' : _typeof(minDate)) + '` supplied to `' + componentName + '`, minDate cannot be larger than maxDate.');
+    }
+  }
+
+  // Everything is fine
+  return null;
+};
+
+var isMaxDate = exports.isMaxDate = function isMaxDate(props, propName, componentName) {
+  var maxDate = props[propName];
+
+
+  if (maxDate) {
+    if (!(maxDate instanceof Date)) {
+      return new Error('Invalid prop `' + propName + '` of type `' + (typeof maxDate === 'undefined' ? 'undefined' : _typeof(maxDate)) + '` supplied to `' + componentName + '`, expected instance of `Date`.');
+    }
+
+    var minDate = props.minDate;
+
+
+    if (minDate && maxDate < minDate) {
+      return new Error('Invalid prop `' + propName + '` of type `' + (typeof maxDate === 'undefined' ? 'undefined' : _typeof(maxDate)) + '` supplied to `' + componentName + '`, maxDate cannot be smaller than minDate.');
+    }
+  }
+
+  // Everything is fine
+  return null;
+};
+
+var isValue = exports.isValue = _propTypes2.default.oneOfType([_propTypes2.default.instanceOf(Date), _propTypes2.default.arrayOf(_propTypes2.default.instanceOf(Date))]);
+
+var isViews = exports.isViews = _propTypes2.default.arrayOf(_propTypes2.default.oneOf(allViews));
+
+var isClassName = exports.isClassName = _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.arrayOf(_propTypes2.default.string)]);
+
+var isView = exports.isView = function isView(props, propName, componentName) {
+  var view = props[propName];
+  var views = props.views;
+
+
+  var allowedViews = views || allViews;
+
+  if (allowedViews.indexOf(view) === -1) {
+    return new Error('Invalid prop `' + propName + '` of value `' + view + '` supplied to `' + componentName + '`, expected one of [' + ['a', 'b', 'c', 'd', 'e'].map(function (a) {
+      return '"' + a + '"';
+    }).join(', ') + '].');
+  }
+
+  // Everything is fine
+  return null;
+};
+
+isView.isRequired = function (props, propName, componentName) {
+  var view = props[propName];
+
+
+  if (!view) {
+    return new Error('The prop `' + propName + '` is marked as required in `' + componentName + '`, but its value is `' + view + '`.');
+  }
+
+  return isView(props, propName, componentName);
+};
+
+var tileGroupProps = exports.tileGroupProps = {
+  activeStartDate: _propTypes2.default.instanceOf(Date).isRequired,
+  hover: _propTypes2.default.instanceOf(Date),
+  maxDate: isMaxDate,
+  minDate: isMinDate,
+  onClick: _propTypes2.default.func,
+  onMouseOver: _propTypes2.default.func,
+  tileClassName: _propTypes2.default.oneOfType([_propTypes2.default.func, isClassName]),
+  tileContent: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.node]),
+  value: isValue,
+  valueType: _propTypes2.default.string
+};
+
+var tileProps = exports.tileProps = {
+  activeStartDate: _propTypes2.default.instanceOf(Date).isRequired,
+  classes: _propTypes2.default.arrayOf(_propTypes2.default.string).isRequired,
+  date: _propTypes2.default.instanceOf(Date).isRequired,
+  maxDate: isMaxDate,
+  minDate: isMinDate,
+  onClick: _propTypes2.default.func,
+  onMouseOver: _propTypes2.default.func,
+  style: _propTypes2.default.objectOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])),
+  tileClassName: _propTypes2.default.oneOfType([_propTypes2.default.func, isClassName]),
+  tileContent: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.node]),
+  tileDisabled: _propTypes2.default.func
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-calendar/dist/shared/utils.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/react-calendar/dist/shared/utils.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getTileClasses = exports.between = exports.doRangesOverlap = exports.isRangeWithinRange = exports.isValueWithinRange = exports.callIfDefined = exports.mergeFunctions = undefined;
+
+var _dates = __webpack_require__(/*! ./dates */ "./node_modules/react-calendar/dist/shared/dates.js");
+
+/**
+ * Returns a function that, when called, calls all the functions
+ * passed to it, applying its arguments to them.
+ *
+ * @param {Function[]} functions
+ */
+var mergeFunctions = exports.mergeFunctions = function mergeFunctions() {
+  for (var _len = arguments.length, functions = Array(_len), _key = 0; _key < _len; _key++) {
+    functions[_key] = arguments[_key];
+  }
+
+  return function () {
+    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    return functions.filter(Boolean).forEach(function (f) {
+      return f.apply(undefined, args);
+    });
+  };
+};
+
+/**
+ * Calls a function, if it's defined, with specified arguments
+ * @param {Function} fn
+ * @param {Object} args
+ */
+var callIfDefined = exports.callIfDefined = function callIfDefined(fn) {
+  for (var _len3 = arguments.length, args = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+    args[_key3 - 1] = arguments[_key3];
+  }
+
+  if (fn && typeof fn === 'function') {
+    fn.apply(undefined, args);
+  }
+};
+
+var isValueWithinRange = exports.isValueWithinRange = function isValueWithinRange(value, range) {
+  return range[0] <= value && range[1] >= value;
+};
+
+var isRangeWithinRange = exports.isRangeWithinRange = function isRangeWithinRange(greaterRange, smallerRange) {
+  return greaterRange[0] <= smallerRange[0] && greaterRange[1] >= smallerRange[1];
+};
+
+var doRangesOverlap = exports.doRangesOverlap = function doRangesOverlap(range1, range2) {
+  return isValueWithinRange(range1[0], range2) || isValueWithinRange(range1[1], range2);
+};
+
+/**
+ * Returns a value no smaller than min and no larger than max.
+ *
+ * @param {*} value Value to return.
+ * @param {*} min Minimum return value.
+ * @param {*} max Maximum return value.
+ */
+var between = exports.between = function between(value, min, max) {
+  if (min && min > value) {
+    return min;
+  }
+  if (max && max < value) {
+    return max;
+  }
+  return value;
+};
+
+var isEqual = function isEqual(date1, date2) {
+  return new Date(date1).getTime() === new Date(date2).getTime();
+};
+
+var getTileClasses = exports.getTileClasses = function getTileClasses() {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      value = _ref.value,
+      valueType = _ref.valueType,
+      date = _ref.date,
+      dateType = _ref.dateType,
+      hover = _ref.hover;
+
+  var className = 'react-calendar__tile';
+  var classes = [className];
+
+  if (!date) {
+    return classes;
+  }
+
+  if (!(date instanceof Array) && !dateType) {
+    throw new Error('getTileClasses(): Unable to get tile activity classes because one or more required arguments were not passed.');
+  }
+
+  var now = new Date();
+  var dateRange = date instanceof Array ? date : (0, _dates.getRange)(dateType, date);
+
+  if (isValueWithinRange(now, dateRange)) {
+    classes.push(className + '--now');
+  }
+
+  if (!value) {
+    return classes;
+  }
+
+  if (!(value instanceof Array) && !valueType) {
+    throw new Error('getTileClasses(): Unable to get tile activity classes because one or more required arguments were not passed.');
+  }
+
+  var valueRange = value instanceof Array ? value : (0, _dates.getRange)(valueType, value);
+
+  if (isRangeWithinRange(valueRange, dateRange)) {
+    classes.push(className + '--active');
+  } else if (doRangesOverlap(valueRange, dateRange)) {
+    classes.push(className + '--hasActive');
+  } else if (hover && (
+  // Date before value
+  dateRange[1] < valueRange[0] && isRangeWithinRange([hover, valueRange[0]], dateRange) ||
+  // Date after value
+  dateRange[0] > valueRange[1] && isRangeWithinRange([valueRange[1], hover], dateRange))) {
+    classes.push(className + '--hover');
+  }
+
+  var isRangeStart = isEqual(dateRange[0], valueRange[0]);
+  var isRangeEnd = isEqual(dateRange[1], valueRange[1]);
+
+  if (isRangeStart) {
+    classes.push(className + '--rangeStart');
+  }
+
+  if (isRangeEnd) {
+    classes.push(className + '--rangeEnd');
+  }
+
+  if (isRangeStart && isRangeEnd) {
+    classes.push(className + '--rangeBothEnds');
+  }
+
+  return classes;
+};
+
+/***/ }),
+
 /***/ "./node_modules/react-dom/index.js":
 /*!***********************************************************************************************!*\
   !*** delegated ./node_modules/react-dom/index.js from dll-reference dll_63f4d686d4057ef39814 ***!
@@ -48006,6 +64306,513 @@ module.exports = exports['default'];
 }).call(this);
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "./node_modules/react-pose/dist/react-pose.es.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-pose/dist/react-pose.es.js ***!
+  \*******************************************************/
+/*! exports provided: default, Transition, PoseGroup */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Transition", function() { return Transition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoseGroup", function() { return PoseGroup; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var popmotion_pose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! popmotion-pose */ "./node_modules/popmotion-pose/dist/popmotion-pose.es.js");
+/* harmony import */ var _emotion_is_prop_valid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @emotion/is-prop-valid */ "./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js");
+/* harmony import */ var hey_listen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! hey-listen */ "./node_modules/hey-listen/dist/hey-listen.es.js");
+
+
+
+
+
+
+var hasChanged = function (prev, next) {
+    if (prev === next)
+        return false;
+    var prevIsArray = Array.isArray(prev);
+    var nextIsArray = Array.isArray(next);
+    if (prevIsArray !== nextIsArray || (!prevIsArray && !nextIsArray)) {
+        return true;
+    }
+    else if (prevIsArray && nextIsArray) {
+        var numPrev = prev.length;
+        var numNext = next.length;
+        if (numPrev !== numNext)
+            return true;
+        for (var i = 0; i < numPrev; i++) {
+            if (prev[i] !== next[i])
+                return true;
+        }
+    }
+    return false;
+};
+
+var pickAssign = function (shouldPick, sources) {
+    return sources.reduce(function (picked, source) {
+        for (var key in source) {
+            if (shouldPick(key)) {
+                picked[key] = source[key];
+            }
+        }
+        return picked;
+    }, {});
+};
+
+var _a = Object(react__WEBPACK_IMPORTED_MODULE_1__["createContext"])({}), PoseParentConsumer = _a.Consumer, PoseParentProvider = _a.Provider;
+var calcPopFromFlowStyle = function (el) {
+    var offsetTop = el.offsetTop, offsetLeft = el.offsetLeft, offsetWidth = el.offsetWidth, offsetHeight = el.offsetHeight;
+    return {
+        position: 'absolute',
+        top: offsetTop,
+        left: offsetLeft,
+        width: offsetWidth,
+        height: offsetHeight
+    };
+};
+var hasPose = function (pose, key) {
+    return Array.isArray(pose) ? pose.indexOf(key) !== -1 : pose === key;
+};
+var objectToMap = function (obj) {
+    return Object.keys(obj).reduce(function (map, key) {
+        map.set(key, { raw: obj[key] });
+        return map;
+    }, new Map());
+};
+var testAlwaysTrue = function () { return true; };
+var filterProps = function (_a) {
+    var elementType = _a.elementType, poseConfig = _a.poseConfig, onValueChange = _a.onValueChange, innerRef = _a.innerRef, _pose = _a._pose, pose = _a.pose, initialPose = _a.initialPose, poseKey = _a.poseKey, onPoseComplete = _a.onPoseComplete, getParentPoseConfig = _a.getParentPoseConfig, registerChild = _a.registerChild, onUnmount = _a.onUnmount, getInitialPoseFromParent = _a.getInitialPoseFromParent, popFromFlow = _a.popFromFlow, values = _a.values, parentValues = _a.parentValues, onDragStart = _a.onDragStart, onDragEnd = _a.onDragEnd, onPressStart = _a.onPressStart, onPressEnd = _a.onPressEnd, props = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["elementType", "poseConfig", "onValueChange", "innerRef", "_pose", "pose", "initialPose", "poseKey", "onPoseComplete", "getParentPoseConfig", "registerChild", "onUnmount", "getInitialPoseFromParent", "popFromFlow", "values", "parentValues", "onDragStart", "onDragEnd", "onPressStart", "onPressEnd"]);
+    return props;
+};
+var PoseElement = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(PoseElement, _super);
+    function PoseElement(props) {
+        var _this = _super.call(this, props) || this;
+        _this.children = new Set();
+        _this.childrenHandlers = {
+            registerChild: function (props) {
+                _this.children.add(props);
+                if (_this.poser)
+                    _this.flushChildren();
+            },
+            onUnmount: function (child) { return _this.poser.removeChild(child); },
+            getParentPoseConfig: function () { return _this.poseConfig; },
+            getInitialPoseFromParent: function () { return _this.getInitialPose(); }
+        };
+        _this.setRef = function (ref) {
+            Object(hey_listen__WEBPACK_IMPORTED_MODULE_4__["warning"])(ref === null || (ref instanceof Element && _this.ref === undefined), 'ref must be provided to the same DOM component for the entire lifecycle of a posed component.');
+            _this.ref = ref;
+            var innerRef = _this.props.innerRef;
+            if (!innerRef)
+                return;
+            if (typeof innerRef === 'function') {
+                innerRef(ref);
+            }
+            else {
+                innerRef.current = ref;
+            }
+        };
+        _this.shouldForwardProp =
+            typeof _this.props.elementType === 'string' ? _emotion_is_prop_valid__WEBPACK_IMPORTED_MODULE_3__["default"] : testAlwaysTrue;
+        var poseConfig = _this.props.poseConfig;
+        _this.poseConfig =
+            typeof poseConfig === 'function'
+                ? poseConfig(filterProps(props))
+                : poseConfig;
+        return _this;
+    }
+    PoseElement.prototype.getInitialPose = function () {
+        var _a = this.props, getInitialPoseFromParent = _a.getInitialPoseFromParent, pose = _a.pose, _pose = _a._pose, initialPose = _a.initialPose;
+        if (initialPose) {
+            return initialPose;
+        }
+        else {
+            var parentPose = getInitialPoseFromParent && getInitialPoseFromParent();
+            var initialPoses = (Array.isArray(parentPose)
+                ? parentPose
+                : [parentPose])
+                .concat(pose, _pose)
+                .filter(Boolean);
+            return initialPoses.length > 0 ? initialPoses : undefined;
+        }
+    };
+    PoseElement.prototype.getFirstPose = function () {
+        var _a = this.props, initialPose = _a.initialPose, pose = _a.pose, _pose = _a._pose;
+        if (!initialPose)
+            return;
+        var firstPose = (Array.isArray(pose) ? pose : [pose])
+            .concat(_pose)
+            .filter(Boolean);
+        return firstPose.length === 1 ? firstPose[0] : firstPose;
+    };
+    PoseElement.prototype.getSetProps = function () {
+        var props = filterProps(this.props);
+        if (this.props.popFromFlow && this.ref && this.ref instanceof HTMLElement) {
+            if (!this.popStyle) {
+                props.style = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, props.style, calcPopFromFlowStyle(this.ref));
+                this.popStyle = props.style;
+            }
+            else {
+                props.style = this.popStyle;
+            }
+        }
+        else {
+            this.popStyle = null;
+        }
+        return props;
+    };
+    PoseElement.prototype.componentDidMount = function () {
+        var _this = this;
+        Object(hey_listen__WEBPACK_IMPORTED_MODULE_4__["invariant"])(this.ref instanceof Element, "No valid DOM ref found. If you're converting an existing component via posed(Component), you must ensure you're passing the ref to the host DOM node via the React.forwardRef function.");
+        var _a = this.props, onValueChange = _a.onValueChange, registerChild = _a.registerChild, values = _a.values, parentValues = _a.parentValues, onDragStart = _a.onDragStart, onDragEnd = _a.onDragEnd, onPressStart = _a.onPressStart, onPressEnd = _a.onPressEnd;
+        var config = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.poseConfig, { initialPose: this.getInitialPose(), values: values || this.poseConfig.values, parentValues: parentValues ? objectToMap(parentValues) : undefined, props: this.getSetProps(), onDragStart: onDragStart,
+            onDragEnd: onDragEnd,
+            onPressStart: onPressStart,
+            onPressEnd: onPressEnd, onChange: onValueChange });
+        if (!registerChild) {
+            this.initPoser(Object(popmotion_pose__WEBPACK_IMPORTED_MODULE_2__["default"])(this.ref, config));
+        }
+        else {
+            registerChild({
+                element: this.ref,
+                poseConfig: config,
+                onRegistered: function (poser) { return _this.initPoser(poser); }
+            });
+        }
+    };
+    PoseElement.prototype.getSnapshotBeforeUpdate = function () {
+        var _a = this.props, pose = _a.pose, _pose = _a._pose;
+        if (hasPose(pose, 'flip') || hasPose(_pose, 'flip'))
+            this.poser.measure();
+        return null;
+    };
+    PoseElement.prototype.componentDidUpdate = function (prevProps) {
+        var _a = this.props, pose = _a.pose, _pose = _a._pose, poseKey = _a.poseKey;
+        this.poser.setProps(this.getSetProps());
+        if (poseKey !== prevProps.poseKey ||
+            hasChanged(prevProps.pose, pose) ||
+            pose === 'flip') {
+            this.setPose(pose);
+        }
+        if (_pose !== prevProps._pose || _pose === 'flip')
+            this.setPose(_pose);
+    };
+    PoseElement.prototype.componentWillUnmount = function () {
+        if (!this.poser)
+            return;
+        var onUnmount = this.props.onUnmount;
+        if (onUnmount)
+            onUnmount(this.poser);
+        this.poser.destroy();
+    };
+    PoseElement.prototype.initPoser = function (poser) {
+        this.poser = poser;
+        this.flushChildren();
+        var firstPose = this.getFirstPose();
+        if (firstPose)
+            this.setPose(firstPose);
+    };
+    PoseElement.prototype.setPose = function (pose) {
+        var _this = this;
+        var onPoseComplete = this.props.onPoseComplete;
+        var poseList = Array.isArray(pose) ? pose : [pose];
+        Promise.all(poseList.map(function (key) { return key && _this.poser.set(key); })).then(function () { return onPoseComplete && onPoseComplete(pose); });
+    };
+    PoseElement.prototype.flushChildren = function () {
+        var _this = this;
+        this.children.forEach(function (_a) {
+            var element = _a.element, poseConfig = _a.poseConfig, onRegistered = _a.onRegistered;
+            return onRegistered(_this.poser.addChild(element, poseConfig));
+        });
+        this.children.clear();
+    };
+    PoseElement.prototype.render = function () {
+        var elementType = this.props.elementType;
+        return (react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(PoseParentProvider, { value: this.childrenHandlers }, Object(react__WEBPACK_IMPORTED_MODULE_1__["createElement"])(elementType, pickAssign(this.shouldForwardProp, [
+            this.getSetProps(),
+            { ref: this.setRef }
+        ]))));
+    };
+    return PoseElement;
+}(react__WEBPACK_IMPORTED_MODULE_1__["PureComponent"]));
+
+var supportedElements = [
+    'a',
+    'article',
+    'aside',
+    'audio',
+    'b',
+    'blockquote',
+    'body',
+    'br',
+    'button',
+    'canvas',
+    'caption',
+    'cite',
+    'code',
+    'col',
+    'colgroup',
+    'data',
+    'datalist',
+    'dialog',
+    'div',
+    'em',
+    'embed',
+    'fieldset',
+    'figcaption',
+    'figure',
+    'footer',
+    'form',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'head',
+    'header',
+    'hgroup',
+    'hr',
+    'i',
+    'iframe',
+    'img',
+    'input',
+    'label',
+    'legend',
+    'li',
+    'nav',
+    'object',
+    'ol',
+    'option',
+    'p',
+    'param',
+    'picture',
+    'pre',
+    'progress',
+    'q',
+    'section',
+    'select',
+    'span',
+    'strong',
+    'table',
+    'tbody',
+    'td',
+    'textarea',
+    'tfoot',
+    'th',
+    'thead',
+    'time',
+    'title',
+    'tr',
+    'ul',
+    'video',
+    'circle',
+    'clipPath',
+    'defs',
+    'ellipse',
+    'g',
+    'image',
+    'line',
+    'linearGradient',
+    'mask',
+    'path',
+    'pattern',
+    'polygon',
+    'polyline',
+    'radialGradient',
+    'rect',
+    'stop',
+    'svg',
+    'text',
+    'tspan'
+];
+
+var componentCache = new Map();
+var createComponentFactory = function (key) {
+    var componentFactory = function (poseConfig) {
+        if (poseConfig === void 0) { poseConfig = {}; }
+        return Object(react__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(function (_a, ref) {
+            var _b = _a.withParent, withParent = _b === void 0 ? true : _b, props = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["withParent"]);
+            Object(hey_listen__WEBPACK_IMPORTED_MODULE_4__["warning"])(props.innerRef === undefined, 'innerRef is deprecated. Please use ref instead.');
+            return !withParent || props.parentValues ? (react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(PoseElement, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({ poseConfig: poseConfig, innerRef: ref, elementType: key }, props))) : (react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(PoseParentConsumer, null, function (parentCtx) { return (react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(PoseElement, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({ poseConfig: poseConfig, elementType: key, innerRef: ref }, props, parentCtx))); }));
+        });
+    };
+    componentCache.set(key, componentFactory);
+    return componentFactory;
+};
+var getComponentFactory = function (key) {
+    return componentCache.has(key)
+        ? componentCache.get(key)
+        : createComponentFactory(key);
+};
+var posed = (function (component) {
+    return getComponentFactory(component);
+});
+supportedElements.reduce(function (acc, key) {
+    acc[key] = createComponentFactory(key);
+    return acc;
+}, posed);
+
+var getKey = function (child) {
+    Object(hey_listen__WEBPACK_IMPORTED_MODULE_4__["invariant"])(child && child.key !== null, 'Every child of Transition must be given a unique key');
+    var childKey = typeof child.key === 'number' ? child.key.toString() : child.key;
+    return childKey.replace('.$', '');
+};
+var prependProps = function (element, props) {
+    return Object(react__WEBPACK_IMPORTED_MODULE_1__["createElement"])(element.type, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({ key: element.key, ref: element.ref }, props, element.props));
+};
+var handleTransition = function (_a, _b) {
+    var displayedChildren = _b.displayedChildren, finishedLeaving = _b.finishedLeaving, hasInitialized = _b.hasInitialized, indexedChildren = _b.indexedChildren, scheduleChildRemoval = _b.scheduleChildRemoval;
+    var incomingChildren = _a.children, preEnterPose = _a.preEnterPose, enterPose = _a.enterPose, exitPose = _a.exitPose, animateOnMount = _a.animateOnMount, enterAfterExit = _a.enterAfterExit, flipMove = _a.flipMove, onRest = _a.onRest, propsForChildren = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["children", "preEnterPose", "enterPose", "exitPose", "animateOnMount", "enterAfterExit", "flipMove", "onRest"]);
+    var targetChildren = makeChildList(incomingChildren);
+    var nextState = {
+        displayedChildren: []
+    };
+    if (true) {
+        Object(hey_listen__WEBPACK_IMPORTED_MODULE_4__["warning"])(!propsForChildren.onPoseComplete, "<Transition/> (or <PoseGroup/>) doesn't accept onPoseComplete prop.");
+    }
+    var prevKeys = displayedChildren.map(getKey);
+    var nextKeys = targetChildren.map(getKey);
+    var hasPropsForChildren = Object.keys(propsForChildren).length !== 0;
+    var entering = new Set(nextKeys.filter(function (key) { return finishedLeaving.hasOwnProperty(key) || prevKeys.indexOf(key) === -1; }));
+    entering.forEach(function (key) { return delete finishedLeaving[key]; });
+    var leaving = [];
+    var newlyLeaving = {};
+    prevKeys.forEach(function (key) {
+        if (entering.has(key)) {
+            return;
+        }
+        var isLeaving = finishedLeaving.hasOwnProperty(key);
+        if (!isLeaving && nextKeys.indexOf(key) !== -1) {
+            return;
+        }
+        leaving.push(key);
+        if (!isLeaving) {
+            finishedLeaving[key] = false;
+            newlyLeaving[key] = true;
+        }
+    });
+    var moving = new Set(prevKeys.filter(function (key, i) {
+        return !entering.has(key) || leaving.indexOf(key) === -1;
+    }));
+    targetChildren.forEach(function (child) {
+        var newChildProps = {};
+        if (entering.has(child.key)) {
+            if (hasInitialized || animateOnMount) {
+                newChildProps.initialPose = preEnterPose;
+            }
+            newChildProps._pose = enterPose;
+        }
+        else if (moving.has(child.key) && flipMove) {
+            newChildProps._pose = [enterPose, 'flip'];
+        }
+        else {
+            newChildProps._pose = enterPose;
+        }
+        var newChild = Object(react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"])(child, newChildProps);
+        indexedChildren[child.key] = newChild;
+        nextState.displayedChildren.push(hasPropsForChildren ? prependProps(newChild, propsForChildren) : newChild);
+    });
+    leaving.forEach(function (key) {
+        var child = indexedChildren[key];
+        var newChild = newlyLeaving[key]
+            ? Object(react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"])(child, {
+                _pose: exitPose,
+                onPoseComplete: function (pose) {
+                    scheduleChildRemoval(key);
+                    var onPoseComplete = child.props.onPoseComplete;
+                    if (onPoseComplete)
+                        onPoseComplete(pose);
+                },
+                popFromFlow: flipMove
+            })
+            : child;
+        var insertionIndex = prevKeys.indexOf(key);
+        indexedChildren[child.key] = newChild;
+        nextState.displayedChildren.splice(insertionIndex, 0, hasPropsForChildren ? prependProps(newChild, propsForChildren) : newChild);
+    });
+    return nextState;
+};
+var handleChildrenTransitions = (function (props, state) {
+    var newState = handleTransition(props, state);
+    newState.hasInitialized = true;
+    return newState;
+});
+var makeChildList = function (children) {
+    var list = [];
+    react__WEBPACK_IMPORTED_MODULE_1__["Children"].forEach(children, function (child) { return child && list.push(child); });
+    return list;
+};
+
+var Transition = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(Transition, _super);
+    function Transition() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = {
+            displayedChildren: [],
+            finishedLeaving: {},
+            hasInitialized: false,
+            indexedChildren: {},
+            scheduleChildRemoval: function (key) { return _this.removeChild(key); }
+        };
+        return _this;
+    }
+    Transition.prototype.removeChild = function (key) {
+        var _a = this.state, displayedChildren = _a.displayedChildren, finishedLeaving = _a.finishedLeaving;
+        var _b = this.props, enterAfterExit = _b.enterAfterExit, onRest = _b.onRest;
+        if (!finishedLeaving.hasOwnProperty(key))
+            return;
+        finishedLeaving[key] = true;
+        if (!Object.keys(finishedLeaving).every(function (leavingKey) { return finishedLeaving[leavingKey]; })) {
+            return;
+        }
+        var targetChildren = displayedChildren.filter(function (child) { return !finishedLeaving.hasOwnProperty(child.key); });
+        var newState = enterAfterExit
+            ? Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({ finishedLeaving: {} }, handleChildrenTransitions(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.props, { enterAfterExit: false }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.state, { displayedChildren: targetChildren }))) : {
+            finishedLeaving: {},
+            displayedChildren: targetChildren
+        };
+        this.setState(newState, onRest);
+    };
+    Transition.prototype.shouldComponentUpdate = function (nextProps, nextState) {
+        return this.state !== nextState;
+    };
+    Transition.prototype.render = function () {
+        return this.state.displayedChildren;
+    };
+    Transition.defaultProps = {
+        flipMove: false,
+        enterAfterExit: false,
+        preEnterPose: 'exit',
+        enterPose: 'enter',
+        exitPose: 'exit'
+    };
+    Transition.getDerivedStateFromProps = handleChildrenTransitions;
+    return Transition;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]));
+
+var PoseGroup = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(PoseGroup, _super);
+    function PoseGroup() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    PoseGroup.prototype.render = function () {
+        return Object(react__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Transition, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.props));
+    };
+    PoseGroup.defaultProps = {
+        flipMove: true
+    };
+    return PoseGroup;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]));
+
+/* harmony default export */ __webpack_exports__["default"] = (posed);
+
+
 
 /***/ }),
 
@@ -53351,6 +70158,264 @@ if (hadRuntime) {
 
 /***/ }),
 
+/***/ "./node_modules/style-value-types/dist/style-value-types.es.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/style-value-types/dist/style-value-types.es.js ***!
+  \*********************************************************************/
+/*! exports provided: number, scale, alpha, degrees, percent, px, vw, vh, rgba, rgbUnit, hex, hsla, color, complex */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "number", function() { return number; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "scale", function() { return scale; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "alpha", function() { return alpha; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "degrees", function() { return degrees; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "percent", function() { return percent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "px", function() { return px; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vw", function() { return vw; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vh", function() { return vh; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rgba", function() { return rgba; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rgbUnit", function() { return rgbUnit; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hex", function() { return hex; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hsla", function() { return hsla; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "color", function() { return color; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "complex", function() { return complex; });
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+var clamp = function (min, max) { return function (v) {
+    return Math.max(Math.min(v, max), min);
+}; };
+var isFirstChars = function (term) { return function (v) {
+    return typeof v === 'string' && v.indexOf(term) === 0;
+}; };
+var getValueFromFunctionString = function (value) {
+    return value.substring(value.indexOf('(') + 1, value.lastIndexOf(')'));
+};
+var splitCommaDelimited = function (value) {
+    return typeof value === 'string' ? value.split(/,\s*/) : [value];
+};
+var sanitize = function (v) { return (v % 1 ? Number(v.toFixed(5)) : v); };
+
+var number = {
+    test: function (v) { return typeof v === 'number'; },
+    parse: parseFloat,
+    transform: function (v) { return v; }
+};
+var alpha = __assign({}, number, { transform: clamp(0, 1) });
+var scale = __assign({}, number, { default: 1 });
+
+var createUnitType = function (unit) { return ({
+    test: function (v) {
+        return typeof v === 'string' && v.endsWith(unit) && v.split(' ').length === 1;
+    },
+    parse: parseFloat,
+    transform: function (v) { return "" + v + unit; }
+}); };
+var degrees = createUnitType('deg');
+var percent = createUnitType('%');
+var px = createUnitType('px');
+var vh = createUnitType('vh');
+var vw = createUnitType('vw');
+
+var clampRgbUnit = clamp(0, 255);
+var onlyColorRegex = /^(#[0-9a-f]{3}|#(?:[0-9a-f]{2}){2,4}|(rgb|hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\))$/i;
+var isRgba = function (v) { return v.red !== undefined; };
+var isHsla = function (v) { return v.hue !== undefined; };
+var splitColorValues = function (terms) {
+    var numTerms = terms.length;
+    return function (v) {
+        if (typeof v !== 'string')
+            return v;
+        var values = {};
+        var valuesArray = splitCommaDelimited(getValueFromFunctionString(v));
+        for (var i = 0; i < numTerms; i++) {
+            values[terms[i]] =
+                valuesArray[i] !== undefined ? parseFloat(valuesArray[i]) : 1;
+        }
+        return values;
+    };
+};
+var rgbaTemplate = function (_a) {
+    var red = _a.red, green = _a.green, blue = _a.blue, _b = _a.alpha, alpha$$1 = _b === void 0 ? 1 : _b;
+    return "rgba(" + red + ", " + green + ", " + blue + ", " + alpha$$1 + ")";
+};
+var hslaTemplate = function (_a) {
+    var hue = _a.hue, saturation = _a.saturation, lightness = _a.lightness, _b = _a.alpha, alpha$$1 = _b === void 0 ? 1 : _b;
+    return "hsla(" + hue + ", " + saturation + ", " + lightness + ", " + alpha$$1 + ")";
+};
+var rgbUnit = __assign({}, number, { transform: function (v) { return Math.round(clampRgbUnit(v)); } });
+var testRgbaString = isFirstChars('rgb');
+var rgba = {
+    test: function (v) { return (typeof v === 'string' ? testRgbaString(v) : isRgba(v)); },
+    parse: splitColorValues(['red', 'green', 'blue', 'alpha']),
+    transform: function (_a) {
+        var red = _a.red, green = _a.green, blue = _a.blue, alpha$$1 = _a.alpha;
+        return rgbaTemplate({
+            red: rgbUnit.transform(red),
+            green: rgbUnit.transform(green),
+            blue: rgbUnit.transform(blue),
+            alpha: sanitize(alpha$$1)
+        });
+    }
+};
+var testHslaString = isFirstChars('hsl');
+var hsla = {
+    test: function (v) { return (typeof v === 'string' ? testHslaString(v) : isHsla(v)); },
+    parse: splitColorValues(['hue', 'saturation', 'lightness', 'alpha']),
+    transform: function (_a) {
+        var hue = _a.hue, saturation = _a.saturation, lightness = _a.lightness, alpha$$1 = _a.alpha;
+        return hslaTemplate({
+            hue: Math.round(hue),
+            saturation: percent.transform(sanitize(saturation)),
+            lightness: percent.transform(sanitize(lightness)),
+            alpha: sanitize(alpha$$1)
+        });
+    }
+};
+var hex = __assign({}, rgba, { test: isFirstChars('#'), parse: function (v) {
+        var r = '';
+        var g = '';
+        var b = '';
+        if (v.length > 4) {
+            r = v.substr(1, 2);
+            g = v.substr(3, 2);
+            b = v.substr(5, 2);
+        }
+        else {
+            r = v.substr(1, 1);
+            g = v.substr(2, 1);
+            b = v.substr(3, 1);
+            r += r;
+            g += g;
+            b += b;
+        }
+        return {
+            red: parseInt(r, 16),
+            green: parseInt(g, 16),
+            blue: parseInt(b, 16),
+            alpha: 1
+        };
+    } });
+var color = {
+    test: function (v) {
+        return (typeof v === 'string' && onlyColorRegex.test(v)) ||
+            rgba.test(v) ||
+            hsla.test(v) ||
+            hex.test(v);
+    },
+    parse: function (v) {
+        if (rgba.test(v)) {
+            return rgba.parse(v);
+        }
+        else if (hsla.test(v)) {
+            return hsla.parse(v);
+        }
+        else if (hex.test(v)) {
+            return hex.parse(v);
+        }
+        return v;
+    },
+    transform: function (v) {
+        if (isRgba(v)) {
+            return rgba.transform(v);
+        }
+        else if (isHsla(v)) {
+            return hsla.transform(v);
+        }
+        return v;
+    }
+};
+
+var floatRegex = /(-)?(\d[\d\.]*)/g;
+var colorRegex = /(#[0-9a-f]{6}|#[0-9a-f]{3}|#(?:[0-9a-f]{2}){2,4}|(rgb|hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\))/gi;
+var COLOR_TOKEN = '${c}';
+var NUMBER_TOKEN = '${n}';
+var complex = {
+    test: function (v) {
+        if (typeof v !== 'string' || !isNaN(v))
+            return false;
+        var numValues = 0;
+        var foundNumbers = v.match(floatRegex);
+        var foundColors = v.match(colorRegex);
+        if (foundNumbers)
+            numValues += foundNumbers.length;
+        if (foundColors)
+            numValues += foundColors.length;
+        return numValues > 0;
+    },
+    parse: function (v) {
+        var input = v;
+        var parsed = [];
+        var foundColors = input.match(colorRegex);
+        if (foundColors) {
+            input = input.replace(colorRegex, COLOR_TOKEN);
+            parsed.push.apply(parsed, foundColors.map(color.parse));
+        }
+        var foundNumbers = input.match(floatRegex);
+        if (foundNumbers) {
+            parsed.push.apply(parsed, foundNumbers.map(number.parse));
+        }
+        return parsed;
+    },
+    createTransformer: function (prop) {
+        var template = prop;
+        var token = 0;
+        var foundColors = prop.match(colorRegex);
+        var numColors = foundColors ? foundColors.length : 0;
+        if (foundColors) {
+            for (var i = 0; i < numColors; i++) {
+                template = template.replace(foundColors[i], COLOR_TOKEN);
+                token++;
+            }
+        }
+        var foundNumbers = template.match(floatRegex);
+        var numNumbers = foundNumbers ? foundNumbers.length : 0;
+        if (foundNumbers) {
+            for (var i = 0; i < numNumbers; i++) {
+                template = template.replace(foundNumbers[i], NUMBER_TOKEN);
+                token++;
+            }
+        }
+        return function (v) {
+            var output = template;
+            for (var i = 0; i < token; i++) {
+                output = output.replace(i < numColors ? COLOR_TOKEN : NUMBER_TOKEN, i < numColors ? color.transform(v[i]) : sanitize(v[i]));
+            }
+            return output;
+        };
+    }
+};
+
+
+
+
+/***/ }),
+
 /***/ "./node_modules/styled-components/dist/styled-components.browser.esm.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/styled-components/dist/styled-components.browser.esm.js ***!
@@ -55715,6 +72780,534 @@ var styled = _styled(StyledComponent, constructWithOptions);
 
 /***/ }),
 
+/***/ "./node_modules/stylefire/dist/stylefire.es.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/stylefire/dist/stylefire.es.js ***!
+  \*****************************************************/
+/*! exports provided: default, createStylerFactory, buildStyleProperty */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createStylerFactory", function() { return createStyler; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildStyleProperty", function() { return buildStyleProperty; });
+/* harmony import */ var framesync__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framesync */ "./node_modules/framesync/dist/framesync.es.js");
+/* harmony import */ var style_value_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! style-value-types */ "./node_modules/style-value-types/dist/style-value-types.es.js");
+/* harmony import */ var hey_listen__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! hey-listen */ "./node_modules/hey-listen/dist/hey-listen.es.js");
+
+
+
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+
+var __assign = function () {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0) t[p[i]] = s[p[i]];
+    return t;
+}
+
+var createStyler = function (_a) {
+    var onRead = _a.onRead,
+        onRender = _a.onRender,
+        _b = _a.uncachedValues,
+        uncachedValues = _b === void 0 ? new Set() : _b,
+        _c = _a.useCache,
+        useCache = _c === void 0 ? true : _c;
+    return function (props) {
+        var state = {};
+        var changedValues = [];
+        var hasChanged = false;
+        var setValue = function (key, value) {
+            var currentValue = state[key];
+            state[key] = value;
+            if (state[key] !== currentValue) {
+                if (changedValues.indexOf(key) === -1) {
+                    changedValues.push(key);
+                }
+                if (!hasChanged) {
+                    hasChanged = true;
+                    framesync__WEBPACK_IMPORTED_MODULE_0__["default"].render(render);
+                }
+            }
+        };
+        function render(forceRender) {
+            if (forceRender === void 0) {
+                forceRender = false;
+            }
+            if (forceRender === true || hasChanged) {
+                onRender(state, props, changedValues);
+                hasChanged = false;
+                changedValues.length = 0;
+            }
+            return this;
+        }
+        return {
+            get: function (key) {
+                return key ? useCache && !uncachedValues.has(key) && state[key] !== undefined ? state[key] : onRead(key, props) : state;
+            },
+            set: function (values, value) {
+                if (typeof values === 'string') {
+                    if (value !== undefined) {
+                        setValue(values, value);
+                    } else {
+                        return function (v) {
+                            return setValue(values, v);
+                        };
+                    }
+                } else {
+                    for (var key in values) {
+                        if (values.hasOwnProperty(key)) {
+                            setValue(key, values[key]);
+                        }
+                    }
+                }
+                return this;
+            },
+            render: render
+        };
+    };
+};
+
+var CAMEL_CASE_PATTERN = /([a-z])([A-Z])/g;
+var REPLACE_TEMPLATE = '$1-$2';
+var camelToDash = function (str) {
+    return str.replace(CAMEL_CASE_PATTERN, REPLACE_TEMPLATE).toLowerCase();
+};
+var setDomAttrs = function (element, attrs) {
+    for (var key in attrs) {
+        if (attrs.hasOwnProperty(key)) {
+            element.setAttribute(key, attrs[key]);
+        }
+    }
+};
+
+var camelCache = /*#__PURE__*/new Map();
+var dashCache = /*#__PURE__*/new Map();
+var prefixes = ['Webkit', 'Moz', 'O', 'ms', ''];
+var numPrefixes = prefixes.length;
+var isBrowser = typeof document !== 'undefined';
+var testElement;
+var setDashPrefix = function (key, prefixed) {
+    return dashCache.set(key, camelToDash(prefixed));
+};
+var testPrefix = function (key) {
+    testElement = testElement || document.createElement('div');
+    for (var i = 0; i < numPrefixes; i++) {
+        var prefix = prefixes[i];
+        var noPrefix = prefix === '';
+        var prefixedPropertyName = noPrefix ? key : prefix + key.charAt(0).toUpperCase() + key.slice(1);
+        if (prefixedPropertyName in testElement.style || noPrefix) {
+            camelCache.set(key, prefixedPropertyName);
+            setDashPrefix(key, "" + (noPrefix ? '' : '-') + camelToDash(prefixedPropertyName));
+        }
+    }
+};
+var setServerProperty = function (key) {
+    return setDashPrefix(key, key);
+};
+var prefixer = function (key, asDashCase) {
+    if (asDashCase === void 0) {
+        asDashCase = false;
+    }
+    var cache = asDashCase ? dashCache : camelCache;
+    if (!cache.has(key)) isBrowser ? testPrefix(key) : setServerProperty(key);
+    return cache.get(key) || key;
+};
+
+var axes = ['', 'X', 'Y', 'Z'];
+var order = ['scale', 'rotate', 'skew', 'transformPerspective'];
+var transformProps = /*#__PURE__*/order.reduce(function (acc, key) {
+    return axes.reduce(function (axesAcc, axesKey) {
+        axesAcc.push(key + axesKey);
+        return axesAcc;
+    }, acc);
+}, ['x', 'y', 'z']);
+var transformPropDictionary = /*#__PURE__*/transformProps.reduce(function (dict, key) {
+    dict[key] = true;
+    return dict;
+}, {});
+var isTransformProp = function (key) {
+    return transformPropDictionary[key] === true;
+};
+var sortTransformProps = function (a, b) {
+    return transformProps.indexOf(a) - transformProps.indexOf(b);
+};
+var isTransformOriginProp = function (key) {
+    return key === 'originX' || key === 'originY';
+};
+
+var valueTypes = {
+    color: style_value_types__WEBPACK_IMPORTED_MODULE_1__["color"],
+    backgroundColor: style_value_types__WEBPACK_IMPORTED_MODULE_1__["color"],
+    outlineColor: style_value_types__WEBPACK_IMPORTED_MODULE_1__["color"],
+    fill: style_value_types__WEBPACK_IMPORTED_MODULE_1__["color"],
+    stroke: style_value_types__WEBPACK_IMPORTED_MODULE_1__["color"],
+    borderColor: style_value_types__WEBPACK_IMPORTED_MODULE_1__["color"],
+    borderTopColor: style_value_types__WEBPACK_IMPORTED_MODULE_1__["color"],
+    borderRightColor: style_value_types__WEBPACK_IMPORTED_MODULE_1__["color"],
+    borderBottomColor: style_value_types__WEBPACK_IMPORTED_MODULE_1__["color"],
+    borderLeftColor: style_value_types__WEBPACK_IMPORTED_MODULE_1__["color"],
+    borderWidth: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    borderTopWidth: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    borderRightWidth: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    borderBottomWidth: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    borderLeftWidth: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    borderRadius: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    borderTopLeftRadius: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    borderTopRightRadius: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    borderBottomRightRadius: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    borderBottomLeftRadius: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    width: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    maxWidth: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    height: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    maxHeight: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    top: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    right: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    bottom: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    left: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    padding: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    paddingTop: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    paddingRight: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    paddingBottom: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    paddingLeft: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    margin: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    marginTop: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    marginRight: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    marginBottom: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    marginLeft: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    rotate: style_value_types__WEBPACK_IMPORTED_MODULE_1__["degrees"],
+    rotateX: style_value_types__WEBPACK_IMPORTED_MODULE_1__["degrees"],
+    rotateY: style_value_types__WEBPACK_IMPORTED_MODULE_1__["degrees"],
+    rotateZ: style_value_types__WEBPACK_IMPORTED_MODULE_1__["degrees"],
+    scale: style_value_types__WEBPACK_IMPORTED_MODULE_1__["scale"],
+    scaleX: style_value_types__WEBPACK_IMPORTED_MODULE_1__["scale"],
+    scaleY: style_value_types__WEBPACK_IMPORTED_MODULE_1__["scale"],
+    scaleZ: style_value_types__WEBPACK_IMPORTED_MODULE_1__["scale"],
+    skew: style_value_types__WEBPACK_IMPORTED_MODULE_1__["degrees"],
+    skewX: style_value_types__WEBPACK_IMPORTED_MODULE_1__["degrees"],
+    skewY: style_value_types__WEBPACK_IMPORTED_MODULE_1__["degrees"],
+    distance: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    x: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    y: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    z: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    perspective: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"],
+    opacity: style_value_types__WEBPACK_IMPORTED_MODULE_1__["alpha"],
+    originX: style_value_types__WEBPACK_IMPORTED_MODULE_1__["percent"],
+    originY: style_value_types__WEBPACK_IMPORTED_MODULE_1__["percent"],
+    originZ: style_value_types__WEBPACK_IMPORTED_MODULE_1__["px"]
+};
+var getValueType = function (key) {
+    return valueTypes[key];
+};
+
+var SCROLL_LEFT = 'scrollLeft';
+var SCROLL_TOP = 'scrollTop';
+var scrollKeys = /*#__PURE__*/new Set([SCROLL_LEFT, SCROLL_TOP]);
+
+var blacklist = /*#__PURE__*/new Set([SCROLL_LEFT, SCROLL_TOP, 'transform']);
+var aliasMap = {
+    x: 'translateX',
+    y: 'translateY',
+    z: 'translateZ'
+};
+var isCustomTemplate = function (v) {
+    return typeof v === 'function';
+};
+var buildStyleProperty = function (state, enableHardwareAcceleration, styles, transform, transformOrigin, transformKeys) {
+    if (enableHardwareAcceleration === void 0) {
+        enableHardwareAcceleration = true;
+    }
+    if (styles === void 0) {
+        styles = {};
+    }
+    if (transform === void 0) {
+        transform = {};
+    }
+    if (transformOrigin === void 0) {
+        transformOrigin = {};
+    }
+    if (transformKeys === void 0) {
+        transformKeys = [];
+    }
+    var transformIsDefault = true;
+    var hasTransform = false;
+    var hasTransformOrigin = false;
+    for (var key in state) {
+        var value = state[key];
+        var valueType = getValueType(key);
+        var valueAsType = typeof value === 'number' && valueType ? valueType.transform(value) : value;
+        if (isTransformProp(key)) {
+            hasTransform = true;
+            transform[key] = valueAsType;
+            transformKeys.push(key);
+            if (transformIsDefault) {
+                if (valueType.default && value !== valueType.default || !valueType.default && value !== 0) {
+                    transformIsDefault = false;
+                }
+            }
+        } else if (isTransformOriginProp(key)) {
+            transformOrigin[key] = valueAsType;
+            hasTransformOrigin = true;
+        } else if (!blacklist.has(key) || !isCustomTemplate(valueAsType)) {
+            styles[prefixer(key, true)] = valueAsType;
+        }
+    }
+    if (!transformIsDefault) {
+        var transformString = '';
+        if (isCustomTemplate(state.transform)) {
+            transformString = state.transform(transform);
+        } else {
+            var transformHasZ = false;
+            transformKeys.sort(sortTransformProps);
+            var numTransformKeys = transformKeys.length;
+            for (var i = 0; i < numTransformKeys; i++) {
+                var key = transformKeys[i];
+                transformString += (aliasMap[key] || key) + "(" + transform[key] + ") ";
+                transformHasZ = key === 'z' ? true : transformHasZ;
+            }
+            if (!transformHasZ && enableHardwareAcceleration) {
+                transformString += 'translateZ(0)';
+            } else {
+                transformString = transformString.trim();
+            }
+        }
+        styles.transform = transformString;
+    } else if (hasTransform) {
+        styles.transform = 'none';
+    }
+    if (hasTransformOrigin) {
+        styles.transformOrigin = (transformOrigin.originX || 0) + " " + (transformOrigin.originY || 0) + " " + (transformOrigin.originZ || 0);
+    }
+    return styles;
+};
+var createStyleBuilder = function (enableHardwareAcceleration) {
+    if (enableHardwareAcceleration === void 0) {
+        enableHardwareAcceleration = true;
+    }
+    var styles = {};
+    var transform = {};
+    var transformOrigin = {};
+    var transformKeys = [];
+    return function (state) {
+        transformKeys.length = 0;
+        buildStyleProperty(state, enableHardwareAcceleration, styles, transform, transformOrigin, transformKeys);
+        return styles;
+    };
+};
+
+var cssStyler = /*#__PURE__*/createStyler({
+    onRead: function (key, _a) {
+        var element = _a.element,
+            preparseOutput = _a.preparseOutput;
+        var valueType = getValueType(key);
+        if (isTransformProp(key)) {
+            return valueType ? valueType.default || 0 : 0;
+        } else if (scrollKeys.has(key)) {
+            return element[key];
+        } else {
+            var domValue = window.getComputedStyle(element, null).getPropertyValue(prefixer(key, true)) || 0;
+            return preparseOutput && valueType && valueType.parse ? valueType.parse(domValue) : domValue;
+        }
+    },
+    onRender: function (state, _a, changedValues) {
+        var element = _a.element,
+            buildStyles = _a.buildStyles;
+        Object.assign(element.style, buildStyles(state));
+        if (changedValues.indexOf(SCROLL_LEFT) !== -1) element.scrollLeft = state.scrollLeft;
+        if (changedValues.indexOf(SCROLL_TOP) !== -1) element.scrollTop = state.scrollTop;
+    },
+    uncachedValues: scrollKeys
+});
+var css = function (element, _a) {
+    if (_a === void 0) {
+        _a = {};
+    }
+    var enableHardwareAcceleration = _a.enableHardwareAcceleration,
+        props = __rest(_a, ["enableHardwareAcceleration"]);
+    return cssStyler(__assign({ element: element, buildStyles: createStyleBuilder(enableHardwareAcceleration), preparseOutput: true }, props));
+};
+
+var ZERO_NOT_ZERO = 0.0000001;
+var percentToPixels = function (percent$$1, length) {
+    return percent$$1 / 100 * length + 'px';
+};
+var build = function (state, dimensions, isPath, pathLength) {
+    var hasTransform = false;
+    var hasDashArray = false;
+    var props = {};
+    var dashArrayStyles = isPath ? {
+        pathLength: '0',
+        pathSpacing: "" + pathLength
+    } : undefined;
+    var scale$$1 = state.scale !== undefined ? state.scale || ZERO_NOT_ZERO : state.scaleX || 1;
+    var scaleY = state.scaleY !== undefined ? state.scaleY || ZERO_NOT_ZERO : scale$$1 || 1;
+    var transformOriginX = dimensions.width * ((state.originX || 50) / 100) + dimensions.x;
+    var transformOriginY = dimensions.height * ((state.originY || 50) / 100) + dimensions.y;
+    var scaleTransformX = -transformOriginX * (scale$$1 * 1);
+    var scaleTransformY = -transformOriginY * (scaleY * 1);
+    var scaleReplaceX = transformOriginX / scale$$1;
+    var scaleReplaceY = transformOriginY / scaleY;
+    var transform = {
+        translate: "translate(" + state.x + ", " + state.y + ") ",
+        scale: "translate(" + scaleTransformX + ", " + scaleTransformY + ") scale(" + scale$$1 + ", " + scaleY + ") translate(" + scaleReplaceX + ", " + scaleReplaceY + ") ",
+        rotate: "rotate(" + state.rotate + ", " + transformOriginX + ", " + transformOriginY + ") ",
+        skewX: "skewX(" + state.skewX + ") ",
+        skewY: "skewY(" + state.skewY + ") "
+    };
+    for (var key in state) {
+        if (state.hasOwnProperty(key)) {
+            var value = state[key];
+            if (isTransformProp(key)) {
+                hasTransform = true;
+            } else if (isPath && (key === 'pathLength' || key === 'pathSpacing') && typeof value === 'number') {
+                hasDashArray = true;
+                dashArrayStyles[key] = percentToPixels(value, pathLength);
+            } else if (isPath && key === 'pathOffset') {
+                props['stroke-dashoffset'] = percentToPixels(-value, pathLength);
+            } else {
+                props[camelToDash(key)] = value;
+            }
+        }
+    }
+    if (hasDashArray) {
+        props['stroke-dasharray'] = dashArrayStyles.pathLength + ' ' + dashArrayStyles.pathSpacing;
+    }
+    if (hasTransform) {
+        props.transform = '';
+        for (var key in transform) {
+            if (transform.hasOwnProperty(key)) {
+                var defaultValue = key === 'scale' ? '1' : '0';
+                props.transform += transform[key].replace(/undefined/g, defaultValue);
+            }
+        }
+    }
+    return props;
+};
+
+var valueTypes$1 = {
+    fill: style_value_types__WEBPACK_IMPORTED_MODULE_1__["color"],
+    stroke: style_value_types__WEBPACK_IMPORTED_MODULE_1__["color"],
+    scale: style_value_types__WEBPACK_IMPORTED_MODULE_1__["scale"],
+    scaleX: style_value_types__WEBPACK_IMPORTED_MODULE_1__["scale"],
+    scaleY: style_value_types__WEBPACK_IMPORTED_MODULE_1__["scale"],
+    opacity: style_value_types__WEBPACK_IMPORTED_MODULE_1__["alpha"],
+    fillOpacity: style_value_types__WEBPACK_IMPORTED_MODULE_1__["alpha"],
+    strokeOpacity: style_value_types__WEBPACK_IMPORTED_MODULE_1__["alpha"]
+};
+var getValueType$1 = function (key) {
+    return valueTypes$1[key];
+};
+
+var getDimensions = function (element) {
+    return typeof element.getBBox === 'function' ? element.getBBox() : element.getBoundingClientRect();
+};
+var getSVGElementDimensions = function (element) {
+    try {
+        return getDimensions(element);
+    } catch (e) {
+        return { x: 0, y: 0, width: 0, height: 0 };
+    }
+};
+
+var svgStyler = /*#__PURE__*/createStyler({
+    onRead: function (key, _a) {
+        var element = _a.element;
+        if (!isTransformProp(key)) {
+            return element.getAttribute(key);
+        } else {
+            var valueType = getValueType$1(key);
+            return valueType ? valueType.default : 0;
+        }
+    },
+    onRender: function (state, _a) {
+        var dimensions = _a.dimensions,
+            element = _a.element,
+            isPath = _a.isPath,
+            pathLength = _a.pathLength;
+        setDomAttrs(element, build(state, dimensions, isPath, pathLength));
+    }
+});
+var svg = function (element) {
+    var dimensions = getSVGElementDimensions(element);
+    var props = {
+        element: element,
+        dimensions: dimensions,
+        isPath: false
+    };
+    if (element.tagName === 'path') {
+        props.isPath = true;
+        props.pathLength = element.getTotalLength();
+    }
+    return svgStyler(props);
+};
+
+var viewport = /*#__PURE__*/createStyler({
+    useCache: false,
+    onRead: function (key) {
+        return key === 'scrollTop' ? window.pageYOffset : window.pageXOffset;
+    },
+    onRender: function (_a) {
+        var _b = _a.scrollTop,
+            scrollTop = _b === void 0 ? 0 : _b,
+            _c = _a.scrollLeft,
+            scrollLeft = _c === void 0 ? 0 : _c;
+        return window.scrollTo(scrollLeft, scrollTop);
+    }
+});
+
+var cache = /*#__PURE__*/new WeakMap();
+var createDOMStyler = function (node, props) {
+    var styler;
+    if (node instanceof HTMLElement) {
+        styler = css(node, props);
+    } else if (node instanceof SVGElement) {
+        styler = svg(node);
+    } else if (node === window) {
+        styler = viewport(node);
+    }
+    Object(hey_listen__WEBPACK_IMPORTED_MODULE_2__["invariant"])(styler !== undefined, 'No valid node provided. Node must be HTMLElement, SVGElement or window.');
+    cache.set(node, styler);
+    return styler;
+};
+var getStyler = function (node, props) {
+    return cache.has(node) ? cache.get(node) : createDOMStyler(node, props);
+};
+function index(nodeOrSelector, props) {
+    var node = typeof nodeOrSelector === 'string' ? document.querySelector(nodeOrSelector) : nodeOrSelector;
+    return getStyler(node, props);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (index);
+
+
+
+/***/ }),
+
 /***/ "./node_modules/stylis-rule-sheet/index.js":
 /*!*************************************************!*\
   !*** ./node_modules/stylis-rule-sheet/index.js ***!
@@ -57559,6 +75152,224 @@ function symbolObservablePonyfill(root) {
 
 	return result;
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/tslib/tslib.es6.js":
+/*!*****************************************!*\
+  !*** ./node_modules/tslib/tslib.es6.js ***!
+  \*****************************************/
+/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __exportStar, __values, __read, __spread, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__extends", function() { return __extends; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__assign", function() { return __assign; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__rest", function() { return __rest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__decorate", function() { return __decorate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__param", function() { return __param; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__metadata", function() { return __metadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__awaiter", function() { return __awaiter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__generator", function() { return __generator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__exportStar", function() { return __exportStar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__values", function() { return __values; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__read", function() { return __read; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spread", function() { return __spread; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__await", function() { return __await; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncGenerator", function() { return __asyncGenerator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncDelegator", function() { return __asyncDelegator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncValues", function() { return __asyncValues; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__makeTemplateObject", function() { return __makeTemplateObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importStar", function() { return __importStar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importDefault", function() { return __importDefault; });
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    }
+    return __assign.apply(this, arguments);
+}
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
+            t[p[i]] = s[p[i]];
+    return t;
+}
+
+function __decorate(decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
+
+function __param(paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+}
+
+function __metadata(metadataKey, metadataValue) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+}
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
+function __exportStar(m, exports) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+
+function __values(o) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
+    if (m) return m.call(o);
+    return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+}
+
+function __read(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+}
+
+function __spread() {
+    for (var ar = [], i = 0; i < arguments.length; i++)
+        ar = ar.concat(__read(arguments[i]));
+    return ar;
+}
+
+function __await(v) {
+    return this instanceof __await ? (this.v = v, this) : new __await(v);
+}
+
+function __asyncGenerator(thisArg, _arguments, generator) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var g = generator.apply(thisArg, _arguments || []), i, q = [];
+    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+    function fulfill(value) { resume("next", value); }
+    function reject(value) { resume("throw", value); }
+    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+}
+
+function __asyncDelegator(o) {
+    var i, p;
+    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+    function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
+}
+
+function __asyncValues(o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator], i;
+    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+}
+
+function __makeTemplateObject(cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
+
+function __importStar(mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result.default = mod;
+    return result;
+}
+
+function __importDefault(mod) {
+    return (mod && mod.__esModule) ? mod : { default: mod };
+}
 
 
 /***/ }),

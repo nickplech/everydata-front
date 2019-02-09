@@ -63,13 +63,11 @@ const Clientlisting = styled.div`
   margin-right: 20px;
   margin-top: 15px;
   margin-bottom: 15px;
-  padding-right: 10px;
-  padding-left: 10px;
+
   padding-top: 0px;
   overflow-y: scroll;
   padding-bottom: 0px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
 `
 
 class Clients extends Component {

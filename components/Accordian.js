@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-
 import posed from 'react-pose'
 import styled from 'styled-components'
 
@@ -30,19 +29,16 @@ const StyledAccordian = styled.div`
   }
   h2 {
     margin: 0;
-    color: white;
+    color: rgba(20, 110, 220, 1);
     font-size: 16px;
     width: 50%;
   }
 
   .title {
     cursor: pointer;
-    background-image: linear-gradient(
-      -180deg,
-      rgba(100, 100, 240, 1) 0%,
-      rgba(100, 160, 220, 1) 300px
-    );
-    padding: 10px 20px;
+    background-image: transparent;
+    border-bottom: 2px solid rgba(20, 110, 220, 1);
+    padding: 20px 20px;
   }
 
   .content {
@@ -65,12 +61,11 @@ const Plus = styled.div`
   width: 30px;
   height: 30px;
   background: white;
-  border: 2px solid white;
+  border: 2px solid rgba(20, 110, 220, 1);
   border-radius: 50%;
   margin-right: 40px;
   .plus {
     display: inline-flex;
-
     text-align: center;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
