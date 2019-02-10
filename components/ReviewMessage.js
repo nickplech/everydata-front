@@ -17,12 +17,13 @@ const Back = styled.div`
 
 const Flexer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 50px;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 1fr 60px;
   position: relative;
   flex-flow: column;
   width: 100%;
   height: 100%;
+  align-self: flex-start;
   justify-content: center;
 `
 // const CharCount = styled.div`
@@ -33,33 +34,39 @@ const Flexer = styled.div`
 //   position: absolute;
 //   z-index: 10px;
 // `
-const MessageEdit = styled.div`
+const MessageEdit = styled.textarea`
   background: white;
   display: grid;
   grid-column: 2;
   position: relative;
   z-index: 6;
-  width: 350px;
+  width: 95%;
+  padding: 10px;
   height: calc(100% - 40px);
   border-radius: 10px;
   align-self: center;
-  justify-self: flex-end;
-  margin-right: 25px;
-  max-width: 800px;
+  resize: none;
+  border: 2px solid rgba(220, 220, 220, 1);
+  /* justify-self: center; */
+  /* max-width: 800px; */
+  &:focus {
+    outline: none;
+  }
 `
 const Send = styled.button`
   background: rgba(30, 110, 240, 1);
   color: white;
   font-weight: 800;
   border: 0;
-  margin-bottom: 10px;
-  width: 75px;
+  /* margin-bottom: 10px; */
+  width: 95%;
+
   display: grid;
   grid-column: 2;
   font-size: 2rem;
-  justify-self: flex-end;
-  margin-right: 25px;
-  padding: 0.7rem 1.2rem;
+  /* justify-self: center; */
+  padding: 0rem 1.2rem;
+  height: 70%;
   font-size: 1.8rem;
   border-radius: 5px;
   outline: none;
@@ -83,7 +90,7 @@ const ReviewMessage = () => (
         <CharCount>/160</CharCount>
       </div> */}
 
-      <MessageEdit readOnly maxlength="160" />
+      <MessageEdit readOnly maxlength="160" content="Testing" />
 
       <Send>Send</Send>
     </Flexer>

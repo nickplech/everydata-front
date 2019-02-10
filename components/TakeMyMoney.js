@@ -15,7 +15,7 @@ class TakeMyMoney extends Component {
       <User>
         {({ data: { me } }) => (
           <StripeCheckout
-            amount="2999"
+            amount={2999}
             name="Perfect Day Reminders"
             description={`Subscribing to ${me.package}`}
             email={me.email}

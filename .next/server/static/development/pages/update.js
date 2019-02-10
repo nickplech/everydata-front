@@ -535,6 +535,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
 /* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/SickButton */ "./components/styles/SickButton.js");
+/* harmony import */ var _styles_SickerButton__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/SickerButton */ "./components/styles/SickerButton.js");
 
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/UpdateClient.js";
 
@@ -585,6 +586,7 @@ function _templateObject() {
 }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 
 
 
@@ -677,6 +679,11 @@ function (_Component) {
       };
     }());
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleCancelClick", function (e) {
+      e.preventDefault();
+      next_router__WEBPACK_IMPORTED_MODULE_4___default.a.back();
+    });
+
     return _this;
   }
 
@@ -688,7 +695,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Inner, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 89
+          lineNumber: 93
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
@@ -698,7 +705,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 90
+          lineNumber: 94
         },
         __self: this
       }, function (_ref2) {
@@ -707,14 +714,14 @@ function (_Component) {
         if (loading) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 97
+            lineNumber: 101
           },
           __self: this
         }, "Loading...");
         if (!data.client) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 99
+            lineNumber: 103
           },
           __self: this
         }, "No Client Found for ID ", _this2.props.id);
@@ -723,7 +730,7 @@ function (_Component) {
           variables: _this2.state,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 101
+            lineNumber: 105
           },
           __self: this
         }, function (updateClient, _ref3) {
@@ -735,14 +742,14 @@ function (_Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 106
+              lineNumber: 110
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_8__["default"], {
             error: error,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 107
+              lineNumber: 111
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
@@ -750,14 +757,14 @@ function (_Component) {
             "aria-busy": loading,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 108
+              lineNumber: 112
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "firstName",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 109
+              lineNumber: 113
             },
             __self: this
           }, "First Name", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -770,14 +777,14 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 111
+              lineNumber: 115
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "lastName",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 121
+              lineNumber: 125
             },
             __self: this
           }, "Last Name", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -790,14 +797,14 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 123
+              lineNumber: 127
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "cellPhone",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 133
+              lineNumber: 137
             },
             __self: this
           }, "Cell Phone", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_text_mask__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -811,14 +818,14 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 135
+              lineNumber: 139
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "birthDay",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 161
+              lineNumber: 165
             },
             __self: this
           }, "Birthday", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -831,17 +838,24 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 163
+              lineNumber: 167
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_9__["default"], {
             type: "submit",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 174
+              lineNumber: 177
             },
             __self: this
-          }, "Sav", loading ? 'ing' : 'e', " Changes")));
+          }, "Sav", loading ? 'ing' : 'e', " Changes"), ' ', react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickerButton__WEBPACK_IMPORTED_MODULE_10__["default"], {
+            onClick: _this2.handleCancelClick,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 180
+            },
+            __self: this
+          }, "Cancel")), ' ');
         });
       }));
     }
@@ -932,9 +946,7 @@ var loading = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes"]
 var Form = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.form.withConfig({
   displayName: "Form",
   componentId: "sc-1xszr8q-0"
-})(["box-shadow:0 0 5px 3px rgba(0,0,0,0.05);background:rgba(0,0,0,0.02);border:5px solid white;padding:20px;margin:20px;margin-top:0px;font-size:1.5rem;line-height:1.5;font-weight:600;label{display:block;margin-bottom:1rem;}input,textarea,select{width:100%;padding-left:1rem;padding-top:0.7rem;padding-bottom:0.7rem;font-size:1.5rem;border:1px solid grey;border-radius:5px;margin-top:0.8rem;&:focus{outline:0;border-color:lightblue;}}button,input[type='submit']{width:auto;background:", ";color:white;border:0;font-size:2rem;font-weight:600;padding:0.5rem 1.2rem;margin-top:1rem;}fieldset{border:0;padding:0;&[disabled]{opacity:0.5;}&::before{height:10px;margin-bottom:10px;content:'';display:block;background-image:linear-gradient( to right,#272ebd 0%,#0980cd 50%,#272ebd 100% );}&[aria-busy='true']::before{background-size:50% auto;animation:", " 0.5s linear infinite;}}"], function (props) {
-  return props.theme.blue;
-}, loading);
+})(["box-shadow:0 0 5px 3px rgba(0,0,0,0.05);background:rgba(0,0,0,0.02);border:5px solid white;padding:20px;margin:20px 0;margin-top:0px;font-size:1.5rem;line-height:1.5;font-weight:600;label{display:block;margin-bottom:1rem;}input,textarea,select{width:100%;padding-left:1rem;padding-top:0.7rem;padding-bottom:0.7rem;font-size:1.5rem;border:1px solid grey;border-radius:5px;margin-top:0.8rem;&:focus{outline:0;border:2px solid rgba(20,110,220,1);}}button,input[type='submit']{width:auto;color:white;border:0;font-size:2rem;font-weight:600;padding:0.5rem 1.2rem;margin-top:1rem;}fieldset{border:0;padding:0;&[disabled]{opacity:0.5;}&::before{height:10px;margin-bottom:10px;content:'';display:block;background-image:linear-gradient( to right,#272ebd 0%,#0980cd 50%,#272ebd 100% );}&[aria-busy='true']::before{background-size:50% auto;animation:", " 0.5s linear infinite;}}"], loading);
 Form.displayName = 'Form';
 /* harmony default export */ __webpack_exports__["default"] = (Form);
 
@@ -957,6 +969,26 @@ var SickButton = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button
   componentId: "l04z44-0"
 })(["background:rgba(30,110,240,1);color:white;font-weight:800;border:0;margin:0 auto;border-radius:5px;font-size:2rem;padding:0.5rem 1.2rem;font-size:1.8rem;display:inline-block;transition:all 0.5s;outline:none;cursor:pointer;box-shadow:1px 1px 4px 2px rgba(0,0,0,0.2);&[disabled]{opacity:0.5;}&:hover{background:rgba(30,110,240,0.9);}&:active{box-shadow:none;}"]);
 /* harmony default export */ __webpack_exports__["default"] = (SickButton);
+
+/***/ }),
+
+/***/ "./components/styles/SickerButton.js":
+/*!*******************************************!*\
+  !*** ./components/styles/SickerButton.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
+
+var SickerButton = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button.withConfig({
+  displayName: "SickerButton",
+  componentId: "g5nnpk-0"
+})(["background:rgba(10,120,240,1);color:white;font-weight:800;border:0;margin:10px 20px;border-radius:5px;font-size:2rem;padding:0.5rem 1.2rem;font-size:1.8rem;display:inline-block;transition:all 0.5s;outline:none;cursor:pointer;box-shadow:1px 1px 4px 2px rgba(0,0,0,0.2);&[disabled]{opacity:0.5;}&:hover{background:rgba(230,10,40,0.7);}&:active{box-shadow:none;}"]);
+/* harmony default export */ __webpack_exports__["default"] = (SickerButton);
 
 /***/ }),
 

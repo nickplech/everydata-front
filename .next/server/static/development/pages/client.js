@@ -618,15 +618,13 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var Lister = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
   displayName: "MessageList__Lister",
   componentId: "sc-1k725i1-0"
-})(["position:relative;display:flex;flex-flow:column;padding-bottom:20px;box-sizing:border-box;padding-left:6px;overflow-y:scroll;background:white;.message{display:flex;align-content:center;margin:0px 30px;padding:0px;border-bottom:1.5px solid rgba(220,220,220,0.4);}.message-text{align-self:center;background:rgba(220,220,220,0.8);font-family:'Montserrat',sans-serif;color:black;display:block;font-size:12px;padding:10px 14px;margin:12px 0;border-radius:8px;width:50%;height:80%;max-width:600px;min-width:300px;}"]);
+})(["position:relative;display:flex;flex-flow:column;padding-bottom:20px;box-sizing:border-box;padding-left:6px;overflow-y:scroll;background:white;"]);
+var TextChunk = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
+  displayName: "MessageList__TextChunk",
+  componentId: "sc-1k725i1-1"
+})(["display:flex;align-content:center;margin:0px 30px;padding:0px;border-top:1.5px solid rgba(220,220,220,0.4);&:first-child{border-top:none;}.message-text{align-self:center;background:rgba(220,220,220,0.8);font-family:'Montserrat',sans-serif;color:black;display:block;font-size:12px;padding:10px 14px;margin:30px 0;border-radius:8px;width:40%;height:80%;max-width:600px;min-width:300px;@media (min-width:1200px){font-size:13px;}}"]);
 var DUMMY_DATA = [{
   senderId: 'perborgen',
-  text: 'This is the office of Dr. Plechas confirming your appt at 4:00 pm - Mon, Sep 26. Please reply "Confirm" or "Cancel". Questions? Call 7149537373'
-}, {
-  senderId: 'janedoe',
-  text: 'This is the office of Dr. Plechas confirming your appt at 4:00 pm - Mon, Sep 26. Please reply "Confirm" or "Cancel". Questions? Call 7149537373'
-}, {
-  senderId: 'janedoe',
   text: 'This is the office of Dr. Plechas confirming your appt at 4:00 pm - Mon, Sep 26. Please reply "Confirm" or "Cancel". Questions? Call 7149537373'
 }, {
   senderId: 'janedoe',
@@ -654,26 +652,25 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Lister, {
-        className: "message-list",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 72
         },
         __self: this
       }, DUMMY_DATA.map(function (message, index) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TextChunk, {
           key: index,
           className: "message",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 79
+            lineNumber: 75
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "message-text",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 80
+            lineNumber: 76
           },
           __self: this
         }, message.text));
@@ -782,7 +779,7 @@ var Back = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConf
 var Flexer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
   displayName: "ReviewMessage__Flexer",
   componentId: "sc-1kkiazb-1"
-})(["display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 50px;position:relative;flex-flow:column;width:100%;height:100%;justify-content:center;"]); // const CharCount = styled.div`
+})(["display:grid;grid-template-columns:60% 40%;grid-template-rows:1fr 60px;position:relative;flex-flow:column;width:100%;height:100%;align-self:flex-start;justify-content:center;"]); // const CharCount = styled.div`
 //   display: block;
 //   font-size: 11px;
 //   bottom: 70px;
@@ -791,40 +788,41 @@ var Flexer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withCo
 //   z-index: 10px;
 // `
 
-var MessageEdit = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
+var MessageEdit = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.textarea.withConfig({
   displayName: "ReviewMessage__MessageEdit",
   componentId: "sc-1kkiazb-2"
-})(["background:white;display:grid;grid-column:2;position:relative;z-index:6;width:350px;height:calc(100% - 40px);border-radius:10px;align-self:center;justify-self:flex-end;margin-right:25px;max-width:800px;"]);
+})(["background:white;display:grid;grid-column:2;position:relative;z-index:6;width:95%;padding:10px;height:calc(100% - 40px);border-radius:10px;align-self:center;resize:none;border:2px solid rgba(220,220,220,1);&:focus{outline:none;}"]);
 var Send = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button.withConfig({
   displayName: "ReviewMessage__Send",
   componentId: "sc-1kkiazb-3"
-})(["background:rgba(30,110,240,1);color:white;font-weight:800;border:0;margin-bottom:10px;width:75px;display:grid;grid-column:2;font-size:2rem;justify-self:flex-end;margin-right:25px;padding:0.7rem 1.2rem;font-size:1.8rem;border-radius:5px;outline:none;cursor:pointer;box-shadow:1px 1px 2px 1px rgba(0,0,0,0.15);&:active{box-shadow:none;}&[disabled]{opacity:0.5;}&:hover{background:rgba(30,110,240,0.9);}"]);
+})(["background:rgba(30,110,240,1);color:white;font-weight:800;border:0;width:95%;display:grid;grid-column:2;font-size:2rem;padding:0rem 1.2rem;height:70%;font-size:1.8rem;border-radius:5px;outline:none;cursor:pointer;box-shadow:1px 1px 2px 1px rgba(0,0,0,0.15);&:active{box-shadow:none;}&[disabled]{opacity:0.5;}&:hover{background:rgba(30,110,240,0.9);}"]);
 
 var ReviewMessage = function ReviewMessage() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Back, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 87
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Flexer, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81
+      lineNumber: 88
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MessageEdit, {
     readOnly: true,
     maxlength: "160",
+    content: "Testing",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86
+      lineNumber: 93
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Send, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88
+      lineNumber: 95
     },
     __self: this
   }, "Send")));
@@ -1458,9 +1456,7 @@ var loading = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes"]
 var Form = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.form.withConfig({
   displayName: "Form",
   componentId: "sc-1xszr8q-0"
-})(["box-shadow:0 0 5px 3px rgba(0,0,0,0.05);background:rgba(0,0,0,0.02);border:5px solid white;padding:20px;margin:20px;margin-top:0px;font-size:1.5rem;line-height:1.5;font-weight:600;label{display:block;margin-bottom:1rem;}input,textarea,select{width:100%;padding-left:1rem;padding-top:0.7rem;padding-bottom:0.7rem;font-size:1.5rem;border:1px solid grey;border-radius:5px;margin-top:0.8rem;&:focus{outline:0;border-color:lightblue;}}button,input[type='submit']{width:auto;background:", ";color:white;border:0;font-size:2rem;font-weight:600;padding:0.5rem 1.2rem;margin-top:1rem;}fieldset{border:0;padding:0;&[disabled]{opacity:0.5;}&::before{height:10px;margin-bottom:10px;content:'';display:block;background-image:linear-gradient( to right,#272ebd 0%,#0980cd 50%,#272ebd 100% );}&[aria-busy='true']::before{background-size:50% auto;animation:", " 0.5s linear infinite;}}"], function (props) {
-  return props.theme.blue;
-}, loading);
+})(["box-shadow:0 0 5px 3px rgba(0,0,0,0.05);background:rgba(0,0,0,0.02);border:5px solid white;padding:20px;margin:20px 0;margin-top:0px;font-size:1.5rem;line-height:1.5;font-weight:600;label{display:block;margin-bottom:1rem;}input,textarea,select{width:100%;padding-left:1rem;padding-top:0.7rem;padding-bottom:0.7rem;font-size:1.5rem;border:1px solid grey;border-radius:5px;margin-top:0.8rem;&:focus{outline:0;border:2px solid rgba(20,110,220,1);}}button,input[type='submit']{width:auto;color:white;border:0;font-size:2rem;font-weight:600;padding:0.5rem 1.2rem;margin-top:1rem;}fieldset{border:0;padding:0;&[disabled]{opacity:0.5;}&::before{height:10px;margin-bottom:10px;content:'';display:block;background-image:linear-gradient( to right,#272ebd 0%,#0980cd 50%,#272ebd 100% );}&[aria-busy='true']::before{background-size:50% auto;animation:", " 0.5s linear infinite;}}"], loading);
 Form.displayName = 'Form';
 /* harmony default export */ __webpack_exports__["default"] = (Form);
 

@@ -1,42 +1,35 @@
 import React from 'react'
 import UpdateUserProfile from './UpdateUserProfile'
-import TakeMyMoney from './TakeMyMoney'
 import Tabs from './Tabs'
 import styled from 'styled-components'
-
-const styles = {
-  fontFamily: 'sans-serif',
-  textAlign: 'center',
-}
+import SubscriptionManagement from './SubscriptionManagement'
 
 const Styled = styled.div`
-  .padded {
-    padding: 0px;
-  }
+  font-family: sans-serif;
+  text-align: left;
+  /* margin: 0 30%; */
+  text-align: left;
+  max-width: ${props => props.theme.innerWidth};
+  margin: 0 auto;
+  padding: 2rem;
+  padding-top: 0;
 `
 
 const TabParent = () => (
-  <Styled style={styles}>
+  <Styled>
     <Tabs
       activeTab={{
         id: 'tab1',
       }}
     >
-      <Tabs.Tab id="tab1" title="Profile Settings">
-        <div className="padded">
-          <UpdateUserProfile />
-        </div>
+      <Tabs.Tab id="tab1" title="Profile">
+        <UpdateUserProfile />
       </Tabs.Tab>
-      <Tabs.Tab id="tab2" title="Subscription">
-        <div className="padded">
-          {' '}
-          <TakeMyMoney>
-            {' '}
-            <button>Express</button>
-          </TakeMyMoney>
-          <button>Classic</button>
-          <button>HIPAA</button>
-        </div>
+      <Tabs.Tab id="tab2" title="Schedule">
+        <div> </div>
+      </Tabs.Tab>
+      <Tabs.Tab id="tab3" title="Subscription ">
+        <SubscriptionManagement />
       </Tabs.Tab>
     </Tabs>
   </Styled>

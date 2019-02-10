@@ -5,7 +5,7 @@ import { interpolate } from 'flubber'
 import styled from 'styled-components'
 
 const StyledBody = styled.div`
-  height: 30vh;
+  height: 400px;
   padding-bottom: 100px;
   padding-top: 50px;
   flex-flow: column;

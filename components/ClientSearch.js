@@ -1,28 +1,11 @@
 import React, { Component } from 'react'
 import Downshift, { resetIdCounter } from 'downshift'
-
+import styled from 'styled-components'
 import { ApolloConsumer } from 'react-apollo'
-import gql from 'graphql-tag'
-import debounce from 'lodash.debounce'
-import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown'
 
-const SEARCH_CLIENTS_QUERY = gql`
-  query SEARCH_CLIENTS_QUERY($searchTerm: String!) {
-    clients(
-      orderBy: updatedAt_DESC
-      where: {
-        OR: [
-          { firstName_contains: $searchTerm }
-          { lastName_contains: $searchTerm }
-        ]
-      }
-    ) {
-      id
-      firstName
-      lastName
-    }
-  }
-`
+import debounce from 'lodash.debounce'
+import { SEARCH_CLIENTS_QUERY } from './AutoComplete'
+import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown'
 
 class ClientSearch extends Component {
   state = {
@@ -64,9 +47,10 @@ class ClientSearch extends Component {
               <ApolloConsumer>
                 {client => (
                   <input
+                    style={{ paddingTop: '3px' }}
                     {...getInputProps({
                       type: 'search',
-                      placeholder: 'Search Clients',
+                      placeholder: 'Client Name',
                       id: 'search',
                       className: this.state.loading ? 'loading' : '',
                       spellCheck: false,

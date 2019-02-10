@@ -93,6 +93,258 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/AutoComplete.js":
+/*!************************************!*\
+  !*** ./components/AutoComplete.js ***!
+  \************************************/
+/*! exports provided: default, SEARCH_CLIENTS_QUERY */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_CLIENTS_QUERY", function() { return SEARCH_CLIENTS_QUERY; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var downshift__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! downshift */ "downshift");
+/* harmony import */ var downshift__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(downshift__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash.debounce */ "lodash.debounce");
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _styles_DropDown__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/DropDown */ "./components/styles/DropDown.js");
+
+var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/AutoComplete.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  query SEARCH_CLIENTS_QUERY($searchTerm: String!) {\n    clients(\n      orderBy: updatedAt_DESC\n      where: {\n        OR: [\n          { firstName_contains: $searchTerm }\n          { lastName_contains: $searchTerm }\n        ]\n      }\n    ) {\n      id\n      firstName\n      lastName\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+
+
+var SEARCH_CLIENTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default()(_templateObject());
+
+function routeToClient(client) {
+  next_router__WEBPACK_IMPORTED_MODULE_3___default.a.push({
+    pathname: '/client',
+    query: {
+      id: client.id
+    }
+  });
+}
+
+var AutoComplete =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(AutoComplete, _Component);
+
+  function AutoComplete() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, AutoComplete);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(AutoComplete)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      clients: [],
+      loading: false
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", lodash_debounce__WEBPACK_IMPORTED_MODULE_6___default()(
+    /*#__PURE__*/
+    function () {
+      var _ref = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e, client) {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log('Searching...');
+
+                _this.setState({
+                  loading: true
+                });
+
+                _context.next = 4;
+                return client.query({
+                  query: SEARCH_CLIENTS_QUERY,
+                  variables: {
+                    searchTerm: e.target.value
+                  }
+                });
+
+              case 4:
+                res = _context.sent;
+
+                _this.setState({
+                  clients: res.data.clients,
+                  loading: false
+                });
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      return function (_x, _x2) {
+        return _ref.apply(this, arguments);
+      };
+    }(), 350));
+
+    return _this;
+  }
+
+  _createClass(AutoComplete, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      Object(downshift__WEBPACK_IMPORTED_MODULE_2__["resetIdCounter"])();
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["SearchStyles"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 56
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(downshift__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        onChange: routeToClient,
+        itemToString: function itemToString(client) {
+          return client === null ? '' : client.lastName + ',' + ' ' + client.firstName;
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 57
+        },
+        __self: this
+      }, function (_ref2) {
+        var getInputProps = _ref2.getInputProps,
+            getItemProps = _ref2.getItemProps,
+            isOpen = _ref2.isOpen,
+            inputValue = _ref2.inputValue,
+            highlightedIndex = _ref2.highlightedIndex;
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 72
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_4__["ApolloConsumer"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 73
+          },
+          __self: this
+        }, function (client) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", _extends({}, getInputProps({
+            type: 'search',
+            placeholder: 'Search Clients',
+            id: 'search',
+            className: _this2.state.loading ? 'loading' : '',
+            spellCheck: false,
+            onChange: function onChange(e) {
+              e.persist();
+
+              _this2.onChange(e, client);
+            }
+          }), {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 75
+            },
+            __self: this
+          }));
+        }), isOpen && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDown"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 91
+          },
+          __self: this
+        }, _this2.state.clients.map(function (item, index) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDownItem"], _extends({}, getItemProps({
+            item: item
+          }), {
+            key: item.id,
+            highlighted: index === highlightedIndex,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 93
+            },
+            __self: this
+          }), item.lastName, ", ", item.firstName);
+        }), !_this2.state.clients.length && !_this2.state.loading && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDownItem"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 102
+          },
+          __self: this
+        }, " Nothing Found for ", inputValue)));
+      }));
+    }
+  }]);
+
+  return AutoComplete;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (AutoComplete);
+
+
+/***/ }),
+
 /***/ "./components/Boxes.js":
 /*!*****************************!*\
   !*** ./components/Boxes.js ***!
@@ -267,7 +519,7 @@ var Indexed = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withC
 var StatsDisplay = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
   displayName: "CalendarStats__StatsDisplay",
   componentId: "sc-3vgek8-1"
-})(["position:relative;display:grid;grid-row:1/3;grid-column:1;background-color:rgba(220,220,220,0.3);width:100%;height:100%;border:5px solid white;border-radius:25px 25px 25px 25px;box-shadow:1px 1px 2px 3px rgba(0,0,0,0.05);.react-calendar{width:365px;border-radius:15px;max-width:100%;box-shadow:0px 1px 1px 1px rgba(20,20,20,0.1);height:310px;background:white;border:1px solid rgba(20,20,20,0.1);font-family:Arial,Helvetica,sans-serif;line-height:1.125em;}.react-calendar,.react-calendar *,.react-calendar *:before,.react-calendar *:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}.react-calendar button{margin:0;border:0;outline:none;}.react-calendar button:enabled:hover{cursor:pointer;}.react-calendar__navigation{height:60px;margin-bottom:0.5em;}.react-calendar__navigation button{min-width:44px;background:none;font-size:20px;background-color:rgba(20,110,240,1);border-radius:15px 15px 0 0;color:white;&:first-child{border-radius:15px 0 0 0;}&:last-child{border-radius:0 15px 0 0;}&:nth-child(2){border-radius:0;}&:nth-child(3){border-radius:0;}&:nth-child(4){border-radius:0;}}.react-calendar__navigation button:enabled:hover,.react-calendar__navigation button:enabled:focus{background-color:#e6e6e6;}.react-calendar__navigation button[disabled]{background-color:rgba(20,110,240,0.1);}.react-calendar__month-view__weekdays{text-align:center;text-transform:uppercase;font-weight:bold;font-size:0.75em;}.react-calendar__month-view__weekdays__weekday{padding:2em 0;}.react-calendar__month-view__weekNumbers{font-weight:bold;}.react-calendar__month-view__weekNumbers .react-calendar__tile{display:flex;align-items:center;justify-content:center;font-size:0.75em;padding:calc(0.75em / 0.75) calc(0.5em / 0.75);}.react-calendar__month-view__days__day--weekend{color:red;}.react-calendar__month-view__days__day--neighboringMonth{color:#969696;}.react-calendar__year-view .react-calendar__tile,.react-calendar__decade-view .react-calendar__tile,.react-calendar__century-view .react-calendar__tile{padding:2em 0.5em;}.react-calendar__tile{max-width:100%;text-align:center;padding:0.75em 0.5em;background:none;}.react-calendar__tile:disabled{background-color:#f0f0f0;}.react-calendar__tile:enabled:hover,.react-calendar__tile:enabled:focus{background-color:#e6e6e6;}.react-calendar__tile--hasActive{background:rgba(20,110,240,1);color:white;}.react-calendar__tile--hasActive:enabled:hover,.react-calendar__tile--hasActive:enabled:focus{background:#a9d4ff;}.react-calendar__tile--active{background:rgba(20,110,240,1);color:white;}.react-calendar__tile--active:enabled:hover,.react-calendar__tile--active:enabled:focus{background:#1087ff;}.react-calendar--selectRange .react-calendar__tile--hover{background-color:rgba(100,100,240,1);color:white;}"]);
+})(["position:relative;display:grid;grid-row:1/3;grid-column:1;background-color:rgba(220,220,220,0.3);width:100%;height:100%;border:5px solid white;border-radius:25px 25px 25px 25px;box-shadow:1px 1px 2px 3px rgba(0,0,0,0.05);.react-calendar{width:363px;border-radius:15px;max-width:100%;box-shadow:0px 1px 1px 1px rgba(20,20,20,0.1);height:310px;background:white;margin-left:0.5px;margin-right:0.5px;font-family:Arial,Helvetica,sans-serif;line-height:1.125em;}.react-calendar,.react-calendar *,.react-calendar *:before,.react-calendar *:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}.react-calendar button{margin:0;border:0;outline:none;}.react-calendar button:enabled:hover{cursor:pointer;}.react-calendar__navigation{height:60px;margin-bottom:0.5em;}.react-calendar__navigation button{min-width:44px;background:none;font-size:20px;background-color:rgba(20,110,240,1);color:white;&:first-child{border-radius:18px 0 0 0;}&:last-child{border-radius:0 18px 0 0;}&:nth-child(2){border-radius:0;}&:nth-child(3){border-radius:0;}&:nth-child(4){border-radius:0;}}.react-calendar__navigation button:enabled:hover,.react-calendar__navigation button:enabled:focus{background-color:#e6e6e6;}.react-calendar__navigation button[disabled]{background-color:rgba(20,110,240,0.1);}.react-calendar__month-view__weekdays{text-align:center;text-transform:uppercase;font-weight:bold;font-size:0.75em;}.react-calendar__month-view__weekdays__weekday{padding:2em 0;}.react-calendar__month-view__weekNumbers{font-weight:bold;}.react-calendar__month-view__weekNumbers .react-calendar__tile{display:flex;align-items:center;justify-content:center;font-size:0.75em;padding:calc(0.75em / 0.75) calc(0.5em / 0.75);}.react-calendar__month-view__days__day--weekend{color:red;}.react-calendar__month-view__days__day--neighboringMonth{color:#969696;}.react-calendar__year-view .react-calendar__tile,.react-calendar__decade-view .react-calendar__tile,.react-calendar__century-view .react-calendar__tile{padding:2em 0.5em;}.react-calendar__tile{max-width:100%;text-align:center;padding:0.75em 0.5em;background:none;}.react-calendar__tile:disabled{background-color:#f0f0f0;}.react-calendar__tile:enabled:hover,.react-calendar__tile:enabled:focus{background-color:#e6e6e6;}.react-calendar__tile--hasActive{background:rgba(20,110,240,1);color:white;}.react-calendar__tile--hasActive:enabled:hover,.react-calendar__tile--hasActive:enabled:focus{background:#a9d4ff;}.react-calendar__tile--active{background:rgba(20,110,240,1);color:white;}.react-calendar__tile--active:enabled:hover,.react-calendar__tile--active:enabled:focus{background:#1087ff;}.react-calendar--selectRange .react-calendar__tile--hover{background-color:rgba(100,100,240,1);color:white;}"]);
 
 var CalendarStats =
 /*#__PURE__*/
@@ -421,13 +673,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var downshift__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! downshift */ "downshift");
 /* harmony import */ var downshift__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(downshift__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "react-apollo");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash.debounce */ "lodash.debounce");
 /* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _styles_DropDown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/DropDown */ "./components/styles/DropDown.js");
+/* harmony import */ var _AutoComplete__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AutoComplete */ "./components/AutoComplete.js");
+/* harmony import */ var _styles_DropDown__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/DropDown */ "./components/styles/DropDown.js");
 
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/ClientSearch.js";
 
@@ -457,17 +710,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query SEARCH_CLIENTS_QUERY($searchTerm: String!) {\n    clients(\n      orderBy: updatedAt_DESC\n      where: {\n        OR: [\n          { firstName_contains: $searchTerm }\n          { lastName_contains: $searchTerm }\n        ]\n      }\n    ) {\n      id\n      firstName\n      lastName\n    }\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
@@ -475,7 +717,6 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var SEARCH_CLIENTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_4___default()(_templateObject());
 
 var ClientSearch =
 /*#__PURE__*/
@@ -519,7 +760,7 @@ function (_Component) {
 
                 _context.next = 4;
                 return client.query({
-                  query: SEARCH_CLIENTS_QUERY,
+                  query: _AutoComplete__WEBPACK_IMPORTED_MODULE_6__["SEARCH_CLIENTS_QUERY"],
                   variables: {
                     searchTerm: e.target.value
                   }
@@ -555,10 +796,10 @@ function (_Component) {
       var _this2 = this;
 
       Object(downshift__WEBPACK_IMPORTED_MODULE_2__["resetIdCounter"])();
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_6__["SearchStyles"], {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["SearchStyles"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 31
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(downshift__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -567,7 +808,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 32
         },
         __self: this
       }, function (_ref2) {
@@ -579,19 +820,23 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 63
+            lineNumber: 46
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["ApolloConsumer"], {
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_4__["ApolloConsumer"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 47
           },
           __self: this
         }, function (client) {
-          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", _extends({}, getInputProps({
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", _extends({
+            style: {
+              paddingTop: '3px'
+            }
+          }, getInputProps({
             type: 'search',
-            placeholder: 'Search Clients',
+            placeholder: 'Client Name',
             id: 'search',
             className: _this2.state.loading ? 'loading' : '',
             spellCheck: false,
@@ -603,32 +848,32 @@ function (_Component) {
           }), {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 66
+              lineNumber: 49
             },
             __self: this
           }));
-        }), isOpen && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_6__["DropDown"], {
+        }), isOpen && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDown"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 82
+            lineNumber: 66
           },
           __self: this
         }, _this2.state.clients.map(function (item, index) {
-          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_6__["DropDownItem"], _extends({}, getItemProps({
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDownItem"], _extends({}, getItemProps({
             item: item
           }), {
             key: item.id,
             highlighted: index === highlightedIndex,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 84
+              lineNumber: 68
             },
             __self: this
           }), item.lastName, ", ", item.firstName);
-        }), !_this2.state.clients.length && !_this2.state.loading && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_6__["DropDownItem"], {
+        }), !_this2.state.clients.length && !_this2.state.loading && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDownItem"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 93
+            lineNumber: 77
           },
           __self: this
         }, " Nothing Found for ", inputValue)));
@@ -867,63 +1112,63 @@ var HeroButton = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button
 var SecondButton = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button.withConfig({
   displayName: "Hero__SecondButton",
   componentId: "sc-1vorxnl-5"
-})(["display:inline-block;background:rgba(100,100,220,1);border:3px solid rgba(100,100,220,1);margin-left:25px;padding:8px 12px;margin-top:15px;color:white;border-radius:5px;font-size:18px;cursor:pointer;&:hover{border-color:yellow;color:yellow;}"]);
+})(["display:inline-block;background:rgba(100,100,220,1);border:3px solid rgba(100,100,220,1);margin-left:25px;padding:8px 12px;width:200px;margin-top:15px;color:white;border-radius:5px;font-size:18px;cursor:pointer;&:hover{border-color:white;color:white;}"]);
 
 var Hero = function Hero() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Wrapper, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115
+      lineNumber: 116
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHero, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 116
+      lineNumber: 117
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Left, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117
+      lineNumber: 118
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 118
+      lineNumber: 119
     },
     __self: this
   }, "Confidence Through ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "confirmation",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 119
+      lineNumber: 120
     },
     __self: this
   }, "Confirmation")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121
+      lineNumber: 122
     },
     __self: this
   }, "Your Business' best option for effortlessly reducing \"no-shows\" & improving daily work flow. Start sending appointment reminders immediately with no credit card required for a free trial."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(HeroButton, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126
+      lineNumber: 127
     },
     __self: this
   }, "Start Your Free Trial"), ' ', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SecondButton, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 127
+      lineNumber: 128
     },
     __self: this
-  }, "Start Your Free Trial")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Other Button")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129
+      lineNumber: 130
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Screen, {
@@ -931,7 +1176,7 @@ var Hero = function Hero() {
     alt: "perfect day reminders screen",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130
+      lineNumber: 131
     },
     __self: this
   }))));
@@ -1110,7 +1355,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var StyledBody = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
   displayName: "IconMorph__StyledBody",
   componentId: "llhb40-0"
-})(["height:30vh;padding-bottom:100px;padding-top:50px;flex-flow:column;justify-content:stretch;align-items:center;display:flex;background:#f4f3fa;svg{margin-left:20px;}.lead{font-family:'Montserrat',sans-serif;font-size:2.2rem;line-height:3.2rem;max-width:900px;text-align:center;font-weight:200;margin-top:0;}button{display:flex;border:none;text-align:center;width:auto;overflow:visible;background:transparent;-webkit-font-smoothing:inherit;-moz-osx-font-smoothing:inherit;-webkit-appearance:none;background:transparent;outline:none;color:white;padding:15px 20px;cursor:pointer;color:rgb(70,200,120);font-size:3.5rem;font-family:'Montserrat',sans-serif;font-weight:200;}"]);
+})(["height:400px;padding-bottom:100px;padding-top:50px;flex-flow:column;justify-content:stretch;align-items:center;display:flex;background:#f4f3fa;svg{margin-left:20px;}.lead{font-family:'Montserrat',sans-serif;font-size:2.2rem;line-height:3.2rem;max-width:900px;text-align:center;font-weight:200;margin-top:0;}button{display:flex;border:none;text-align:center;width:auto;overflow:visible;background:transparent;-webkit-font-smoothing:inherit;-moz-osx-font-smoothing:inherit;-webkit-appearance:none;background:transparent;outline:none;color:white;padding:15px 20px;cursor:pointer;color:rgb(70,200,120);font-size:3.5rem;font-family:'Montserrat',sans-serif;font-weight:200;}"]);
 var paths = {
   bell: 'M50.74,135.05a101.47,101.47,0,0,1,68.16-95.89,33.82,33.82,0,1,1,66.8,0,101.47,101.47,0,0,1,68,95.89V236.53l50.74,33.82v16.91H0V270.35l50.74-33.82ZM186,304.18a33.82,33.82,0,0,1-67.65,0Z',
   plane: 'M187.57,0C291.16,0,375.13,67.75,375.13,151.32c0,33.35-13.41,64.17-36.07,89.17l34.85,86.65L226.21,297.46c-15.43.42-32.72,4.16-50,4.61-2,.05-3.92.08-5.86.08C69.88,302.15,0,233.3,0,151.32,0,67.75,84,0,187.57,0',
@@ -1376,22 +1621,35 @@ var BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.with
   displayName: "Modal__BackDrop",
   componentId: "sc-105rmtf-0"
 })(["position:fixed;display:flex;justify-content:center;align-items:center;top:0;bottom:0;left:0;right:0;background-color:rgba(0,0,0,0.5);"]);
-var Title = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.h1.withConfig({
-  displayName: "Modal__Title",
-  componentId: "sc-105rmtf-1"
-})([""]);
 var Modall = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
   displayName: "Modal__Modall",
+  componentId: "sc-105rmtf-1"
+})(["background-color:#fff;border-radius:25px;display:grid;grid-template-rows:70px 1fr 35px;grid-template-columns:1fr 1fr;position:absolute;align-items:flex-start;width:500px;height:500px;padding:10px 25px;z-index:900;box-shadow:1px 1px 5px 3px rgba(0,0,0,0.3);.title{grid-column:1/3;font-size:18px;justify-self:center;color:rgba(20,110,220,1);left:0;right:0;top:0;position:relative;}"]);
+var StyledInput = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.select.withConfig({
+  displayName: "Modal__StyledInput",
   componentId: "sc-105rmtf-2"
-})(["background-color:#fff;border-radius:25px;display:grid;grid-template-rows:50px 1fr 80px;grid-template-columns:1fr 1fr;position:absolute;align-items:center;width:500px;height:500px;padding:10px 25px;z-index:900;box-shadow:1px 1px 5px 3px rgba(0,0,0,0.3);.title{grid-column:1/3;font-size:18px;justify-self:center;color:rgba(20,110,220,1);left:0;right:0;top:0;position:relative;}"]);
+})(["width:100%;padding:10px;background:transparent;border:0;font-size:2rem;outline:none;"]);
 var Cancel = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.button.withConfig({
   displayName: "Modal__Cancel",
   componentId: "sc-105rmtf-3"
-})(["background-color:#fff;border-radius:5px;display:grid;grid-row:3;grid-column:2;position:relative;align-items:center;justify-self:flex-start;height:40%;background:rgba(220,100,120,1);color:white;width:100px;font-size:18px;z-index:900;&:focus{outline:none;}"]);
+})(["background-color:#fff;border-radius:5px;display:grid;grid-row:3;grid-column:2;position:relative;align-items:center;justify-self:flex-start;height:100%;background:rgba(220,100,120,1);color:white;width:100px;font-size:18px;z-index:900;&:focus{outline:none;}"]);
 var Save = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.button.withConfig({
   displayName: "Modal__Save",
   componentId: "sc-105rmtf-4"
-})(["background-color:#fff;border-radius:5px;display:grid;grid-column:2;grid-row:3;justify-self:flex-end;position:relative;align-items:center;width:100px;height:40%;background:rgba(20,200,120,1);color:white;font-size:18px;z-index:900;&:focus{outline:none;}"]);
+})(["background-color:#fff;border-radius:5px;display:grid;grid-column:2;grid-row:3;justify-self:flex-end;position:relative;align-items:center;width:100px;height:100%;background:rgba(20,200,120,1);color:white;font-size:18px;z-index:900;&:focus{outline:none;}"]);
+var REASONS = [{
+  name: 'Botox'
+}, {
+  name: 'Restylane'
+}, {
+  name: 'Hair Laser'
+}, {
+  name: 'Fraxel'
+}, {
+  name: 'Face Removal'
+}, {
+  name: 'Assjob'
+}];
 
 var Modal =
 /*#__PURE__*/
@@ -1413,6 +1671,7 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       client: '',
+      reason: '',
       date: '',
       timeRange: ''
     });
@@ -1439,7 +1698,7 @@ function (_Component) {
         mutation: TOGGLE_MODAL_MUTATION,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 127
+          lineNumber: 155
         },
         __self: this
       }, function (toggleModal) {
@@ -1447,7 +1706,7 @@ function (_Component) {
           query: OPEN_MODAL_QUERY,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 129
+            lineNumber: 157
           },
           __self: this
         }, function (_ref) {
@@ -1460,69 +1719,83 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BackDrop, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 135
+              lineNumber: 163
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Modall, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 136
+              lineNumber: 164
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
             className: "title",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 137
+              lineNumber: 165
             },
             __self: this
           }, "New Appointment"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 138
+              lineNumber: 166
             },
             __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 139
+              lineNumber: 167
             },
             __self: this
-          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          }, "Appointment For:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 169
+            },
+            __self: this
+          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
             htmlFor: "reason",
             className: "required",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 140
+              lineNumber: 171
             },
             __self: this
-          }, "Appointment Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          }, "Appointment Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
             type: "text",
             id: "reason",
             name: "reason",
             placeholder: "Appointment Type",
             autoComplete: "off",
-            required: true // value={
-            // }
-            ,
+            required: true,
+            value: _this2.state.reason,
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 142
+              lineNumber: 173
             },
             __self: this
-          }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Cancel, {
+          }, REASONS.map(function (type) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+              value: type.name,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 185
+              },
+              __self: this
+            }, type.name);
+          })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Cancel, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 156
+              lineNumber: 191
             },
             __self: this
           }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Save, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 157
+              lineNumber: 192
             },
             __self: this
           }, "Save")));
@@ -2369,6 +2642,17 @@ module.exports = require("lodash.debounce");
 /***/ (function(module, exports) {
 
 module.exports = require("next/link");
+
+/***/ }),
+
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
 
 /***/ }),
 

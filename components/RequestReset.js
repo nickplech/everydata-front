@@ -14,6 +14,13 @@ const REQUEST_RESET_MUTATION = gql`
   }
 `
 
+const Submitted = styled.p`
+  color: green;
+  background: white;
+  padding: 15px 15px;
+  border-left: 5px solid green;
+`
+
 const Thinner = styled.div`
   max-width: 600px;
   margin: 50px auto;
@@ -42,10 +49,12 @@ class RequestReset extends Component {
               }}
             >
               <fieldset disabled={loading} aria-busy={loading}>
-                <h2>Forgot Your Password?</h2>
+                <h2>Forget Your Password?</h2>
                 <Error error={error} />
                 {!error && !loading && called && (
-                  <p>Check your email for a reset link</p>
+                  <Submitted>
+                    Submitted! Please check your email for a reset link
+                  </Submitted>
                 )}
                 <label htmlFor="email">
                   Email

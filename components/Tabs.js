@@ -11,37 +11,51 @@ const ListTabs = styled.ul`
 
 const TabTitleItem = styled.li`
   display: inline-block;
-  padding-right: 5;
-  padding-left: 5;
-  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  margin: 16px 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+  /* background: rgba(20, 110, 220, 1); */
+  padding-top: 5px;
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  margin: 50px 1px 0 1px;
+  box-shadow: -1px -1px 4px 2px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  opacity: 0.4;
+  background: ${props =>
+    props.isActiveTab ? 'rgba(100, 210, 220, 1)' : 'rgba(20, 110, 220, 1)'};
+  opacity: 1;
+  border-bottom: none;
+
   &:hover {
-    opacity: 1;
+    background: rgba(100, 210, 220, 1);
+  }
+
+  &:focus {
+    background: rgba(20, 110, 220, 1);
+  }
+  &:nth-child(1) {
+    border-radius: 10px 0 0 0;
+  }
+  &:nth-child(3) {
+    border-radius: 0px 10px 0 0;
   }
 `
 const ActiveTabBorder = styled.div`
-  background-color: #0088dd;
+  background-color: rgba(20, 110, 220, 1);
   position: absolute;
-  bottom: 0;
-  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  will-change: left, width;
 `
 
 const TabAnchorItem = styled.a`
-  text-transform: capitalize;
-  color: #000000;
+  text-transform: uppercase;
+  color: #fff;
   font-weight: 600;
 `
 
 const TabzContainer = styled.div`
   position: relative;
-  border-bottom: 1px solid #dfdfdf;
+  padding: 0 20px;
 `
 
 const ReactTabs = styled.div`
-  position: realative;
+  position: relative;
 `
 
 class TabsContainer extends Component {

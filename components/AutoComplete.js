@@ -112,3 +112,4 @@ class AutoComplete extends Component {
 }
 
 export default AutoComplete
+export { SEARCH_CLIENTS_QUERY }

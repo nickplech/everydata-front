@@ -33,7 +33,9 @@ const Inner = styled.div`
   text-align: left;
   max-width: ${props => props.theme.innerWidth};
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 0;
+  padding-top: 0;
+
   .dates {
     font-family: montserrat, sans-serif;
     text-transform: uppercase;

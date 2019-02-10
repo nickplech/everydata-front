@@ -167,7 +167,7 @@ class CreateClient extends Component {
                   />
                 </label>
                 <label htmlFor="file">
-                  Add Clients Photo
+                  Add Client's Photo
                   <input
                     type="file"
                     id="file"

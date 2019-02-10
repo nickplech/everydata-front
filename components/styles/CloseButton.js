@@ -20,7 +20,7 @@ const CloseButton = styled.button`
     display: flex;
     color: red;
     font-size: 3rem;
-    padding-left: 1px;
+    padding-left: 0px;
   }
 `
 

@@ -14,22 +14,22 @@ const StatsDisplay = styled.div`
   grid-row: 1/3;
   grid-column: 1;
   background-color: rgba(220, 220, 220, 0.3);
-
   width: 100%;
   height: 100%;
   border: 5px solid white;
-
   border-radius: 25px 25px 25px 25px;
   box-shadow: 1px 1px 2px 3px rgba(0, 0, 0, 0.05);
 
   .react-calendar {
-    width: 365px;
+    width: 363px;
     border-radius: 15px;
     max-width: 100%;
     box-shadow: 0px 1px 1px 1px rgba(20, 20, 20, 0.1);
     height: 310px;
     background: white;
-    border: 1px solid rgba(20, 20, 20, 0.1);
+    margin-left: 0.5px;
+    margin-right: 0.5px;
+    /* border: 1px solid rgba(20, 20, 20, 0.1); */
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
   }
@@ -58,13 +58,13 @@ const StatsDisplay = styled.div`
     background: none;
     font-size: 20px;
     background-color: rgba(20, 110, 240, 1);
-    border-radius: 15px 15px 0 0;
+    /* border-radius: 25px 20px 0 0; */
     color: white;
     &:first-child {
-      border-radius: 15px 0 0 0;
+      border-radius: 18px 0 0 0;
     }
     &:last-child {
-      border-radius: 0 15px 0 0;
+      border-radius: 0 18px 0 0;
     }
     &:nth-child(2) {
       border-radius: 0;

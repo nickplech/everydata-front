@@ -17,7 +17,7 @@ const Form = styled.form`
   background: rgba(0, 0, 0, 0.02);
   border: 5px solid white;
   padding: 20px;
-  margin: 20px;
+  margin: 20px 0;
   margin-top: 0px;
   font-size: 1.5rem;
   line-height: 1.5;
@@ -40,13 +40,14 @@ const Form = styled.form`
     margin-top: 0.8rem;
     &:focus {
       outline: 0;
-      border-color: lightblue;
+      border: 2px solid rgba(20, 110, 220, 1);
     }
   }
+
   button,
   input[type='submit'] {
     width: auto;
-    background: ${props => props.theme.blue};
+
     color: white;
     border: 0;
     font-size: 2rem;

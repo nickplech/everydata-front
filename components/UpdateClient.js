@@ -7,6 +7,7 @@ import gql from 'graphql-tag'
 import styled, { ThemeProvider } from 'styled-components'
 import Error from './ErrorMessage'
 import SickButton from './styles/SickButton'
+import SickerButton from './styles/SickerButton'
 
 const Inner = styled.div`
   max-width: ${props => props.theme.innerWidth};
@@ -83,7 +84,10 @@ class UpdateClient extends Component {
       query: { id: res.data.updateClient.id },
     })
   }
-
+  handleCancelClick = e => {
+    e.preventDefault()
+    Router.back()
+  }
   render() {
     return (
       <Inner>
@@ -170,11 +174,13 @@ class UpdateClient extends Component {
                           onChange={this.handleChange}
                         />
                       </label>
-
                       <SickButton type="submit">
                         Sav{loading ? 'ing' : 'e'} Changes
-                      </SickButton>
-                    </fieldset>
+                      </SickButton>{' '}
+                      <SickerButton onClick={this.handleCancelClick}>
+                        Cancel
+                      </SickerButton>
+                    </fieldset>{' '}
                   </Form>
                 )}
               </Mutation>

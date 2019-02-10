@@ -101,14 +101,15 @@ const SecondButton = styled.button`
   border: 3px solid rgba(100, 100, 220, 1);
   margin-left: 25px;
   padding: 8px 12px;
+  width: 200px;
   margin-top: 15px;
   color: white;
   border-radius: 5px;
   font-size: 18px;
   cursor: pointer;
   &:hover {
-    border-color: yellow;
-    color: yellow;
+    border-color: white;
+    color: white;
   }
 `
 const Hero = () => (
@@ -124,7 +125,7 @@ const Hero = () => (
           immediately with no credit card required for a free trial.
         </p>
         <HeroButton>Start Your Free Trial</HeroButton>{' '}
-        <SecondButton>Start Your Free Trial</SecondButton>
+        <SecondButton>Other Button</SecondButton>
       </Left>
       <div>
         <Screen

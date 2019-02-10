@@ -11,39 +11,7 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/account": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/signup": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/resetrequest": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/index": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/pricing": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/hipaa": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/schedule": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/clients": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/addclient": [
+    "/update": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
@@ -51,7 +19,7 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/update": [
+    "/index": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
