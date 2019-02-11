@@ -1,23 +1,9 @@
 import React, { Component, Fragment } from 'react'
-import gql from 'graphql-tag'
-import Link from 'next/link'
 import MessageList from './MessageList'
 import { Query } from 'react-apollo'
 import Head from 'next/head'
 import styled from 'styled-components'
-
-const SINGLE_CLIENT_QUERY = gql`
-  query SINGLE_CLIENT_QUERY($id: ID!) {
-    client(where: { id: $id }) {
-      id
-      firstName
-      lastName
-      cellPhone
-      birthDay
-      image
-    }
-  }
-`
+import { SINGLE_CLIENT_QUERY } from './Clients'
 
 const GridSub = styled.div`
   display: grid;

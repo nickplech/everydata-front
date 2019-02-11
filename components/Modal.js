@@ -14,25 +14,6 @@ const TOGGLE_MODAL_MUTATION = gql`
     toggleModal @client
   }
 `
-// const CREATE_CLIENT_MUTATION = gql`
-//   mutation CREATE_CLIENT_MUTATION(
-//     $firstName: String!
-//     $lastName: String!
-//     $cellPhone: String!
-//     $birthDay: DateTime
-//     $image: String
-//   ) {
-//     createClient(
-//       firstName: $firstName
-//       lastName: $lastName
-//       cellPhone: $cellPhone
-//       birthDay: $birthDay
-//       image: $image
-//     ) {
-//       id
-//     }
-//   }
-// `
 
 const BackDrop = styled.div`
   position: fixed;

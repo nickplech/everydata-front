@@ -7,6 +7,7 @@ import gql from 'graphql-tag'
 import styled, { ThemeProvider } from 'styled-components'
 import Error from './ErrorMessage'
 import SickButton from './styles/SickButton'
+import { SINGLE_CLIENT_QUERY } from './Clients'
 import SickerButton from './styles/SickerButton'
 
 const Inner = styled.div`
@@ -22,18 +23,6 @@ const Inner = styled.div`
     }
     &:active {
       opacity: 1;
-    }
-  }
-`
-
-const SINGLE_CLIENT_QUERY = gql`
-  query SINGLE_CLIENT_QUERY($id: ID!) {
-    client(where: { id: $id }) {
-      id
-      firstName
-      lastName
-      cellPhone
-      birthDay
     }
   }
 `

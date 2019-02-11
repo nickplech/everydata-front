@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import Form from './styles/Form'
 import Error from './ErrorMessage'
+import styled from 'styled-components'
 import { CURRENT_USER_QUERY } from './User'
 import SickButton from './styles/SickButton'
 
@@ -27,6 +28,12 @@ const SIGNUP_MUTATION = gql`
       email
     }
   }
+`
+const Submitted = styled.p`
+  color: green;
+  background: white;
+  padding: 15px 15px;
+  border-left: 5px solid green;
 `
 
 class Signup extends Component {
@@ -53,7 +60,7 @@ class Signup extends Component {
         }}
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
-        {(signup, { error, loading }) => (
+        {(signup, { error, loading, called }) => (
           <Form
             method="post"
             onSubmit={async e => {
@@ -71,6 +78,12 @@ class Signup extends Component {
             <fieldset disabled={loading} aria-busy={loading}>
               <h2>Sign Up for An Account</h2>
               <Error error={error} />
+              {!error && !loading && called && (
+                <Submitted>
+                  Submitted! Welcome to Perfect Day Reminders, please log in to
+                  begin your Free Trial
+                </Submitted>
+              )}
               <label htmlFor="name">
                 Name
                 <input

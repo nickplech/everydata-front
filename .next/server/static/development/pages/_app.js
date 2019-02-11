@@ -148,7 +148,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query SEARCH_CLIENTS_QUERY($searchTerm: String!) {\n    clients(\n      orderBy: updatedAt_DESC\n      where: {\n        OR: [\n          { firstName_contains: $searchTerm }\n          { lastName_contains: $searchTerm }\n        ]\n      }\n    ) {\n      id\n      firstName\n      lastName\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query SEARCH_CLIENTS_QUERY($searchTerm: String!) {\n    clients(\n      orderBy: updatedAt_DESC\n      where: {\n        AND: [\n          { firstName_contains: $searchTerm }\n          { lastName_contains: $searchTerm }\n        ]\n      }\n    ) {\n      id\n      firstName\n      lastName\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1374,26 +1374,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 var OPEN_MODAL_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
-var TOGGLE_MODAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject2()); // const CREATE_CLIENT_MUTATION = gql`
-//   mutation CREATE_CLIENT_MUTATION(
-//     $firstName: String!
-//     $lastName: String!
-//     $cellPhone: String!
-//     $birthDay: DateTime
-//     $image: String
-//   ) {
-//     createClient(
-//       firstName: $firstName
-//       lastName: $lastName
-//       cellPhone: $cellPhone
-//       birthDay: $birthDay
-//       image: $image
-//     ) {
-//       id
-//     }
-//   }
-// `
-
+var TOGGLE_MODAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject2());
 var BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
   displayName: "Modal__BackDrop",
   componentId: "sc-105rmtf-0"
@@ -1475,7 +1456,7 @@ function (_Component) {
         mutation: TOGGLE_MODAL_MUTATION,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 155
+          lineNumber: 136
         },
         __self: this
       }, function (toggleModal) {
@@ -1483,7 +1464,7 @@ function (_Component) {
           query: OPEN_MODAL_QUERY,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 157
+            lineNumber: 138
           },
           __self: this
         }, function (_ref) {
@@ -1496,38 +1477,38 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BackDrop, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 163
+              lineNumber: 144
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Modall, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 164
+              lineNumber: 145
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
             className: "title",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 165
+              lineNumber: 146
             },
             __self: this
           }, "New Appointment"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 166
+              lineNumber: 147
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 167
+              lineNumber: 148
             },
             __self: this
           }, "Appointment For:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_4__["default"], {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 169
+              lineNumber: 150
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -1535,7 +1516,7 @@ function (_Component) {
             className: "required",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 171
+              lineNumber: 152
             },
             __self: this
           }, "Appointment Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
@@ -1549,7 +1530,7 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 173
+              lineNumber: 154
             },
             __self: this
           }, REASONS.map(function (type) {
@@ -1557,7 +1538,7 @@ function (_Component) {
               value: type.name,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 185
+                lineNumber: 166
               },
               __self: this
             }, type.name);
@@ -1565,14 +1546,14 @@ function (_Component) {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 191
+              lineNumber: 172
             },
             __self: this
           }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Save, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 192
+              lineNumber: 173
             },
             __self: this
           }, "Save")));

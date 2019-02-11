@@ -16,14 +16,17 @@ const TabTitleItem = styled.li`
   /* background: rgba(20, 110, 220, 1); */
   padding-top: 5px;
   transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  margin: 50px 1px 0 1px;
-  box-shadow: -1px -1px 4px 2px rgba(0, 0, 0, 0.1);
+  margin: ${props =>
+    props.isActiveTab ? '50px 4px 0 4px' : '  50px 1px 0 1px'};
+  box-shadow: -1px -1px 3px 1px rgba(0, 0, 0, 0.1);
+  transform: ${props => (props.isActiveTab ? 'scale(1.1)' : ' scale(1)')};
   cursor: pointer;
   background: ${props =>
     props.isActiveTab ? 'rgba(100, 210, 220, 1)' : 'rgba(20, 110, 220, 1)'};
   opacity: 1;
   border-bottom: none;
-
+  z-index: 0;
+  position: relative;
   &:hover {
     background: rgba(100, 210, 220, 1);
   }

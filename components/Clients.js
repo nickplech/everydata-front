@@ -9,27 +9,20 @@ import Error from './ErrorMessage'
 
 const SINGLE_CLIENT_QUERY = gql`
   query SINGLE_CLIENT_QUERY($id: ID!) {
-    client(where: { id: $id }) {
-      id
-      firstName
-      lastName
-      cellPhone
-      birthDay
-    }
-  }
-`
-const ALL_CLIENTSUSERS_QUERY = gql`
-  query ALL_CLIENTSUSERS_QUERY($id: ID!) {
-    clientsUsers(where: { user: $id }) {
+    client(id: $id) {
       id
       firstName
       lastName
       cellPhone
       birthDay
       image
+      user {
+        id
+      }
     }
   }
 `
+
 const ALL_CLIENTS_QUERY = gql`
   query ALL_CLIENTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
     clients(first: $first, skip: $skip, orderBy: lastName_ASC) {
@@ -39,6 +32,9 @@ const ALL_CLIENTS_QUERY = gql`
       cellPhone
       birthDay
       image
+      user {
+        id
+      }
     }
   }
 `
@@ -100,4 +96,4 @@ class Clients extends Component {
 }
 
 export default Clients
-export { ALL_CLIENTS_QUERY, SINGLE_CLIENT_QUERY, ALL_CLIENTSUSERS_QUERY }
+export { ALL_CLIENTS_QUERY, SINGLE_CLIENT_QUERY }

@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import { Mutation } from 'react-apollo'
 import Form from './styles/Form'
 import gql from 'graphql-tag'
+import Router from 'next/router'
 import styled from 'styled-components'
 import Error from './ErrorMessage'
 import SickButton from './styles/SickButton'
 import { UPDATE_PERMISSIONS_MUTATION } from './Permissions'
 import User from './User'
+import SickerButton from './styles/SickerButton'
 
 // const UPDATE_USER_MUTATION = gql`
 //   mutation updateProfile(
@@ -76,6 +78,10 @@ class UpdateUserProfile extends Component {
       // query: { id: res.data.updateClient.id },
     })
   }
+  handleCancelClick = e => {
+    e.preventDefault()
+    Router.back()
+  }
 
   render() {
     return (
@@ -138,6 +144,9 @@ class UpdateUserProfile extends Component {
                     <SickButton type="submit">
                       Sav{loading ? 'ing' : 'e'} Changes
                     </SickButton>
+                    <SickerButton onClick={this.handleCancelClick}>
+                      Cancel
+                    </SickerButton>
                   </fieldset>
                 </Form>
               )}

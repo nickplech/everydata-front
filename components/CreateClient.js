@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Mutation } from 'react-apollo'
 import Form from './styles/Form'
-import Router from 'next/router'
 import MaskedInput from 'react-text-mask'
-
+import Router from 'next/router'
 import gql from 'graphql-tag'
 import styled, { ThemeProvider } from 'styled-components'
 import Error from './ErrorMessage'
 import SickButton from './styles/SickButton'
+import SickerButton from './styles/SickerButton'
 
 const Inner = styled.div`
   max-width: ${props => props.theme.innerWidth};
@@ -31,6 +31,8 @@ const Inner = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 50%;
+    margin-top: 20px;
+    border: 2px solid rgba(20, 110, 220, 1);
     cursor: pointer;
   }
 `
@@ -68,7 +70,10 @@ class CreateClient extends Component {
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
   }
-
+  handleCancelClick = e => {
+    e.preventDefault()
+    Router.back()
+  }
   uploadFile = async e => {
     const files = e.target.files
     const data = new FormData()
@@ -184,7 +189,10 @@ class CreateClient extends Component {
                     />
                   )}
                 </label>
-                <SickButton type="submit">Add Contact</SickButton>
+                <SickButton type="submit">Add Contact</SickButton>{' '}
+                <SickerButton onClick={this.handleCancelClick}>
+                  Cancel
+                </SickerButton>
               </fieldset>
             </Form>
           )}

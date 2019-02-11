@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { SINGLE_CLIENT_QUERY } from './SingleClient'
 import { Query } from 'react-apollo'
 import Link from 'next/link'
