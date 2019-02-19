@@ -3,6 +3,8 @@ import dateFns from 'date-fns'
 import Calendar from 'react-calendar/dist/entry.nostyle'
 import styled from 'styled-components'
 import SingleDay from './SingleDay'
+import { Query, Mutation } from 'react-apollo'
+import gql from 'graphql-tag'
 
 const Indexed = styled.div`
   position: relative;
@@ -19,16 +21,17 @@ const StatsDisplay = styled.div`
   border: 5px solid white;
   border-radius: 25px 25px 25px 25px;
   box-shadow: 1px 1px 2px 3px rgba(0, 0, 0, 0.05);
+  z-index: 10;
 
   .react-calendar {
-    width: 363px;
+    width: 356px;
     border-radius: 15px;
     max-width: 100%;
-    box-shadow: 0px 1px 1px 1px rgba(20, 20, 20, 0.1);
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
     height: 310px;
     background: white;
-    margin-left: 0.5px;
-    margin-right: 0.5px;
+    margin: 5px auto;
+
     /* border: 1px solid rgba(20, 20, 20, 0.1); */
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
@@ -58,13 +61,12 @@ const StatsDisplay = styled.div`
     background: none;
     font-size: 20px;
     background-color: rgba(20, 110, 240, 1);
-    /* border-radius: 25px 20px 0 0; */
     color: white;
     &:first-child {
       border-radius: 18px 0 0 0;
     }
     &:last-child {
-      border-radius: 0 18px 0 0;
+      border-radius: 0 16px 0 0;
     }
     &:nth-child(2) {
       border-radius: 0;
@@ -147,7 +149,11 @@ const StatsDisplay = styled.div`
     color: white;
   }
 `
-
+// const LOCAL_DATE_QUERY = gql`
+//   query date @client {
+//     date
+//   }
+// `
 class CalendarStats extends React.Component {
   state = {
     date: dateFns.startOfDay(new Date()),
@@ -156,9 +162,7 @@ class CalendarStats extends React.Component {
 
   onChange = date => this.setState({ date })
 
-  // handleClick = () => {
-  //   alert(`'New date is: ${this.state.date}'`)
-  // }
+  changeModalDate = date => this.setState({ date })
 
   handleJumpToToday = today => this.setState({ today })
 

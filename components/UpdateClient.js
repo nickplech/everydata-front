@@ -6,6 +6,8 @@ import MaskedInput from 'react-text-mask'
 import gql from 'graphql-tag'
 import styled, { ThemeProvider } from 'styled-components'
 import Error from './ErrorMessage'
+
+import { format } from 'date-fns'
 import SickButton from './styles/SickButton'
 import { SINGLE_CLIENT_QUERY } from './Clients'
 import SickerButton from './styles/SickerButton'
@@ -17,13 +19,24 @@ const Inner = styled.div`
   .dates {
     font-family: montserrat, sans-serif;
     text-transform: uppercase;
-    opacity: 0.5;
     &:focus {
       opacity: 1;
     }
     &:active {
       opacity: 1;
     }
+  }
+  .profPic {
+    width: 80px;
+    height: 80px;
+    background-color: lightgrey;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 2px solid rgba(20, 110, 220, 0.5);
+    box-shadow: 1px 2px 5px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
   }
 `
 
@@ -34,6 +47,7 @@ const UPDATE_CLIENT_MUTATION = gql`
     $lastName: String
     $cellPhone: String
     $birthDay: DateTime
+    $image: String
   ) {
     updateClient(
       id: $id
@@ -41,12 +55,14 @@ const UPDATE_CLIENT_MUTATION = gql`
       lastName: $lastName
       cellPhone: $cellPhone
       birthDay: $birthDay
+      image: $image
     ) {
       id
       firstName
       lastName
       cellPhone
       birthDay
+      image
     }
   }
 `
@@ -58,6 +74,7 @@ class UpdateClient extends Component {
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
   }
+
   updateClient = async (e, updateClientMutation) => {
     e.preventDefault()
     console.log('Updating Client!')
@@ -76,6 +93,11 @@ class UpdateClient extends Component {
   handleCancelClick = e => {
     e.preventDefault()
     Router.back()
+  }
+  uploadFile = async e => {
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
   }
   render() {
     return (
@@ -155,21 +177,53 @@ class UpdateClient extends Component {
                         Birthday
                         <input
                           className="dates"
-                          type="date"
                           id="birthDay"
                           name="birthDay"
                           autoComplete="off"
-                          defaultValue={data.client.birthDay}
+                          placeholder="mm/dd/yyyy"
+                          mask={[
+                            /\d/,
+                            /\d/,
+                            '/',
+                            /\d/,
+                            /\d/,
+                            '/',
+                            /\d/,
+                            /\d/,
+                            /\d/,
+                            /\d/,
+                          ]}
+                          defaultValue={format(
+                            data.client.birthDay,
+                            'MM/DD/YYYY',
+                          )}
                           onChange={this.handleChange}
                         />
                       </label>
+                      <label htmlFor="file">
+                        {/* <input
+                          type="file"
+                          id="file"
+                          name="file"
+                          defaultValue={data.client.image}
+                          onChange={this.uploadFile}
+                        /> */}
+                        {data.client.image && (
+                          <img
+                            className="profPic"
+                            width="150"
+                            src={data.client.image}
+                            alt="upload preview"
+                          />
+                        )}
+                      </label>
                       <SickButton type="submit">
                         Sav{loading ? 'ing' : 'e'} Changes
-                      </SickButton>{' '}
+                      </SickButton>
                       <SickerButton onClick={this.handleCancelClick}>
                         Cancel
                       </SickerButton>
-                    </fieldset>{' '}
+                    </fieldset>
                   </Form>
                 )}
               </Mutation>

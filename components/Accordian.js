@@ -64,9 +64,11 @@ const Plus = styled.div`
   border: 2px solid rgba(20, 110, 220, 1);
   border-radius: 50%;
   margin-right: 40px;
+
   .plus {
     display: inline-flex;
     text-align: center;
+
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
     -khtml-user-select: none; /* Konqueror HTML */

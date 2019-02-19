@@ -1,13 +1,12 @@
 import React from 'react'
-import UpdateUserProfile from './UpdateUserProfile'
+import UpdateUserProfiles from './UpdateUserProfile'
 import Tabs from './Tabs'
 import styled from 'styled-components'
 import SubscriptionManagement from './SubscriptionManagement'
-
+import { Query } from 'react-apollo'
+import { CURRENT_USER_QUERY } from './User'
 const Styled = styled.div`
-  font-family: sans-serif;
-  text-align: left;
-  /* margin: 0 30%; */
+  /* font-family: sans-serif; */
   text-align: left;
   max-width: ${props => props.theme.innerWidth};
   margin: 0 auto;
@@ -17,21 +16,32 @@ const Styled = styled.div`
 
 const TabParent = () => (
   <Styled>
-    <Tabs
-      activeTab={{
-        id: 'tab1',
+    <Query query={CURRENT_USER_QUERY}>
+      {({ data: { me }, error }) => {
+        return (
+          <Tabs
+            activeTab={{
+              id: 'tab1',
+            }}
+          >
+            <Tabs.Tab id="tab1" title="Profile">
+              <UpdateUserProfiles
+                id={me.id}
+                name={me.name}
+                email={me.email}
+                businessName={me.businessName}
+              />
+            </Tabs.Tab>
+            <Tabs.Tab id="tab2" title="Schedule">
+              <div> </div>
+            </Tabs.Tab>
+            <Tabs.Tab id="tab3" title="Subscription">
+              <SubscriptionManagement />
+            </Tabs.Tab>
+          </Tabs>
+        )
       }}
-    >
-      <Tabs.Tab id="tab1" title="Profile">
-        <UpdateUserProfile />
-      </Tabs.Tab>
-      <Tabs.Tab id="tab2" title="Schedule">
-        <div> </div>
-      </Tabs.Tab>
-      <Tabs.Tab id="tab3" title="Subscription ">
-        <SubscriptionManagement />
-      </Tabs.Tab>
-    </Tabs>
+    </Query>
   </Styled>
 )
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
+import { format } from 'date-fns'
 import styled from 'styled-components'
 import ClientSearch from './ClientSearch'
 
@@ -25,42 +26,63 @@ const BackDrop = styled.div`
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 990;
 `
 
 const Modall = styled.div`
   background-color: #fff;
   border-radius: 25px;
   display: grid;
-  grid-template-rows: 70px 1fr 35px;
+  grid-template-rows: 80px 1fr 35px;
   grid-template-columns: 1fr 1fr;
   position: absolute;
   align-items: flex-start;
   width: 500px;
   height: 500px;
-  padding: 10px 25px;
-
-  z-index: 900;
+  padding: 20px 25px;
+  z-index: 999;
   box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.3);
-  .title {
-    grid-column: 1/3;
-    font-size: 18px;
-    justify-self: center;
-    color: rgba(20, 110, 220, 1);
-    left: 0;
-    right: 0;
-    top: 0;
-    position: relative;
-  }
+`
+
+const Middle = styled.div`
+  grid-row: 2;
+  width: 100%;
+  grid-column: 1/3;
+  padding: 30px 0;
 `
 const StyledInput = styled.select`
-  width: 100%;
   padding: 10px;
+  width: 100%;
   background: transparent;
-  border: 0;
+  border: 2px solid rgba(20, 110, 240, 1);
   font-size: 2rem;
   outline: none;
 `
 
+const Date = styled.div`
+  align-self: center;
+  grid-column: 1/3;
+  grid-row: 1;
+  justify-content: center;
+  p {
+    margin: 0;
+    margin-left: 10px;
+    font-size: 18px;
+    display: inline-block;
+    position: relative;
+    color: rgba(220, 20, 20, 1);
+  }
+  .title {
+    display: inline-block;
+    font-size: 18px;
+    margin: 0;
+    color: rgba(20, 110, 220, 1);
+    position: relative;
+  }
+  h3 {
+    margin: 0;
+  }
+`
 const Cancel = styled.button`
   background-color: #fff;
   border-radius: 5px;
@@ -79,6 +101,17 @@ const Cancel = styled.button`
   &:focus {
     outline: none;
   }
+  &:hover {
+    opacity: 0.8;
+  }
+`
+const Line = styled.div`
+  width: 100%;
+  margin: 0;
+
+  height: 3px;
+  background: grey;
+  grid-column: 1/3;
 `
 const Save = styled.button`
   background-color: #fff;
@@ -98,6 +131,9 @@ const Save = styled.button`
   &:focus {
     outline: none;
   }
+  &:hover {
+    opacity: 0.8;
+  }
 `
 const REASONS = [
   {
@@ -115,16 +151,14 @@ const REASONS = [
   {
     name: 'Face Removal',
   },
-  {
-    name: 'Assjob',
-  },
 ]
 class Modal extends Component {
   state = {
     client: '',
     reason: '',
     date: '',
-    timeRange: '',
+    startTime: '',
+    length: '',
   }
   handleChange = e => {
     const { name, type, value } = e.target
@@ -143,32 +177,43 @@ class Modal extends Component {
               return (
                 <BackDrop>
                   <Modall>
-                    <h1 className="title">New Appointment</h1>
-                    <form>
-                      <label>
-                        Appointment For:
-                        <ClientSearch />
-                      </label>
-                      <label htmlFor="reason" className="required">
-                        Appointment Type:
-                        <StyledInput
-                          type="text"
-                          id="reason"
-                          name="reason"
-                          placeholder="Appointment Type"
-                          autoComplete="off"
-                          required
-                          value={this.state.reason}
-                          onChange={this.handleChange}
-                        >
-                          {REASONS.map(type => {
-                            return (
-                              <option value={type.name}>{type.name}</option>
-                            )
-                          })}
-                        </StyledInput>
-                      </label>
-                    </form>
+                    <Date>
+                      <h1 className="title">APPOINTMENT:</h1>
+                      <p>{format(this.props.date, 'MMMM Do, YYYY')}</p>
+                      <h3 className="title">START TIME:</h3>
+                      <p>{this.props.time}</p>
+                      <Line />
+                    </Date>
+
+                    <Middle>
+                      <form>
+                        <label>
+                          For:
+                          <ClientSearch />
+                        </label>
+                        <label htmlFor="reason" className="required">
+                          Type:
+                          <StyledInput
+                            type="text"
+                            id="reason"
+                            name="reason"
+                            placeholder="Appointment Type"
+                            autoComplete="off"
+                            required
+                            value={this.state.reason}
+                            onChange={this.handleChange}
+                          >
+                            {REASONS.map(type => {
+                              return (
+                                <option key={type.name} value={type.name}>
+                                  {type.name}
+                                </option>
+                              )
+                            })}
+                          </StyledInput>
+                        </label>{' '}
+                      </form>
+                    </Middle>
                     <Cancel onClick={toggleModal}>Cancel</Cancel>
                     <Save onClick={toggleModal}>Save</Save>
                   </Modall>

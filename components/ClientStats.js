@@ -207,9 +207,7 @@ class ClientStats extends React.Component {
                                 alt="birthday cake"
                               />
                             </span>
-                            {format(client.birthDay, 'MMMM d, YYYY', {
-                              awareOfUnicodeTokens: true,
-                            })}
+                            {format(client.birthDay, 'MMMM Do, YYYY')}
                           </Stat>
                         </div>
                       </div>

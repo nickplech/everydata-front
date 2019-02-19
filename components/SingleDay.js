@@ -4,7 +4,7 @@ import posed from 'react-pose'
 import { Mutation } from 'react-apollo'
 import { TOGGLE_MODAL_MUTATION } from './Modal'
 import { format } from 'date-fns'
-import setHours from 'date-fns/set_hours'
+import { Data_15, Data_20 } from '../lib/timeSlots'
 import Modal from './Modal'
 
 const Gear = posed.img({
@@ -20,7 +20,15 @@ const Gear = posed.img({
     scale: 1.1,
   },
 })
+const TopBlock = styled.div`
+  display: grid;
+  grid-column: 2;
+  grid-row: 1/3;
 
+  width: 100%;
+  height: 100%;
+  background: rgba(240, 240, 240, 1);
+`
 const DayView = styled.div`
   position: relative;
   display: grid;
@@ -44,15 +52,15 @@ const DayView = styled.div`
     text-align: center;
     padding-right: 20px;
     margin-top: 1px;
-    height: 60px;
+    height: 65px;
     width: 100%;
     background: rgba(20, 110, 240, 1);
   }
   .gear {
     position: absolute;
     display: flex;
-    left: 10px;
-    top: 10px;
+    left: 30px;
+    top: 22px;
     width: 25px;
     height: 25px;
     cursor: pointer;
@@ -97,235 +105,125 @@ const DayGrid = styled.div`
   grid-gap: 2px;
   width: 100%;
   right: 0px;
-  margin-top: 63px;
+  margin-top: 67px;
   height: 75vh;
   overflow-y: scroll;
   overscroll-behavior: contain;
-  .timeCell {
+`
+const TimeCell = styled.div`
+  display: grid;
+  border-left: none;
+  grid-column: 2/3;
+  padding-left: 5px;
+  align-items: center;
+  border-bottom: none;
+  border-top: 1px solid white;
+  background: rgba(243, 241, 244, 1);
+  cursor: pointer;
+  /* -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; */
+
+  &:nth-child(4n + 2) {
     display: grid;
     grid-column: 1/3;
-    padding-left: 15px;
     align-items: center;
     border-bottom: none;
     border-top: 1px solid white;
     border-radius: 20px 0 0 20px;
-    background: rgba(20, 110, 240, 0.15);
+    background: rgba(20, 110, 240, 0.65);
     color: grey;
-
-    &:hover {
-      opacity: 0.5;
-    }
   }
-  .lower {
-    display: grid;
-    grid-column: 2/3;
-    padding-left: 5px;
-    align-items: center;
-    border-bottom: none;
-    border-top: 1px solid white;
-    background: rgba(243, 241, 244, 1);
-    color: grey;
-    &:hover {
-      opacity: 0.5;
-    }
+  &:hover {
+    opacity: 0.5;
   }
   .number {
     display: grid;
     font-size: 12px;
     align-self: center;
     justify-content: flex-start;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
   }
 `
-
-const TopBlock = styled.div`
+const StyledInput = styled.input`
   display: grid;
-  grid-column: 2;
-  grid-row: 1/3;
-
-  width: 100%;
-  height: 100%;
-  background: rgba(240, 240, 240, 1);
+  grid-column: 1;
+  text-align: left;
+  font-weight: 800;
+  color: rgba(243, 241, 244, 1);
+  background: transparent;
+  border: none;
+  opacity: 1;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+`
+const SwitchIntervals = styled.button`
+  background: white;
+  color: blue;
+  position: absolute;
+  display: flex;
+  left: 60px;
+  top: 22px;
+  padding: 5px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  z-index: 50;
+  &:focus {
+    outline: none;
+  }
 `
 
-const DATA = [
-  {
-    time: '7:00 am',
-    q2: '7:15 am',
-    q3: '7:30 am',
-    q4: '7:45 am',
-    display: '7 am',
-  },
-  {
-    time: '8:00 am',
-    q2: '8:15 am',
-    q3: '8:30 am',
-    q4: '8:45 am',
-    display: '8 am',
-  },
+class SingleDay extends Component {
+  state = { selectedTime: '' }
 
-  {
-    time: '9:00 am',
-    q2: '9:15 am',
-    q3: '9:30 am',
-    q4: '9:45 am',
-    display: '9 am',
-  },
-
-  {
-    time: '10:00 am',
-    q2: '10:15 am',
-    q3: '10:30 am',
-    q4: '10:45 am',
-    display: '10 am',
-  },
-  {
-    time: '11:00 am',
-    q2: '11:15 am',
-    q3: '11:30 am',
-    q4: '11:45 am',
-    display: '11 am',
-  },
-
-  {
-    time: '12:00 pm',
-    q2: '12:15 pm',
-    q3: '12:30 pm',
-    q4: '12:45 pm',
-    display: '12 pm',
-  },
-
-  {
-    time: '1:00 pm',
-    q2: '1:15 pm',
-    q3: '1:30 pm',
-    q4: '1:45 pm',
-    display: '1 pm',
-  },
-  {
-    time: '2:00 pm',
-    q2: '2:15 pm',
-    q3: '2:30 pm',
-    q4: '2:45 pm',
-    display: '2 pm',
-  },
-  {
-    time: '3:00 pm',
-    q2: '3:15 pm',
-    q3: '3:30 pm',
-    q4: '3:45 pm',
-    display: '3 pm',
-  },
-  {
-    time: '4:00 pm',
-    q2: '4:15 pm',
-    q3: '4:30 pm',
-    q4: '4:45 pm',
-    display: '4 pm',
-  },
-  {
-    time: '5:00 pm',
-    q2: '5:15 pm',
-    q3: '5:30 pm',
-    q4: '5:45 pm',
-    display: '5 pm',
-  },
-  {
-    time: '6:00 pm',
-    q2: '6:15 pm',
-    q3: '6:30 pm',
-    q4: '6:45 pm',
-    display: '6 pm',
-  },
-  {
-    time: '7:00 pm',
-    q2: '7:15 pm',
-    q3: '7:30 pm',
-    q4: '7:45 pm',
-    display: '7 pm',
-  },
-  {
-    time: '8:00 pm',
-    q2: '8:15 pm',
-    q3: '8:30 pm',
-    q4: '8:45 pm',
-    display: '8 pm',
-  },
-  {
-    time: '9:00 pm',
-    q2: '9:15 pm',
-    q3: '9:30 pm',
-    q4: '9:45 pm',
-    display: '9 pm',
-  },
-]
-
-const SingleDay = props => (
-  <DayView>
-    {/* <Link
-      href={{
-        pathname: 'calendarsettings',
-        // query: { id: this.props.id },
-      }}
-    > */}
-    <Gear
-      className="gear"
-      src="../static/img/gear.png"
-      alt="edit schedule settings"
-      onClick={props.handleJumpToToday}
-    />
-    {/* </Link> */}
-    <div className="parent">
-      <div className="sideDate">{format(props.date, 'MMMM Do, YYYY')}</div>
-      <div className="date">{format(props.date, 'dddd')}</div>
-    </div>
-
-    <DayGrid>
-      <TopBlock />
-      {DATA.map(timeblock => {
-        return (
-          <Mutation mutation={TOGGLE_MODAL_MUTATION}>
-            {toggleModal => (
-              <>
-                <div
-                  onDoubleClick={toggleModal}
-                  key={timeblock.time}
-                  className="timeCell number"
-                  value={timeblock.time}
-                >
-                  {timeblock.display}
-                </div>
-                <div
-                  onDoubleClick={toggleModal}
-                  className="lower"
-                  value={timeblock.q2}
-                  key={timeblock.q2}
-                />
-                <div
-                  onDoubleClick={toggleModal}
-                  className="lower"
-                  value={timeblock.q3}
-                  key={timeblock.q3}
-                />
-                <div
-                  onDoubleClick={toggleModal}
-                  className="lower"
-                  value={timeblock.q4}
-                  key={timeblock.q4}
-                />
-              </>
-            )}
-          </Mutation>
-        )
-      })}
-    </DayGrid>
-    <Modal value={DATA} />
-  </DayView>
-)
+  update = e => {
+    this.setState({ selectedTime: e.target.value })
+  }
+  render() {
+    const date = this.props.date
+    const time = this.state.selectedTime
+    return (
+      <DayView>
+        <SwitchIntervals>15min</SwitchIntervals>
+        <div className="parent">
+          <div className="sideDate">{format(date, 'MMMM Do, YYYY')}</div>
+          <div className="date">{format(date, 'dddd')}</div>
+        </div>
+        <DayGrid>
+          <TopBlock />
+          {Data_15.map((timeblock, i) => {
+            return (
+              <Mutation key={i} mutation={TOGGLE_MODAL_MUTATION}>
+                {toggleModal => (
+                  <TimeCell>
+                    <StyledInput
+                      onDoubleClick={toggleModal}
+                      key={timeblock.time}
+                      className="number"
+                      value={timeblock.time}
+                      onClick={this.update}
+                      readOnly
+                    />
+                  </TimeCell>
+                )}
+              </Mutation>
+            )
+          })}
+        </DayGrid>
+        <Modal date={date} time={time} />
+      </DayView>
+    )
+  }
+}
 
 export default SingleDay

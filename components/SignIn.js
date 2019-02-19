@@ -18,6 +18,10 @@ const SIGNIN_MUTATION = gql`
     }
   }
 `
+const Margin = styled.div`
+  margin: 15px 25px;
+`
+
 const StyledP = styled.p`
   margin-bottom: 0;
   margin-top: 20px;
@@ -33,57 +37,59 @@ class SignIn extends Component {
   }
   render() {
     return (
-      <Mutation
-        mutation={SIGNIN_MUTATION}
-        variables={this.state}
-        refetchQueries={[{ query: CURRENT_USER_QUERY }]}
-      >
-        {(signin, { error, loading }) => (
-          <Form
-            method="post"
-            onSubmit={async e => {
-              e.preventDefault()
-              await signin()
-              this.setState({
-                email: '',
-                password: '',
-              })
-            }}
-          >
-            <fieldset disabled={loading} aria-busy={loading}>
-              <h2>Sign Into Your Account</h2>
-              <Error error={error} />
-              <label htmlFor="email">
-                Email
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={this.state.email}
-                  onChange={this.saveToState}
-                />
-              </label>
+      <Margin>
+        <Mutation
+          mutation={SIGNIN_MUTATION}
+          variables={this.state}
+          refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+        >
+          {(signin, { error, loading }) => (
+            <Form
+              method="post"
+              onSubmit={async e => {
+                e.preventDefault()
+                await signin()
+                this.setState({
+                  email: '',
+                  password: '',
+                })
+              }}
+            >
+              <fieldset disabled={loading} aria-busy={loading}>
+                <h2>Sign Into Your Account</h2>
+                <Error error={error} />
+                <label htmlFor="email">
+                  Email
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={this.state.email}
+                    onChange={this.saveToState}
+                  />
+                </label>
 
-              <label htmlFor="password">
-                Password
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  value={this.state.password}
-                  onChange={this.saveToState}
-                />
-              </label>
+                <label htmlFor="password">
+                  Password
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value={this.state.password}
+                    onChange={this.saveToState}
+                  />
+                </label>
 
-              <SickButton type="submit">Sign In!</SickButton>
+                <SickButton type="submit">Sign In!</SickButton>
 
-              <Link href="/resetrequest">
-                <StyledP>Forget Your Password?</StyledP>
-              </Link>
-            </fieldset>
-          </Form>
-        )}
-      </Mutation>
+                <Link href="/resetrequest">
+                  <StyledP>Forget Your Password?</StyledP>
+                </Link>
+              </fieldset>
+            </Form>
+          )}
+        </Mutation>
+      </Margin>
     )
   }
 }

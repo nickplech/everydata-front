@@ -139,11 +139,11 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -195,12 +195,12 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(AutoComplete)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+    _defineProperty(_assertThisInitialized(_this), "state", {
       clients: [],
       loading: false
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", lodash_debounce__WEBPACK_IMPORTED_MODULE_6___default()(
+    _defineProperty(_assertThisInitialized(_this), "onChange", lodash_debounce__WEBPACK_IMPORTED_MODULE_6___default()(
     /*#__PURE__*/
     function () {
       var _ref = _asyncToGenerator(
@@ -387,138 +387,6 @@ var Block = function Block(props) {
 
 /***/ }),
 
-/***/ "./components/CalendarStats.js":
-/*!*************************************!*\
-  !*** ./components/CalendarStats.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "date-fns");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_calendar_dist_entry_nostyle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-calendar/dist/entry.nostyle */ "react-calendar/dist/entry.nostyle");
-/* harmony import */ var react_calendar_dist_entry_nostyle__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_calendar_dist_entry_nostyle__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _SingleDay__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SingleDay */ "./components/SingleDay.js");
-var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/CalendarStats.js";
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-var Indexed = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
-  displayName: "CalendarStats__Indexed",
-  componentId: "sc-3vgek8-0"
-})(["position:relative;z-index:0;"]);
-var StatsDisplay = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
-  displayName: "CalendarStats__StatsDisplay",
-  componentId: "sc-3vgek8-1"
-})(["position:relative;display:grid;grid-row:1/3;grid-column:1;background-color:rgba(220,220,220,0.3);width:100%;height:100%;border:5px solid white;border-radius:25px 25px 25px 25px;box-shadow:1px 1px 2px 3px rgba(0,0,0,0.05);.react-calendar{width:363px;border-radius:15px;max-width:100%;box-shadow:0px 1px 1px 1px rgba(20,20,20,0.1);height:310px;background:white;margin-left:0.5px;margin-right:0.5px;font-family:Arial,Helvetica,sans-serif;line-height:1.125em;}.react-calendar,.react-calendar *,.react-calendar *:before,.react-calendar *:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}.react-calendar button{margin:0;border:0;outline:none;}.react-calendar button:enabled:hover{cursor:pointer;}.react-calendar__navigation{height:60px;margin-bottom:0.5em;}.react-calendar__navigation button{min-width:44px;background:none;font-size:20px;background-color:rgba(20,110,240,1);color:white;&:first-child{border-radius:18px 0 0 0;}&:last-child{border-radius:0 18px 0 0;}&:nth-child(2){border-radius:0;}&:nth-child(3){border-radius:0;}&:nth-child(4){border-radius:0;}}.react-calendar__navigation button:enabled:hover,.react-calendar__navigation button:enabled:focus{background-color:#e6e6e6;}.react-calendar__navigation button[disabled]{background-color:rgba(20,110,240,0.1);}.react-calendar__month-view__weekdays{text-align:center;text-transform:uppercase;font-weight:bold;font-size:0.75em;}.react-calendar__month-view__weekdays__weekday{padding:2em 0;}.react-calendar__month-view__weekNumbers{font-weight:bold;}.react-calendar__month-view__weekNumbers .react-calendar__tile{display:flex;align-items:center;justify-content:center;font-size:0.75em;padding:calc(0.75em / 0.75) calc(0.5em / 0.75);}.react-calendar__month-view__days__day--weekend{color:red;}.react-calendar__month-view__days__day--neighboringMonth{color:#969696;}.react-calendar__year-view .react-calendar__tile,.react-calendar__decade-view .react-calendar__tile,.react-calendar__century-view .react-calendar__tile{padding:2em 0.5em;}.react-calendar__tile{max-width:100%;text-align:center;padding:0.75em 0.5em;background:none;}.react-calendar__tile:disabled{background-color:#f0f0f0;}.react-calendar__tile:enabled:hover,.react-calendar__tile:enabled:focus{background-color:#e6e6e6;}.react-calendar__tile--hasActive{background:rgba(20,110,240,1);color:white;}.react-calendar__tile--hasActive:enabled:hover,.react-calendar__tile--hasActive:enabled:focus{background:#a9d4ff;}.react-calendar__tile--active{background:rgba(20,110,240,1);color:white;}.react-calendar__tile--active:enabled:hover,.react-calendar__tile--active:enabled:focus{background:#1087ff;}.react-calendar--selectRange .react-calendar__tile--hover{background-color:rgba(100,100,240,1);color:white;}"]);
-
-var CalendarStats =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(CalendarStats, _React$Component);
-
-  function CalendarStats() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, CalendarStats);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(CalendarStats)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      date: date_fns__WEBPACK_IMPORTED_MODULE_1___default.a.startOfDay(new Date()),
-      today: date_fns__WEBPACK_IMPORTED_MODULE_1___default.a.startOfToday(new Date())
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (date) {
-      return _this.setState({
-        date: date
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleJumpToToday", function (today) {
-      return _this.setState({
-        today: today
-      });
-    });
-
-    return _this;
-  }
-
-  _createClass(CalendarStats, [{
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StatsDisplay, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 168
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_calendar_dist_entry_nostyle__WEBPACK_IMPORTED_MODULE_2___default.a, {
-        name: "date",
-        onChange: this.onChange,
-        minDetail: "decade" // onClick={this.handleClick}
-        ,
-        value: this.state.date,
-        calendarType: "US",
-        returnValue: "start",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 169
-        },
-        __self: this
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleDay__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        date: this.state.date,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 179
-        },
-        __self: this
-      }));
-    }
-  }]);
-
-  return CalendarStats;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (CalendarStats);
-
-/***/ }),
-
 /***/ "./components/CartItem.js":
 /*!********************************!*\
   !*** ./components/CartItem.js ***!
@@ -658,11 +526,11 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -692,12 +560,12 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ClientSearch)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+    _defineProperty(_assertThisInitialized(_this), "state", {
       clients: [],
       loading: false
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", lodash_debounce__WEBPACK_IMPORTED_MODULE_5___default()(
+    _defineProperty(_assertThisInitialized(_this), "onChange", lodash_debounce__WEBPACK_IMPORTED_MODULE_5___default()(
     /*#__PURE__*/
     function () {
       var _ref = _asyncToGenerator(
@@ -1321,9 +1189,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _ClientSearch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ClientSearch */ "./components/ClientSearch.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "date-fns");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _ClientSearch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ClientSearch */ "./components/ClientSearch.js");
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/Modal.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1338,11 +1208,11 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -1373,28 +1243,41 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
 var OPEN_MODAL_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 var TOGGLE_MODAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject2());
-var BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
+var BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
   displayName: "Modal__BackDrop",
   componentId: "sc-105rmtf-0"
-})(["position:fixed;display:flex;justify-content:center;align-items:center;top:0;bottom:0;left:0;right:0;background-color:rgba(0,0,0,0.5);"]);
-var Modall = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
+})(["position:fixed;display:flex;justify-content:center;align-items:center;top:0;bottom:0;left:0;right:0;background-color:rgba(0,0,0,0.5);z-index:990;"]);
+var Modall = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
   displayName: "Modal__Modall",
   componentId: "sc-105rmtf-1"
-})(["background-color:#fff;border-radius:25px;display:grid;grid-template-rows:70px 1fr 35px;grid-template-columns:1fr 1fr;position:absolute;align-items:flex-start;width:500px;height:500px;padding:10px 25px;z-index:900;box-shadow:1px 1px 5px 3px rgba(0,0,0,0.3);.title{grid-column:1/3;font-size:18px;justify-self:center;color:rgba(20,110,220,1);left:0;right:0;top:0;position:relative;}"]);
-var StyledInput = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.select.withConfig({
-  displayName: "Modal__StyledInput",
+})(["background-color:#fff;border-radius:25px;display:grid;grid-template-rows:80px 1fr 35px;grid-template-columns:1fr 1fr;position:absolute;align-items:flex-start;width:500px;height:500px;padding:20px 25px;z-index:999;box-shadow:1px 1px 5px 3px rgba(0,0,0,0.3);"]);
+var Middle = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
+  displayName: "Modal__Middle",
   componentId: "sc-105rmtf-2"
-})(["width:100%;padding:10px;background:transparent;border:0;font-size:2rem;outline:none;"]);
-var Cancel = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.button.withConfig({
-  displayName: "Modal__Cancel",
+})(["grid-row:2;width:100%;grid-column:1/3;padding:30px 0;"]);
+var StyledInput = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.select.withConfig({
+  displayName: "Modal__StyledInput",
   componentId: "sc-105rmtf-3"
-})(["background-color:#fff;border-radius:5px;display:grid;grid-row:3;grid-column:2;position:relative;align-items:center;justify-self:flex-start;height:100%;background:rgba(220,100,120,1);color:white;width:100px;font-size:18px;z-index:900;&:focus{outline:none;}"]);
-var Save = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.button.withConfig({
-  displayName: "Modal__Save",
+})(["padding:10px;width:100%;background:transparent;border:2px solid rgba(20,110,240,1);font-size:2rem;outline:none;"]);
+var Date = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
+  displayName: "Modal__Date",
   componentId: "sc-105rmtf-4"
-})(["background-color:#fff;border-radius:5px;display:grid;grid-column:2;grid-row:3;justify-self:flex-end;position:relative;align-items:center;width:100px;height:100%;background:rgba(20,200,120,1);color:white;font-size:18px;z-index:900;&:focus{outline:none;}"]);
+})(["align-self:center;grid-column:1/3;grid-row:1;justify-content:center;p{margin:0;margin-left:10px;font-size:18px;display:inline-block;position:relative;color:rgba(220,20,20,1);}.title{display:inline-block;font-size:18px;margin:0;color:rgba(20,110,220,1);position:relative;}h3{margin:0;}"]);
+var Cancel = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.button.withConfig({
+  displayName: "Modal__Cancel",
+  componentId: "sc-105rmtf-5"
+})(["background-color:#fff;border-radius:5px;display:grid;grid-row:3;grid-column:2;position:relative;align-items:center;justify-self:flex-start;height:100%;background:rgba(220,100,120,1);color:white;width:100px;font-size:18px;z-index:900;&:focus{outline:none;}&:hover{opacity:0.8;}"]);
+var Line = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
+  displayName: "Modal__Line",
+  componentId: "sc-105rmtf-6"
+})(["width:100%;margin:0;height:3px;background:grey;grid-column:1/3;"]);
+var Save = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.button.withConfig({
+  displayName: "Modal__Save",
+  componentId: "sc-105rmtf-7"
+})(["background-color:#fff;border-radius:5px;display:grid;grid-column:2;grid-row:3;justify-self:flex-end;position:relative;align-items:center;width:100px;height:100%;background:rgba(20,200,120,1);color:white;font-size:18px;z-index:900;&:focus{outline:none;}&:hover{opacity:0.8;}"]);
 var REASONS = [{
   name: 'Botox'
 }, {
@@ -1405,8 +1288,6 @@ var REASONS = [{
   name: 'Fraxel'
 }, {
   name: 'Face Removal'
-}, {
-  name: 'Assjob'
 }];
 
 var Modal =
@@ -1427,14 +1308,15 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Modal)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+    _defineProperty(_assertThisInitialized(_this), "state", {
       client: '',
       reason: '',
       date: '',
-      timeRange: ''
+      startTime: '',
+      length: ''
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
       var _e$target = e.target,
           name = _e$target.name,
           type = _e$target.type,
@@ -1456,7 +1338,7 @@ function (_Component) {
         mutation: TOGGLE_MODAL_MUTATION,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 136
+          lineNumber: 170
         },
         __self: this
       }, function (toggleModal) {
@@ -1464,7 +1346,7 @@ function (_Component) {
           query: OPEN_MODAL_QUERY,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 138
+            lineNumber: 172
           },
           __self: this
         }, function (_ref) {
@@ -1477,38 +1359,75 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BackDrop, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 144
+              lineNumber: 178
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Modall, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 145
+              lineNumber: 179
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Date, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 180
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
             className: "title",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 146
+              lineNumber: 181
             },
             __self: this
-          }, "New Appointment"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          }, "APPOINTMENT:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 147
+              lineNumber: 182
+            },
+            __self: this
+          }, Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(_this2.props.date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+            className: "title",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 183
+            },
+            __self: this
+          }, "START TIME:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 184
+            },
+            __self: this
+          }, _this2.props.time), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Line, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 185
+            },
+            __self: this
+          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Middle, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 188
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 189
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 148
+              lineNumber: 190
             },
             __self: this
-          }, "Appointment For:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          }, "For:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_5__["default"], {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 150
+              lineNumber: 192
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -1516,10 +1435,10 @@ function (_Component) {
             className: "required",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 152
+              lineNumber: 194
             },
             __self: this
-          }, "Appointment Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
+          }, "Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
             type: "text",
             id: "reason",
             name: "reason",
@@ -1530,30 +1449,31 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 154
+              lineNumber: 196
             },
             __self: this
           }, REASONS.map(function (type) {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+              key: type.name,
               value: type.name,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 166
+                lineNumber: 208
               },
               __self: this
             }, type.name);
-          })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Cancel, {
+          }))), ' ')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Cancel, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 172
+              lineNumber: 217
             },
             __self: this
           }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Save, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 173
+              lineNumber: 218
             },
             __self: this
           }, "Save")));
@@ -1856,11 +1776,11 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -1908,7 +1828,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(RemoveFromCart)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "update", function (cache, payload) {
+    _defineProperty(_assertThisInitialized(_this), "update", function (cache, payload) {
       // 1. first read the cache
       var data = cache.readQuery({
         query: _User__WEBPACK_IMPORTED_MODULE_5__["CURRENT_USER_QUERY"]
@@ -2093,269 +2013,6 @@ var Signout = function Signout() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Signout);
-
-/***/ }),
-
-/***/ "./components/SingleDay.js":
-/*!*********************************!*\
-  !*** ./components/SingleDay.js ***!
-  \*********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_pose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-pose */ "react-pose");
-/* harmony import */ var react_pose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_pose__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "react-apollo");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Modal */ "./components/Modal.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns */ "date-fns");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var date_fns_set_hours__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns/set_hours */ "date-fns/set_hours");
-/* harmony import */ var date_fns_set_hours__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(date_fns_set_hours__WEBPACK_IMPORTED_MODULE_6__);
-var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/SingleDay.js";
-
-
-
-
-
-
-
-
-var Gear = react_pose__WEBPACK_IMPORTED_MODULE_2___default.a.img({
-  hoverable: true,
-  pressable: true,
-  init: {
-    scale: 1
-  },
-  hover: {
-    scale: 1.2
-  },
-  press: {
-    scale: 1.1
-  }
-});
-var DayView = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
-  displayName: "SingleDay__DayView",
-  componentId: "sc-1099gq1-0"
-})(["position:relative;display:grid;grid-row:1/3;grid-column:2/3;width:100%;height:100%;background-color:white;box-shadow:0 1px 5px 3px rgba(0,0,0,0.05);border:5px solid white;border-radius:20px 20px 25px 25px;z-index:-1;.parent{display:flex;flex-flow:column;position:absolute;right:0px;align-items:flex-end;border-radius:15px 15px 0 0;text-align:center;padding-right:20px;margin-top:1px;height:60px;width:100%;background:rgba(20,110,240,1);}.gear{position:absolute;display:flex;left:10px;top:10px;width:25px;height:25px;cursor:pointer;z-index:50;}.date{display:flex;text-transform:uppercase;margin:0;color:rgba(230,230,230,0.8);font-size:14px;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}.sideDate{display:flex;color:white;margin:0;font-family:'Montserrat',sans-serif;font-size:26px;line-height:26px;padding-top:10px;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}"]);
-var DayGrid = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
-  displayName: "SingleDay__DayGrid",
-  componentId: "sc-1099gq1-1"
-})(["display:grid;position:relative;grid-template-columns:60px 1fr;position:absolute;grid-auto-rows:25px;border-radius:0px 0 25px 0;grid-gap:2px;width:100%;right:0px;margin-top:63px;height:75vh;overflow-y:scroll;overscroll-behavior:contain;.timeCell{display:grid;grid-column:1/3;padding-left:15px;align-items:center;border-bottom:none;border-top:1px solid white;border-radius:20px 0 0 20px;background:rgba(20,110,240,0.15);color:grey;&:hover{opacity:0.5;}}.lower{display:grid;grid-column:2/3;padding-left:5px;align-items:center;border-bottom:none;border-top:1px solid white;background:rgba(243,241,244,1);color:grey;&:hover{opacity:0.5;}}.number{display:grid;font-size:12px;align-self:center;justify-content:flex-start;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}"]);
-var TopBlock = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
-  displayName: "SingleDay__TopBlock",
-  componentId: "sc-1099gq1-2"
-})(["display:grid;grid-column:2;grid-row:1/3;width:100%;height:100%;background:rgba(240,240,240,1);"]);
-var DATA = [{
-  time: '7:00 am',
-  q2: '7:15 am',
-  q3: '7:30 am',
-  q4: '7:45 am',
-  display: '7 am'
-}, {
-  time: '8:00 am',
-  q2: '8:15 am',
-  q3: '8:30 am',
-  q4: '8:45 am',
-  display: '8 am'
-}, {
-  time: '9:00 am',
-  q2: '9:15 am',
-  q3: '9:30 am',
-  q4: '9:45 am',
-  display: '9 am'
-}, {
-  time: '10:00 am',
-  q2: '10:15 am',
-  q3: '10:30 am',
-  q4: '10:45 am',
-  display: '10 am'
-}, {
-  time: '11:00 am',
-  q2: '11:15 am',
-  q3: '11:30 am',
-  q4: '11:45 am',
-  display: '11 am'
-}, {
-  time: '12:00 pm',
-  q2: '12:15 pm',
-  q3: '12:30 pm',
-  q4: '12:45 pm',
-  display: '12 pm'
-}, {
-  time: '1:00 pm',
-  q2: '1:15 pm',
-  q3: '1:30 pm',
-  q4: '1:45 pm',
-  display: '1 pm'
-}, {
-  time: '2:00 pm',
-  q2: '2:15 pm',
-  q3: '2:30 pm',
-  q4: '2:45 pm',
-  display: '2 pm'
-}, {
-  time: '3:00 pm',
-  q2: '3:15 pm',
-  q3: '3:30 pm',
-  q4: '3:45 pm',
-  display: '3 pm'
-}, {
-  time: '4:00 pm',
-  q2: '4:15 pm',
-  q3: '4:30 pm',
-  q4: '4:45 pm',
-  display: '4 pm'
-}, {
-  time: '5:00 pm',
-  q2: '5:15 pm',
-  q3: '5:30 pm',
-  q4: '5:45 pm',
-  display: '5 pm'
-}, {
-  time: '6:00 pm',
-  q2: '6:15 pm',
-  q3: '6:30 pm',
-  q4: '6:45 pm',
-  display: '6 pm'
-}, {
-  time: '7:00 pm',
-  q2: '7:15 pm',
-  q3: '7:30 pm',
-  q4: '7:45 pm',
-  display: '7 pm'
-}, {
-  time: '8:00 pm',
-  q2: '8:15 pm',
-  q3: '8:30 pm',
-  q4: '8:45 pm',
-  display: '8 pm'
-}, {
-  time: '9:00 pm',
-  q2: '9:15 pm',
-  q3: '9:30 pm',
-  q4: '9:45 pm',
-  display: '9 pm'
-}];
-
-var SingleDay = function SingleDay(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DayView, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 269
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Gear, {
-    className: "gear",
-    src: "../static/img/gear.png",
-    alt: "edit schedule settings",
-    onClick: props.handleJumpToToday,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 276
-    },
-    __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "parent",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 283
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "sideDate",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 284
-    },
-    __self: this
-  }, Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["format"])(props.date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "date",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 285
-    },
-    __self: this
-  }, Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["format"])(props.date, 'dddd'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DayGrid, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 288
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TopBlock, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 289
-    },
-    __self: this
-  }), DATA.map(function (timeblock) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["Mutation"], {
-      mutation: _Modal__WEBPACK_IMPORTED_MODULE_4__["TOGGLE_MODAL_MUTATION"],
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 292
-      },
-      __self: this
-    }, function (toggleModal) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        onDoubleClick: toggleModal,
-        key: timeblock.time,
-        className: "timeCell number",
-        value: timeblock.time,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 295
-        },
-        __self: this
-      }, timeblock.display), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        onDoubleClick: toggleModal,
-        className: "lower",
-        value: timeblock.q2,
-        key: timeblock.q2,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 303
-        },
-        __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        onDoubleClick: toggleModal,
-        className: "lower",
-        value: timeblock.q3,
-        key: timeblock.q3,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 309
-        },
-        __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        onDoubleClick: toggleModal,
-        className: "lower",
-        value: timeblock.q4,
-        key: timeblock.q4,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 315
-        },
-        __self: this
-      }));
-    });
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    value: DATA,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 327
-    },
-    __self: this
-  }));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (SingleDay);
 
 /***/ }),
 
@@ -2780,7 +2437,7 @@ var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/compone
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query {\n    me {\n      id\n      email\n      name\n      businessName\n      permissions\n      # orders {\n      #   id\n      # }\n      appointments {\n        id\n      }\n      cart {\n        id\n        quantity\n        client {\n          id\n          firstName\n          lastName\n        }\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query {\n    me {\n      id\n      email\n      name\n      businessName\n      permissions\n      orders {\n        id\n      }\n      subscription {\n        id\n        quantity\n        plan\n      }\n      appointments {\n        id\n      }\n      cart {\n        id\n        quantity\n        client {\n          id\n          firstName\n          lastName\n        }\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -2801,7 +2458,7 @@ var User = function User(props) {
     query: CURRENT_USER_QUERY,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 38
     },
     __self: this
   }), function (payload) {
@@ -2979,15 +2636,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_with_apollo__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_with_apollo__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apollo-boost */ "apollo-boost");
 /* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(apollo_boost__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns */ "date-fns");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../config */ "./config.js");
-/* harmony import */ var _components_Slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Slider */ "./components/Slider.js");
-/* harmony import */ var _components_Modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Modal */ "./components/Modal.js");
-/* harmony import */ var _components_CalendarStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/CalendarStats */ "./components/CalendarStats.js");
-
-
-
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config */ "./config.js");
+/* harmony import */ var _components_Slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Slider */ "./components/Slider.js");
+/* harmony import */ var _components_Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Modal */ "./components/Modal.js");
 
 
 
@@ -2997,7 +2648,7 @@ __webpack_require__.r(__webpack_exports__);
 function createClient(_ref) {
   var headers = _ref.headers;
   return new apollo_boost__WEBPACK_IMPORTED_MODULE_1___default.a({
-    uri:  true ? _config__WEBPACK_IMPORTED_MODULE_3__["endpoint"] : undefined,
+    uri:  true ? _config__WEBPACK_IMPORTED_MODULE_2__["endpoint"] : undefined,
     request: function request(operation) {
       operation.setContext({
         fetchOptions: {
@@ -3014,7 +2665,7 @@ function createClient(_ref) {
             var cache = _ref2.cache;
 
             var _cache$readQuery = cache.readQuery({
-              query: _components_Slider__WEBPACK_IMPORTED_MODULE_4__["LOCAL_STATE_QUERY"]
+              query: _components_Slider__WEBPACK_IMPORTED_MODULE_3__["LOCAL_STATE_QUERY"]
             }),
                 cartOpen = _cache$readQuery.cartOpen;
 
@@ -3030,7 +2681,7 @@ function createClient(_ref) {
             var cache = _ref3.cache;
 
             var _cache$readQuery2 = cache.readQuery({
-              query: _components_Modal__WEBPACK_IMPORTED_MODULE_5__["OPEN_MODAL_QUERY"]
+              query: _components_Modal__WEBPACK_IMPORTED_MODULE_4__["OPEN_MODAL_QUERY"]
             }),
                 openModal = _cache$readQuery2.openModal;
 
@@ -3252,17 +2903,6 @@ module.exports = require("date-fns");
 
 /***/ }),
 
-/***/ "date-fns/set_hours":
-/*!*************************************!*\
-  !*** external "date-fns/set_hours" ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("date-fns/set_hours");
-
-/***/ }),
-
 /***/ "downshift":
 /*!****************************!*\
   !*** external "downshift" ***!
@@ -3392,28 +3032,6 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-apollo");
-
-/***/ }),
-
-/***/ "react-calendar/dist/entry.nostyle":
-/*!****************************************************!*\
-  !*** external "react-calendar/dist/entry.nostyle" ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("react-calendar/dist/entry.nostyle");
-
-/***/ }),
-
-/***/ "react-pose":
-/*!*****************************!*\
-  !*** external "react-pose" ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("react-pose");
 
 /***/ }),
 

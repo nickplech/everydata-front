@@ -3,6 +3,8 @@ import { Mutation } from 'react-apollo'
 import Form from './styles/Form'
 import MaskedInput from 'react-text-mask'
 import Router from 'next/router'
+import { format } from 'date-fns'
+import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
 import gql from 'graphql-tag'
 import styled, { ThemeProvider } from 'styled-components'
 import Error from './ErrorMessage'
@@ -16,7 +18,7 @@ const Inner = styled.div`
   .dates {
     font-family: montserrat, sans-serif;
     text-transform: uppercase;
-    opacity: 0.5;
+
     &:focus {
       opacity: 1;
     }
@@ -32,7 +34,8 @@ const Inner = styled.div`
     background-repeat: no-repeat;
     border-radius: 50%;
     margin-top: 20px;
-    border: 2px solid rgba(20, 110, 220, 1);
+    border: 2px solid rgba(20, 110, 220, 0.5);
+    box-shadow: 1px 2px 5px 3px rgba(0, 0, 0, 0.1);
     cursor: pointer;
   }
 `
@@ -57,6 +60,8 @@ const CREATE_CLIENT_MUTATION = gql`
   }
 `
 
+const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy')
+
 class CreateClient extends Component {
   state = {
     firstName: '',
@@ -70,6 +75,7 @@ class CreateClient extends Component {
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
   }
+
   handleCancelClick = e => {
     e.preventDefault()
     Router.back()
@@ -79,6 +85,7 @@ class CreateClient extends Component {
     const data = new FormData()
     data.append('file', files[0])
   }
+
   render() {
     return (
       <Inner>
@@ -89,6 +96,7 @@ class CreateClient extends Component {
                 e.preventDefault()
                 const res = await createClient()
                 console.log(res)
+
                 Router.push({
                   pathname: '/client',
                   query: { id: res.data.createClient.id },
@@ -161,14 +169,28 @@ class CreateClient extends Component {
                 </label>
                 <label htmlFor="birthDay">
                   Birthday
-                  <input
+                  <MaskedInput
                     className="dates"
-                    type="date"
                     id="birthDay"
                     name="birthDay"
                     autoComplete="off"
+                    keepCharPositions={true}
+                    pipe={autoCorrectedDatePipe}
                     value={this.state.birthDay}
+                    placeholder="MM/DD/YYYY"
                     onChange={this.handleChange}
+                    mask={[
+                      /\d/,
+                      /\d/,
+                      '/',
+                      /\d/,
+                      /\d/,
+                      '/',
+                      /\d/,
+                      /\d/,
+                      /\d/,
+                      /\d/,
+                    ]}
                   />
                 </label>
                 <label htmlFor="file">

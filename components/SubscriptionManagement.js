@@ -3,6 +3,7 @@ import TakeMyMoney from './TakeMyMoney'
 import styled from 'styled-components'
 import Form from './styles/Form'
 import SickButton from './styles/SickButton'
+import { ORDER_DATA } from '../lib/timeSlots'
 
 const Inner = styled.div`
   text-align: center;
@@ -29,22 +30,26 @@ const Inner = styled.div`
 const handleClick = e => {
   e.preventDefault()
 }
+
 const SubscriptionManagement = () => {
   return (
     <Inner>
       <Form>
         <fieldset>
-          <TakeMyMoney>
-            <SickButton className="button" onClick={handleClick}>
-              Express Account
-            </SickButton>
-          </TakeMyMoney>
-          <SickButton className="button" onClick={handleClick}>
-            Classic Account
-          </SickButton>
-          <SickButton className="button" onClick={handleClick}>
-            HIPAA Compliance
-          </SickButton>
+          {ORDER_DATA.map((buttons, i) => {
+            return (
+              <TakeMyMoney
+                key={i}
+                title={buttons.title}
+                price={buttons.price}
+                id={buttons.id}
+              >
+                <SickButton className="button" onClick={handleClick}>
+                  {buttons.title}
+                </SickButton>
+              </TakeMyMoney>
+            )
+          })}
         </fieldset>
       </Form>
     </Inner>

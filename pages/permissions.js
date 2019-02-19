@@ -1,11 +1,11 @@
-import PleaseSignIn from '../components/PleaseSignIn'
+import DoDisplay from '../components/DoDisplay'
 import Permissions from '../components/Permissions'
 
-const PermissionsPage = (props) => (
+const PermissionsPage = props => (
   <div>
-    <PleaseSignIn>
+    <DoDisplay>
       <Permissions />
-    </PleaseSignIn>
+    </DoDisplay>
   </div>
 )
 

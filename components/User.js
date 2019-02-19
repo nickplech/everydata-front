@@ -10,9 +10,14 @@ const CURRENT_USER_QUERY = gql`
       name
       businessName
       permissions
-      # orders {
-      #   id
-      # }
+      orders {
+        id
+      }
+      subscription {
+        id
+        quantity
+        plan
+      }
       appointments {
         id
       }

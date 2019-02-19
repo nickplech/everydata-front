@@ -29,6 +29,10 @@ const SIGNUP_MUTATION = gql`
     }
   }
 `
+
+const Margin = styled.div`
+  margin: 15px 25px;
+`
 const Submitted = styled.p`
   color: green;
   background: white;
@@ -61,89 +65,91 @@ class Signup extends Component {
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
         {(signup, { error, loading, called }) => (
-          <Form
-            method="post"
-            onSubmit={async e => {
-              e.preventDefault()
-              await signup()
-              this.setState({
-                name: '',
-                businessName: '',
-                email: '',
-                password: '',
-                confirmPassword: '',
-              })
-            }}
-          >
-            <fieldset disabled={loading} aria-busy={loading}>
-              <h2>Sign Up for An Account</h2>
-              <Error error={error} />
-              {!error && !loading && called && (
-                <Submitted>
-                  Submitted! Welcome to Perfect Day Reminders, please log in to
-                  begin your Free Trial
-                </Submitted>
-              )}
-              <label htmlFor="name">
-                Name
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Full Name"
-                  required
-                  value={this.state.name}
-                  onChange={this.saveToState}
-                />
-              </label>
-              <label htmlFor="businessName">
-                Business Name
-                <input
-                  type="text"
-                  name="businessName"
-                  placeholder="Business Name"
-                  required
-                  value={this.state.businessName}
-                  onChange={this.saveToState}
-                />
-              </label>
-              <label htmlFor="email">
-                Email
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  required
-                  value={this.state.email}
-                  onChange={this.saveToState}
-                />
-              </label>
+          <Margin>
+            <Form
+              method="post"
+              onSubmit={async e => {
+                e.preventDefault()
+                await signup()
+                this.setState({
+                  name: '',
+                  businessName: '',
+                  email: '',
+                  password: '',
+                  confirmPassword: '',
+                })
+              }}
+            >
+              <fieldset disabled={loading} aria-busy={loading}>
+                <h2>Sign Up for An Account</h2>
+                <Error error={error} />
+                {!error && !loading && called && (
+                  <Submitted>
+                    Submitted! Welcome to Perfect Day Reminders, please log in
+                    to begin your Free Trial
+                  </Submitted>
+                )}
+                <label htmlFor="name">
+                  Name
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Full Name"
+                    required
+                    value={this.state.name}
+                    onChange={this.saveToState}
+                  />
+                </label>
+                <label htmlFor="businessName">
+                  Business Name
+                  <input
+                    type="text"
+                    name="businessName"
+                    placeholder="Business Name"
+                    required
+                    value={this.state.businessName}
+                    onChange={this.saveToState}
+                  />
+                </label>
+                <label htmlFor="email">
+                  Email
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    value={this.state.email}
+                    onChange={this.saveToState}
+                  />
+                </label>
 
-              <label htmlFor="password">
-                Password
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  required
-                  minLength={6}
-                  value={this.state.password}
-                  onChange={this.saveToState}
-                />
-              </label>
-              <label htmlFor="confirmPassword">
-                Confirm Your Password
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Confirm Password"
-                  value={this.state.confirmPassword}
-                  onChange={this.saveToState}
-                />
-              </label>
+                <label htmlFor="password">
+                  Password
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                    minLength={6}
+                    value={this.state.password}
+                    onChange={this.saveToState}
+                  />
+                </label>
+                <label htmlFor="confirmPassword">
+                  Confirm Your Password
+                  <input
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    value={this.state.confirmPassword}
+                    onChange={this.saveToState}
+                  />
+                </label>
 
-              <SickButton type="submit">Sign Up!</SickButton>
-            </fieldset>
-          </Form>
+                <SickButton type="submit">Sign Up!</SickButton>
+              </fieldset>
+            </Form>
+          </Margin>
         )}
       </Mutation>
     )

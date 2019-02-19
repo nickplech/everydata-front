@@ -23,7 +23,6 @@
 //         title
 //         description
 //         price
-//         image
 //         quantity
 //       }
 //     }
@@ -44,10 +43,10 @@
 //           return (
 //             <OrderStyles data-test="order">
 //               <Head>
-//                 <title>Sick Fits - Order {order.id}</title>
+//                 <title>Perfect Day Reminders - Subscription Management {order.id}</title>
 //               </Head>
 //               <p>
-//                 <span>Order ID:</span>
+//                 <span>Subscription ID:</span>
 //                 <span>{this.props.id}</span>
 //               </p>
 //               <p>
@@ -71,14 +70,12 @@
 //                 <span>{order.packages.length}</span>
 //               </p>
 //               <div className="items">
-//                 {order.packages.map(package => (
+//                 {order.cartPackages.map(package => (
 //                   <div className="order-item" key={package.id}>
-//                     <img src={package.image} alt={package.title} />
+//                     {/* <img src={package.image} alt={package.title} /> */}
 //                     <div className="item-details">
 //                       <h2>{package.title}</h2>
 //                       <p>Qty: {package.quantity}</p>
-//                       <p>Each: {formatMoney(package.price)}</p>
-//                       <p>SubTotal: {formatMoney(package.price * package.quantity)}</p>
 //                       <p>{package.description}</p>
 //                     </div>
 //                   </div>

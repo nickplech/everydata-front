@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
 import Tab from './Tab'
 
 const ListTabs = styled.ul`
@@ -17,8 +16,8 @@ const TabTitleItem = styled.li`
   padding-top: 5px;
   transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   margin: ${props =>
-    props.isActiveTab ? '50px 4px 0 4px' : '  50px 1px 0 1px'};
-  box-shadow: -1px -1px 3px 1px rgba(0, 0, 0, 0.1);
+    props.isActiveTab ? '50px 6px 0 6px' : '  50px 0px 0 0px'};
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
   transform: ${props => (props.isActiveTab ? 'scale(1.1)' : ' scale(1)')};
   cursor: pointer;
   background: ${props =>
