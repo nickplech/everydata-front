@@ -33,13 +33,13 @@ const Modall = styled.div`
   background-color: #fff;
   border-radius: 25px;
   display: grid;
-  grid-template-rows: 80px 1fr 35px;
+  grid-template-rows: 120px 1fr 35px;
   grid-template-columns: 1fr 1fr;
   position: absolute;
   align-items: flex-start;
   width: 500px;
   height: 500px;
-  padding: 20px 25px;
+  padding: 0px 0px 25px 0px;
   z-index: 999;
   box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.3);
 `
@@ -48,35 +48,52 @@ const Middle = styled.div`
   grid-row: 2;
   width: 100%;
   grid-column: 1/3;
-  padding: 30px 0;
+  padding: 30px 20px;
+  border-top: 3px solid grey;
 `
 const StyledInput = styled.select`
-  padding: 10px;
+  /* padding: 10px; */
   width: 100%;
   background: transparent;
-  border: 2px solid rgba(20, 110, 240, 1);
+  border: none;
   font-size: 2rem;
   outline: none;
 `
+const StyledTextArea = styled.textarea`
+  padding: 10px;
+  width: 100%;
+  background: transparent;
 
+  font-size: 2rem;
+  outline: none;
+  resize: none;
+  border: 2px solid rgba(220, 220, 220, 1);
+
+  &:focus {
+    outline: none;
+  }
+`
 const Date = styled.div`
   align-self: center;
   grid-column: 1/3;
   grid-row: 1;
   justify-content: center;
+  border-radius: 25px 25px 0 0;
+  background: rgba(20, 110, 220, 1);
+  overflow: hidden;
+  height: 100%;
+  padding: 5px 20px 0px 20px;
   p {
     margin: 0;
-    margin-left: 10px;
     font-size: 18px;
-    display: inline-block;
     position: relative;
-    color: rgba(220, 20, 20, 1);
+    color: white;
   }
   .title {
-    display: inline-block;
+    display: flex;
     font-size: 18px;
     margin: 0;
-    color: rgba(20, 110, 220, 1);
+    color: white;
     position: relative;
   }
   h3 {
@@ -105,14 +122,7 @@ const Cancel = styled.button`
     opacity: 0.8;
   }
 `
-const Line = styled.div`
-  width: 100%;
-  margin: 0;
 
-  height: 3px;
-  background: grey;
-  grid-column: 1/3;
-`
 const Save = styled.button`
   background-color: #fff;
   border-radius: 5px;
@@ -127,6 +137,7 @@ const Save = styled.button`
   background: rgba(20, 200, 120, 1);
   color: white;
   font-size: 18px;
+  margin-right: 25px;
   z-index: 900;
   &:focus {
     outline: none;
@@ -178,11 +189,10 @@ class Modal extends Component {
                 <BackDrop>
                   <Modall>
                     <Date>
-                      <h1 className="title">APPOINTMENT:</h1>
+                      <h1 className="title">Appointment</h1>
                       <p>{format(this.props.date, 'MMMM Do, YYYY')}</p>
-                      <h3 className="title">START TIME:</h3>
+
                       <p>{this.props.time}</p>
-                      <Line />
                     </Date>
 
                     <Middle>
@@ -194,6 +204,7 @@ class Modal extends Component {
                         <label htmlFor="reason" className="required">
                           Type:
                           <StyledInput
+                            style={{ paddingTop: '3px', marginBottom: '10px' }}
                             type="text"
                             id="reason"
                             name="reason"
@@ -211,7 +222,11 @@ class Modal extends Component {
                               )
                             })}
                           </StyledInput>
-                        </label>{' '}
+                        </label>
+                        <label htmlFor="note">
+                          Notes:
+                          <StyledTextArea />
+                        </label>
                       </form>
                     </Middle>
                     <Cancel onClick={toggleModal}>Cancel</Cancel>

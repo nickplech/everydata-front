@@ -12,13 +12,13 @@ const ClientStyles = styled.div`
     display: grid;
     width: 100%;
     align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
     & > * {
       background: white;
 
       &:hover {
-        background: rgba(100, 100, 240, 0.4);
+        background: rgba(20, 110, 240, 0.4);
       }
     }
   }
@@ -30,7 +30,7 @@ const ClientStyles = styled.div`
     padding: 6px 0;
     cursor: pointer;
     &:hover {
-      background: rgba(100, 100, 240, 0.4);
+      background: rgba(20, 110, 240, 0.4);
     }
   }
 `

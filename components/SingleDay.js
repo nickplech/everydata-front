@@ -120,12 +120,6 @@ const TimeCell = styled.div`
   border-top: 1px solid white;
   background: rgba(243, 241, 244, 1);
   cursor: pointer;
-  /* -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; */
 
   &:nth-child(4n + 2) {
     display: grid;
@@ -167,21 +161,6 @@ const StyledInput = styled.input`
     outline: none;
   }
 `
-const SwitchIntervals = styled.button`
-  background: white;
-  color: blue;
-  position: absolute;
-  display: flex;
-  left: 60px;
-  top: 22px;
-  padding: 5px 15px;
-  border-radius: 15px;
-  cursor: pointer;
-  z-index: 50;
-  &:focus {
-    outline: none;
-  }
-`
 
 class SingleDay extends Component {
   state = { selectedTime: '' }
@@ -194,7 +173,6 @@ class SingleDay extends Component {
     const time = this.state.selectedTime
     return (
       <DayView>
-        <SwitchIntervals>15min</SwitchIntervals>
         <div className="parent">
           <div className="sideDate">{format(date, 'MMMM Do, YYYY')}</div>
           <div className="date">{format(date, 'dddd')}</div>

@@ -8,7 +8,7 @@ const ConfirmationStyles = styled.li`
   padding: 0rem 10px;
   margin: 0 10px;
   border-bottom: 1px solid ${props => props.theme.lightgrey};
-
+  color: black;
   display: grid;
   align-items: center;
   grid-template-columns: auto 10px;
@@ -28,7 +28,7 @@ const CartItem = ({ cartItem }) => {
   if (!cartItem.client)
     return (
       <ConfirmationStyles>
-        <p>This Item has been removed</p>
+        <p>This client has been deleted</p>
         <RemoveFromCart id={cartItem.id} />
       </ConfirmationStyles>
     )

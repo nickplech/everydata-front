@@ -3,6 +3,7 @@ import Downshift, { resetIdCounter } from 'downshift'
 import Router from 'next/router'
 import { ApolloConsumer } from 'react-apollo'
 import gql from 'graphql-tag'
+import styled from 'styled-components'
 import debounce from 'lodash.debounce'
 import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown'
 
@@ -11,17 +12,23 @@ const SEARCH_CLIENTS_QUERY = gql`
     clients(
       orderBy: updatedAt_DESC
       where: {
-        AND: [
+        OR: [
           { firstName_contains: $searchTerm }
           { lastName_contains: $searchTerm }
         ]
       }
     ) {
       id
+      image
       firstName
       lastName
     }
   }
+`
+const Img = styled.img`
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 `
 
 function routeToClient(client) {
@@ -95,6 +102,7 @@ class AutoComplete extends Component {
                       key={item.id}
                       highlighted={index === highlightedIndex}
                     >
+                      <Img src={item.image} alt={item.firstName} />
                       {item.lastName}, {item.firstName}
                     </DropDownItem>
                   ))}

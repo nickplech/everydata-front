@@ -87,7 +87,7 @@ class UpdateUserProfiles extends Component {
             <Form onSubmit={e => this.updateUser(e, updateUser)}>
               <Error error={error} />
               {!error && !loading && called && (
-                <Submitted>User Information Updated Successfully!</Submitted>
+                <Submitted>Profile Updated Successfully!</Submitted>
               )}
               <fieldset disabled={loading} aria-busy={loading}>
                 <label htmlFor="id">

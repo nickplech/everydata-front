@@ -47,7 +47,7 @@ class ClientSearch extends Component {
               <ApolloConsumer>
                 {client => (
                   <input
-                    style={{ paddingTop: '3px' }}
+                    style={{ paddingTop: '3px', marginBottom: '10px' }}
                     {...getInputProps({
                       type: 'search',
                       placeholder: 'Client Name',

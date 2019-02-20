@@ -7,6 +7,7 @@ const DELETE_CLIENT_MUTATION = gql`
   mutation DELETE_CLIENT_MUTATION($id: ID!) {
     deleteClient(id: $id) {
       id
+      firstName
     }
   }
 `
@@ -23,18 +24,25 @@ class DeleteClient extends Component {
     cache.writeQuery({ query: ALL_CLIENTS_QUERY, data })
   }
   render() {
+    const firstName = this.props.firstName
+    const lastName = this.props.lastName
     return (
       <Mutation
         mutation={DELETE_CLIENT_MUTATION}
         variables={{
           id: this.props.id,
+          firstName: this.props.firstName,
         }}
         update={this.update}
       >
         {(deleteClient, { error }) => (
           <button
             onClick={() => {
-              if (confirm(`'Are you sure you want to delete this client?'`)) {
+              if (
+                confirm(
+                  `'Are you sure you want to delete ${firstName} ${lastName}'`,
+                )
+              ) {
                 deleteClient().catch(err => {
                   alert(err.message)
                 })

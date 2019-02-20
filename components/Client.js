@@ -36,7 +36,13 @@ export default class Client extends Component {
           >
             <button>Edit</button>
           </Link>
-          <DeleteClient id={client.id}>Delete </DeleteClient>
+          <DeleteClient
+            firstName={client.firstName}
+            lastName={client.lastName}
+            id={client.id}
+          >
+            Delete{' '}
+          </DeleteClient>
         </div>
       </ClientStyles>
     )

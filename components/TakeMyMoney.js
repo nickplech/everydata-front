@@ -54,6 +54,7 @@ class TakeMyMoney extends Component {
                 name="Perfect Day Reminders"
                 description={`Subscribing to ${ORDER_DATA.title}`}
                 email={me.email}
+                image="../static/img/perfectdayreminders.png"
                 currency="USD"
                 stripeKey="pk_test_phxfXJjORkbsc6QeCDWIEvtJ"
                 token={res => this.onToken(res, createOrder)}

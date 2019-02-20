@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -321,13 +321,15 @@ function (_Component) {
         },
         __self: this
       }, "Edit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DeleteClient__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        firstName: client.firstName,
+        lastName: client.lastName,
         id: client.id,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 39
         },
         __self: this
-      }, "Delete ")));
+      }, "Delete", ' ')));
     }
   }]);
 
@@ -861,7 +863,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation DELETE_CLIENT_MUTATION($id: ID!) {\n    deleteClient(id: $id) {\n      id\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation DELETE_CLIENT_MUTATION($id: ID!) {\n    deleteClient(id: $id) {\n      id\n      firstName\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -918,22 +920,25 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      var firstName = this.props.firstName;
+      var lastName = this.props.lastName;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Mutation"], {
         mutation: DELETE_CLIENT_MUTATION,
         variables: {
-          id: this.props.id
+          id: this.props.id,
+          firstName: this.props.firstName
         },
         update: this.update,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 30
         },
         __self: this
       }, function (deleteClient, _ref) {
         var error = _ref.error;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: function onClick() {
-            if (confirm("'Are you sure you want to delete this client?'")) {
+            if (confirm("'Are you sure you want to delete ".concat(firstName, " ").concat(lastName, "'"))) {
               deleteClient().catch(function (err) {
                 alert(err.message);
               });
@@ -941,7 +946,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 35
+            lineNumber: 39
           },
           __self: this
         }, _this2.props.children);
@@ -1080,19 +1085,13 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var Lister = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
   displayName: "MessageList__Lister",
   componentId: "sc-1k725i1-0"
-})(["position:relative;display:flex;flex-flow:column;padding-bottom:20px;box-sizing:border-box;padding-left:6px;overflow-y:scroll;background:white;"]);
+})(["position:relative;display:flex;flex-flow:column;box-sizing:border-box;padding-left:6px;overflow-y:scroll;background:white;"]);
 var TextChunk = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
   displayName: "MessageList__TextChunk",
   componentId: "sc-1k725i1-1"
 })(["display:flex;align-content:center;margin:0px 30px;padding:0px;border-top:1.5px solid rgba(220,220,220,0.4);&:first-child{border-top:none;}.message-text{align-self:center;background:rgba(220,220,220,0.8);font-family:'Montserrat',sans-serif;color:black;display:block;font-size:12px;padding:10px 14px;margin:30px 0;border-radius:8px;width:40%;height:80%;max-width:600px;min-width:300px;@media (min-width:1200px){font-size:13px;}}"]);
 var DUMMY_DATA = [{
   senderId: 'perborgen',
-  text: 'This is the office of Dr. Plechas confirming your appt at 4:00 pm - Mon, Sep 26. Please reply "Confirm" or "Cancel". Questions? Call 7149537373'
-}, {
-  senderId: 'janedoe',
-  text: 'This is the office of Dr. Plechas confirming your appt at 4:00 pm - Mon, Sep 26. Please reply "Confirm" or "Cancel". Questions? Call 7149537373'
-}, {
-  senderId: 'janedoe',
   text: 'This is the office of Dr. Plechas confirming your appt at 4:00 pm - Mon, Sep 26. Please reply "Confirm" or "Cancel". Questions? Call 7149537373'
 }, {
   senderId: 'janedoe',
@@ -1116,23 +1115,22 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Lister, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 61
         },
         __self: this
       }, DUMMY_DATA.map(function (message, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TextChunk, {
           key: index,
-          className: "message",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 75
+            lineNumber: 64
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "message-text",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 76
+            lineNumber: 65
           },
           __self: this
         }, message.text));
@@ -2064,7 +2062,7 @@ __webpack_require__.r(__webpack_exports__);
 var ClientStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "ClientStyles",
   componentId: "hqsscu-0"
-})(["img{width:100%;height:100px;object-fit:cover;}.buttonList{text-align:left;display:grid;width:100%;align-items:center;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));& > *{background:white;&:hover{background:rgba(100,100,240,0.4);}}}p,a{padding-left:10px;}button{padding:6px 0;cursor:pointer;&:hover{background:rgba(100,100,240,0.4);}}"]);
+})(["img{width:100%;height:100px;object-fit:cover;}.buttonList{text-align:left;display:grid;width:100%;align-items:center;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));& > *{background:white;&:hover{background:rgba(20,110,240,0.4);}}}p,a{padding-left:10px;}button{padding:6px 0;cursor:pointer;&:hover{background:rgba(20,110,240,0.4);}}"]);
 /* harmony default export */ __webpack_exports__["default"] = (ClientStyles);
 
 /***/ }),
@@ -2199,7 +2197,7 @@ var Client = function Client(props) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 7:
 /*!*******************************!*\
   !*** multi ./pages/client.js ***!
   \*******************************/

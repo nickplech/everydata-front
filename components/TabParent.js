@@ -4,6 +4,7 @@ import Tabs from './Tabs'
 import styled from 'styled-components'
 import SubscriptionManagement from './SubscriptionManagement'
 import { Query } from 'react-apollo'
+import UpdateScheduleSettings from './UpdateScheduleSettings'
 import { CURRENT_USER_QUERY } from './User'
 const Styled = styled.div`
   /* font-family: sans-serif; */
@@ -33,7 +34,7 @@ const TabParent = () => (
               />
             </Tabs.Tab>
             <Tabs.Tab id="tab2" title="Schedule">
-              <div> </div>
+              <UpdateScheduleSettings />
             </Tabs.Tab>
             <Tabs.Tab id="tab3" title="Subscription">
               <SubscriptionManagement />
