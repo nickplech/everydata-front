@@ -51,9 +51,9 @@ const Submitted = styled.p`
 `
 const ORDER_DATA = [
   {
-    title: 'Express Account',
-    id: '1',
-    price: 2999,
+    title: 'Test Classic Account',
+    id: 'plan_Ea8mmCdhMNHxxk',
+    price: 3999,
   },
   {
     title: 'Classic Account',

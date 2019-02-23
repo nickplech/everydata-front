@@ -1,12 +1,12 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const OrderStyles = styled.div`
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 100px auto;
   border: 1px solid ${props => props.theme.offWhite};
   box-shadow: ${props => props.theme.bs};
   padding: 2rem;
-  border-top: 10px solid red;
+  border-top: 10px solid rgba(100, 120, 240, 1);
   & > p {
     display: grid;
     grid-template-columns: 1fr 5fr;
@@ -34,5 +34,5 @@ const OrderStyles = styled.div`
       object-fit: cover;
     }
   }
-`;
-export default OrderStyles;
+`
+export default OrderStyles

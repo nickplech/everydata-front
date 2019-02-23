@@ -13,7 +13,7 @@ const SINGLE_ORDER_QUERY = gql`
     order(id: $id) {
       id
       charge
-      total
+      price
       createdAt
       user {
         id
@@ -51,15 +51,11 @@ class Order extends React.Component {
               </p>
               <p>
                 <span>Date</span>
-                <span>
-                  {format(order.createdAt, 'MMMM d, YYYY h:mm a', {
-                    awareOfUnicodeTokens: true,
-                  })}
-                </span>
+                <span>{format(order.createdAt, 'MMMM d, YYYY h:mm a')}</span>
               </p>
               <p>
                 <span>Order Total</span>
-                <span>{formatMoney(order.total)}</span>
+                <span>{formatMoney(order.price)}</span>
               </p>
               <p>
                 <span>Item Count</span>

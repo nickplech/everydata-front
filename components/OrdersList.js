@@ -12,13 +12,8 @@
 //   query USER_ORDERS_QUERY {
 //     orders(orderBy: createdAt_DESC) {
 //       id
-//       total
+//       price
 //       createdAt
-//       cartPackage {
-//         id
-//         title
-//         price
-//       }
 //     }
 //   }
 // `
@@ -51,23 +46,19 @@
 //                     >
 //                       <a>
 //                         <div className="order-meta">
-//                           <p>
+//                           {/* <p>
 //                             {order.packages.reduce((a, b) => a + b.quantity, 0)}{' '}
 //                             Package(s):
 //                           </p>
-//                           <p>{order.packages.length} Products</p>
+//                           <p>{order.packages.length} Products</p> */}
 //                           <p>{formatDistance(order.createdAt, new Date())}</p>
 //                           <p>{formatMoney(order.total)}</p>
 //                         </div>
-//                         <div className="images">
-//                           {order.packages.map(package => (
-//                             <img
-//                               key={package.id}
-//                               src={package.image}
-//                               alt={package.title}
-//                             />
+//                         {/* <div className="images">
+//                           {orders.map(kit => (
+//                             <img key={kit.id} src={kit.image} alt={kit.title} />
 //                           ))}
-//                         </div>
+//                         </div> */}
 //                       </a>
 //                     </Link>
 //                   </OrderItemStyles>

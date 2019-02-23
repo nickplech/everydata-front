@@ -2,7 +2,9 @@ import React from 'react'
 import TakeMyMoney from './TakeMyMoney'
 import styled from 'styled-components'
 import Form from './styles/Form'
+import { Query } from 'react-apollo'
 import SickButton from './styles/SickButton'
+import { CURRENT_USER_QUERY } from './User'
 
 const Inner = styled.div`
   text-align: center;
@@ -34,7 +36,7 @@ const ORDER_DATA = [
   },
   {
     title: 'Classic Account',
-    id: 'plan_EW7xrpDzOE9d5I',
+    id: 'plan_Ea8mmCdhMNHxxk',
     price: 3999,
   },
 
@@ -51,24 +53,30 @@ const handleClick = e => {
 const SubscriptionManagement = () => {
   return (
     <Inner>
-      <Form>
-        <fieldset>
-          {ORDER_DATA.map((buttons, i) => {
-            return (
-              <TakeMyMoney
-                key={i}
-                title={buttons.title}
-                price={buttons.price}
-                plan={buttons.id}
-              >
-                <SickButton className="button" onClick={handleClick}>
-                  {buttons.title}
-                </SickButton>
-              </TakeMyMoney>
-            )
-          })}
-        </fieldset>
-      </Form>
+      <Query query={CURRENT_USER_QUERY}>
+        {({ data: { me } }) => {
+          return (
+            <Form>
+              <fieldset>
+                {ORDER_DATA.map((buttons, i) => {
+                  return (
+                    <TakeMyMoney
+                      key={i}
+                      title={buttons.title}
+                      price={buttons.price}
+                      plan={buttons.id}
+                    >
+                      <SickButton className="button" onClick={handleClick}>
+                        {buttons.title}
+                      </SickButton>
+                    </TakeMyMoney>
+                  )
+                })}
+              </fieldset>
+            </Form>
+          )
+        }}
+      </Query>
     </Inner>
   )
 }

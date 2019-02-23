@@ -1192,14 +1192,14 @@ var Meta = function Meta() {
 /*!*****************************!*\
   !*** ./components/Modal.js ***!
   \*****************************/
-/*! exports provided: default, OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION, ALL_REASONS_QUERY */
+/*! exports provided: default, OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION, reasons_query */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OPEN_MODAL_QUERY", function() { return OPEN_MODAL_QUERY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOGGLE_MODAL_MUTATION", function() { return TOGGLE_MODAL_MUTATION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_REASONS_QUERY", function() { return ALL_REASONS_QUERY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reasons_query", function() { return reasons_query; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "react-apollo");
@@ -1234,7 +1234,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  query ALL_REASONS_QUERY {\n    reasons(orderBy: createdAt_DESC) {\n      id\n      name\n      color\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query reasons_query {\n    reasons(orderBy: name_ASC) {\n      id\n      name\n      color\n    }\n  }\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -1284,7 +1284,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var OPEN_MODAL_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 var TOGGLE_MODAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject2());
 var SINGLE_REASON_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject3());
-var ALL_REASONS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject4());
+var reasons_query = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject4());
 var BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
   displayName: "Modal__BackDrop",
   componentId: "sc-105rmtf-0"
@@ -1422,14 +1422,14 @@ function (_Component) {
             },
             __self: this
           }, _this2.props.time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
-            query: ALL_REASONS_QUERY,
+            query: reasons_query,
             __source: {
               fileName: _jsxFileName,
               lineNumber: 197
             },
             __self: this
           }, function (_ref2) {
-            var reasons = _ref2.data.reasons;
+            var data = _ref2.data;
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Middle, {
               __source: {
                 fileName: _jsxFileName,
@@ -1480,16 +1480,16 @@ function (_Component) {
                 lineNumber: 209
               },
               __self: this
-            }, reasons.map(function (reason) {
+            }, data.reasons.map(function (appReason) {
               return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-                key: reason.name,
-                value: reason.name,
+                key: appReason.name,
+                value: appReason.name,
                 __source: {
                   fileName: _jsxFileName,
                   lineNumber: 225
                 },
                 __self: this
-              }, reason.name);
+              }, appReason.name);
             }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
               htmlFor: "note",
               __source: {
@@ -2611,7 +2611,7 @@ var glow = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes"])([
 var SearchStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "DropDown__SearchStyles",
   componentId: "n5d97g-2"
-})(["position:relative;input{width:100%;padding:10px;border:0;font-size:2rem;outline:none;&.loading{animation:", " 0.5s ease-in-out infinite alternate;}}"], glow);
+})(["position:relative;input{width:100%;height:100%;padding:10px;border:0;font-size:2rem;outline:none;&.loading{animation:", " 0.5s ease-in-out infinite alternate;}}"], glow);
 
 
 /***/ }),

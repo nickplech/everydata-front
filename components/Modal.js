@@ -25,9 +25,9 @@ const SINGLE_REASON_QUERY = gql`
     }
   }
 `
-const ALL_REASONS_QUERY = gql`
-  query ALL_REASONS_QUERY {
-    reasons(orderBy: createdAt_DESC) {
+const reasons_query = gql`
+  query reasons_query {
+    reasons(orderBy: name_ASC) {
       id
       name
       color
@@ -194,8 +194,8 @@ class Modal extends Component {
                       <p>{format(this.props.date, 'MMMM Do, YYYY')}</p>
                       <p>{this.props.time}</p>
                     </Date>
-                    <Query query={ALL_REASONS_QUERY}>
-                      {({ data: { reasons } }) => {
+                    <Query query={reasons_query}>
+                      {({ data }) => {
                         return (
                           <Middle>
                             <form>
@@ -220,13 +220,13 @@ class Modal extends Component {
                                   value={this.state.reason}
                                   onChange={this.handleChange}
                                 >
-                                  {reasons.map(reason => {
+                                  {data.reasons.map(appReason => {
                                     return (
                                       <option
-                                        key={reason.name}
-                                        value={reason.name}
+                                        key={appReason.name}
+                                        value={appReason.name}
                                       >
-                                        {reason.name}
+                                        {appReason.name}
                                       </option>
                                     )
                                   })}
@@ -255,4 +255,4 @@ class Modal extends Component {
 }
 
 export default Modal
-export { OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION, ALL_REASONS_QUERY }
+export { OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION, reasons_query }

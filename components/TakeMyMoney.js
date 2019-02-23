@@ -15,7 +15,6 @@ const CREATE_ORDER_MUTATION = gql`
       plan
       price
       charge
-      total
     }
   }
 `
