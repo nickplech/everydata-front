@@ -18,13 +18,7 @@ const SINGLE_ORDER_QUERY = gql`
       user {
         id
       }
-      packages {
-        id
-        title
-        description
-        price
-        quantity
-      }
+      plan
     }
   }
 `
@@ -43,7 +37,9 @@ class Order extends React.Component {
           return (
             <OrderStyles data-test="order">
               <Head>
-                <title>Perfect Day Reminders - Subscription Management {order.id}</title>
+                <title>
+                  Perfect Day Reminders - Subscription Management {order.id}
+                </title>
               </Head>
               <p>
                 <span>Subscription ID:</span>
@@ -67,12 +63,12 @@ class Order extends React.Component {
               </p>
               <p>
                 <span>Item Count</span>
-                <span>{order.packages.length}</span>
+                <span>1</span>
               </p>
-              <div className="items">
+              {/* <div className="items">
                 {order.cartPackages.map(package => (
                   <div className="order-item" key={package.id}>
-                    {/* <img src={package.image} alt={package.title} /> */}
+                    <img src={package.image} alt={package.title} />
                     <div className="item-details">
                       <h2>{package.title}</h2>
                       <p>Qty: {package.quantity}</p>
@@ -80,7 +76,7 @@ class Order extends React.Component {
                     </div>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </OrderStyles>
           )
         }}

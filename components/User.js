@@ -7,16 +7,14 @@ const CURRENT_USER_QUERY = gql`
     me {
       id
       email
-      name
+      firstName
+      lastName
+      cellPhone
       businessName
+      plan
       permissions
       orders {
         id
-      }
-      subscription {
-        id
-        quantity
-        plan
       }
       appointments {
         id

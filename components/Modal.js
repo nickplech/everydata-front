@@ -16,6 +16,25 @@ const TOGGLE_MODAL_MUTATION = gql`
   }
 `
 
+const SINGLE_REASON_QUERY = gql`
+  query SINGLE_REASON_QUERY($id: ID!) {
+    reason(id: $id) {
+      id
+      name
+      color
+    }
+  }
+`
+const ALL_REASONS_QUERY = gql`
+  query ALL_REASONS_QUERY {
+    reasons(orderBy: createdAt_DESC) {
+      id
+      name
+      color
+    }
+  }
+`
+
 const BackDrop = styled.div`
   position: fixed;
   display: flex;
@@ -52,7 +71,6 @@ const Middle = styled.div`
   border-top: 3px solid grey;
 `
 const StyledInput = styled.select`
-  /* padding: 10px; */
   width: 100%;
   background: transparent;
   border: none;
@@ -63,7 +81,6 @@ const StyledTextArea = styled.textarea`
   padding: 10px;
   width: 100%;
   background: transparent;
-
   font-size: 2rem;
   outline: none;
   resize: none;
@@ -146,23 +163,7 @@ const Save = styled.button`
     opacity: 0.8;
   }
 `
-const REASONS = [
-  {
-    name: 'Botox',
-  },
-  {
-    name: 'Restylane',
-  },
-  {
-    name: 'Hair Laser',
-  },
-  {
-    name: 'Fraxel',
-  },
-  {
-    name: 'Face Removal',
-  },
-]
+
 class Modal extends Component {
   state = {
     client: '',
@@ -191,44 +192,55 @@ class Modal extends Component {
                     <Date>
                       <h1 className="title">Appointment</h1>
                       <p>{format(this.props.date, 'MMMM Do, YYYY')}</p>
-
                       <p>{this.props.time}</p>
                     </Date>
+                    <Query query={ALL_REASONS_QUERY}>
+                      {({ data: { reasons } }) => {
+                        return (
+                          <Middle>
+                            <form>
+                              <label>
+                                For:
+                                <ClientSearch />
+                              </label>
 
-                    <Middle>
-                      <form>
-                        <label>
-                          For:
-                          <ClientSearch />
-                        </label>
-                        <label htmlFor="reason" className="required">
-                          Type:
-                          <StyledInput
-                            style={{ paddingTop: '3px', marginBottom: '10px' }}
-                            type="text"
-                            id="reason"
-                            name="reason"
-                            placeholder="Appointment Type"
-                            autoComplete="off"
-                            required
-                            value={this.state.reason}
-                            onChange={this.handleChange}
-                          >
-                            {REASONS.map(type => {
-                              return (
-                                <option key={type.name} value={type.name}>
-                                  {type.name}
-                                </option>
-                              )
-                            })}
-                          </StyledInput>
-                        </label>
-                        <label htmlFor="note">
-                          Notes:
-                          <StyledTextArea />
-                        </label>
-                      </form>
-                    </Middle>
+                              <label htmlFor="reason" className="required">
+                                Type:
+                                <StyledInput
+                                  style={{
+                                    paddingTop: '3px',
+                                    marginBottom: '10px',
+                                  }}
+                                  type="text"
+                                  id="reason"
+                                  name="reason"
+                                  placeholder="Appointment Type"
+                                  autoComplete="off"
+                                  required
+                                  value={this.state.reason}
+                                  onChange={this.handleChange}
+                                >
+                                  {reasons.map(reason => {
+                                    return (
+                                      <option
+                                        key={reason.name}
+                                        value={reason.name}
+                                      >
+                                        {reason.name}
+                                      </option>
+                                    )
+                                  })}
+                                </StyledInput>
+                              </label>
+                              <label htmlFor="note">
+                                Notes:
+                                <StyledTextArea />
+                              </label>
+                            </form>
+                          </Middle>
+                        )
+                      }}
+                    </Query>
                     <Cancel onClick={toggleModal}>Cancel</Cancel>
                     <Save onClick={toggleModal}>Save</Save>
                   </Modall>
@@ -243,4 +255,4 @@ class Modal extends Component {
 }
 
 export default Modal
-export { OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION }
+export { OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION, ALL_REASONS_QUERY }

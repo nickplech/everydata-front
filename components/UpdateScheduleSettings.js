@@ -1,36 +1,31 @@
 import React, { Component } from 'react'
-import { Mutation } from 'react-apollo'
+import { Mutation, Query } from 'react-apollo'
 import Form from './styles/Form'
 import gql from 'graphql-tag'
 import Router from 'next/router'
 import styled from 'styled-components'
 import Error from './ErrorMessage'
 import SickButton from './styles/SickButton'
-import SickerButton from './styles/SickerButton'
 
 const possibleColors = [
-  'BLUE',
-  'GREEN',
-  'YELLOW',
-  'BLACK',
-  'WHITE',
-  'ORANGE',
-  'PURPLE',
-  'RED',
-  'MAROON',
-  'LIGHTBLUE',
+  'Blue',
+  'Green',
+  'Yellow',
+  'Black',
+  'White',
+  'Orange',
+  'Purple',
+  'Red',
 ]
 
 const CREATE_REASON_MUTATION = gql`
   mutation CREATE_REASON_MUTATION(
-    $id: ID!
     $name: String!
     $description: String
     $provider: String
     $color: String!
   ) {
-    updateUser(
-      id: $id
+    createReason(
       name: $name
       description: $description
       provider: $provider
@@ -38,8 +33,6 @@ const CREATE_REASON_MUTATION = gql`
     ) {
       id
       name
-      description
-      provider
       color
     }
   }
@@ -53,7 +46,7 @@ const Inner = styled.div`
   padding-top: 0;
 
   .dates {
-    font-family: montserrat, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     opacity: 0.5;
     &:focus {
@@ -71,9 +64,9 @@ const Submitted = styled.p`
   border-left: 5px solid green;
 `
 const StyledInput = styled.select`
-  /* padding: 10px; */
   width: 100%;
-  background: transparent;
+  /* background: transparent; */
+  padding: 10px;
   border: none;
   font-size: 2rem;
   outline: none;
@@ -121,6 +114,7 @@ class UpdateScheduleSettings extends Component {
                     id="name"
                     name="name"
                     placeholder="Name"
+                    autoComplete="off"
                     required
                     defaultValue={this.props.name}
                     onChange={this.handleChange}
@@ -137,15 +131,15 @@ class UpdateScheduleSettings extends Component {
                     onChange={this.handleChange}
                   />
                 </label>
+
                 <label htmlFor="color">
-                  Color to Identify Appointment Type
+                  Select Color to Represent Appointment Type
                   <StyledInput
                     style={{ paddingTop: '3px', marginBottom: '10px' }}
                     type="text"
                     id="color"
                     name="color"
                     placeholder="Assign Color"
-                    autoComplete="off"
                     required
                     value={this.state.color}
                     onChange={this.handleChange}
@@ -159,6 +153,7 @@ class UpdateScheduleSettings extends Component {
                     })}
                   </StyledInput>
                 </label>
+
                 <label htmlFor="provider">
                   Appointment Belongs to Specific Provider?(optional)
                   <input
@@ -166,17 +161,13 @@ class UpdateScheduleSettings extends Component {
                     id="provider"
                     name="provider"
                     placeholder="provider"
-                    required
                     defaultValue={this.props.provider}
                     onChange={this.handleChange}
                   />
                 </label>
                 <SickButton type="submit">
-                  Sav{loading ? 'ing' : 'e'} Changes
+                  Creat{loading ? 'ing' : 'e'} Appointment Type
                 </SickButton>
-                <SickerButton onClick={this.handleCancelClick}>
-                  Cancel
-                </SickerButton>
               </fieldset>
             </Form>
           )}
@@ -187,3 +178,4 @@ class UpdateScheduleSettings extends Component {
 }
 
 export default UpdateScheduleSettings
+export { CREATE_REASON_MUTATION }

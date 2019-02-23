@@ -6,24 +6,24 @@ import Router from 'next/router'
 import styled from 'styled-components'
 import Error from './ErrorMessage'
 import SickButton from './styles/SickButton'
-
 import SickerButton from './styles/SickerButton'
+import MaskedInput from 'react-text-mask'
 
 const UPDATE_USER_MUTATION = gql`
   mutation UPDATE_USER_MUTATION(
     $id: ID!
-    $name: String
+    $cellPhone: String
     $businessName: String
     $email: String
   ) {
     updateUser(
-      name: $name
+      cellPhone: $cellPhone
       businessName: $businessName
       email: $email
       id: $id
     ) {
       id
-      name
+      cellPhone
       businessName
       email
     }
@@ -90,25 +90,31 @@ class UpdateUserProfiles extends Component {
                 <Submitted>Profile Updated Successfully!</Submitted>
               )}
               <fieldset disabled={loading} aria-busy={loading}>
-                <label htmlFor="id">
-                  User ID for Reference
-                  <input
-                    name="id"
-                    required
-                    defaultValue={this.props.id}
-                    onChange={this.handleChange}
-                    readOnly
-                  />
-                </label>
-                <label htmlFor="firstName">
-                  Name on Account:
-                  <input
+                <label htmlFor="cellPhone">
+                  Phone Number
+                  <MaskedInput
+                    mask={[
+                      '(',
+                      /[1-9]/,
+                      /\d/,
+                      /\d/,
+                      ')',
+                      ' ',
+                      /\d/,
+                      /\d/,
+                      /\d/,
+                      '-',
+                      /\d/,
+                      /\d/,
+                      /\d/,
+                      /\d/,
+                    ]}
                     type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Name"
+                    id="cellPhone"
+                    name="cellPhone"
+                    placeholder="Phone Number"
                     required
-                    defaultValue={this.props.name}
+                    defaultValue={this.props.cellPhone}
                     onChange={this.handleChange}
                   />
                 </label>

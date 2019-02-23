@@ -3,13 +3,7 @@ import dateFns from 'date-fns'
 import Calendar from 'react-calendar/dist/entry.nostyle'
 import styled from 'styled-components'
 import SingleDay from './SingleDay'
-import { Query, Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
 
-const Indexed = styled.div`
-  position: relative;
-  z-index: 0;
-`
 const StatsDisplay = styled.div`
   position: relative;
   display: grid;
@@ -25,15 +19,13 @@ const StatsDisplay = styled.div`
 
   .react-calendar {
     width: 356px;
-    border-radius: 15px;
+    border-radius: 20px;
     max-width: 100%;
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
     height: 310px;
     background: white;
     margin: 5px auto;
-
-    /* border: 1px solid rgba(20, 20, 20, 0.1); */
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Montserrat, Helvetica, sans-serif;
     line-height: 1.125em;
   }
   .react-calendar,
@@ -87,9 +79,9 @@ const StatsDisplay = styled.div`
   }
   .react-calendar__month-view__weekdays {
     text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
+    text-decoration: none;
     font-size: 0.75em;
+    font-weight: 800;
   }
   .react-calendar__month-view__weekdays__weekday {
     padding: 2em 0;
@@ -105,7 +97,8 @@ const StatsDisplay = styled.div`
     padding: calc(0.75em / 0.75) calc(0.5em / 0.75);
   }
   .react-calendar__month-view__days__day--weekend {
-    color: red;
+    color: rgba(240, 10, 10, 0.8);
+    font-weight: 800;
   }
   .react-calendar__month-view__days__day--neighboringMonth {
     color: #969696;
@@ -148,25 +141,25 @@ const StatsDisplay = styled.div`
     background-color: rgba(100, 100, 240, 1);
     color: white;
   }
+
+  abbr {
+    text-decoration: none;
+  }
 `
-// const LOCAL_DATE_QUERY = gql`
-//   query date @client {
-//     date
-//   }
-// `
+
 class CalendarStats extends React.Component {
   state = {
     date: dateFns.startOfDay(new Date()),
-    today: dateFns.startOfToday(new Date()),
   }
 
   onChange = date => this.setState({ date })
 
   changeModalDate = date => this.setState({ date })
 
-  handleJumpToToday = today => this.setState({ today })
+  handleToday = date => this.setState({ date: dateFns.startOfDay(new Date()) })
 
   render() {
+    let date = this.state.date
     return (
       <>
         <StatsDisplay>
@@ -175,12 +168,12 @@ class CalendarStats extends React.Component {
             onChange={this.onChange}
             minDetail="decade"
             // onClick={this.handleClick}
-            value={this.state.date}
+            value={date}
             calendarType="US"
             returnValue="start"
           />
         </StatsDisplay>
-        <SingleDay date={this.state.date} />
+        <SingleDay date={date} />
       </>
     )
   }

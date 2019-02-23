@@ -28,7 +28,7 @@ const TabParent = () => (
             <Tabs.Tab id="tab1" title="Profile">
               <UpdateUserProfiles
                 id={me.id}
-                name={me.name}
+                cellPhone={me.cellPhone}
                 email={me.email}
                 businessName={me.businessName}
               />

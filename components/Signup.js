@@ -6,26 +6,36 @@ import Error from './ErrorMessage'
 import styled from 'styled-components'
 import { CURRENT_USER_QUERY } from './User'
 import SickButton from './styles/SickButton'
+import MaskedInput from 'react-text-mask'
 
 const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION(
-    $name: String!
+    $firstName: String!
+    $lastName: String!
+    $cellPhone: String!
     $businessName: String!
     $email: String!
     $password: String!
     $confirmPassword: String!
+    $plan: String!
   ) {
     signup(
-      name: $name
+      firstName: $firstName
+      lastName: $lastName
+      cellPhone: $cellPhone
       businessName: $businessName
       email: $email
       password: $password
       confirmPassword: $confirmPassword
+      plan: $plan
     ) {
       id
-      name
+      firstName
+      lastName
+      cellPhone
       businessName
       email
+      plan
     }
   }
 `
@@ -39,14 +49,34 @@ const Submitted = styled.p`
   padding: 15px 15px;
   border-left: 5px solid green;
 `
+const ORDER_DATA = [
+  {
+    title: 'Express Account',
+    id: '1',
+    price: 2999,
+  },
+  {
+    title: 'Classic Account',
+    id: 'plan_EW7xrpDzOE9d5I',
+    price: 3999,
+  },
 
+  {
+    title: 'HIPAA Compliant',
+    id: '3',
+    price: 1000,
+  },
+]
 class Signup extends Component {
   state = {
-    name: '',
+    firstName: '',
+    lastName: '',
+    cellPhone: '',
     businessName: '',
     email: '',
     password: '',
     confirmPassword: '',
+    plan: '',
   }
   saveToState = e => {
     this.setState({ [e.target.name]: e.target.value })
@@ -56,11 +86,14 @@ class Signup extends Component {
       <Mutation
         mutation={SIGNUP_MUTATION}
         variables={{
-          name: this.state.name,
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
+          cellPhone: this.state.cellPhone,
           businessName: this.state.businessName,
           email: this.state.email,
           password: this.state.password,
           confirmPassword: this.state.confirmPassword,
+          plan: this.state.plan,
         }}
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
@@ -72,11 +105,14 @@ class Signup extends Component {
                 e.preventDefault()
                 await signup()
                 this.setState({
-                  name: '',
+                  firstName: '',
+                  lastName: '',
+                  cellPhone: '',
                   businessName: '',
                   email: '',
                   password: '',
                   confirmPassword: '',
+                  plan: '',
                 })
               }}
             >
@@ -89,17 +125,58 @@ class Signup extends Component {
                     to begin your Free Trial
                   </Submitted>
                 )}
-                <label htmlFor="name">
-                  Name
+                <label htmlFor="firstName">
+                  First Name
                   <input
                     type="text"
-                    name="name"
-                    placeholder="Full Name"
+                    name="firstName"
+                    placeholder="Account Holder's First Name"
                     required
-                    value={this.state.name}
+                    value={this.state.firstName}
                     onChange={this.saveToState}
                   />
                 </label>
+                <label htmlFor="lastName">
+                  Last Name
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Account Holder's Last Name"
+                    required
+                    value={this.state.lastName}
+                    onChange={this.saveToState}
+                  />
+                </label>
+                <label htmlFor="cellPhone">
+                  Cell Phone Number(Required for Verification)
+                  <MaskedInput
+                    mask={[
+                      '(',
+                      /[1-9]/,
+                      /\d/,
+                      /\d/,
+                      ')',
+                      ' ',
+                      /\d/,
+                      /\d/,
+                      /\d/,
+                      '-',
+                      /\d/,
+                      /\d/,
+                      /\d/,
+                      /\d/,
+                    ]}
+                    type="text"
+                    id="cellPhone"
+                    name="cellPhone"
+                    placeholder="Phone Number"
+                    autoComplete="off"
+                    required
+                    value={this.state.cellPhone}
+                    onChange={this.saveToState}
+                  />
+                </label>
+
                 <label htmlFor="businessName">
                   Business Name
                   <input
@@ -145,7 +222,27 @@ class Signup extends Component {
                     onChange={this.saveToState}
                   />
                 </label>
-
+                <label htmlFor="plan">
+                  Select Which Plan Works for You:
+                  <select
+                    style={{ paddingTop: '3px', marginBottom: '10px' }}
+                    type="text"
+                    name="plan"
+                    placeholder="Appointment Type"
+                    autoComplete="off"
+                    required
+                    value={this.state.plan}
+                    onChange={this.saveToState}
+                  >
+                    {ORDER_DATA.map(plans => {
+                      return (
+                        <option key={plans.id} value={plans.id}>
+                          {plans.title}
+                        </option>
+                      )
+                    })}
+                  </select>
+                </label>
                 <SickButton type="submit">Sign Up!</SickButton>
               </fieldset>
             </Form>

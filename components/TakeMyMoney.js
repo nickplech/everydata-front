@@ -7,13 +7,13 @@ import gql from 'graphql-tag'
 // import calcTotalPrice from '../lib/calcTotalPrice'
 // import Error from './ErrorMessage'
 import User, { CURRENT_USER_QUERY } from './User'
-import { ORDER_DATA } from '../lib/timeSlots'
 
 const CREATE_ORDER_MUTATION = gql`
-  mutation createOrder($token: String!, $plan: String!) {
-    createOrder(token: $token, plan: $plan) {
+  mutation createOrder($token: String!, $plan: String!, $price: Int!) {
+    createOrder(token: $token, plan: $plan, price: $price) {
       id
       plan
+      price
       charge
       total
     }
@@ -26,7 +26,8 @@ class TakeMyMoney extends Component {
     const order = await createOrder({
       variables: {
         token: res.id,
-        plan: ORDER_DATA.id,
+        plan: this.props.plan,
+        price: this.props.price,
       },
     }).catch(err => {
       alert(err.message)
@@ -37,22 +38,22 @@ class TakeMyMoney extends Component {
     })
   }
   render() {
-    const ORDER_DATA = this.props
     return (
       <User>
         {({ data: { me } }) => (
           <Mutation
             mutation={CREATE_ORDER_MUTATION}
             variables={{
-              plan: ORDER_DATA.id,
+              plan: this.props.plan,
+              price: this.props.price,
             }}
             refetchQueries={[{ query: CURRENT_USER_QUERY }]}
           >
             {createOrder => (
               <StripeCheckout
-                amount={ORDER_DATA.price}
+                amount={this.props.price}
                 name="Perfect Day Reminders"
-                description={`Subscribing to ${ORDER_DATA.title}`}
+                description={`Subscribing to ${this.props.title}`}
                 email={me.email}
                 image="../static/img/perfectdayreminders.png"
                 currency="USD"

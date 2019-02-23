@@ -3,21 +3,21 @@ import styled from 'styled-components'
 import posed from 'react-pose'
 import { Mutation } from 'react-apollo'
 import { TOGGLE_MODAL_MUTATION } from './Modal'
-import { format } from 'date-fns'
+import { format, startOfDay } from 'date-fns'
 import { Data_15, Data_20 } from '../lib/timeSlots'
 import Modal from './Modal'
 
-const Gear = posed.img({
+const TodayButton = posed.div({
   hoverable: true,
   pressable: true,
   init: {
     scale: 1,
   },
   hover: {
-    scale: 1.2,
+    scale: 1.1,
   },
   press: {
-    scale: 1.1,
+    scale: 1.05,
   },
 })
 const TopBlock = styled.div`
@@ -56,15 +56,27 @@ const DayView = styled.div`
     width: 100%;
     background: rgba(20, 110, 240, 1);
   }
-  .gear {
+  .todayButton {
+    justify-content: center;
     position: absolute;
     display: flex;
-    left: 30px;
-    top: 22px;
-    width: 25px;
-    height: 25px;
+    border-radius: 5px;
+    background: white;
+    left: 60px;
+    border-top: 13px solid red;
+    top: 10px;
+    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.2);
+    width: 48px;
+    height: 45px;
     cursor: pointer;
     z-index: 50;
+    &:before {
+      content: 'TODAY';
+      color: white;
+      position: absolute;
+      font-size: 9px;
+      top: -14.8px;
+    }
   }
   .date {
     display: flex;
@@ -163,17 +175,22 @@ const StyledInput = styled.input`
 `
 
 class SingleDay extends Component {
-  state = { selectedTime: '' }
+  state = { selectedTime: '', today: startOfDay(new Date()) }
 
   update = e => {
     this.setState({ selectedTime: e.target.value })
   }
+
   render() {
-    const date = this.props.date
-    const time = this.state.selectedTime
+    let date = this.props.date
+    let today = this.state.today
+    let time = this.state.selectedTime
     return (
       <DayView>
         <div className="parent">
+          <TodayButton onClick={this.props.handleToday} className="todayButton">
+            {format(today, 'ddd')}
+          </TodayButton>
           <div className="sideDate">{format(date, 'MMMM Do, YYYY')}</div>
           <div className="date">{format(date, 'dddd')}</div>
         </div>

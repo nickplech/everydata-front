@@ -1091,13 +1091,14 @@ var Meta = function Meta() {
 /*!*****************************!*\
   !*** ./components/Modal.js ***!
   \*****************************/
-/*! exports provided: default, OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION */
+/*! exports provided: default, OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION, ALL_REASONS_QUERY */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OPEN_MODAL_QUERY", function() { return OPEN_MODAL_QUERY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOGGLE_MODAL_MUTATION", function() { return TOGGLE_MODAL_MUTATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_REASONS_QUERY", function() { return ALL_REASONS_QUERY; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.browser.umd.js");
@@ -1130,6 +1131,26 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n  query ALL_REASONS_QUERY {\n    reasons(orderBy: createdAt_DESC) {\n      id\n      name\n      color\n    }\n  }\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  query SINGLE_REASON_QUERY($id: ID!) {\n    reason(id: $id) {\n      id\n      name\n      color\n    }\n  }\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n  mutation {\n    toggleModal @client\n  }\n"]);
 
@@ -1160,6 +1181,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var OPEN_MODAL_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 var TOGGLE_MODAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject2());
+var SINGLE_REASON_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject3());
+var ALL_REASONS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject4());
 var BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
   displayName: "Modal__BackDrop",
   componentId: "sc-105rmtf-0"
@@ -1192,17 +1215,6 @@ var Save = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].button.with
   displayName: "Modal__Save",
   componentId: "sc-105rmtf-7"
 })(["background-color:#fff;border-radius:5px;display:grid;grid-column:2;grid-row:3;justify-self:flex-end;position:relative;align-items:center;width:100px;height:100%;background:rgba(20,200,120,1);color:white;font-size:18px;margin-right:25px;z-index:900;&:focus{outline:none;}&:hover{opacity:0.8;}"]);
-var REASONS = [{
-  name: 'Botox'
-}, {
-  name: 'Restylane'
-}, {
-  name: 'Hair Laser'
-}, {
-  name: 'Fraxel'
-}, {
-  name: 'Face Removal'
-}];
 
 var Modal =
 /*#__PURE__*/
@@ -1252,7 +1264,7 @@ function (_Component) {
         mutation: TOGGLE_MODAL_MUTATION,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 181
+          lineNumber: 182
         },
         __self: this
       }, function (toggleModal) {
@@ -1260,7 +1272,7 @@ function (_Component) {
           query: OPEN_MODAL_QUERY,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 183
+            lineNumber: 184
           },
           __self: this
         }, function (_ref) {
@@ -1273,32 +1285,32 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BackDrop, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 189
+              lineNumber: 190
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Modall, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 190
+              lineNumber: 191
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Date, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 191
+              lineNumber: 192
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
             className: "title",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 192
+              lineNumber: 193
             },
             __self: this
           }, "Appointment"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 193
+              lineNumber: 194
             },
             __self: this
           }, Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(_this2.props.date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1307,91 +1319,101 @@ function (_Component) {
               lineNumber: 195
             },
             __self: this
-          }, _this2.props.time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Middle, {
+          }, _this2.props.time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
+            query: ALL_REASONS_QUERY,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 198
+              lineNumber: 197
             },
             __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 199
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 200
-            },
-            __self: this
-          }, "For:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_5__["default"], {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 202
-            },
-            __self: this
-          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-            htmlFor: "reason",
-            className: "required",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 204
-            },
-            __self: this
-          }, "Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
-            style: {
-              paddingTop: '3px',
-              marginBottom: '10px'
-            },
-            type: "text",
-            id: "reason",
-            name: "reason",
-            placeholder: "Appointment Type",
-            autoComplete: "off",
-            required: true,
-            value: _this2.state.reason,
-            onChange: _this2.handleChange,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 206
-            },
-            __self: this
-          }, REASONS.map(function (type) {
-            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-              key: type.name,
-              value: type.name,
+          }, function (_ref2) {
+            var reasons = _ref2.data.reasons;
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Middle, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 219
+                lineNumber: 200
               },
               __self: this
-            }, type.name);
-          }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-            htmlFor: "note",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 226
-            },
-            __self: this
-          }, "Notes:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledTextArea, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 228
-            },
-            __self: this
-          })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Cancel, {
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 201
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 202
+              },
+              __self: this
+            }, "For:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 204
+              },
+              __self: this
+            })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+              htmlFor: "reason",
+              className: "required",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 207
+              },
+              __self: this
+            }, "Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
+              style: {
+                paddingTop: '3px',
+                marginBottom: '10px'
+              },
+              type: "text",
+              id: "reason",
+              name: "reason",
+              placeholder: "Appointment Type",
+              autoComplete: "off",
+              required: true,
+              value: _this2.state.reason,
+              onChange: _this2.handleChange,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 209
+              },
+              __self: this
+            }, reasons.map(function (reason) {
+              return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+                key: reason.name,
+                value: reason.name,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 225
+                },
+                __self: this
+              }, reason.name);
+            }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+              htmlFor: "note",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 235
+              },
+              __self: this
+            }, "Notes:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledTextArea, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 237
+              },
+              __self: this
+            }))));
+          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Cancel, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 232
+              lineNumber: 244
             },
             __self: this
           }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Save, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 233
+              lineNumber: 245
             },
             __self: this
           }, "Save")));
@@ -1952,9 +1974,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./User */ "./components/User.js");
 /* harmony import */ var _styles_CartStyles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/CartStyles */ "./components/styles/CartStyles.js");
 /* harmony import */ var _styles_Supreme__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/Supreme */ "./components/styles/Supreme.js");
-/* harmony import */ var _styles_CloseButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/CloseButton */ "./components/styles/CloseButton.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _CartItem__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./CartItem */ "./components/CartItem.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _styles_CloseButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/CloseButton */ "./components/styles/CloseButton.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _CartItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./CartItem */ "./components/CartItem.js");
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/Slider.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1967,13 +1991,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n  mutation {\n    toggleCart @client\n  }\n"]);
@@ -2006,9 +2032,10 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
 var LOCAL_STATE_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 var TOGGLE_CART_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject2());
-var ConfList = styled_components__WEBPACK_IMPORTED_MODULE_7__["default"].div.withConfig({
+var ConfList = styled_components__WEBPACK_IMPORTED_MODULE_8__["default"].div.withConfig({
   displayName: "Slider__ConfList",
   componentId: "sc-94qe3k-0"
 })(["display:flex;font-family:'Montserrat',sans-serif;text-align:center;align-items:center;width:100%;.flexChild{display:block;align-content:center;justify-content:center;width:100%;color:white;}.scroll{height:300px;overflow-y:scroll;overscroll-behavior:contain;overflow-x:hidden;&::-webkit-scrollbar{display:none;}}.confirmed{background:rgba(100,190,90,0.9);}.canceled{background:rgba(200,80,90,0.9);}.unconfirmed{background:grey;}"]);
@@ -2019,18 +2046,33 @@ function (_Component) {
   _inherits(Slider, _Component);
 
   function Slider() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, Slider);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Slider).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Slider)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      date: Object(date_fns__WEBPACK_IMPORTED_MODULE_6__["startOfDay"])(new Date())
+    });
+
+    return _this;
   }
 
   _createClass(Slider, [{
     key: "render",
     value: function render() {
+      var date = this.state.date;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 65
         },
         __self: this
       }, function (_ref) {
@@ -2040,7 +2082,7 @@ function (_Component) {
           mutation: TOGGLE_CART_MUTATION,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 69
           },
           __self: this
         }, function (toggleCart) {
@@ -2048,7 +2090,7 @@ function (_Component) {
             query: LOCAL_STATE_QUERY,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 66
+              lineNumber: 71
             },
             __self: this
           }, function (_ref2) {
@@ -2057,55 +2099,55 @@ function (_Component) {
               open: data.cartOpen,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 68
+                lineNumber: 73
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 69
+                lineNumber: 74
               },
               __self: this
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CloseButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CloseButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
               onClick: toggleCart,
               title: "close",
               className: "exy",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 70
+                lineNumber: 75
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "child",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 75
+                lineNumber: 80
               },
               __self: this
             }, "\xD7")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Supreme__WEBPACK_IMPORTED_MODULE_5__["default"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 77
+                lineNumber: 82
               },
               __self: this
-            }, "Date"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ConfList, {
+            }, Object(date_fns__WEBPACK_IMPORTED_MODULE_6__["format"])(date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ConfList, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 78
+                lineNumber: 83
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 79
+                lineNumber: 84
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "confirmed",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 80
+                lineNumber: 85
               },
               __self: this
             }, "Confirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2114,29 +2156,29 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 81
+                lineNumber: 86
               },
               __self: this
             }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 82
+                lineNumber: 87
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 83
+                lineNumber: 88
               },
               __self: this
             }, me.cart.map(function (cartItem) {
-              return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartItem__WEBPACK_IMPORTED_MODULE_8__["default"], {
+              return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartItem__WEBPACK_IMPORTED_MODULE_9__["default"], {
                 key: cartItem.id,
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 85
+                  lineNumber: 90
                 },
                 __self: this
               });
@@ -2144,14 +2186,14 @@ function (_Component) {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 93
+                lineNumber: 98
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "canceled",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 94
+                lineNumber: 99
               },
               __self: this
             }, "Canceled"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2160,29 +2202,29 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 95
+                lineNumber: 100
               },
               __self: this
             }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 96
+                lineNumber: 101
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 97
+                lineNumber: 102
               },
               __self: this
             }, me.cart.map(function (cartItem) {
-              return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartItem__WEBPACK_IMPORTED_MODULE_8__["default"], {
+              return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartItem__WEBPACK_IMPORTED_MODULE_9__["default"], {
                 key: cartItem.id,
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 99
+                  lineNumber: 104
                 },
                 __self: this
               });
@@ -2190,14 +2232,14 @@ function (_Component) {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 107
+                lineNumber: 112
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "unconfirmed",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 108
+                lineNumber: 113
               },
               __self: this
             }, "Unconfirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2206,45 +2248,39 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 109
+                lineNumber: 114
               },
               __self: this
             }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 110
+                lineNumber: 115
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 111
+                lineNumber: 116
               },
               __self: this
             }, me.cart.map(function (cartItem) {
-              return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartItem__WEBPACK_IMPORTED_MODULE_8__["default"], {
+              return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartItem__WEBPACK_IMPORTED_MODULE_9__["default"], {
                 key: cartItem.id,
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 113
+                  lineNumber: 118
                 },
                 __self: this
               });
             })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 124
+                lineNumber: 129
               },
               __self: this
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 125
-              },
-              __self: this
-            }, "flash messages with date")));
+            }));
           });
         });
       });
@@ -2351,7 +2387,7 @@ var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/compone
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query {\n    me {\n      id\n      email\n      name\n      businessName\n      permissions\n      orders {\n        id\n      }\n      subscription {\n        id\n        quantity\n        plan\n      }\n      appointments {\n        id\n      }\n      cart {\n        id\n        quantity\n        client {\n          id\n          firstName\n          lastName\n        }\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query {\n    me {\n      id\n      email\n      firstName\n      lastName\n      cellPhone\n      businessName\n      plan\n      permissions\n      orders {\n        id\n      }\n      appointments {\n        id\n      }\n      cart {\n        id\n        quantity\n        client {\n          id\n          firstName\n          lastName\n        }\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -2372,7 +2408,7 @@ var User = function User(props) {
     query: CURRENT_USER_QUERY,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 36
     },
     __self: this
   }), function (payload) {
@@ -2505,10 +2541,12 @@ var NavStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].ul.wit
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
-var Supreme = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].h3.withConfig({
+var Supreme = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p.withConfig({
   displayName: "Supreme",
   componentId: "xv30qb-0"
-})(["background:", ";color:white;display:block;text-align:center;padding:0px 5px;margin:0 auto;font-size:1.5rem;text-transform:uppercase;"], function (props) {
+})(["border:2px solid ", ";border-radius:5px;font-family:'Montserrat',sans-serif;color:", ";display:block;text-align:center;padding:0px 0px;margin:0 auto;font-size:2.2rem;"], function (props) {
+  return props.theme.blue;
+}, function (props) {
   return props.theme.blue;
 });
 /* harmony default export */ __webpack_exports__["default"] = (Supreme);
@@ -22810,10 +22848,51 @@ module.exports = function (data, opts) {
 
 /***/ }),
 
-/***/ "./node_modules/fbjs/lib/shallowEqual.js":
-/*!***********************************************!*\
-  !*** ./node_modules/fbjs/lib/shallowEqual.js ***!
-  \***********************************************/
+/***/ "./node_modules/fbjs/lib/hyphenate.js":
+/*!********************************************!*\
+  !*** ./node_modules/fbjs/lib/hyphenate.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+var _uppercasePattern = /([A-Z])/g;
+
+/**
+ * Hyphenates a camelcased string, for example:
+ *
+ *   > hyphenate('backgroundColor')
+ *   < "background-color"
+ *
+ * For CSS style names, use `hyphenateStyleName` instead which works properly
+ * with all vendor prefixes, including `ms`.
+ *
+ * @param {string} string
+ * @return {string}
+ */
+function hyphenate(string) {
+  return string.replace(_uppercasePattern, '-$1').toLowerCase();
+}
+
+module.exports = hyphenate;
+
+/***/ }),
+
+/***/ "./node_modules/fbjs/lib/hyphenateStyleName.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/fbjs/lib/hyphenateStyleName.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22825,64 +22904,35 @@ module.exports = function (data, opts) {
  * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
- * 
  */
 
-/*eslint-disable no-self-compare */
 
 
-var hasOwnProperty = Object.prototype.hasOwnProperty;
+var hyphenate = __webpack_require__(/*! ./hyphenate */ "./node_modules/fbjs/lib/hyphenate.js");
+
+var msPattern = /^ms-/;
+
 /**
- * inlined Object.is polyfill to avoid requiring consumers ship their own
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+ * Hyphenates a camelcased CSS property name, for example:
+ *
+ *   > hyphenateStyleName('backgroundColor')
+ *   < "background-color"
+ *   > hyphenateStyleName('MozTransition')
+ *   < "-moz-transition"
+ *   > hyphenateStyleName('msTransition')
+ *   < "-ms-transition"
+ *
+ * As Modernizr suggests (http://modernizr.com/docs/#prefixed), an `ms` prefix
+ * is converted to `-ms-`.
+ *
+ * @param {string} string
+ * @return {string}
  */
-
-function is(x, y) {
-  // SameValue algorithm
-  if (x === y) {
-    // Steps 1-5, 7-10
-    // Steps 6.b-6.e: +0 != -0
-    // Added the nonzero y check to make Flow happy, but it is redundant
-    return x !== 0 || y !== 0 || 1 / x === 1 / y;
-  } else {
-    // Step 6.a: NaN == NaN
-    return x !== x && y !== y;
-  }
-}
-/**
- * Performs equality by iterating through keys on an object and returning false
- * when any key has values which are not strictly equal between the arguments.
- * Returns true when the values of all keys are strictly equal.
- */
-
-
-function shallowEqual(objA, objB) {
-  if (is(objA, objB)) {
-    return true;
-  }
-
-  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
-    return false;
-  }
-
-  var keysA = Object.keys(objA);
-  var keysB = Object.keys(objB);
-
-  if (keysA.length !== keysB.length) {
-    return false;
-  } // Test for A's keys different from B.
-
-
-  for (var i = 0; i < keysA.length; i++) {
-    if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
-      return false;
-    }
-  }
-
-  return true;
+function hyphenateStyleName(string) {
+  return hyphenate(string).replace(msPattern, '-ms-');
 }
 
-module.exports = shallowEqual;
+module.exports = hyphenateStyleName;
 
 /***/ }),
 
@@ -50235,9 +50285,9 @@ exports.get = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.12.2
+/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.7.1
 (function() {
-  var getNanoSeconds, hrtime, loadTime, moduleLoadTime, nodeLoadTime, upTime;
+  var getNanoSeconds, hrtime, loadTime;
 
   if ((typeof performance !== "undefined" && performance !== null) && performance.now) {
     module.exports = function() {
@@ -50245,7 +50295,7 @@ exports.get = function () {
     };
   } else if ((typeof process !== "undefined" && process !== null) && process.hrtime) {
     module.exports = function() {
-      return (getNanoSeconds() - nodeLoadTime) / 1e6;
+      return (getNanoSeconds() - loadTime) / 1e6;
     };
     hrtime = process.hrtime;
     getNanoSeconds = function() {
@@ -50253,9 +50303,7 @@ exports.get = function () {
       hr = hrtime();
       return hr[0] * 1e9 + hr[1];
     };
-    moduleLoadTime = getNanoSeconds();
-    upTime = process.uptime() * 1e9;
-    nodeLoadTime = moduleLoadTime - upTime;
+    loadTime = getNanoSeconds();
   } else if (Date.now) {
     module.exports = function() {
       return Date.now() - loadTime;
@@ -50269,8 +50317,6 @@ exports.get = function () {
   }
 
 }).call(this);
-
-//# sourceMappingURL=performance-now.js.map
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../process/browser.js */ "./node_modules/process/browser.js")))
 
@@ -50776,7 +50822,7 @@ exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ "./node
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(/*! performance-now */ "./node_modules/performance-now/lib/performance-now.js")
+/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(/*! performance-now */ "./node_modules/raf/node_modules/performance-now/lib/performance-now.js")
   , root = typeof window === 'undefined' ? global : window
   , vendors = ['moz', 'webkit']
   , suffix = 'AnimationFrame'
@@ -50853,6 +50899,130 @@ module.exports.polyfill = function(object) {
 }
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/raf/node_modules/performance-now/lib/performance-now.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/raf/node_modules/performance-now/lib/performance-now.js ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.12.2
+(function() {
+  var getNanoSeconds, hrtime, loadTime, moduleLoadTime, nodeLoadTime, upTime;
+
+  if ((typeof performance !== "undefined" && performance !== null) && performance.now) {
+    module.exports = function() {
+      return performance.now();
+    };
+  } else if ((typeof process !== "undefined" && process !== null) && process.hrtime) {
+    module.exports = function() {
+      return (getNanoSeconds() - nodeLoadTime) / 1e6;
+    };
+    hrtime = process.hrtime;
+    getNanoSeconds = function() {
+      var hr;
+      hr = hrtime();
+      return hr[0] * 1e9 + hr[1];
+    };
+    moduleLoadTime = getNanoSeconds();
+    upTime = process.uptime() * 1e9;
+    nodeLoadTime = moduleLoadTime - upTime;
+  } else if (Date.now) {
+    module.exports = function() {
+      return Date.now() - loadTime;
+    };
+    loadTime = Date.now();
+  } else {
+    module.exports = function() {
+      return new Date().getTime() - loadTime;
+    };
+    loadTime = new Date().getTime();
+  }
+
+}).call(this);
+
+//# sourceMappingURL=performance-now.js.map
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "./node_modules/react-apollo/node_modules/fbjs/lib/shallowEqual.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/react-apollo/node_modules/fbjs/lib/shallowEqual.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ * 
+ */
+
+/*eslint-disable no-self-compare */
+
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+/**
+ * inlined Object.is polyfill to avoid requiring consumers ship their own
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+ */
+
+function is(x, y) {
+  // SameValue algorithm
+  if (x === y) {
+    // Steps 1-5, 7-10
+    // Steps 6.b-6.e: +0 != -0
+    // Added the nonzero y check to make Flow happy, but it is redundant
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
+  } else {
+    // Step 6.a: NaN == NaN
+    return x !== x && y !== y;
+  }
+}
+/**
+ * Performs equality by iterating through keys on an object and returning false
+ * when any key has values which are not strictly equal between the arguments.
+ * Returns true when the values of all keys are strictly equal.
+ */
+
+
+function shallowEqual(objA, objB) {
+  if (is(objA, objB)) {
+    return true;
+  }
+
+  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
+    return false;
+  }
+
+  var keysA = Object.keys(objA);
+  var keysB = Object.keys(objB);
+
+  if (keysA.length !== keysB.length) {
+    return false;
+  } // Test for A's keys different from B.
+
+
+  for (var i = 0; i < keysA.length; i++) {
+    if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+module.exports = shallowEqual;
 
 /***/ }),
 
@@ -51248,7 +51418,7 @@ module.exports = hoistNonReactStatics;
                 t[p[i]] = s[p[i]];
         return t;
     };
-    var shallowEqual = __webpack_require__(/*! fbjs/lib/shallowEqual */ "./node_modules/fbjs/lib/shallowEqual.js");
+    var shallowEqual = __webpack_require__(/*! fbjs/lib/shallowEqual */ "./node_modules/react-apollo/node_modules/fbjs/lib/shallowEqual.js");
     var invariant$4 = __webpack_require__(/*! invariant */ "./node_modules/invariant/browser.js");
     function compact(obj) {
         return Object.keys(obj).reduce(function (acc, key) {
@@ -51541,7 +51711,7 @@ module.exports = hoistNonReactStatics;
         return __assign$2.apply(this, arguments);
     };
     var invariant$5 = __webpack_require__(/*! invariant */ "./node_modules/invariant/browser.js");
-    var shallowEqual$1 = __webpack_require__(/*! fbjs/lib/shallowEqual */ "./node_modules/fbjs/lib/shallowEqual.js");
+    var shallowEqual$1 = __webpack_require__(/*! fbjs/lib/shallowEqual */ "./node_modules/react-apollo/node_modules/fbjs/lib/shallowEqual.js");
     var initialState = {
         loading: false,
         called: false,
@@ -51705,7 +51875,7 @@ module.exports = hoistNonReactStatics;
             d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
         };
     })();
-    var shallowEqual$2 = __webpack_require__(/*! fbjs/lib/shallowEqual */ "./node_modules/fbjs/lib/shallowEqual.js");
+    var shallowEqual$2 = __webpack_require__(/*! fbjs/lib/shallowEqual */ "./node_modules/react-apollo/node_modules/fbjs/lib/shallowEqual.js");
     var invariant$6 = __webpack_require__(/*! invariant */ "./node_modules/invariant/browser.js");
     var Subscription = (function (_super) {
         __extends$4(Subscription, _super);
@@ -56507,1566 +56677,6 @@ function polyfill(Component) {
 
 /***/ }),
 
-/***/ "./node_modules/react-motion/lib/Motion.js":
-/*!*************************************************!*\
-  !*** ./node_modules/react-motion/lib/Motion.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var _mapToZero = __webpack_require__(/*! ./mapToZero */ "./node_modules/react-motion/lib/mapToZero.js");
-
-var _mapToZero2 = _interopRequireDefault(_mapToZero);
-
-var _stripStyle = __webpack_require__(/*! ./stripStyle */ "./node_modules/react-motion/lib/stripStyle.js");
-
-var _stripStyle2 = _interopRequireDefault(_stripStyle);
-
-var _stepper3 = __webpack_require__(/*! ./stepper */ "./node_modules/react-motion/lib/stepper.js");
-
-var _stepper4 = _interopRequireDefault(_stepper3);
-
-var _performanceNow = __webpack_require__(/*! performance-now */ "./node_modules/react-motion/node_modules/performance-now/lib/performance-now.js");
-
-var _performanceNow2 = _interopRequireDefault(_performanceNow);
-
-var _raf = __webpack_require__(/*! raf */ "./node_modules/raf/index.js");
-
-var _raf2 = _interopRequireDefault(_raf);
-
-var _shouldStopAnimation = __webpack_require__(/*! ./shouldStopAnimation */ "./node_modules/react-motion/lib/shouldStopAnimation.js");
-
-var _shouldStopAnimation2 = _interopRequireDefault(_shouldStopAnimation);
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/next/node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var msPerFrame = 1000 / 60;
-
-var Motion = (function (_React$Component) {
-  _inherits(Motion, _React$Component);
-
-  _createClass(Motion, null, [{
-    key: 'propTypes',
-    value: {
-      // TOOD: warn against putting a config in here
-      defaultStyle: _propTypes2['default'].objectOf(_propTypes2['default'].number),
-      style: _propTypes2['default'].objectOf(_propTypes2['default'].oneOfType([_propTypes2['default'].number, _propTypes2['default'].object])).isRequired,
-      children: _propTypes2['default'].func.isRequired,
-      onRest: _propTypes2['default'].func
-    },
-    enumerable: true
-  }]);
-
-  function Motion(props) {
-    var _this = this;
-
-    _classCallCheck(this, Motion);
-
-    _React$Component.call(this, props);
-    this.wasAnimating = false;
-    this.animationID = null;
-    this.prevTime = 0;
-    this.accumulatedTime = 0;
-    this.unreadPropStyle = null;
-
-    this.clearUnreadPropStyle = function (destStyle) {
-      var dirty = false;
-      var _state = _this.state;
-      var currentStyle = _state.currentStyle;
-      var currentVelocity = _state.currentVelocity;
-      var lastIdealStyle = _state.lastIdealStyle;
-      var lastIdealVelocity = _state.lastIdealVelocity;
-
-      for (var key in destStyle) {
-        if (!Object.prototype.hasOwnProperty.call(destStyle, key)) {
-          continue;
-        }
-
-        var styleValue = destStyle[key];
-        if (typeof styleValue === 'number') {
-          if (!dirty) {
-            dirty = true;
-            currentStyle = _extends({}, currentStyle);
-            currentVelocity = _extends({}, currentVelocity);
-            lastIdealStyle = _extends({}, lastIdealStyle);
-            lastIdealVelocity = _extends({}, lastIdealVelocity);
-          }
-
-          currentStyle[key] = styleValue;
-          currentVelocity[key] = 0;
-          lastIdealStyle[key] = styleValue;
-          lastIdealVelocity[key] = 0;
-        }
-      }
-
-      if (dirty) {
-        _this.setState({ currentStyle: currentStyle, currentVelocity: currentVelocity, lastIdealStyle: lastIdealStyle, lastIdealVelocity: lastIdealVelocity });
-      }
-    };
-
-    this.startAnimationIfNecessary = function () {
-      // TODO: when config is {a: 10} and dest is {a: 10} do we raf once and
-      // call cb? No, otherwise accidental parent rerender causes cb trigger
-      _this.animationID = _raf2['default'](function (timestamp) {
-        // check if we need to animate in the first place
-        var propsStyle = _this.props.style;
-        if (_shouldStopAnimation2['default'](_this.state.currentStyle, propsStyle, _this.state.currentVelocity)) {
-          if (_this.wasAnimating && _this.props.onRest) {
-            _this.props.onRest();
-          }
-
-          // no need to cancel animationID here; shouldn't have any in flight
-          _this.animationID = null;
-          _this.wasAnimating = false;
-          _this.accumulatedTime = 0;
-          return;
-        }
-
-        _this.wasAnimating = true;
-
-        var currentTime = timestamp || _performanceNow2['default']();
-        var timeDelta = currentTime - _this.prevTime;
-        _this.prevTime = currentTime;
-        _this.accumulatedTime = _this.accumulatedTime + timeDelta;
-        // more than 10 frames? prolly switched browser tab. Restart
-        if (_this.accumulatedTime > msPerFrame * 10) {
-          _this.accumulatedTime = 0;
-        }
-
-        if (_this.accumulatedTime === 0) {
-          // no need to cancel animationID here; shouldn't have any in flight
-          _this.animationID = null;
-          _this.startAnimationIfNecessary();
-          return;
-        }
-
-        var currentFrameCompletion = (_this.accumulatedTime - Math.floor(_this.accumulatedTime / msPerFrame) * msPerFrame) / msPerFrame;
-        var framesToCatchUp = Math.floor(_this.accumulatedTime / msPerFrame);
-
-        var newLastIdealStyle = {};
-        var newLastIdealVelocity = {};
-        var newCurrentStyle = {};
-        var newCurrentVelocity = {};
-
-        for (var key in propsStyle) {
-          if (!Object.prototype.hasOwnProperty.call(propsStyle, key)) {
-            continue;
-          }
-
-          var styleValue = propsStyle[key];
-          if (typeof styleValue === 'number') {
-            newCurrentStyle[key] = styleValue;
-            newCurrentVelocity[key] = 0;
-            newLastIdealStyle[key] = styleValue;
-            newLastIdealVelocity[key] = 0;
-          } else {
-            var newLastIdealStyleValue = _this.state.lastIdealStyle[key];
-            var newLastIdealVelocityValue = _this.state.lastIdealVelocity[key];
-            for (var i = 0; i < framesToCatchUp; i++) {
-              var _stepper = _stepper4['default'](msPerFrame / 1000, newLastIdealStyleValue, newLastIdealVelocityValue, styleValue.val, styleValue.stiffness, styleValue.damping, styleValue.precision);
-
-              newLastIdealStyleValue = _stepper[0];
-              newLastIdealVelocityValue = _stepper[1];
-            }
-
-            var _stepper2 = _stepper4['default'](msPerFrame / 1000, newLastIdealStyleValue, newLastIdealVelocityValue, styleValue.val, styleValue.stiffness, styleValue.damping, styleValue.precision);
-
-            var nextIdealX = _stepper2[0];
-            var nextIdealV = _stepper2[1];
-
-            newCurrentStyle[key] = newLastIdealStyleValue + (nextIdealX - newLastIdealStyleValue) * currentFrameCompletion;
-            newCurrentVelocity[key] = newLastIdealVelocityValue + (nextIdealV - newLastIdealVelocityValue) * currentFrameCompletion;
-            newLastIdealStyle[key] = newLastIdealStyleValue;
-            newLastIdealVelocity[key] = newLastIdealVelocityValue;
-          }
-        }
-
-        _this.animationID = null;
-        // the amount we're looped over above
-        _this.accumulatedTime -= framesToCatchUp * msPerFrame;
-
-        _this.setState({
-          currentStyle: newCurrentStyle,
-          currentVelocity: newCurrentVelocity,
-          lastIdealStyle: newLastIdealStyle,
-          lastIdealVelocity: newLastIdealVelocity
-        });
-
-        _this.unreadPropStyle = null;
-
-        _this.startAnimationIfNecessary();
-      });
-    };
-
-    this.state = this.defaultState();
-  }
-
-  Motion.prototype.defaultState = function defaultState() {
-    var _props = this.props;
-    var defaultStyle = _props.defaultStyle;
-    var style = _props.style;
-
-    var currentStyle = defaultStyle || _stripStyle2['default'](style);
-    var currentVelocity = _mapToZero2['default'](currentStyle);
-    return {
-      currentStyle: currentStyle,
-      currentVelocity: currentVelocity,
-      lastIdealStyle: currentStyle,
-      lastIdealVelocity: currentVelocity
-    };
-  };
-
-  // it's possible that currentStyle's value is stale: if props is immediately
-  // changed from 0 to 400 to spring(0) again, the async currentStyle is still
-  // at 0 (didn't have time to tick and interpolate even once). If we naively
-  // compare currentStyle with destVal it'll be 0 === 0 (no animation, stop).
-  // In reality currentStyle should be 400
-
-  Motion.prototype.componentDidMount = function componentDidMount() {
-    this.prevTime = _performanceNow2['default']();
-    this.startAnimationIfNecessary();
-  };
-
-  Motion.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
-    if (this.unreadPropStyle != null) {
-      // previous props haven't had the chance to be set yet; set them here
-      this.clearUnreadPropStyle(this.unreadPropStyle);
-    }
-
-    this.unreadPropStyle = props.style;
-    if (this.animationID == null) {
-      this.prevTime = _performanceNow2['default']();
-      this.startAnimationIfNecessary();
-    }
-  };
-
-  Motion.prototype.componentWillUnmount = function componentWillUnmount() {
-    if (this.animationID != null) {
-      _raf2['default'].cancel(this.animationID);
-      this.animationID = null;
-    }
-  };
-
-  Motion.prototype.render = function render() {
-    var renderedChildren = this.props.children(this.state.currentStyle);
-    return renderedChildren && _react2['default'].Children.only(renderedChildren);
-  };
-
-  return Motion;
-})(_react2['default'].Component);
-
-exports['default'] = Motion;
-module.exports = exports['default'];
-
-// after checking for unreadPropStyle != null, we manually go set the
-// non-interpolating values (those that are a number, without a spring
-// config)
-
-/***/ }),
-
-/***/ "./node_modules/react-motion/lib/StaggeredMotion.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/react-motion/lib/StaggeredMotion.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var _mapToZero = __webpack_require__(/*! ./mapToZero */ "./node_modules/react-motion/lib/mapToZero.js");
-
-var _mapToZero2 = _interopRequireDefault(_mapToZero);
-
-var _stripStyle = __webpack_require__(/*! ./stripStyle */ "./node_modules/react-motion/lib/stripStyle.js");
-
-var _stripStyle2 = _interopRequireDefault(_stripStyle);
-
-var _stepper3 = __webpack_require__(/*! ./stepper */ "./node_modules/react-motion/lib/stepper.js");
-
-var _stepper4 = _interopRequireDefault(_stepper3);
-
-var _performanceNow = __webpack_require__(/*! performance-now */ "./node_modules/react-motion/node_modules/performance-now/lib/performance-now.js");
-
-var _performanceNow2 = _interopRequireDefault(_performanceNow);
-
-var _raf = __webpack_require__(/*! raf */ "./node_modules/raf/index.js");
-
-var _raf2 = _interopRequireDefault(_raf);
-
-var _shouldStopAnimation = __webpack_require__(/*! ./shouldStopAnimation */ "./node_modules/react-motion/lib/shouldStopAnimation.js");
-
-var _shouldStopAnimation2 = _interopRequireDefault(_shouldStopAnimation);
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/next/node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var msPerFrame = 1000 / 60;
-
-function shouldStopAnimationAll(currentStyles, styles, currentVelocities) {
-  for (var i = 0; i < currentStyles.length; i++) {
-    if (!_shouldStopAnimation2['default'](currentStyles[i], styles[i], currentVelocities[i])) {
-      return false;
-    }
-  }
-  return true;
-}
-
-var StaggeredMotion = (function (_React$Component) {
-  _inherits(StaggeredMotion, _React$Component);
-
-  _createClass(StaggeredMotion, null, [{
-    key: 'propTypes',
-    value: {
-      // TOOD: warn against putting a config in here
-      defaultStyles: _propTypes2['default'].arrayOf(_propTypes2['default'].objectOf(_propTypes2['default'].number)),
-      styles: _propTypes2['default'].func.isRequired,
-      children: _propTypes2['default'].func.isRequired
-    },
-    enumerable: true
-  }]);
-
-  function StaggeredMotion(props) {
-    var _this = this;
-
-    _classCallCheck(this, StaggeredMotion);
-
-    _React$Component.call(this, props);
-    this.animationID = null;
-    this.prevTime = 0;
-    this.accumulatedTime = 0;
-    this.unreadPropStyles = null;
-
-    this.clearUnreadPropStyle = function (unreadPropStyles) {
-      var _state = _this.state;
-      var currentStyles = _state.currentStyles;
-      var currentVelocities = _state.currentVelocities;
-      var lastIdealStyles = _state.lastIdealStyles;
-      var lastIdealVelocities = _state.lastIdealVelocities;
-
-      var someDirty = false;
-      for (var i = 0; i < unreadPropStyles.length; i++) {
-        var unreadPropStyle = unreadPropStyles[i];
-        var dirty = false;
-
-        for (var key in unreadPropStyle) {
-          if (!Object.prototype.hasOwnProperty.call(unreadPropStyle, key)) {
-            continue;
-          }
-
-          var styleValue = unreadPropStyle[key];
-          if (typeof styleValue === 'number') {
-            if (!dirty) {
-              dirty = true;
-              someDirty = true;
-              currentStyles[i] = _extends({}, currentStyles[i]);
-              currentVelocities[i] = _extends({}, currentVelocities[i]);
-              lastIdealStyles[i] = _extends({}, lastIdealStyles[i]);
-              lastIdealVelocities[i] = _extends({}, lastIdealVelocities[i]);
-            }
-            currentStyles[i][key] = styleValue;
-            currentVelocities[i][key] = 0;
-            lastIdealStyles[i][key] = styleValue;
-            lastIdealVelocities[i][key] = 0;
-          }
-        }
-      }
-
-      if (someDirty) {
-        _this.setState({ currentStyles: currentStyles, currentVelocities: currentVelocities, lastIdealStyles: lastIdealStyles, lastIdealVelocities: lastIdealVelocities });
-      }
-    };
-
-    this.startAnimationIfNecessary = function () {
-      // TODO: when config is {a: 10} and dest is {a: 10} do we raf once and
-      // call cb? No, otherwise accidental parent rerender causes cb trigger
-      _this.animationID = _raf2['default'](function (timestamp) {
-        var destStyles = _this.props.styles(_this.state.lastIdealStyles);
-
-        // check if we need to animate in the first place
-        if (shouldStopAnimationAll(_this.state.currentStyles, destStyles, _this.state.currentVelocities)) {
-          // no need to cancel animationID here; shouldn't have any in flight
-          _this.animationID = null;
-          _this.accumulatedTime = 0;
-          return;
-        }
-
-        var currentTime = timestamp || _performanceNow2['default']();
-        var timeDelta = currentTime - _this.prevTime;
-        _this.prevTime = currentTime;
-        _this.accumulatedTime = _this.accumulatedTime + timeDelta;
-        // more than 10 frames? prolly switched browser tab. Restart
-        if (_this.accumulatedTime > msPerFrame * 10) {
-          _this.accumulatedTime = 0;
-        }
-
-        if (_this.accumulatedTime === 0) {
-          // no need to cancel animationID here; shouldn't have any in flight
-          _this.animationID = null;
-          _this.startAnimationIfNecessary();
-          return;
-        }
-
-        var currentFrameCompletion = (_this.accumulatedTime - Math.floor(_this.accumulatedTime / msPerFrame) * msPerFrame) / msPerFrame;
-        var framesToCatchUp = Math.floor(_this.accumulatedTime / msPerFrame);
-
-        var newLastIdealStyles = [];
-        var newLastIdealVelocities = [];
-        var newCurrentStyles = [];
-        var newCurrentVelocities = [];
-
-        for (var i = 0; i < destStyles.length; i++) {
-          var destStyle = destStyles[i];
-          var newCurrentStyle = {};
-          var newCurrentVelocity = {};
-          var newLastIdealStyle = {};
-          var newLastIdealVelocity = {};
-
-          for (var key in destStyle) {
-            if (!Object.prototype.hasOwnProperty.call(destStyle, key)) {
-              continue;
-            }
-
-            var styleValue = destStyle[key];
-            if (typeof styleValue === 'number') {
-              newCurrentStyle[key] = styleValue;
-              newCurrentVelocity[key] = 0;
-              newLastIdealStyle[key] = styleValue;
-              newLastIdealVelocity[key] = 0;
-            } else {
-              var newLastIdealStyleValue = _this.state.lastIdealStyles[i][key];
-              var newLastIdealVelocityValue = _this.state.lastIdealVelocities[i][key];
-              for (var j = 0; j < framesToCatchUp; j++) {
-                var _stepper = _stepper4['default'](msPerFrame / 1000, newLastIdealStyleValue, newLastIdealVelocityValue, styleValue.val, styleValue.stiffness, styleValue.damping, styleValue.precision);
-
-                newLastIdealStyleValue = _stepper[0];
-                newLastIdealVelocityValue = _stepper[1];
-              }
-
-              var _stepper2 = _stepper4['default'](msPerFrame / 1000, newLastIdealStyleValue, newLastIdealVelocityValue, styleValue.val, styleValue.stiffness, styleValue.damping, styleValue.precision);
-
-              var nextIdealX = _stepper2[0];
-              var nextIdealV = _stepper2[1];
-
-              newCurrentStyle[key] = newLastIdealStyleValue + (nextIdealX - newLastIdealStyleValue) * currentFrameCompletion;
-              newCurrentVelocity[key] = newLastIdealVelocityValue + (nextIdealV - newLastIdealVelocityValue) * currentFrameCompletion;
-              newLastIdealStyle[key] = newLastIdealStyleValue;
-              newLastIdealVelocity[key] = newLastIdealVelocityValue;
-            }
-          }
-
-          newCurrentStyles[i] = newCurrentStyle;
-          newCurrentVelocities[i] = newCurrentVelocity;
-          newLastIdealStyles[i] = newLastIdealStyle;
-          newLastIdealVelocities[i] = newLastIdealVelocity;
-        }
-
-        _this.animationID = null;
-        // the amount we're looped over above
-        _this.accumulatedTime -= framesToCatchUp * msPerFrame;
-
-        _this.setState({
-          currentStyles: newCurrentStyles,
-          currentVelocities: newCurrentVelocities,
-          lastIdealStyles: newLastIdealStyles,
-          lastIdealVelocities: newLastIdealVelocities
-        });
-
-        _this.unreadPropStyles = null;
-
-        _this.startAnimationIfNecessary();
-      });
-    };
-
-    this.state = this.defaultState();
-  }
-
-  StaggeredMotion.prototype.defaultState = function defaultState() {
-    var _props = this.props;
-    var defaultStyles = _props.defaultStyles;
-    var styles = _props.styles;
-
-    var currentStyles = defaultStyles || styles().map(_stripStyle2['default']);
-    var currentVelocities = currentStyles.map(function (currentStyle) {
-      return _mapToZero2['default'](currentStyle);
-    });
-    return {
-      currentStyles: currentStyles,
-      currentVelocities: currentVelocities,
-      lastIdealStyles: currentStyles,
-      lastIdealVelocities: currentVelocities
-    };
-  };
-
-  StaggeredMotion.prototype.componentDidMount = function componentDidMount() {
-    this.prevTime = _performanceNow2['default']();
-    this.startAnimationIfNecessary();
-  };
-
-  StaggeredMotion.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
-    if (this.unreadPropStyles != null) {
-      // previous props haven't had the chance to be set yet; set them here
-      this.clearUnreadPropStyle(this.unreadPropStyles);
-    }
-
-    this.unreadPropStyles = props.styles(this.state.lastIdealStyles);
-    if (this.animationID == null) {
-      this.prevTime = _performanceNow2['default']();
-      this.startAnimationIfNecessary();
-    }
-  };
-
-  StaggeredMotion.prototype.componentWillUnmount = function componentWillUnmount() {
-    if (this.animationID != null) {
-      _raf2['default'].cancel(this.animationID);
-      this.animationID = null;
-    }
-  };
-
-  StaggeredMotion.prototype.render = function render() {
-    var renderedChildren = this.props.children(this.state.currentStyles);
-    return renderedChildren && _react2['default'].Children.only(renderedChildren);
-  };
-
-  return StaggeredMotion;
-})(_react2['default'].Component);
-
-exports['default'] = StaggeredMotion;
-module.exports = exports['default'];
-
-// it's possible that currentStyle's value is stale: if props is immediately
-// changed from 0 to 400 to spring(0) again, the async currentStyle is still
-// at 0 (didn't have time to tick and interpolate even once). If we naively
-// compare currentStyle with destVal it'll be 0 === 0 (no animation, stop).
-// In reality currentStyle should be 400
-
-// after checking for unreadPropStyles != null, we manually go set the
-// non-interpolating values (those that are a number, without a spring
-// config)
-
-/***/ }),
-
-/***/ "./node_modules/react-motion/lib/TransitionMotion.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/react-motion/lib/TransitionMotion.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var _mapToZero = __webpack_require__(/*! ./mapToZero */ "./node_modules/react-motion/lib/mapToZero.js");
-
-var _mapToZero2 = _interopRequireDefault(_mapToZero);
-
-var _stripStyle = __webpack_require__(/*! ./stripStyle */ "./node_modules/react-motion/lib/stripStyle.js");
-
-var _stripStyle2 = _interopRequireDefault(_stripStyle);
-
-var _stepper3 = __webpack_require__(/*! ./stepper */ "./node_modules/react-motion/lib/stepper.js");
-
-var _stepper4 = _interopRequireDefault(_stepper3);
-
-var _mergeDiff = __webpack_require__(/*! ./mergeDiff */ "./node_modules/react-motion/lib/mergeDiff.js");
-
-var _mergeDiff2 = _interopRequireDefault(_mergeDiff);
-
-var _performanceNow = __webpack_require__(/*! performance-now */ "./node_modules/react-motion/node_modules/performance-now/lib/performance-now.js");
-
-var _performanceNow2 = _interopRequireDefault(_performanceNow);
-
-var _raf = __webpack_require__(/*! raf */ "./node_modules/raf/index.js");
-
-var _raf2 = _interopRequireDefault(_raf);
-
-var _shouldStopAnimation = __webpack_require__(/*! ./shouldStopAnimation */ "./node_modules/react-motion/lib/shouldStopAnimation.js");
-
-var _shouldStopAnimation2 = _interopRequireDefault(_shouldStopAnimation);
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/next/node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var msPerFrame = 1000 / 60;
-
-// the children function & (potential) styles function asks as param an
-// Array<TransitionPlainStyle>, where each TransitionPlainStyle is of the format
-// {key: string, data?: any, style: PlainStyle}. However, the way we keep
-// internal states doesn't contain such a data structure (check the state and
-// TransitionMotionState). So when children function and others ask for such
-// data we need to generate them on the fly by combining mergedPropsStyles and
-// currentStyles/lastIdealStyles
-function rehydrateStyles(mergedPropsStyles, unreadPropStyles, plainStyles) {
-  // Copy the value to a `const` so that Flow understands that the const won't
-  // change and will be non-nullable in the callback below.
-  var cUnreadPropStyles = unreadPropStyles;
-  if (cUnreadPropStyles == null) {
-    return mergedPropsStyles.map(function (mergedPropsStyle, i) {
-      return {
-        key: mergedPropsStyle.key,
-        data: mergedPropsStyle.data,
-        style: plainStyles[i]
-      };
-    });
-  }
-  return mergedPropsStyles.map(function (mergedPropsStyle, i) {
-    for (var j = 0; j < cUnreadPropStyles.length; j++) {
-      if (cUnreadPropStyles[j].key === mergedPropsStyle.key) {
-        return {
-          key: cUnreadPropStyles[j].key,
-          data: cUnreadPropStyles[j].data,
-          style: plainStyles[i]
-        };
-      }
-    }
-    return { key: mergedPropsStyle.key, data: mergedPropsStyle.data, style: plainStyles[i] };
-  });
-}
-
-function shouldStopAnimationAll(currentStyles, destStyles, currentVelocities, mergedPropsStyles) {
-  if (mergedPropsStyles.length !== destStyles.length) {
-    return false;
-  }
-
-  for (var i = 0; i < mergedPropsStyles.length; i++) {
-    if (mergedPropsStyles[i].key !== destStyles[i].key) {
-      return false;
-    }
-  }
-
-  // we have the invariant that mergedPropsStyles and
-  // currentStyles/currentVelocities/last* are synced in terms of cells, see
-  // mergeAndSync comment for more info
-  for (var i = 0; i < mergedPropsStyles.length; i++) {
-    if (!_shouldStopAnimation2['default'](currentStyles[i], destStyles[i].style, currentVelocities[i])) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-// core key merging logic
-
-// things to do: say previously merged style is {a, b}, dest style (prop) is {b,
-// c}, previous current (interpolating) style is {a, b}
-// **invariant**: current[i] corresponds to merged[i] in terms of key
-
-// steps:
-// turn merged style into {a?, b, c}
-//    add c, value of c is destStyles.c
-//    maybe remove a, aka call willLeave(a), then merged is either {b, c} or {a, b, c}
-// turn current (interpolating) style from {a, b} into {a?, b, c}
-//    maybe remove a
-//    certainly add c, value of c is willEnter(c)
-// loop over merged and construct new current
-// dest doesn't change, that's owner's
-function mergeAndSync(willEnter, willLeave, didLeave, oldMergedPropsStyles, destStyles, oldCurrentStyles, oldCurrentVelocities, oldLastIdealStyles, oldLastIdealVelocities) {
-  var newMergedPropsStyles = _mergeDiff2['default'](oldMergedPropsStyles, destStyles, function (oldIndex, oldMergedPropsStyle) {
-    var leavingStyle = willLeave(oldMergedPropsStyle);
-    if (leavingStyle == null) {
-      didLeave({ key: oldMergedPropsStyle.key, data: oldMergedPropsStyle.data });
-      return null;
-    }
-    if (_shouldStopAnimation2['default'](oldCurrentStyles[oldIndex], leavingStyle, oldCurrentVelocities[oldIndex])) {
-      didLeave({ key: oldMergedPropsStyle.key, data: oldMergedPropsStyle.data });
-      return null;
-    }
-    return { key: oldMergedPropsStyle.key, data: oldMergedPropsStyle.data, style: leavingStyle };
-  });
-
-  var newCurrentStyles = [];
-  var newCurrentVelocities = [];
-  var newLastIdealStyles = [];
-  var newLastIdealVelocities = [];
-  for (var i = 0; i < newMergedPropsStyles.length; i++) {
-    var newMergedPropsStyleCell = newMergedPropsStyles[i];
-    var foundOldIndex = null;
-    for (var j = 0; j < oldMergedPropsStyles.length; j++) {
-      if (oldMergedPropsStyles[j].key === newMergedPropsStyleCell.key) {
-        foundOldIndex = j;
-        break;
-      }
-    }
-    // TODO: key search code
-    if (foundOldIndex == null) {
-      var plainStyle = willEnter(newMergedPropsStyleCell);
-      newCurrentStyles[i] = plainStyle;
-      newLastIdealStyles[i] = plainStyle;
-
-      var velocity = _mapToZero2['default'](newMergedPropsStyleCell.style);
-      newCurrentVelocities[i] = velocity;
-      newLastIdealVelocities[i] = velocity;
-    } else {
-      newCurrentStyles[i] = oldCurrentStyles[foundOldIndex];
-      newLastIdealStyles[i] = oldLastIdealStyles[foundOldIndex];
-      newCurrentVelocities[i] = oldCurrentVelocities[foundOldIndex];
-      newLastIdealVelocities[i] = oldLastIdealVelocities[foundOldIndex];
-    }
-  }
-
-  return [newMergedPropsStyles, newCurrentStyles, newCurrentVelocities, newLastIdealStyles, newLastIdealVelocities];
-}
-
-var TransitionMotion = (function (_React$Component) {
-  _inherits(TransitionMotion, _React$Component);
-
-  _createClass(TransitionMotion, null, [{
-    key: 'propTypes',
-    value: {
-      defaultStyles: _propTypes2['default'].arrayOf(_propTypes2['default'].shape({
-        key: _propTypes2['default'].string.isRequired,
-        data: _propTypes2['default'].any,
-        style: _propTypes2['default'].objectOf(_propTypes2['default'].number).isRequired
-      })),
-      styles: _propTypes2['default'].oneOfType([_propTypes2['default'].func, _propTypes2['default'].arrayOf(_propTypes2['default'].shape({
-        key: _propTypes2['default'].string.isRequired,
-        data: _propTypes2['default'].any,
-        style: _propTypes2['default'].objectOf(_propTypes2['default'].oneOfType([_propTypes2['default'].number, _propTypes2['default'].object])).isRequired
-      }))]).isRequired,
-      children: _propTypes2['default'].func.isRequired,
-      willEnter: _propTypes2['default'].func,
-      willLeave: _propTypes2['default'].func,
-      didLeave: _propTypes2['default'].func
-    },
-    enumerable: true
-  }, {
-    key: 'defaultProps',
-    value: {
-      willEnter: function willEnter(styleThatEntered) {
-        return _stripStyle2['default'](styleThatEntered.style);
-      },
-      // recall: returning null makes the current unmounting TransitionStyle
-      // disappear immediately
-      willLeave: function willLeave() {
-        return null;
-      },
-      didLeave: function didLeave() {}
-    },
-    enumerable: true
-  }]);
-
-  function TransitionMotion(props) {
-    var _this = this;
-
-    _classCallCheck(this, TransitionMotion);
-
-    _React$Component.call(this, props);
-    this.unmounting = false;
-    this.animationID = null;
-    this.prevTime = 0;
-    this.accumulatedTime = 0;
-    this.unreadPropStyles = null;
-
-    this.clearUnreadPropStyle = function (unreadPropStyles) {
-      var _mergeAndSync = mergeAndSync(_this.props.willEnter, _this.props.willLeave, _this.props.didLeave, _this.state.mergedPropsStyles, unreadPropStyles, _this.state.currentStyles, _this.state.currentVelocities, _this.state.lastIdealStyles, _this.state.lastIdealVelocities);
-
-      var mergedPropsStyles = _mergeAndSync[0];
-      var currentStyles = _mergeAndSync[1];
-      var currentVelocities = _mergeAndSync[2];
-      var lastIdealStyles = _mergeAndSync[3];
-      var lastIdealVelocities = _mergeAndSync[4];
-
-      for (var i = 0; i < unreadPropStyles.length; i++) {
-        var unreadPropStyle = unreadPropStyles[i].style;
-        var dirty = false;
-
-        for (var key in unreadPropStyle) {
-          if (!Object.prototype.hasOwnProperty.call(unreadPropStyle, key)) {
-            continue;
-          }
-
-          var styleValue = unreadPropStyle[key];
-          if (typeof styleValue === 'number') {
-            if (!dirty) {
-              dirty = true;
-              currentStyles[i] = _extends({}, currentStyles[i]);
-              currentVelocities[i] = _extends({}, currentVelocities[i]);
-              lastIdealStyles[i] = _extends({}, lastIdealStyles[i]);
-              lastIdealVelocities[i] = _extends({}, lastIdealVelocities[i]);
-              mergedPropsStyles[i] = {
-                key: mergedPropsStyles[i].key,
-                data: mergedPropsStyles[i].data,
-                style: _extends({}, mergedPropsStyles[i].style)
-              };
-            }
-            currentStyles[i][key] = styleValue;
-            currentVelocities[i][key] = 0;
-            lastIdealStyles[i][key] = styleValue;
-            lastIdealVelocities[i][key] = 0;
-            mergedPropsStyles[i].style[key] = styleValue;
-          }
-        }
-      }
-
-      // unlike the other 2 components, we can't detect staleness and optionally
-      // opt out of setState here. each style object's data might contain new
-      // stuff we're not/cannot compare
-      _this.setState({
-        currentStyles: currentStyles,
-        currentVelocities: currentVelocities,
-        mergedPropsStyles: mergedPropsStyles,
-        lastIdealStyles: lastIdealStyles,
-        lastIdealVelocities: lastIdealVelocities
-      });
-    };
-
-    this.startAnimationIfNecessary = function () {
-      if (_this.unmounting) {
-        return;
-      }
-
-      // TODO: when config is {a: 10} and dest is {a: 10} do we raf once and
-      // call cb? No, otherwise accidental parent rerender causes cb trigger
-      _this.animationID = _raf2['default'](function (timestamp) {
-        // https://github.com/chenglou/react-motion/pull/420
-        // > if execution passes the conditional if (this.unmounting), then
-        // executes async defaultRaf and after that component unmounts and after
-        // that the callback of defaultRaf is called, then setState will be called
-        // on unmounted component.
-        if (_this.unmounting) {
-          return;
-        }
-
-        var propStyles = _this.props.styles;
-        var destStyles = typeof propStyles === 'function' ? propStyles(rehydrateStyles(_this.state.mergedPropsStyles, _this.unreadPropStyles, _this.state.lastIdealStyles)) : propStyles;
-
-        // check if we need to animate in the first place
-        if (shouldStopAnimationAll(_this.state.currentStyles, destStyles, _this.state.currentVelocities, _this.state.mergedPropsStyles)) {
-          // no need to cancel animationID here; shouldn't have any in flight
-          _this.animationID = null;
-          _this.accumulatedTime = 0;
-          return;
-        }
-
-        var currentTime = timestamp || _performanceNow2['default']();
-        var timeDelta = currentTime - _this.prevTime;
-        _this.prevTime = currentTime;
-        _this.accumulatedTime = _this.accumulatedTime + timeDelta;
-        // more than 10 frames? prolly switched browser tab. Restart
-        if (_this.accumulatedTime > msPerFrame * 10) {
-          _this.accumulatedTime = 0;
-        }
-
-        if (_this.accumulatedTime === 0) {
-          // no need to cancel animationID here; shouldn't have any in flight
-          _this.animationID = null;
-          _this.startAnimationIfNecessary();
-          return;
-        }
-
-        var currentFrameCompletion = (_this.accumulatedTime - Math.floor(_this.accumulatedTime / msPerFrame) * msPerFrame) / msPerFrame;
-        var framesToCatchUp = Math.floor(_this.accumulatedTime / msPerFrame);
-
-        var _mergeAndSync2 = mergeAndSync(_this.props.willEnter, _this.props.willLeave, _this.props.didLeave, _this.state.mergedPropsStyles, destStyles, _this.state.currentStyles, _this.state.currentVelocities, _this.state.lastIdealStyles, _this.state.lastIdealVelocities);
-
-        var newMergedPropsStyles = _mergeAndSync2[0];
-        var newCurrentStyles = _mergeAndSync2[1];
-        var newCurrentVelocities = _mergeAndSync2[2];
-        var newLastIdealStyles = _mergeAndSync2[3];
-        var newLastIdealVelocities = _mergeAndSync2[4];
-
-        for (var i = 0; i < newMergedPropsStyles.length; i++) {
-          var newMergedPropsStyle = newMergedPropsStyles[i].style;
-          var newCurrentStyle = {};
-          var newCurrentVelocity = {};
-          var newLastIdealStyle = {};
-          var newLastIdealVelocity = {};
-
-          for (var key in newMergedPropsStyle) {
-            if (!Object.prototype.hasOwnProperty.call(newMergedPropsStyle, key)) {
-              continue;
-            }
-
-            var styleValue = newMergedPropsStyle[key];
-            if (typeof styleValue === 'number') {
-              newCurrentStyle[key] = styleValue;
-              newCurrentVelocity[key] = 0;
-              newLastIdealStyle[key] = styleValue;
-              newLastIdealVelocity[key] = 0;
-            } else {
-              var newLastIdealStyleValue = newLastIdealStyles[i][key];
-              var newLastIdealVelocityValue = newLastIdealVelocities[i][key];
-              for (var j = 0; j < framesToCatchUp; j++) {
-                var _stepper = _stepper4['default'](msPerFrame / 1000, newLastIdealStyleValue, newLastIdealVelocityValue, styleValue.val, styleValue.stiffness, styleValue.damping, styleValue.precision);
-
-                newLastIdealStyleValue = _stepper[0];
-                newLastIdealVelocityValue = _stepper[1];
-              }
-
-              var _stepper2 = _stepper4['default'](msPerFrame / 1000, newLastIdealStyleValue, newLastIdealVelocityValue, styleValue.val, styleValue.stiffness, styleValue.damping, styleValue.precision);
-
-              var nextIdealX = _stepper2[0];
-              var nextIdealV = _stepper2[1];
-
-              newCurrentStyle[key] = newLastIdealStyleValue + (nextIdealX - newLastIdealStyleValue) * currentFrameCompletion;
-              newCurrentVelocity[key] = newLastIdealVelocityValue + (nextIdealV - newLastIdealVelocityValue) * currentFrameCompletion;
-              newLastIdealStyle[key] = newLastIdealStyleValue;
-              newLastIdealVelocity[key] = newLastIdealVelocityValue;
-            }
-          }
-
-          newLastIdealStyles[i] = newLastIdealStyle;
-          newLastIdealVelocities[i] = newLastIdealVelocity;
-          newCurrentStyles[i] = newCurrentStyle;
-          newCurrentVelocities[i] = newCurrentVelocity;
-        }
-
-        _this.animationID = null;
-        // the amount we're looped over above
-        _this.accumulatedTime -= framesToCatchUp * msPerFrame;
-
-        _this.setState({
-          currentStyles: newCurrentStyles,
-          currentVelocities: newCurrentVelocities,
-          lastIdealStyles: newLastIdealStyles,
-          lastIdealVelocities: newLastIdealVelocities,
-          mergedPropsStyles: newMergedPropsStyles
-        });
-
-        _this.unreadPropStyles = null;
-
-        _this.startAnimationIfNecessary();
-      });
-    };
-
-    this.state = this.defaultState();
-  }
-
-  TransitionMotion.prototype.defaultState = function defaultState() {
-    var _props = this.props;
-    var defaultStyles = _props.defaultStyles;
-    var styles = _props.styles;
-    var willEnter = _props.willEnter;
-    var willLeave = _props.willLeave;
-    var didLeave = _props.didLeave;
-
-    var destStyles = typeof styles === 'function' ? styles(defaultStyles) : styles;
-
-    // this is special. for the first time around, we don't have a comparison
-    // between last (no last) and current merged props. we'll compute last so:
-    // say default is {a, b} and styles (dest style) is {b, c}, we'll
-    // fabricate last as {a, b}
-    var oldMergedPropsStyles = undefined;
-    if (defaultStyles == null) {
-      oldMergedPropsStyles = destStyles;
-    } else {
-      oldMergedPropsStyles = defaultStyles.map(function (defaultStyleCell) {
-        // TODO: key search code
-        for (var i = 0; i < destStyles.length; i++) {
-          if (destStyles[i].key === defaultStyleCell.key) {
-            return destStyles[i];
-          }
-        }
-        return defaultStyleCell;
-      });
-    }
-    var oldCurrentStyles = defaultStyles == null ? destStyles.map(function (s) {
-      return _stripStyle2['default'](s.style);
-    }) : defaultStyles.map(function (s) {
-      return _stripStyle2['default'](s.style);
-    });
-    var oldCurrentVelocities = defaultStyles == null ? destStyles.map(function (s) {
-      return _mapToZero2['default'](s.style);
-    }) : defaultStyles.map(function (s) {
-      return _mapToZero2['default'](s.style);
-    });
-
-    var _mergeAndSync3 = mergeAndSync(
-    // Because this is an old-style createReactClass component, Flow doesn't
-    // understand that the willEnter and willLeave props have default values
-    // and will always be present.
-    willEnter, willLeave, didLeave, oldMergedPropsStyles, destStyles, oldCurrentStyles, oldCurrentVelocities, oldCurrentStyles, // oldLastIdealStyles really
-    oldCurrentVelocities);
-
-    var mergedPropsStyles = _mergeAndSync3[0];
-    var currentStyles = _mergeAndSync3[1];
-    var currentVelocities = _mergeAndSync3[2];
-    var lastIdealStyles = _mergeAndSync3[3];
-    var lastIdealVelocities = _mergeAndSync3[4];
-    // oldLastIdealVelocities really
-
-    return {
-      currentStyles: currentStyles,
-      currentVelocities: currentVelocities,
-      lastIdealStyles: lastIdealStyles,
-      lastIdealVelocities: lastIdealVelocities,
-      mergedPropsStyles: mergedPropsStyles
-    };
-  };
-
-  // after checking for unreadPropStyles != null, we manually go set the
-  // non-interpolating values (those that are a number, without a spring
-  // config)
-
-  TransitionMotion.prototype.componentDidMount = function componentDidMount() {
-    this.prevTime = _performanceNow2['default']();
-    this.startAnimationIfNecessary();
-  };
-
-  TransitionMotion.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
-    if (this.unreadPropStyles) {
-      // previous props haven't had the chance to be set yet; set them here
-      this.clearUnreadPropStyle(this.unreadPropStyles);
-    }
-
-    var styles = props.styles;
-    if (typeof styles === 'function') {
-      this.unreadPropStyles = styles(rehydrateStyles(this.state.mergedPropsStyles, this.unreadPropStyles, this.state.lastIdealStyles));
-    } else {
-      this.unreadPropStyles = styles;
-    }
-
-    if (this.animationID == null) {
-      this.prevTime = _performanceNow2['default']();
-      this.startAnimationIfNecessary();
-    }
-  };
-
-  TransitionMotion.prototype.componentWillUnmount = function componentWillUnmount() {
-    this.unmounting = true;
-    if (this.animationID != null) {
-      _raf2['default'].cancel(this.animationID);
-      this.animationID = null;
-    }
-  };
-
-  TransitionMotion.prototype.render = function render() {
-    var hydratedStyles = rehydrateStyles(this.state.mergedPropsStyles, this.unreadPropStyles, this.state.currentStyles);
-    var renderedChildren = this.props.children(hydratedStyles);
-    return renderedChildren && _react2['default'].Children.only(renderedChildren);
-  };
-
-  return TransitionMotion;
-})(_react2['default'].Component);
-
-exports['default'] = TransitionMotion;
-module.exports = exports['default'];
-
-// list of styles, each containing interpolating values. Part of what's passed
-// to children function. Notice that this is
-// Array<ActualInterpolatingStyleObject>, without the wrapper that is {key: ...,
-// data: ... style: ActualInterpolatingStyleObject}. Only mergedPropsStyles
-// contains the key & data info (so that we only have a single source of truth
-// for these, and to save space). Check the comment for `rehydrateStyles` to
-// see how we regenerate the entirety of what's passed to children function
-
-// the array that keeps track of currently rendered stuff! Including stuff
-// that you've unmounted but that's still animating. This is where it lives
-
-// it's possible that currentStyle's value is stale: if props is immediately
-// changed from 0 to 400 to spring(0) again, the async currentStyle is still
-// at 0 (didn't have time to tick and interpolate even once). If we naively
-// compare currentStyle with destVal it'll be 0 === 0 (no animation, stop).
-// In reality currentStyle should be 400
-
-/***/ }),
-
-/***/ "./node_modules/react-motion/lib/mapToZero.js":
-/*!****************************************************!*\
-  !*** ./node_modules/react-motion/lib/mapToZero.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// currently used to initiate the velocity style object to 0
-
-
-exports.__esModule = true;
-exports['default'] = mapToZero;
-
-function mapToZero(obj) {
-  var ret = {};
-  for (var key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      ret[key] = 0;
-    }
-  }
-  return ret;
-}
-
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ "./node_modules/react-motion/lib/mergeDiff.js":
-/*!****************************************************!*\
-  !*** ./node_modules/react-motion/lib/mergeDiff.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// core keys merging algorithm. If previous render's keys are [a, b], and the
-// next render's [c, b, d], what's the final merged keys and ordering?
-
-// - c and a must both be before b
-// - b before d
-// - ordering between a and c ambiguous
-
-// this reduces to merging two partially ordered lists (e.g. lists where not
-// every item has a definite ordering, like comparing a and c above). For the
-// ambiguous ordering we deterministically choose to place the next render's
-// item after the previous'; so c after a
-
-// this is called a topological sorting. Except the existing algorithms don't
-// work well with js bc of the amount of allocation, and isn't optimized for our
-// current use-case bc the runtime is linear in terms of edges (see wiki for
-// meaning), which is huge when two lists have many common elements
-
-
-exports.__esModule = true;
-exports['default'] = mergeDiff;
-
-function mergeDiff(prev, next, onRemove) {
-  // bookkeeping for easier access of a key's index below. This is 2 allocations +
-  // potentially triggering chrome hash map mode for objs (so it might be faster
-
-  var prevKeyIndex = {};
-  for (var i = 0; i < prev.length; i++) {
-    prevKeyIndex[prev[i].key] = i;
-  }
-  var nextKeyIndex = {};
-  for (var i = 0; i < next.length; i++) {
-    nextKeyIndex[next[i].key] = i;
-  }
-
-  // first, an overly elaborate way of merging prev and next, eliminating
-  // duplicates (in terms of keys). If there's dupe, keep the item in next).
-  // This way of writing it saves allocations
-  var ret = [];
-  for (var i = 0; i < next.length; i++) {
-    ret[i] = next[i];
-  }
-  for (var i = 0; i < prev.length; i++) {
-    if (!Object.prototype.hasOwnProperty.call(nextKeyIndex, prev[i].key)) {
-      // this is called my TM's `mergeAndSync`, which calls willLeave. We don't
-      // merge in keys that the user desires to kill
-      var fill = onRemove(i, prev[i]);
-      if (fill != null) {
-        ret.push(fill);
-      }
-    }
-  }
-
-  // now all the items all present. Core sorting logic to have the right order
-  return ret.sort(function (a, b) {
-    var nextOrderA = nextKeyIndex[a.key];
-    var nextOrderB = nextKeyIndex[b.key];
-    var prevOrderA = prevKeyIndex[a.key];
-    var prevOrderB = prevKeyIndex[b.key];
-
-    if (nextOrderA != null && nextOrderB != null) {
-      // both keys in next
-      return nextKeyIndex[a.key] - nextKeyIndex[b.key];
-    } else if (prevOrderA != null && prevOrderB != null) {
-      // both keys in prev
-      return prevKeyIndex[a.key] - prevKeyIndex[b.key];
-    } else if (nextOrderA != null) {
-      // key a in next, key b in prev
-
-      // how to determine the order between a and b? We find a "pivot" (term
-      // abuse), a key present in both prev and next, that is sandwiched between
-      // a and b. In the context of our above example, if we're comparing a and
-      // d, b's (the only) pivot
-      for (var i = 0; i < next.length; i++) {
-        var pivot = next[i].key;
-        if (!Object.prototype.hasOwnProperty.call(prevKeyIndex, pivot)) {
-          continue;
-        }
-
-        if (nextOrderA < nextKeyIndex[pivot] && prevOrderB > prevKeyIndex[pivot]) {
-          return -1;
-        } else if (nextOrderA > nextKeyIndex[pivot] && prevOrderB < prevKeyIndex[pivot]) {
-          return 1;
-        }
-      }
-      // pluggable. default to: next bigger than prev
-      return 1;
-    }
-    // prevOrderA, nextOrderB
-    for (var i = 0; i < next.length; i++) {
-      var pivot = next[i].key;
-      if (!Object.prototype.hasOwnProperty.call(prevKeyIndex, pivot)) {
-        continue;
-      }
-      if (nextOrderB < nextKeyIndex[pivot] && prevOrderA > prevKeyIndex[pivot]) {
-        return 1;
-      } else if (nextOrderB > nextKeyIndex[pivot] && prevOrderA < prevKeyIndex[pivot]) {
-        return -1;
-      }
-    }
-    // pluggable. default to: next bigger than prev
-    return -1;
-  });
-}
-
-module.exports = exports['default'];
-// to loop through and find a key's index each time), but I no longer care
-
-/***/ }),
-
-/***/ "./node_modules/react-motion/lib/presets.js":
-/*!**************************************************!*\
-  !*** ./node_modules/react-motion/lib/presets.js ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports["default"] = {
-  noWobble: { stiffness: 170, damping: 26 }, // the default, if nothing provided
-  gentle: { stiffness: 120, damping: 14 },
-  wobbly: { stiffness: 180, damping: 12 },
-  stiff: { stiffness: 210, damping: 20 }
-};
-module.exports = exports["default"];
-
-/***/ }),
-
-/***/ "./node_modules/react-motion/lib/react-motion.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/react-motion/lib/react-motion.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _interopRequire(obj) { return obj && obj.__esModule ? obj['default'] : obj; }
-
-var _Motion = __webpack_require__(/*! ./Motion */ "./node_modules/react-motion/lib/Motion.js");
-
-exports.Motion = _interopRequire(_Motion);
-
-var _StaggeredMotion = __webpack_require__(/*! ./StaggeredMotion */ "./node_modules/react-motion/lib/StaggeredMotion.js");
-
-exports.StaggeredMotion = _interopRequire(_StaggeredMotion);
-
-var _TransitionMotion = __webpack_require__(/*! ./TransitionMotion */ "./node_modules/react-motion/lib/TransitionMotion.js");
-
-exports.TransitionMotion = _interopRequire(_TransitionMotion);
-
-var _spring = __webpack_require__(/*! ./spring */ "./node_modules/react-motion/lib/spring.js");
-
-exports.spring = _interopRequire(_spring);
-
-var _presets = __webpack_require__(/*! ./presets */ "./node_modules/react-motion/lib/presets.js");
-
-exports.presets = _interopRequire(_presets);
-
-var _stripStyle = __webpack_require__(/*! ./stripStyle */ "./node_modules/react-motion/lib/stripStyle.js");
-
-exports.stripStyle = _interopRequire(_stripStyle);
-
-// deprecated, dummy warning function
-
-var _reorderKeys = __webpack_require__(/*! ./reorderKeys */ "./node_modules/react-motion/lib/reorderKeys.js");
-
-exports.reorderKeys = _interopRequire(_reorderKeys);
-
-/***/ }),
-
-/***/ "./node_modules/react-motion/lib/reorderKeys.js":
-/*!******************************************************!*\
-  !*** ./node_modules/react-motion/lib/reorderKeys.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports['default'] = reorderKeys;
-
-var hasWarned = false;
-
-function reorderKeys() {
-  if (true) {
-    if (!hasWarned) {
-      hasWarned = true;
-      console.error('`reorderKeys` has been removed, since it is no longer needed for TransitionMotion\'s new styles array API.');
-    }
-  }
-}
-
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ "./node_modules/react-motion/lib/shouldStopAnimation.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/react-motion/lib/shouldStopAnimation.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// usage assumption: currentStyle values have already been rendered but it says
-// nothing of whether currentStyle is stale (see unreadPropStyle)
-
-
-exports.__esModule = true;
-exports['default'] = shouldStopAnimation;
-
-function shouldStopAnimation(currentStyle, style, currentVelocity) {
-  for (var key in style) {
-    if (!Object.prototype.hasOwnProperty.call(style, key)) {
-      continue;
-    }
-
-    if (currentVelocity[key] !== 0) {
-      return false;
-    }
-
-    var styleValue = typeof style[key] === 'number' ? style[key] : style[key].val;
-    // stepper will have already taken care of rounding precision errors, so
-    // won't have such thing as 0.9999 !=== 1
-    if (currentStyle[key] !== styleValue) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ "./node_modules/react-motion/lib/spring.js":
-/*!*************************************************!*\
-  !*** ./node_modules/react-motion/lib/spring.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-exports['default'] = spring;
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _presets = __webpack_require__(/*! ./presets */ "./node_modules/react-motion/lib/presets.js");
-
-var _presets2 = _interopRequireDefault(_presets);
-
-var defaultConfig = _extends({}, _presets2['default'].noWobble, {
-  precision: 0.01
-});
-
-function spring(val, config) {
-  return _extends({}, defaultConfig, config, { val: val });
-}
-
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ "./node_modules/react-motion/lib/stepper.js":
-/*!**************************************************!*\
-  !*** ./node_modules/react-motion/lib/stepper.js ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// stepper is used a lot. Saves allocation to return the same array wrapper.
-// This is fine and danger-free against mutations because the callsite
-// immediately destructures it and gets the numbers inside without passing the
-
-
-exports.__esModule = true;
-exports["default"] = stepper;
-
-var reusedTuple = [0, 0];
-
-function stepper(secondPerFrame, x, v, destX, k, b, precision) {
-  // Spring stiffness, in kg / s^2
-
-  // for animations, destX is really spring length (spring at rest). initial
-  // position is considered as the stretched/compressed position of a spring
-  var Fspring = -k * (x - destX);
-
-  // Damping, in kg / s
-  var Fdamper = -b * v;
-
-  // usually we put mass here, but for animation purposes, specifying mass is a
-  // bit redundant. you could simply adjust k and b accordingly
-  // let a = (Fspring + Fdamper) / mass;
-  var a = Fspring + Fdamper;
-
-  var newV = v + a * secondPerFrame;
-  var newX = x + newV * secondPerFrame;
-
-  if (Math.abs(newV) < precision && Math.abs(newX - destX) < precision) {
-    reusedTuple[0] = destX;
-    reusedTuple[1] = 0;
-    return reusedTuple;
-  }
-
-  reusedTuple[0] = newX;
-  reusedTuple[1] = newV;
-  return reusedTuple;
-}
-
-module.exports = exports["default"];
-// array reference around.
-
-/***/ }),
-
-/***/ "./node_modules/react-motion/lib/stripStyle.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/react-motion/lib/stripStyle.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// turn {x: {val: 1, stiffness: 1, damping: 2}, y: 2} generated by
-// `{x: spring(1, {stiffness: 1, damping: 2}), y: 2}` into {x: 1, y: 2}
-
-
-
-exports.__esModule = true;
-exports['default'] = stripStyle;
-
-function stripStyle(style) {
-  var ret = {};
-  for (var key in style) {
-    if (!Object.prototype.hasOwnProperty.call(style, key)) {
-      continue;
-    }
-    ret[key] = typeof style[key] === 'number' ? style[key] : style[key].val;
-  }
-  return ret;
-}
-
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ "./node_modules/react-motion/node_modules/performance-now/lib/performance-now.js":
-/*!***************************************************************************************!*\
-  !*** ./node_modules/react-motion/node_modules/performance-now/lib/performance-now.js ***!
-  \***************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.7.1
-(function() {
-  var getNanoSeconds, hrtime, loadTime;
-
-  if ((typeof performance !== "undefined" && performance !== null) && performance.now) {
-    module.exports = function() {
-      return performance.now();
-    };
-  } else if ((typeof process !== "undefined" && process !== null) && process.hrtime) {
-    module.exports = function() {
-      return (getNanoSeconds() - loadTime) / 1e6;
-    };
-    hrtime = process.hrtime;
-    getNanoSeconds = function() {
-      var hr;
-      hr = hrtime();
-      return hr[0] * 1e9 + hr[1];
-    };
-    loadTime = getNanoSeconds();
-  } else if (Date.now) {
-    module.exports = function() {
-      return Date.now() - loadTime;
-    };
-    loadTime = Date.now();
-  } else {
-    module.exports = function() {
-      return new Date().getTime() - loadTime;
-    };
-    loadTime = new Date().getTime();
-  }
-
-}).call(this);
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../process/browser.js */ "./node_modules/process/browser.js")))
-
-/***/ }),
-
 /***/ "./node_modules/react-svg-buttons/lib/components/HoverMorphIcon.js":
 /*!*************************************************************************!*\
   !*** ./node_modules/react-svg-buttons/lib/components/HoverMorphIcon.js ***!
@@ -58176,7 +56786,7 @@ var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/next/node
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactMotion = __webpack_require__(/*! react-motion */ "./node_modules/react-motion/lib/react-motion.js");
+var _reactMotion = __webpack_require__(/*! react-motion */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/react-motion.js");
 
 var _pathHelper = __webpack_require__(/*! ../lib/pathHelper */ "./node_modules/react-svg-buttons/lib/lib/pathHelper.js");
 
@@ -61078,6 +59688,1522 @@ function pathCommands(instructions) {
 
 /***/ }),
 
+/***/ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/Motion.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/react-svg-buttons/node_modules/react-motion/lib/Motion.js ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _mapToZero = __webpack_require__(/*! ./mapToZero */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/mapToZero.js");
+
+var _mapToZero2 = _interopRequireDefault(_mapToZero);
+
+var _stripStyle = __webpack_require__(/*! ./stripStyle */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/stripStyle.js");
+
+var _stripStyle2 = _interopRequireDefault(_stripStyle);
+
+var _stepper3 = __webpack_require__(/*! ./stepper */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/stepper.js");
+
+var _stepper4 = _interopRequireDefault(_stepper3);
+
+var _performanceNow = __webpack_require__(/*! performance-now */ "./node_modules/performance-now/lib/performance-now.js");
+
+var _performanceNow2 = _interopRequireDefault(_performanceNow);
+
+var _raf = __webpack_require__(/*! raf */ "./node_modules/raf/index.js");
+
+var _raf2 = _interopRequireDefault(_raf);
+
+var _shouldStopAnimation = __webpack_require__(/*! ./shouldStopAnimation */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/shouldStopAnimation.js");
+
+var _shouldStopAnimation2 = _interopRequireDefault(_shouldStopAnimation);
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/next/node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var msPerFrame = 1000 / 60;
+
+var Motion = (function (_React$Component) {
+  _inherits(Motion, _React$Component);
+
+  _createClass(Motion, null, [{
+    key: 'propTypes',
+    value: {
+      // TOOD: warn against putting a config in here
+      defaultStyle: _propTypes2['default'].objectOf(_propTypes2['default'].number),
+      style: _propTypes2['default'].objectOf(_propTypes2['default'].oneOfType([_propTypes2['default'].number, _propTypes2['default'].object])).isRequired,
+      children: _propTypes2['default'].func.isRequired,
+      onRest: _propTypes2['default'].func
+    },
+    enumerable: true
+  }]);
+
+  function Motion(props) {
+    var _this = this;
+
+    _classCallCheck(this, Motion);
+
+    _React$Component.call(this, props);
+    this.wasAnimating = false;
+    this.animationID = null;
+    this.prevTime = 0;
+    this.accumulatedTime = 0;
+    this.unreadPropStyle = null;
+
+    this.clearUnreadPropStyle = function (destStyle) {
+      var dirty = false;
+      var _state = _this.state;
+      var currentStyle = _state.currentStyle;
+      var currentVelocity = _state.currentVelocity;
+      var lastIdealStyle = _state.lastIdealStyle;
+      var lastIdealVelocity = _state.lastIdealVelocity;
+
+      for (var key in destStyle) {
+        if (!Object.prototype.hasOwnProperty.call(destStyle, key)) {
+          continue;
+        }
+
+        var styleValue = destStyle[key];
+        if (typeof styleValue === 'number') {
+          if (!dirty) {
+            dirty = true;
+            currentStyle = _extends({}, currentStyle);
+            currentVelocity = _extends({}, currentVelocity);
+            lastIdealStyle = _extends({}, lastIdealStyle);
+            lastIdealVelocity = _extends({}, lastIdealVelocity);
+          }
+
+          currentStyle[key] = styleValue;
+          currentVelocity[key] = 0;
+          lastIdealStyle[key] = styleValue;
+          lastIdealVelocity[key] = 0;
+        }
+      }
+
+      if (dirty) {
+        _this.setState({ currentStyle: currentStyle, currentVelocity: currentVelocity, lastIdealStyle: lastIdealStyle, lastIdealVelocity: lastIdealVelocity });
+      }
+    };
+
+    this.startAnimationIfNecessary = function () {
+      // TODO: when config is {a: 10} and dest is {a: 10} do we raf once and
+      // call cb? No, otherwise accidental parent rerender causes cb trigger
+      _this.animationID = _raf2['default'](function (timestamp) {
+        // check if we need to animate in the first place
+        var propsStyle = _this.props.style;
+        if (_shouldStopAnimation2['default'](_this.state.currentStyle, propsStyle, _this.state.currentVelocity)) {
+          if (_this.wasAnimating && _this.props.onRest) {
+            _this.props.onRest();
+          }
+
+          // no need to cancel animationID here; shouldn't have any in flight
+          _this.animationID = null;
+          _this.wasAnimating = false;
+          _this.accumulatedTime = 0;
+          return;
+        }
+
+        _this.wasAnimating = true;
+
+        var currentTime = timestamp || _performanceNow2['default']();
+        var timeDelta = currentTime - _this.prevTime;
+        _this.prevTime = currentTime;
+        _this.accumulatedTime = _this.accumulatedTime + timeDelta;
+        // more than 10 frames? prolly switched browser tab. Restart
+        if (_this.accumulatedTime > msPerFrame * 10) {
+          _this.accumulatedTime = 0;
+        }
+
+        if (_this.accumulatedTime === 0) {
+          // no need to cancel animationID here; shouldn't have any in flight
+          _this.animationID = null;
+          _this.startAnimationIfNecessary();
+          return;
+        }
+
+        var currentFrameCompletion = (_this.accumulatedTime - Math.floor(_this.accumulatedTime / msPerFrame) * msPerFrame) / msPerFrame;
+        var framesToCatchUp = Math.floor(_this.accumulatedTime / msPerFrame);
+
+        var newLastIdealStyle = {};
+        var newLastIdealVelocity = {};
+        var newCurrentStyle = {};
+        var newCurrentVelocity = {};
+
+        for (var key in propsStyle) {
+          if (!Object.prototype.hasOwnProperty.call(propsStyle, key)) {
+            continue;
+          }
+
+          var styleValue = propsStyle[key];
+          if (typeof styleValue === 'number') {
+            newCurrentStyle[key] = styleValue;
+            newCurrentVelocity[key] = 0;
+            newLastIdealStyle[key] = styleValue;
+            newLastIdealVelocity[key] = 0;
+          } else {
+            var newLastIdealStyleValue = _this.state.lastIdealStyle[key];
+            var newLastIdealVelocityValue = _this.state.lastIdealVelocity[key];
+            for (var i = 0; i < framesToCatchUp; i++) {
+              var _stepper = _stepper4['default'](msPerFrame / 1000, newLastIdealStyleValue, newLastIdealVelocityValue, styleValue.val, styleValue.stiffness, styleValue.damping, styleValue.precision);
+
+              newLastIdealStyleValue = _stepper[0];
+              newLastIdealVelocityValue = _stepper[1];
+            }
+
+            var _stepper2 = _stepper4['default'](msPerFrame / 1000, newLastIdealStyleValue, newLastIdealVelocityValue, styleValue.val, styleValue.stiffness, styleValue.damping, styleValue.precision);
+
+            var nextIdealX = _stepper2[0];
+            var nextIdealV = _stepper2[1];
+
+            newCurrentStyle[key] = newLastIdealStyleValue + (nextIdealX - newLastIdealStyleValue) * currentFrameCompletion;
+            newCurrentVelocity[key] = newLastIdealVelocityValue + (nextIdealV - newLastIdealVelocityValue) * currentFrameCompletion;
+            newLastIdealStyle[key] = newLastIdealStyleValue;
+            newLastIdealVelocity[key] = newLastIdealVelocityValue;
+          }
+        }
+
+        _this.animationID = null;
+        // the amount we're looped over above
+        _this.accumulatedTime -= framesToCatchUp * msPerFrame;
+
+        _this.setState({
+          currentStyle: newCurrentStyle,
+          currentVelocity: newCurrentVelocity,
+          lastIdealStyle: newLastIdealStyle,
+          lastIdealVelocity: newLastIdealVelocity
+        });
+
+        _this.unreadPropStyle = null;
+
+        _this.startAnimationIfNecessary();
+      });
+    };
+
+    this.state = this.defaultState();
+  }
+
+  Motion.prototype.defaultState = function defaultState() {
+    var _props = this.props;
+    var defaultStyle = _props.defaultStyle;
+    var style = _props.style;
+
+    var currentStyle = defaultStyle || _stripStyle2['default'](style);
+    var currentVelocity = _mapToZero2['default'](currentStyle);
+    return {
+      currentStyle: currentStyle,
+      currentVelocity: currentVelocity,
+      lastIdealStyle: currentStyle,
+      lastIdealVelocity: currentVelocity
+    };
+  };
+
+  // it's possible that currentStyle's value is stale: if props is immediately
+  // changed from 0 to 400 to spring(0) again, the async currentStyle is still
+  // at 0 (didn't have time to tick and interpolate even once). If we naively
+  // compare currentStyle with destVal it'll be 0 === 0 (no animation, stop).
+  // In reality currentStyle should be 400
+
+  Motion.prototype.componentDidMount = function componentDidMount() {
+    this.prevTime = _performanceNow2['default']();
+    this.startAnimationIfNecessary();
+  };
+
+  Motion.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
+    if (this.unreadPropStyle != null) {
+      // previous props haven't had the chance to be set yet; set them here
+      this.clearUnreadPropStyle(this.unreadPropStyle);
+    }
+
+    this.unreadPropStyle = props.style;
+    if (this.animationID == null) {
+      this.prevTime = _performanceNow2['default']();
+      this.startAnimationIfNecessary();
+    }
+  };
+
+  Motion.prototype.componentWillUnmount = function componentWillUnmount() {
+    if (this.animationID != null) {
+      _raf2['default'].cancel(this.animationID);
+      this.animationID = null;
+    }
+  };
+
+  Motion.prototype.render = function render() {
+    var renderedChildren = this.props.children(this.state.currentStyle);
+    return renderedChildren && _react2['default'].Children.only(renderedChildren);
+  };
+
+  return Motion;
+})(_react2['default'].Component);
+
+exports['default'] = Motion;
+module.exports = exports['default'];
+
+// after checking for unreadPropStyle != null, we manually go set the
+// non-interpolating values (those that are a number, without a spring
+// config)
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/StaggeredMotion.js":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/react-svg-buttons/node_modules/react-motion/lib/StaggeredMotion.js ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _mapToZero = __webpack_require__(/*! ./mapToZero */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/mapToZero.js");
+
+var _mapToZero2 = _interopRequireDefault(_mapToZero);
+
+var _stripStyle = __webpack_require__(/*! ./stripStyle */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/stripStyle.js");
+
+var _stripStyle2 = _interopRequireDefault(_stripStyle);
+
+var _stepper3 = __webpack_require__(/*! ./stepper */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/stepper.js");
+
+var _stepper4 = _interopRequireDefault(_stepper3);
+
+var _performanceNow = __webpack_require__(/*! performance-now */ "./node_modules/performance-now/lib/performance-now.js");
+
+var _performanceNow2 = _interopRequireDefault(_performanceNow);
+
+var _raf = __webpack_require__(/*! raf */ "./node_modules/raf/index.js");
+
+var _raf2 = _interopRequireDefault(_raf);
+
+var _shouldStopAnimation = __webpack_require__(/*! ./shouldStopAnimation */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/shouldStopAnimation.js");
+
+var _shouldStopAnimation2 = _interopRequireDefault(_shouldStopAnimation);
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/next/node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var msPerFrame = 1000 / 60;
+
+function shouldStopAnimationAll(currentStyles, styles, currentVelocities) {
+  for (var i = 0; i < currentStyles.length; i++) {
+    if (!_shouldStopAnimation2['default'](currentStyles[i], styles[i], currentVelocities[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+var StaggeredMotion = (function (_React$Component) {
+  _inherits(StaggeredMotion, _React$Component);
+
+  _createClass(StaggeredMotion, null, [{
+    key: 'propTypes',
+    value: {
+      // TOOD: warn against putting a config in here
+      defaultStyles: _propTypes2['default'].arrayOf(_propTypes2['default'].objectOf(_propTypes2['default'].number)),
+      styles: _propTypes2['default'].func.isRequired,
+      children: _propTypes2['default'].func.isRequired
+    },
+    enumerable: true
+  }]);
+
+  function StaggeredMotion(props) {
+    var _this = this;
+
+    _classCallCheck(this, StaggeredMotion);
+
+    _React$Component.call(this, props);
+    this.animationID = null;
+    this.prevTime = 0;
+    this.accumulatedTime = 0;
+    this.unreadPropStyles = null;
+
+    this.clearUnreadPropStyle = function (unreadPropStyles) {
+      var _state = _this.state;
+      var currentStyles = _state.currentStyles;
+      var currentVelocities = _state.currentVelocities;
+      var lastIdealStyles = _state.lastIdealStyles;
+      var lastIdealVelocities = _state.lastIdealVelocities;
+
+      var someDirty = false;
+      for (var i = 0; i < unreadPropStyles.length; i++) {
+        var unreadPropStyle = unreadPropStyles[i];
+        var dirty = false;
+
+        for (var key in unreadPropStyle) {
+          if (!Object.prototype.hasOwnProperty.call(unreadPropStyle, key)) {
+            continue;
+          }
+
+          var styleValue = unreadPropStyle[key];
+          if (typeof styleValue === 'number') {
+            if (!dirty) {
+              dirty = true;
+              someDirty = true;
+              currentStyles[i] = _extends({}, currentStyles[i]);
+              currentVelocities[i] = _extends({}, currentVelocities[i]);
+              lastIdealStyles[i] = _extends({}, lastIdealStyles[i]);
+              lastIdealVelocities[i] = _extends({}, lastIdealVelocities[i]);
+            }
+            currentStyles[i][key] = styleValue;
+            currentVelocities[i][key] = 0;
+            lastIdealStyles[i][key] = styleValue;
+            lastIdealVelocities[i][key] = 0;
+          }
+        }
+      }
+
+      if (someDirty) {
+        _this.setState({ currentStyles: currentStyles, currentVelocities: currentVelocities, lastIdealStyles: lastIdealStyles, lastIdealVelocities: lastIdealVelocities });
+      }
+    };
+
+    this.startAnimationIfNecessary = function () {
+      // TODO: when config is {a: 10} and dest is {a: 10} do we raf once and
+      // call cb? No, otherwise accidental parent rerender causes cb trigger
+      _this.animationID = _raf2['default'](function (timestamp) {
+        var destStyles = _this.props.styles(_this.state.lastIdealStyles);
+
+        // check if we need to animate in the first place
+        if (shouldStopAnimationAll(_this.state.currentStyles, destStyles, _this.state.currentVelocities)) {
+          // no need to cancel animationID here; shouldn't have any in flight
+          _this.animationID = null;
+          _this.accumulatedTime = 0;
+          return;
+        }
+
+        var currentTime = timestamp || _performanceNow2['default']();
+        var timeDelta = currentTime - _this.prevTime;
+        _this.prevTime = currentTime;
+        _this.accumulatedTime = _this.accumulatedTime + timeDelta;
+        // more than 10 frames? prolly switched browser tab. Restart
+        if (_this.accumulatedTime > msPerFrame * 10) {
+          _this.accumulatedTime = 0;
+        }
+
+        if (_this.accumulatedTime === 0) {
+          // no need to cancel animationID here; shouldn't have any in flight
+          _this.animationID = null;
+          _this.startAnimationIfNecessary();
+          return;
+        }
+
+        var currentFrameCompletion = (_this.accumulatedTime - Math.floor(_this.accumulatedTime / msPerFrame) * msPerFrame) / msPerFrame;
+        var framesToCatchUp = Math.floor(_this.accumulatedTime / msPerFrame);
+
+        var newLastIdealStyles = [];
+        var newLastIdealVelocities = [];
+        var newCurrentStyles = [];
+        var newCurrentVelocities = [];
+
+        for (var i = 0; i < destStyles.length; i++) {
+          var destStyle = destStyles[i];
+          var newCurrentStyle = {};
+          var newCurrentVelocity = {};
+          var newLastIdealStyle = {};
+          var newLastIdealVelocity = {};
+
+          for (var key in destStyle) {
+            if (!Object.prototype.hasOwnProperty.call(destStyle, key)) {
+              continue;
+            }
+
+            var styleValue = destStyle[key];
+            if (typeof styleValue === 'number') {
+              newCurrentStyle[key] = styleValue;
+              newCurrentVelocity[key] = 0;
+              newLastIdealStyle[key] = styleValue;
+              newLastIdealVelocity[key] = 0;
+            } else {
+              var newLastIdealStyleValue = _this.state.lastIdealStyles[i][key];
+              var newLastIdealVelocityValue = _this.state.lastIdealVelocities[i][key];
+              for (var j = 0; j < framesToCatchUp; j++) {
+                var _stepper = _stepper4['default'](msPerFrame / 1000, newLastIdealStyleValue, newLastIdealVelocityValue, styleValue.val, styleValue.stiffness, styleValue.damping, styleValue.precision);
+
+                newLastIdealStyleValue = _stepper[0];
+                newLastIdealVelocityValue = _stepper[1];
+              }
+
+              var _stepper2 = _stepper4['default'](msPerFrame / 1000, newLastIdealStyleValue, newLastIdealVelocityValue, styleValue.val, styleValue.stiffness, styleValue.damping, styleValue.precision);
+
+              var nextIdealX = _stepper2[0];
+              var nextIdealV = _stepper2[1];
+
+              newCurrentStyle[key] = newLastIdealStyleValue + (nextIdealX - newLastIdealStyleValue) * currentFrameCompletion;
+              newCurrentVelocity[key] = newLastIdealVelocityValue + (nextIdealV - newLastIdealVelocityValue) * currentFrameCompletion;
+              newLastIdealStyle[key] = newLastIdealStyleValue;
+              newLastIdealVelocity[key] = newLastIdealVelocityValue;
+            }
+          }
+
+          newCurrentStyles[i] = newCurrentStyle;
+          newCurrentVelocities[i] = newCurrentVelocity;
+          newLastIdealStyles[i] = newLastIdealStyle;
+          newLastIdealVelocities[i] = newLastIdealVelocity;
+        }
+
+        _this.animationID = null;
+        // the amount we're looped over above
+        _this.accumulatedTime -= framesToCatchUp * msPerFrame;
+
+        _this.setState({
+          currentStyles: newCurrentStyles,
+          currentVelocities: newCurrentVelocities,
+          lastIdealStyles: newLastIdealStyles,
+          lastIdealVelocities: newLastIdealVelocities
+        });
+
+        _this.unreadPropStyles = null;
+
+        _this.startAnimationIfNecessary();
+      });
+    };
+
+    this.state = this.defaultState();
+  }
+
+  StaggeredMotion.prototype.defaultState = function defaultState() {
+    var _props = this.props;
+    var defaultStyles = _props.defaultStyles;
+    var styles = _props.styles;
+
+    var currentStyles = defaultStyles || styles().map(_stripStyle2['default']);
+    var currentVelocities = currentStyles.map(function (currentStyle) {
+      return _mapToZero2['default'](currentStyle);
+    });
+    return {
+      currentStyles: currentStyles,
+      currentVelocities: currentVelocities,
+      lastIdealStyles: currentStyles,
+      lastIdealVelocities: currentVelocities
+    };
+  };
+
+  StaggeredMotion.prototype.componentDidMount = function componentDidMount() {
+    this.prevTime = _performanceNow2['default']();
+    this.startAnimationIfNecessary();
+  };
+
+  StaggeredMotion.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
+    if (this.unreadPropStyles != null) {
+      // previous props haven't had the chance to be set yet; set them here
+      this.clearUnreadPropStyle(this.unreadPropStyles);
+    }
+
+    this.unreadPropStyles = props.styles(this.state.lastIdealStyles);
+    if (this.animationID == null) {
+      this.prevTime = _performanceNow2['default']();
+      this.startAnimationIfNecessary();
+    }
+  };
+
+  StaggeredMotion.prototype.componentWillUnmount = function componentWillUnmount() {
+    if (this.animationID != null) {
+      _raf2['default'].cancel(this.animationID);
+      this.animationID = null;
+    }
+  };
+
+  StaggeredMotion.prototype.render = function render() {
+    var renderedChildren = this.props.children(this.state.currentStyles);
+    return renderedChildren && _react2['default'].Children.only(renderedChildren);
+  };
+
+  return StaggeredMotion;
+})(_react2['default'].Component);
+
+exports['default'] = StaggeredMotion;
+module.exports = exports['default'];
+
+// it's possible that currentStyle's value is stale: if props is immediately
+// changed from 0 to 400 to spring(0) again, the async currentStyle is still
+// at 0 (didn't have time to tick and interpolate even once). If we naively
+// compare currentStyle with destVal it'll be 0 === 0 (no animation, stop).
+// In reality currentStyle should be 400
+
+// after checking for unreadPropStyles != null, we manually go set the
+// non-interpolating values (those that are a number, without a spring
+// config)
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/TransitionMotion.js":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/react-svg-buttons/node_modules/react-motion/lib/TransitionMotion.js ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _mapToZero = __webpack_require__(/*! ./mapToZero */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/mapToZero.js");
+
+var _mapToZero2 = _interopRequireDefault(_mapToZero);
+
+var _stripStyle = __webpack_require__(/*! ./stripStyle */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/stripStyle.js");
+
+var _stripStyle2 = _interopRequireDefault(_stripStyle);
+
+var _stepper3 = __webpack_require__(/*! ./stepper */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/stepper.js");
+
+var _stepper4 = _interopRequireDefault(_stepper3);
+
+var _mergeDiff = __webpack_require__(/*! ./mergeDiff */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/mergeDiff.js");
+
+var _mergeDiff2 = _interopRequireDefault(_mergeDiff);
+
+var _performanceNow = __webpack_require__(/*! performance-now */ "./node_modules/performance-now/lib/performance-now.js");
+
+var _performanceNow2 = _interopRequireDefault(_performanceNow);
+
+var _raf = __webpack_require__(/*! raf */ "./node_modules/raf/index.js");
+
+var _raf2 = _interopRequireDefault(_raf);
+
+var _shouldStopAnimation = __webpack_require__(/*! ./shouldStopAnimation */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/shouldStopAnimation.js");
+
+var _shouldStopAnimation2 = _interopRequireDefault(_shouldStopAnimation);
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/next/node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var msPerFrame = 1000 / 60;
+
+// the children function & (potential) styles function asks as param an
+// Array<TransitionPlainStyle>, where each TransitionPlainStyle is of the format
+// {key: string, data?: any, style: PlainStyle}. However, the way we keep
+// internal states doesn't contain such a data structure (check the state and
+// TransitionMotionState). So when children function and others ask for such
+// data we need to generate them on the fly by combining mergedPropsStyles and
+// currentStyles/lastIdealStyles
+function rehydrateStyles(mergedPropsStyles, unreadPropStyles, plainStyles) {
+  // Copy the value to a `const` so that Flow understands that the const won't
+  // change and will be non-nullable in the callback below.
+  var cUnreadPropStyles = unreadPropStyles;
+  if (cUnreadPropStyles == null) {
+    return mergedPropsStyles.map(function (mergedPropsStyle, i) {
+      return {
+        key: mergedPropsStyle.key,
+        data: mergedPropsStyle.data,
+        style: plainStyles[i]
+      };
+    });
+  }
+  return mergedPropsStyles.map(function (mergedPropsStyle, i) {
+    for (var j = 0; j < cUnreadPropStyles.length; j++) {
+      if (cUnreadPropStyles[j].key === mergedPropsStyle.key) {
+        return {
+          key: cUnreadPropStyles[j].key,
+          data: cUnreadPropStyles[j].data,
+          style: plainStyles[i]
+        };
+      }
+    }
+    return { key: mergedPropsStyle.key, data: mergedPropsStyle.data, style: plainStyles[i] };
+  });
+}
+
+function shouldStopAnimationAll(currentStyles, destStyles, currentVelocities, mergedPropsStyles) {
+  if (mergedPropsStyles.length !== destStyles.length) {
+    return false;
+  }
+
+  for (var i = 0; i < mergedPropsStyles.length; i++) {
+    if (mergedPropsStyles[i].key !== destStyles[i].key) {
+      return false;
+    }
+  }
+
+  // we have the invariant that mergedPropsStyles and
+  // currentStyles/currentVelocities/last* are synced in terms of cells, see
+  // mergeAndSync comment for more info
+  for (var i = 0; i < mergedPropsStyles.length; i++) {
+    if (!_shouldStopAnimation2['default'](currentStyles[i], destStyles[i].style, currentVelocities[i])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// core key merging logic
+
+// things to do: say previously merged style is {a, b}, dest style (prop) is {b,
+// c}, previous current (interpolating) style is {a, b}
+// **invariant**: current[i] corresponds to merged[i] in terms of key
+
+// steps:
+// turn merged style into {a?, b, c}
+//    add c, value of c is destStyles.c
+//    maybe remove a, aka call willLeave(a), then merged is either {b, c} or {a, b, c}
+// turn current (interpolating) style from {a, b} into {a?, b, c}
+//    maybe remove a
+//    certainly add c, value of c is willEnter(c)
+// loop over merged and construct new current
+// dest doesn't change, that's owner's
+function mergeAndSync(willEnter, willLeave, didLeave, oldMergedPropsStyles, destStyles, oldCurrentStyles, oldCurrentVelocities, oldLastIdealStyles, oldLastIdealVelocities) {
+  var newMergedPropsStyles = _mergeDiff2['default'](oldMergedPropsStyles, destStyles, function (oldIndex, oldMergedPropsStyle) {
+    var leavingStyle = willLeave(oldMergedPropsStyle);
+    if (leavingStyle == null) {
+      didLeave({ key: oldMergedPropsStyle.key, data: oldMergedPropsStyle.data });
+      return null;
+    }
+    if (_shouldStopAnimation2['default'](oldCurrentStyles[oldIndex], leavingStyle, oldCurrentVelocities[oldIndex])) {
+      didLeave({ key: oldMergedPropsStyle.key, data: oldMergedPropsStyle.data });
+      return null;
+    }
+    return { key: oldMergedPropsStyle.key, data: oldMergedPropsStyle.data, style: leavingStyle };
+  });
+
+  var newCurrentStyles = [];
+  var newCurrentVelocities = [];
+  var newLastIdealStyles = [];
+  var newLastIdealVelocities = [];
+  for (var i = 0; i < newMergedPropsStyles.length; i++) {
+    var newMergedPropsStyleCell = newMergedPropsStyles[i];
+    var foundOldIndex = null;
+    for (var j = 0; j < oldMergedPropsStyles.length; j++) {
+      if (oldMergedPropsStyles[j].key === newMergedPropsStyleCell.key) {
+        foundOldIndex = j;
+        break;
+      }
+    }
+    // TODO: key search code
+    if (foundOldIndex == null) {
+      var plainStyle = willEnter(newMergedPropsStyleCell);
+      newCurrentStyles[i] = plainStyle;
+      newLastIdealStyles[i] = plainStyle;
+
+      var velocity = _mapToZero2['default'](newMergedPropsStyleCell.style);
+      newCurrentVelocities[i] = velocity;
+      newLastIdealVelocities[i] = velocity;
+    } else {
+      newCurrentStyles[i] = oldCurrentStyles[foundOldIndex];
+      newLastIdealStyles[i] = oldLastIdealStyles[foundOldIndex];
+      newCurrentVelocities[i] = oldCurrentVelocities[foundOldIndex];
+      newLastIdealVelocities[i] = oldLastIdealVelocities[foundOldIndex];
+    }
+  }
+
+  return [newMergedPropsStyles, newCurrentStyles, newCurrentVelocities, newLastIdealStyles, newLastIdealVelocities];
+}
+
+var TransitionMotion = (function (_React$Component) {
+  _inherits(TransitionMotion, _React$Component);
+
+  _createClass(TransitionMotion, null, [{
+    key: 'propTypes',
+    value: {
+      defaultStyles: _propTypes2['default'].arrayOf(_propTypes2['default'].shape({
+        key: _propTypes2['default'].string.isRequired,
+        data: _propTypes2['default'].any,
+        style: _propTypes2['default'].objectOf(_propTypes2['default'].number).isRequired
+      })),
+      styles: _propTypes2['default'].oneOfType([_propTypes2['default'].func, _propTypes2['default'].arrayOf(_propTypes2['default'].shape({
+        key: _propTypes2['default'].string.isRequired,
+        data: _propTypes2['default'].any,
+        style: _propTypes2['default'].objectOf(_propTypes2['default'].oneOfType([_propTypes2['default'].number, _propTypes2['default'].object])).isRequired
+      }))]).isRequired,
+      children: _propTypes2['default'].func.isRequired,
+      willEnter: _propTypes2['default'].func,
+      willLeave: _propTypes2['default'].func,
+      didLeave: _propTypes2['default'].func
+    },
+    enumerable: true
+  }, {
+    key: 'defaultProps',
+    value: {
+      willEnter: function willEnter(styleThatEntered) {
+        return _stripStyle2['default'](styleThatEntered.style);
+      },
+      // recall: returning null makes the current unmounting TransitionStyle
+      // disappear immediately
+      willLeave: function willLeave() {
+        return null;
+      },
+      didLeave: function didLeave() {}
+    },
+    enumerable: true
+  }]);
+
+  function TransitionMotion(props) {
+    var _this = this;
+
+    _classCallCheck(this, TransitionMotion);
+
+    _React$Component.call(this, props);
+    this.unmounting = false;
+    this.animationID = null;
+    this.prevTime = 0;
+    this.accumulatedTime = 0;
+    this.unreadPropStyles = null;
+
+    this.clearUnreadPropStyle = function (unreadPropStyles) {
+      var _mergeAndSync = mergeAndSync(_this.props.willEnter, _this.props.willLeave, _this.props.didLeave, _this.state.mergedPropsStyles, unreadPropStyles, _this.state.currentStyles, _this.state.currentVelocities, _this.state.lastIdealStyles, _this.state.lastIdealVelocities);
+
+      var mergedPropsStyles = _mergeAndSync[0];
+      var currentStyles = _mergeAndSync[1];
+      var currentVelocities = _mergeAndSync[2];
+      var lastIdealStyles = _mergeAndSync[3];
+      var lastIdealVelocities = _mergeAndSync[4];
+
+      for (var i = 0; i < unreadPropStyles.length; i++) {
+        var unreadPropStyle = unreadPropStyles[i].style;
+        var dirty = false;
+
+        for (var key in unreadPropStyle) {
+          if (!Object.prototype.hasOwnProperty.call(unreadPropStyle, key)) {
+            continue;
+          }
+
+          var styleValue = unreadPropStyle[key];
+          if (typeof styleValue === 'number') {
+            if (!dirty) {
+              dirty = true;
+              currentStyles[i] = _extends({}, currentStyles[i]);
+              currentVelocities[i] = _extends({}, currentVelocities[i]);
+              lastIdealStyles[i] = _extends({}, lastIdealStyles[i]);
+              lastIdealVelocities[i] = _extends({}, lastIdealVelocities[i]);
+              mergedPropsStyles[i] = {
+                key: mergedPropsStyles[i].key,
+                data: mergedPropsStyles[i].data,
+                style: _extends({}, mergedPropsStyles[i].style)
+              };
+            }
+            currentStyles[i][key] = styleValue;
+            currentVelocities[i][key] = 0;
+            lastIdealStyles[i][key] = styleValue;
+            lastIdealVelocities[i][key] = 0;
+            mergedPropsStyles[i].style[key] = styleValue;
+          }
+        }
+      }
+
+      // unlike the other 2 components, we can't detect staleness and optionally
+      // opt out of setState here. each style object's data might contain new
+      // stuff we're not/cannot compare
+      _this.setState({
+        currentStyles: currentStyles,
+        currentVelocities: currentVelocities,
+        mergedPropsStyles: mergedPropsStyles,
+        lastIdealStyles: lastIdealStyles,
+        lastIdealVelocities: lastIdealVelocities
+      });
+    };
+
+    this.startAnimationIfNecessary = function () {
+      if (_this.unmounting) {
+        return;
+      }
+
+      // TODO: when config is {a: 10} and dest is {a: 10} do we raf once and
+      // call cb? No, otherwise accidental parent rerender causes cb trigger
+      _this.animationID = _raf2['default'](function (timestamp) {
+        // https://github.com/chenglou/react-motion/pull/420
+        // > if execution passes the conditional if (this.unmounting), then
+        // executes async defaultRaf and after that component unmounts and after
+        // that the callback of defaultRaf is called, then setState will be called
+        // on unmounted component.
+        if (_this.unmounting) {
+          return;
+        }
+
+        var propStyles = _this.props.styles;
+        var destStyles = typeof propStyles === 'function' ? propStyles(rehydrateStyles(_this.state.mergedPropsStyles, _this.unreadPropStyles, _this.state.lastIdealStyles)) : propStyles;
+
+        // check if we need to animate in the first place
+        if (shouldStopAnimationAll(_this.state.currentStyles, destStyles, _this.state.currentVelocities, _this.state.mergedPropsStyles)) {
+          // no need to cancel animationID here; shouldn't have any in flight
+          _this.animationID = null;
+          _this.accumulatedTime = 0;
+          return;
+        }
+
+        var currentTime = timestamp || _performanceNow2['default']();
+        var timeDelta = currentTime - _this.prevTime;
+        _this.prevTime = currentTime;
+        _this.accumulatedTime = _this.accumulatedTime + timeDelta;
+        // more than 10 frames? prolly switched browser tab. Restart
+        if (_this.accumulatedTime > msPerFrame * 10) {
+          _this.accumulatedTime = 0;
+        }
+
+        if (_this.accumulatedTime === 0) {
+          // no need to cancel animationID here; shouldn't have any in flight
+          _this.animationID = null;
+          _this.startAnimationIfNecessary();
+          return;
+        }
+
+        var currentFrameCompletion = (_this.accumulatedTime - Math.floor(_this.accumulatedTime / msPerFrame) * msPerFrame) / msPerFrame;
+        var framesToCatchUp = Math.floor(_this.accumulatedTime / msPerFrame);
+
+        var _mergeAndSync2 = mergeAndSync(_this.props.willEnter, _this.props.willLeave, _this.props.didLeave, _this.state.mergedPropsStyles, destStyles, _this.state.currentStyles, _this.state.currentVelocities, _this.state.lastIdealStyles, _this.state.lastIdealVelocities);
+
+        var newMergedPropsStyles = _mergeAndSync2[0];
+        var newCurrentStyles = _mergeAndSync2[1];
+        var newCurrentVelocities = _mergeAndSync2[2];
+        var newLastIdealStyles = _mergeAndSync2[3];
+        var newLastIdealVelocities = _mergeAndSync2[4];
+
+        for (var i = 0; i < newMergedPropsStyles.length; i++) {
+          var newMergedPropsStyle = newMergedPropsStyles[i].style;
+          var newCurrentStyle = {};
+          var newCurrentVelocity = {};
+          var newLastIdealStyle = {};
+          var newLastIdealVelocity = {};
+
+          for (var key in newMergedPropsStyle) {
+            if (!Object.prototype.hasOwnProperty.call(newMergedPropsStyle, key)) {
+              continue;
+            }
+
+            var styleValue = newMergedPropsStyle[key];
+            if (typeof styleValue === 'number') {
+              newCurrentStyle[key] = styleValue;
+              newCurrentVelocity[key] = 0;
+              newLastIdealStyle[key] = styleValue;
+              newLastIdealVelocity[key] = 0;
+            } else {
+              var newLastIdealStyleValue = newLastIdealStyles[i][key];
+              var newLastIdealVelocityValue = newLastIdealVelocities[i][key];
+              for (var j = 0; j < framesToCatchUp; j++) {
+                var _stepper = _stepper4['default'](msPerFrame / 1000, newLastIdealStyleValue, newLastIdealVelocityValue, styleValue.val, styleValue.stiffness, styleValue.damping, styleValue.precision);
+
+                newLastIdealStyleValue = _stepper[0];
+                newLastIdealVelocityValue = _stepper[1];
+              }
+
+              var _stepper2 = _stepper4['default'](msPerFrame / 1000, newLastIdealStyleValue, newLastIdealVelocityValue, styleValue.val, styleValue.stiffness, styleValue.damping, styleValue.precision);
+
+              var nextIdealX = _stepper2[0];
+              var nextIdealV = _stepper2[1];
+
+              newCurrentStyle[key] = newLastIdealStyleValue + (nextIdealX - newLastIdealStyleValue) * currentFrameCompletion;
+              newCurrentVelocity[key] = newLastIdealVelocityValue + (nextIdealV - newLastIdealVelocityValue) * currentFrameCompletion;
+              newLastIdealStyle[key] = newLastIdealStyleValue;
+              newLastIdealVelocity[key] = newLastIdealVelocityValue;
+            }
+          }
+
+          newLastIdealStyles[i] = newLastIdealStyle;
+          newLastIdealVelocities[i] = newLastIdealVelocity;
+          newCurrentStyles[i] = newCurrentStyle;
+          newCurrentVelocities[i] = newCurrentVelocity;
+        }
+
+        _this.animationID = null;
+        // the amount we're looped over above
+        _this.accumulatedTime -= framesToCatchUp * msPerFrame;
+
+        _this.setState({
+          currentStyles: newCurrentStyles,
+          currentVelocities: newCurrentVelocities,
+          lastIdealStyles: newLastIdealStyles,
+          lastIdealVelocities: newLastIdealVelocities,
+          mergedPropsStyles: newMergedPropsStyles
+        });
+
+        _this.unreadPropStyles = null;
+
+        _this.startAnimationIfNecessary();
+      });
+    };
+
+    this.state = this.defaultState();
+  }
+
+  TransitionMotion.prototype.defaultState = function defaultState() {
+    var _props = this.props;
+    var defaultStyles = _props.defaultStyles;
+    var styles = _props.styles;
+    var willEnter = _props.willEnter;
+    var willLeave = _props.willLeave;
+    var didLeave = _props.didLeave;
+
+    var destStyles = typeof styles === 'function' ? styles(defaultStyles) : styles;
+
+    // this is special. for the first time around, we don't have a comparison
+    // between last (no last) and current merged props. we'll compute last so:
+    // say default is {a, b} and styles (dest style) is {b, c}, we'll
+    // fabricate last as {a, b}
+    var oldMergedPropsStyles = undefined;
+    if (defaultStyles == null) {
+      oldMergedPropsStyles = destStyles;
+    } else {
+      oldMergedPropsStyles = defaultStyles.map(function (defaultStyleCell) {
+        // TODO: key search code
+        for (var i = 0; i < destStyles.length; i++) {
+          if (destStyles[i].key === defaultStyleCell.key) {
+            return destStyles[i];
+          }
+        }
+        return defaultStyleCell;
+      });
+    }
+    var oldCurrentStyles = defaultStyles == null ? destStyles.map(function (s) {
+      return _stripStyle2['default'](s.style);
+    }) : defaultStyles.map(function (s) {
+      return _stripStyle2['default'](s.style);
+    });
+    var oldCurrentVelocities = defaultStyles == null ? destStyles.map(function (s) {
+      return _mapToZero2['default'](s.style);
+    }) : defaultStyles.map(function (s) {
+      return _mapToZero2['default'](s.style);
+    });
+
+    var _mergeAndSync3 = mergeAndSync(
+    // Because this is an old-style createReactClass component, Flow doesn't
+    // understand that the willEnter and willLeave props have default values
+    // and will always be present.
+    willEnter, willLeave, didLeave, oldMergedPropsStyles, destStyles, oldCurrentStyles, oldCurrentVelocities, oldCurrentStyles, // oldLastIdealStyles really
+    oldCurrentVelocities);
+
+    var mergedPropsStyles = _mergeAndSync3[0];
+    var currentStyles = _mergeAndSync3[1];
+    var currentVelocities = _mergeAndSync3[2];
+    var lastIdealStyles = _mergeAndSync3[3];
+    var lastIdealVelocities = _mergeAndSync3[4];
+    // oldLastIdealVelocities really
+
+    return {
+      currentStyles: currentStyles,
+      currentVelocities: currentVelocities,
+      lastIdealStyles: lastIdealStyles,
+      lastIdealVelocities: lastIdealVelocities,
+      mergedPropsStyles: mergedPropsStyles
+    };
+  };
+
+  // after checking for unreadPropStyles != null, we manually go set the
+  // non-interpolating values (those that are a number, without a spring
+  // config)
+
+  TransitionMotion.prototype.componentDidMount = function componentDidMount() {
+    this.prevTime = _performanceNow2['default']();
+    this.startAnimationIfNecessary();
+  };
+
+  TransitionMotion.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
+    if (this.unreadPropStyles) {
+      // previous props haven't had the chance to be set yet; set them here
+      this.clearUnreadPropStyle(this.unreadPropStyles);
+    }
+
+    var styles = props.styles;
+    if (typeof styles === 'function') {
+      this.unreadPropStyles = styles(rehydrateStyles(this.state.mergedPropsStyles, this.unreadPropStyles, this.state.lastIdealStyles));
+    } else {
+      this.unreadPropStyles = styles;
+    }
+
+    if (this.animationID == null) {
+      this.prevTime = _performanceNow2['default']();
+      this.startAnimationIfNecessary();
+    }
+  };
+
+  TransitionMotion.prototype.componentWillUnmount = function componentWillUnmount() {
+    this.unmounting = true;
+    if (this.animationID != null) {
+      _raf2['default'].cancel(this.animationID);
+      this.animationID = null;
+    }
+  };
+
+  TransitionMotion.prototype.render = function render() {
+    var hydratedStyles = rehydrateStyles(this.state.mergedPropsStyles, this.unreadPropStyles, this.state.currentStyles);
+    var renderedChildren = this.props.children(hydratedStyles);
+    return renderedChildren && _react2['default'].Children.only(renderedChildren);
+  };
+
+  return TransitionMotion;
+})(_react2['default'].Component);
+
+exports['default'] = TransitionMotion;
+module.exports = exports['default'];
+
+// list of styles, each containing interpolating values. Part of what's passed
+// to children function. Notice that this is
+// Array<ActualInterpolatingStyleObject>, without the wrapper that is {key: ...,
+// data: ... style: ActualInterpolatingStyleObject}. Only mergedPropsStyles
+// contains the key & data info (so that we only have a single source of truth
+// for these, and to save space). Check the comment for `rehydrateStyles` to
+// see how we regenerate the entirety of what's passed to children function
+
+// the array that keeps track of currently rendered stuff! Including stuff
+// that you've unmounted but that's still animating. This is where it lives
+
+// it's possible that currentStyle's value is stale: if props is immediately
+// changed from 0 to 400 to spring(0) again, the async currentStyle is still
+// at 0 (didn't have time to tick and interpolate even once). If we naively
+// compare currentStyle with destVal it'll be 0 === 0 (no animation, stop).
+// In reality currentStyle should be 400
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/mapToZero.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/react-svg-buttons/node_modules/react-motion/lib/mapToZero.js ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// currently used to initiate the velocity style object to 0
+
+
+exports.__esModule = true;
+exports['default'] = mapToZero;
+
+function mapToZero(obj) {
+  var ret = {};
+  for (var key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      ret[key] = 0;
+    }
+  }
+  return ret;
+}
+
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/mergeDiff.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/react-svg-buttons/node_modules/react-motion/lib/mergeDiff.js ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// core keys merging algorithm. If previous render's keys are [a, b], and the
+// next render's [c, b, d], what's the final merged keys and ordering?
+
+// - c and a must both be before b
+// - b before d
+// - ordering between a and c ambiguous
+
+// this reduces to merging two partially ordered lists (e.g. lists where not
+// every item has a definite ordering, like comparing a and c above). For the
+// ambiguous ordering we deterministically choose to place the next render's
+// item after the previous'; so c after a
+
+// this is called a topological sorting. Except the existing algorithms don't
+// work well with js bc of the amount of allocation, and isn't optimized for our
+// current use-case bc the runtime is linear in terms of edges (see wiki for
+// meaning), which is huge when two lists have many common elements
+
+
+exports.__esModule = true;
+exports['default'] = mergeDiff;
+
+function mergeDiff(prev, next, onRemove) {
+  // bookkeeping for easier access of a key's index below. This is 2 allocations +
+  // potentially triggering chrome hash map mode for objs (so it might be faster
+
+  var prevKeyIndex = {};
+  for (var i = 0; i < prev.length; i++) {
+    prevKeyIndex[prev[i].key] = i;
+  }
+  var nextKeyIndex = {};
+  for (var i = 0; i < next.length; i++) {
+    nextKeyIndex[next[i].key] = i;
+  }
+
+  // first, an overly elaborate way of merging prev and next, eliminating
+  // duplicates (in terms of keys). If there's dupe, keep the item in next).
+  // This way of writing it saves allocations
+  var ret = [];
+  for (var i = 0; i < next.length; i++) {
+    ret[i] = next[i];
+  }
+  for (var i = 0; i < prev.length; i++) {
+    if (!Object.prototype.hasOwnProperty.call(nextKeyIndex, prev[i].key)) {
+      // this is called my TM's `mergeAndSync`, which calls willLeave. We don't
+      // merge in keys that the user desires to kill
+      var fill = onRemove(i, prev[i]);
+      if (fill != null) {
+        ret.push(fill);
+      }
+    }
+  }
+
+  // now all the items all present. Core sorting logic to have the right order
+  return ret.sort(function (a, b) {
+    var nextOrderA = nextKeyIndex[a.key];
+    var nextOrderB = nextKeyIndex[b.key];
+    var prevOrderA = prevKeyIndex[a.key];
+    var prevOrderB = prevKeyIndex[b.key];
+
+    if (nextOrderA != null && nextOrderB != null) {
+      // both keys in next
+      return nextKeyIndex[a.key] - nextKeyIndex[b.key];
+    } else if (prevOrderA != null && prevOrderB != null) {
+      // both keys in prev
+      return prevKeyIndex[a.key] - prevKeyIndex[b.key];
+    } else if (nextOrderA != null) {
+      // key a in next, key b in prev
+
+      // how to determine the order between a and b? We find a "pivot" (term
+      // abuse), a key present in both prev and next, that is sandwiched between
+      // a and b. In the context of our above example, if we're comparing a and
+      // d, b's (the only) pivot
+      for (var i = 0; i < next.length; i++) {
+        var pivot = next[i].key;
+        if (!Object.prototype.hasOwnProperty.call(prevKeyIndex, pivot)) {
+          continue;
+        }
+
+        if (nextOrderA < nextKeyIndex[pivot] && prevOrderB > prevKeyIndex[pivot]) {
+          return -1;
+        } else if (nextOrderA > nextKeyIndex[pivot] && prevOrderB < prevKeyIndex[pivot]) {
+          return 1;
+        }
+      }
+      // pluggable. default to: next bigger than prev
+      return 1;
+    }
+    // prevOrderA, nextOrderB
+    for (var i = 0; i < next.length; i++) {
+      var pivot = next[i].key;
+      if (!Object.prototype.hasOwnProperty.call(prevKeyIndex, pivot)) {
+        continue;
+      }
+      if (nextOrderB < nextKeyIndex[pivot] && prevOrderA > prevKeyIndex[pivot]) {
+        return 1;
+      } else if (nextOrderB > nextKeyIndex[pivot] && prevOrderA < prevKeyIndex[pivot]) {
+        return -1;
+      }
+    }
+    // pluggable. default to: next bigger than prev
+    return -1;
+  });
+}
+
+module.exports = exports['default'];
+// to loop through and find a key's index each time), but I no longer care
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/presets.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/react-svg-buttons/node_modules/react-motion/lib/presets.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports["default"] = {
+  noWobble: { stiffness: 170, damping: 26 }, // the default, if nothing provided
+  gentle: { stiffness: 120, damping: 14 },
+  wobbly: { stiffness: 180, damping: 12 },
+  stiff: { stiffness: 210, damping: 20 }
+};
+module.exports = exports["default"];
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/react-motion.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/react-svg-buttons/node_modules/react-motion/lib/react-motion.js ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _interopRequire(obj) { return obj && obj.__esModule ? obj['default'] : obj; }
+
+var _Motion = __webpack_require__(/*! ./Motion */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/Motion.js");
+
+exports.Motion = _interopRequire(_Motion);
+
+var _StaggeredMotion = __webpack_require__(/*! ./StaggeredMotion */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/StaggeredMotion.js");
+
+exports.StaggeredMotion = _interopRequire(_StaggeredMotion);
+
+var _TransitionMotion = __webpack_require__(/*! ./TransitionMotion */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/TransitionMotion.js");
+
+exports.TransitionMotion = _interopRequire(_TransitionMotion);
+
+var _spring = __webpack_require__(/*! ./spring */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/spring.js");
+
+exports.spring = _interopRequire(_spring);
+
+var _presets = __webpack_require__(/*! ./presets */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/presets.js");
+
+exports.presets = _interopRequire(_presets);
+
+var _stripStyle = __webpack_require__(/*! ./stripStyle */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/stripStyle.js");
+
+exports.stripStyle = _interopRequire(_stripStyle);
+
+// deprecated, dummy warning function
+
+var _reorderKeys = __webpack_require__(/*! ./reorderKeys */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/reorderKeys.js");
+
+exports.reorderKeys = _interopRequire(_reorderKeys);
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/reorderKeys.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/react-svg-buttons/node_modules/react-motion/lib/reorderKeys.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports['default'] = reorderKeys;
+
+var hasWarned = false;
+
+function reorderKeys() {
+  if (true) {
+    if (!hasWarned) {
+      hasWarned = true;
+      console.error('`reorderKeys` has been removed, since it is no longer needed for TransitionMotion\'s new styles array API.');
+    }
+  }
+}
+
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/shouldStopAnimation.js":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/react-svg-buttons/node_modules/react-motion/lib/shouldStopAnimation.js ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// usage assumption: currentStyle values have already been rendered but it says
+// nothing of whether currentStyle is stale (see unreadPropStyle)
+
+
+exports.__esModule = true;
+exports['default'] = shouldStopAnimation;
+
+function shouldStopAnimation(currentStyle, style, currentVelocity) {
+  for (var key in style) {
+    if (!Object.prototype.hasOwnProperty.call(style, key)) {
+      continue;
+    }
+
+    if (currentVelocity[key] !== 0) {
+      return false;
+    }
+
+    var styleValue = typeof style[key] === 'number' ? style[key] : style[key].val;
+    // stepper will have already taken care of rounding precision errors, so
+    // won't have such thing as 0.9999 !=== 1
+    if (currentStyle[key] !== styleValue) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/spring.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/react-svg-buttons/node_modules/react-motion/lib/spring.js ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports['default'] = spring;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _presets = __webpack_require__(/*! ./presets */ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/presets.js");
+
+var _presets2 = _interopRequireDefault(_presets);
+
+var defaultConfig = _extends({}, _presets2['default'].noWobble, {
+  precision: 0.01
+});
+
+function spring(val, config) {
+  return _extends({}, defaultConfig, config, { val: val });
+}
+
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/stepper.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/react-svg-buttons/node_modules/react-motion/lib/stepper.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// stepper is used a lot. Saves allocation to return the same array wrapper.
+// This is fine and danger-free against mutations because the callsite
+// immediately destructures it and gets the numbers inside without passing the
+
+
+exports.__esModule = true;
+exports["default"] = stepper;
+
+var reusedTuple = [0, 0];
+
+function stepper(secondPerFrame, x, v, destX, k, b, precision) {
+  // Spring stiffness, in kg / s^2
+
+  // for animations, destX is really spring length (spring at rest). initial
+  // position is considered as the stretched/compressed position of a spring
+  var Fspring = -k * (x - destX);
+
+  // Damping, in kg / s
+  var Fdamper = -b * v;
+
+  // usually we put mass here, but for animation purposes, specifying mass is a
+  // bit redundant. you could simply adjust k and b accordingly
+  // let a = (Fspring + Fdamper) / mass;
+  var a = Fspring + Fdamper;
+
+  var newV = v + a * secondPerFrame;
+  var newX = x + newV * secondPerFrame;
+
+  if (Math.abs(newV) < precision && Math.abs(newX - destX) < precision) {
+    reusedTuple[0] = destX;
+    reusedTuple[1] = 0;
+    return reusedTuple;
+  }
+
+  reusedTuple[0] = newX;
+  reusedTuple[1] = newV;
+  return reusedTuple;
+}
+
+module.exports = exports["default"];
+// array reference around.
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-buttons/node_modules/react-motion/lib/stripStyle.js":
+/*!************************************************************************************!*\
+  !*** ./node_modules/react-svg-buttons/node_modules/react-motion/lib/stripStyle.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// turn {x: {val: 1, stiffness: 1, damping: 2}, y: 2} generated by
+// `{x: spring(1, {stiffness: 1, damping: 2}), y: 2}` into {x: 1, y: 2}
+
+
+
+exports.__esModule = true;
+exports['default'] = stripStyle;
+
+function stripStyle(style) {
+  var ret = {};
+  for (var key in style) {
+    if (!Object.prototype.hasOwnProperty.call(style, key)) {
+      continue;
+    }
+    ret[key] = typeof style[key] === 'number' ? style[key] : style[key].val;
+  }
+  return ret;
+}
+
+module.exports = exports['default'];
+
+/***/ }),
+
 /***/ "./node_modules/react-transition-group/CSSTransition.js":
 /*!**************************************************************!*\
   !*** ./node_modules/react-transition-group/CSSTransition.js ***!
@@ -63409,7 +63535,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServerStyleSheet", function() { return ServerStyleSheet; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyleSheetManager", function() { return StyleSheetManager; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__DO_NOT_USE_OR_YOU_WILL_BE_HAUNTED_BY_SPOOKY_GHOSTS", function() { return __DO_NOT_USE_OR_YOU_WILL_BE_HAUNTED_BY_SPOOKY_GHOSTS; });
-/* harmony import */ var fbjs_lib_hyphenateStyleName__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fbjs/lib/hyphenateStyleName */ "./node_modules/styled-components/node_modules/fbjs/lib/hyphenateStyleName.js");
+/* harmony import */ var fbjs_lib_hyphenateStyleName__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fbjs/lib/hyphenateStyleName */ "./node_modules/fbjs/lib/hyphenateStyleName.js");
 /* harmony import */ var fbjs_lib_hyphenateStyleName__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fbjs_lib_hyphenateStyleName__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
@@ -65753,94 +65879,6 @@ var styled = _styled(StyledComponent, constructWithOptions);
 
 /***/ }),
 
-/***/ "./node_modules/styled-components/node_modules/fbjs/lib/hyphenate.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/styled-components/node_modules/fbjs/lib/hyphenate.js ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-var _uppercasePattern = /([A-Z])/g;
-
-/**
- * Hyphenates a camelcased string, for example:
- *
- *   > hyphenate('backgroundColor')
- *   < "background-color"
- *
- * For CSS style names, use `hyphenateStyleName` instead which works properly
- * with all vendor prefixes, including `ms`.
- *
- * @param {string} string
- * @return {string}
- */
-function hyphenate(string) {
-  return string.replace(_uppercasePattern, '-$1').toLowerCase();
-}
-
-module.exports = hyphenate;
-
-/***/ }),
-
-/***/ "./node_modules/styled-components/node_modules/fbjs/lib/hyphenateStyleName.js":
-/*!************************************************************************************!*\
-  !*** ./node_modules/styled-components/node_modules/fbjs/lib/hyphenateStyleName.js ***!
-  \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-
-
-var hyphenate = __webpack_require__(/*! ./hyphenate */ "./node_modules/styled-components/node_modules/fbjs/lib/hyphenate.js");
-
-var msPattern = /^ms-/;
-
-/**
- * Hyphenates a camelcased CSS property name, for example:
- *
- *   > hyphenateStyleName('backgroundColor')
- *   < "background-color"
- *   > hyphenateStyleName('MozTransition')
- *   < "-moz-transition"
- *   > hyphenateStyleName('msTransition')
- *   < "-ms-transition"
- *
- * As Modernizr suggests (http://modernizr.com/docs/#prefixed), an `ms` prefix
- * is converted to `-ms-`.
- *
- * @param {string} string
- * @return {string}
- */
-function hyphenateStyleName(string) {
-  return hyphenate(string).replace(msPattern, '-ms-');
-}
-
-module.exports = hyphenateStyleName;
-
-/***/ }),
-
 /***/ "./node_modules/stylis-rule-sheet/index.js":
 /*!*************************************************!*\
   !*** ./node_modules/stylis-rule-sheet/index.js ***!
@@ -66251,7 +66289,7 @@ module.exports = hyphenateStyleName;
 									code++
 								}
 								// quote tail delimiter is identical to the head delimiter hence noop,
-								// fallthrough clauses have been shited to the correct tail delimiter
+								// fallthrough clauses have been shifted to the correct tail delimiter
 								case DOUBLEQUOTE:
 								case SINGLEQUOTE: {
 									while (caret++ < eol) {
@@ -66584,12 +66622,7 @@ module.exports = hyphenateStyleName;
 							break
 						}
 						// quotes
-						case DOUBLEQUOTE: {
-							if (comment === 0) {
-								quote = quote === code ? 0 : (quote === 0 ? code : quote)
-							}
-							break
-						}
+						case DOUBLEQUOTE:
 						case SINGLEQUOTE: {
 							if (comment === 0) {
 								quote = quote === code ? 0 : (quote === 0 ? code : quote)
@@ -67394,18 +67427,8 @@ module.exports = hyphenateStyleName;
 				}
 			}
 		}
-
-		switch (out) {
-			case void 0:
-			case false:
-			case true:
-			case null:
-			case content: {
-				break
-			}
-			default: {
-				return out
-			}
+		if (out !== content) {
+		  return out
 		}
 	}
 
@@ -67488,20 +67511,14 @@ module.exports = hyphenateStyleName;
 				break
 			}
 			default: {
-				switch (plugin.constructor) {
-					case Array: {
-						for (var i = 0, length = plugin.length; i < length; ++i) {
-							use(plugin[i])
-						}
-						break
+				if (typeof plugin === 'function') {
+					plugins[plugged++] = plugin
+				}	else if (typeof plugin === 'object') {
+					for (var i = 0, length = plugin.length; i < length; ++i) {
+						use(plugin[i])
 					}
-					case Function: {
-						plugins[plugged++] = plugin
-						break
-					}
-					case Boolean: {
-						unkwn = !!plugin|0
-					}
+				} else {
+					unkwn = !!plugin|0
 				}
 			}
  		}

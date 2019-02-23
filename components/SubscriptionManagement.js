@@ -3,7 +3,6 @@ import TakeMyMoney from './TakeMyMoney'
 import styled from 'styled-components'
 import Form from './styles/Form'
 import SickButton from './styles/SickButton'
-import { ORDER_DATA } from '../lib/timeSlots'
 
 const Inner = styled.div`
   text-align: center;
@@ -27,6 +26,24 @@ const Inner = styled.div`
   }
 `
 
+const ORDER_DATA = [
+  {
+    title: 'Express Account',
+    id: '1',
+    price: 2999,
+  },
+  {
+    title: 'Classic Account',
+    id: 'plan_EW7xrpDzOE9d5I',
+    price: 3999,
+  },
+
+  {
+    title: 'HIPAA Compliant',
+    id: '3',
+    price: 1000,
+  },
+]
 const handleClick = e => {
   e.preventDefault()
 }
@@ -42,7 +59,7 @@ const SubscriptionManagement = () => {
                 key={i}
                 title={buttons.title}
                 price={buttons.price}
-                id={buttons.id}
+                plan={buttons.id}
               >
                 <SickButton className="button" onClick={handleClick}>
                   {buttons.title}

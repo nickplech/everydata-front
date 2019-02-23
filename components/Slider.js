@@ -4,6 +4,7 @@ import gql from 'graphql-tag'
 import User from './User'
 import CartStyles from './styles/CartStyles'
 import Supreme from './styles/Supreme'
+import { startOfDay, format } from 'date-fns'
 import CloseButton from './styles/CloseButton'
 import styled from 'styled-components'
 import CartItem from './CartItem'
@@ -55,7 +56,11 @@ const ConfList = styled.div`
 `
 
 class Slider extends Component {
+  state = {
+    date: startOfDay(new Date()),
+  }
   render() {
+    let { date } = this.state
     return (
       <User>
         {({ data: { me } }) => {
@@ -74,7 +79,7 @@ class Slider extends Component {
                         >
                           <div className="child">&times;</div>
                         </CloseButton>
-                        <Supreme>Date</Supreme>
+                        <Supreme>{format(date, 'MMMM Do, YYYY')}</Supreme>
                         <ConfList>
                           <div className="flexChild">
                             <p className="confirmed">Confirmed</p>
@@ -121,9 +126,7 @@ class Slider extends Component {
                         </ConfList>
                       </header>
 
-                      <footer>
-                        <p>flash messages with date</p>
-                      </footer>
+                      <footer />
                     </CartStyles>
                   )}
                 </Query>
