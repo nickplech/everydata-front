@@ -15,7 +15,7 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/clients": [
+    "/schedule": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

@@ -29,7 +29,10 @@ const Nav = () => (
               <a>Hipaa</a>
             </Link>
             <Link href="/signup">
-              <a>Sign In</a>
+              <a>Login</a>
+            </Link>
+            <Link href="/signup">
+              <a>Sign Up</a>
             </Link>
           </>
         )}

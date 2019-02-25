@@ -46,12 +46,14 @@ const ConfList = styled.div`
   }
   .confirmed {
     background: rgba(100, 190, 90, 0.9);
+    border-radius: 15px 0 0 15px;
   }
   .canceled {
     background: rgba(200, 80, 90, 0.9);
   }
   .unconfirmed {
     background: grey;
+    border-radius: 0 15px 15px 0;
   }
 `
 

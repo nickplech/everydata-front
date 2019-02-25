@@ -96,23 +96,25 @@ const Date = styled.div`
   grid-row: 1;
   justify-content: center;
   border-radius: 25px 25px 0 0;
-  background: rgba(20, 110, 220, 1);
+
   overflow: hidden;
   height: 100%;
   padding: 5px 20px 0px 20px;
+
   p {
     margin: 0;
-    font-size: 18px;
+    /* border: 2px solid ${props => props.theme.blue};
+    border-radius: 5px; */
+    font-family: 'Montserrat', sans-serif;
+    color: ${props => props.theme.blue};
+    display: block;
+    text-align: center;
+    padding: 0px 0px;
+
+    font-size: 2.2rem;
     position: relative;
-    color: white;
   }
-  .title {
-    display: flex;
-    font-size: 18px;
-    margin: 0;
-    color: white;
-    position: relative;
-  }
+
   h3 {
     margin: 0;
   }
@@ -190,37 +192,36 @@ class Modal extends Component {
                 <BackDrop>
                   <Modall>
                     <Date>
-                      <h1 className="title">Appointment</h1>
                       <p>{format(this.props.date, 'MMMM Do, YYYY')}</p>
                       <p>{this.props.time}</p>
                     </Date>
-                    <Query query={reasons_query}>
-                      {({ data }) => {
-                        return (
-                          <Middle>
-                            <form>
-                              <label>
-                                For:
-                                <ClientSearch />
-                              </label>
+                    {/* <Query query={reasons_query}>
+                      {({ data }) => { */}
 
-                              <label htmlFor="reason" className="required">
-                                Type:
-                                <StyledInput
-                                  style={{
-                                    paddingTop: '3px',
-                                    marginBottom: '10px',
-                                  }}
-                                  type="text"
-                                  id="reason"
-                                  name="reason"
-                                  placeholder="Appointment Type"
-                                  autoComplete="off"
-                                  required
-                                  value={this.state.reason}
-                                  onChange={this.handleChange}
-                                >
-                                  {data.reasons.map(appReason => {
+                    <Middle>
+                      <form>
+                        <label>
+                          For:
+                          <ClientSearch />
+                        </label>
+
+                        <label htmlFor="reason" className="required">
+                          Type:
+                          <StyledInput
+                            style={{
+                              paddingTop: '3px',
+                              marginBottom: '10px',
+                            }}
+                            type="text"
+                            id="reason"
+                            name="reason"
+                            placeholder="Appointment Type"
+                            autoComplete="off"
+                            required
+                            value={this.state.reason}
+                            onChange={this.handleChange}
+                          >
+                            {/* {data.reasons.map(appReason => {
                                     return (
                                       <option
                                         key={appReason.name}
@@ -229,18 +230,18 @@ class Modal extends Component {
                                         {appReason.name}
                                       </option>
                                     )
-                                  })}
-                                </StyledInput>
-                              </label>
-                              <label htmlFor="note">
-                                Notes:
-                                <StyledTextArea />
-                              </label>
-                            </form>
-                          </Middle>
-                        )
+                                  })} */}
+                          </StyledInput>
+                        </label>
+                        <label htmlFor="note">
+                          Notes:
+                          <StyledTextArea />
+                        </label>
+                      </form>
+                    </Middle>
+                    {/* )
                       }}
-                    </Query>
+                    </Query> */}
                     <Cancel onClick={toggleModal}>Cancel</Cancel>
                     <Save onClick={toggleModal}>Save</Save>
                   </Modall>

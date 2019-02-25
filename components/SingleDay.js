@@ -24,7 +24,6 @@ const TopBlock = styled.div`
   display: grid;
   grid-column: 2;
   grid-row: 1/3;
-
   width: 100%;
   height: 100%;
   background: rgba(240, 240, 240, 1);
@@ -62,7 +61,7 @@ const DayView = styled.div`
     display: flex;
     border-radius: 5px;
     background: white;
-    left: 60px;
+    left: 15px;
     border-top: 13px solid red;
     top: 10px;
     box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.2);
@@ -110,11 +109,11 @@ const DayView = styled.div`
 const DayGrid = styled.div`
   display: grid;
   position: relative;
-  grid-template-columns: 60px 1fr;
+  grid-template-columns: 75px 1fr;
   position: absolute;
-  grid-auto-rows: 25px;
+  grid-auto-rows: 22px;
   border-radius: 0px 0 25px 0;
-  grid-gap: 2px;
+  grid-gap: 1px;
   width: 100%;
   right: 0px;
   margin-top: 67px;
@@ -122,14 +121,32 @@ const DayGrid = styled.div`
   overflow-y: scroll;
   overscroll-behavior: contain;
 `
+const StyledInput = styled.button`
+  display: grid;
+  grid-column: 1;
+  text-align: left;
+  font-weight: 800;
+  height: 100%;
+
+  background: transparent;
+  border: none;
+  opacity: 1;
+  cursor: pointer;
+
+  color: white;
+
+  &:focus {
+    outline: none;
+  }
+`
 const TimeCell = styled.div`
   display: grid;
   border-left: none;
   grid-column: 2/3;
-  padding-left: 5px;
+
   align-items: center;
   border-bottom: none;
-  border-top: 1px solid white;
+  border: 0px solid rgba(243, 241, 244, 1);
   background: rgba(243, 241, 244, 1);
   cursor: pointer;
 
@@ -137,19 +154,21 @@ const TimeCell = styled.div`
     display: grid;
     grid-column: 1/3;
     align-items: center;
-    border-bottom: none;
-    border-top: 1px solid white;
+    /* border-bottom: none; */
+    border: 0px solid rgba(20, 110, 240, 0.65);
     border-radius: 20px 0 0 20px;
     background: rgba(20, 110, 240, 0.65);
     color: grey;
+    border-right: none;
   }
   &:hover {
     opacity: 0.5;
   }
   .number {
     display: grid;
-    font-size: 12px;
+    font-size: 14px;
     align-self: center;
+
     justify-content: flex-start;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -157,20 +176,6 @@ const TimeCell = styled.div`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
-`
-const StyledInput = styled.input`
-  display: grid;
-  grid-column: 1;
-  text-align: left;
-  font-weight: 800;
-  color: rgba(243, 241, 244, 1);
-  background: transparent;
-  border: none;
-  opacity: 1;
-  cursor: pointer;
-  &:focus {
-    outline: none;
   }
 `
 
@@ -208,7 +213,9 @@ class SingleDay extends Component {
                       value={timeblock.time}
                       onClick={this.update}
                       readOnly
-                    />
+                    >
+                      {timeblock.display}
+                    </StyledInput>
                   </TimeCell>
                 )}
               </Mutation>

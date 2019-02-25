@@ -8,6 +8,7 @@ const ADD_TO_CART_MUTATION = gql`
     addToCart(id: $id) {
       id
       quantity
+      confirmationStatus
     }
   }
 `

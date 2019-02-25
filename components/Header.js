@@ -30,7 +30,7 @@ const Logo = styled.h1`
   z-index: 0;
   a {
     padding: 0rem 1rem;
-    background: ${props => props.theme.blue};
+    background: rgba(10, 110, 240, 1);
     color: white;
     text-transform: uppercase;
     text-decoration: none;

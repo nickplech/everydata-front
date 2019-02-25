@@ -91,14 +91,15 @@ const HeroButton = styled.button`
   font-size: 18px;
   cursor: pointer;
   &:hover {
-    border-color: yellow;
-    color: yellow;
+    transition: 0.4s;
+    transform: scale(1.1);
+    color: white;
   }
 `
 const SecondButton = styled.button`
   display: inline-block;
   background: rgba(100, 100, 220, 1);
-  border: 3px solid rgba(100, 100, 220, 1);
+  border: 2px solid rgba(100, 100, 220, 1);
   margin-left: 25px;
   padding: 8px 12px;
   width: 200px;

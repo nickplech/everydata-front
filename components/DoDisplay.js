@@ -1,6 +1,7 @@
 import { Query } from 'react-apollo'
 import { CURRENT_USER_QUERY } from './User'
 import HomePage from './HomePage'
+import Chat from '../components/Chat'
 
 const DoDisplay = props => (
   <Query query={CURRENT_USER_QUERY}>
@@ -10,6 +11,7 @@ const DoDisplay = props => (
         return (
           <div>
             <HomePage />
+            <Chat />
           </div>
         )
       }

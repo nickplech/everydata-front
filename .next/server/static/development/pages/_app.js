@@ -801,9 +801,7 @@ next_router__WEBPACK_IMPORTED_MODULE_4___default.a.onRouteChangeError = function
 var Logo = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.h1.withConfig({
   displayName: "Header__Logo",
   componentId: "sc-2cpreo-0"
-})(["font-size:1.5rem;margin-left:2rem;display:flex;align-self:center;justify-self:center;position:relative;z-index:0;a{padding:0rem 1rem;background:", ";color:white;text-transform:uppercase;text-decoration:none;}"], function (props) {
-  return props.theme.blue;
-});
+})(["font-size:1.5rem;margin-left:2rem;display:flex;align-self:center;justify-self:center;position:relative;z-index:0;a{padding:0rem 1rem;background:rgba(10,110,240,1);color:white;text-transform:uppercase;text-decoration:none;}"]);
 var StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.header.withConfig({
   displayName: "Header__StyledHeader",
   componentId: "sc-2cpreo-1"
@@ -1308,7 +1306,9 @@ var StyledTextArea = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.te
 var Date = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
   displayName: "Modal__Date",
   componentId: "sc-105rmtf-5"
-})(["align-self:center;grid-column:1/3;grid-row:1;justify-content:center;border-radius:25px 25px 0 0;background:rgba(20,110,220,1);overflow:hidden;height:100%;padding:5px 20px 0px 20px;p{margin:0;font-size:18px;position:relative;color:white;}.title{display:flex;font-size:18px;margin:0;color:white;position:relative;}h3{margin:0;}"]);
+})(["align-self:center;grid-column:1/3;grid-row:1;justify-content:center;border-radius:25px 25px 0 0;overflow:hidden;height:100%;padding:5px 20px 0px 20px;p{margin:0;font-family:'Montserrat',sans-serif;color:", ";display:block;text-align:center;padding:0px 0px;font-size:2.2rem;position:relative;}h3{margin:0;}"], function (props) {
+  return props.theme.blue;
+});
 var Cancel = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.button.withConfig({
   displayName: "Modal__Cancel",
   componentId: "sc-105rmtf-6"
@@ -1366,7 +1366,7 @@ function (_Component) {
         mutation: TOGGLE_MODAL_MUTATION,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 182
+          lineNumber: 184
         },
         __self: this
       }, function (toggleModal) {
@@ -1374,7 +1374,7 @@ function (_Component) {
           query: OPEN_MODAL_QUERY,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 184
+            lineNumber: 186
           },
           __self: this
         }, function (_ref) {
@@ -1387,135 +1387,108 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BackDrop, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 190
+              lineNumber: 192
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Modall, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 191
+              lineNumber: 193
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Date, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 192
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-            className: "title",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 193
-            },
-            __self: this
-          }, "Appointment"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-            __source: {
-              fileName: _jsxFileName,
               lineNumber: 194
             },
             __self: this
-          }, Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(_this2.props.date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
               lineNumber: 195
             },
             __self: this
-          }, _this2.props.time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
-            query: reasons_query,
+          }, Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(_this2.props.date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 197
+              lineNumber: 196
             },
             __self: this
-          }, function (_ref2) {
-            var data = _ref2.data;
-            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Middle, {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 200
-              },
-              __self: this
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 201
-              },
-              __self: this
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 202
-              },
-              __self: this
-            }, "For:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_5__["default"], {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 204
-              },
-              __self: this
-            })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-              htmlFor: "reason",
-              className: "required",
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 207
-              },
-              __self: this
-            }, "Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
-              style: {
-                paddingTop: '3px',
-                marginBottom: '10px'
-              },
-              type: "text",
-              id: "reason",
-              name: "reason",
-              placeholder: "Appointment Type",
-              autoComplete: "off",
-              required: true,
-              value: _this2.state.reason,
-              onChange: _this2.handleChange,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 209
-              },
-              __self: this
-            }, data.reasons.map(function (appReason) {
-              return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-                key: appReason.name,
-                value: appReason.name,
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 225
-                },
-                __self: this
-              }, appReason.name);
-            }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-              htmlFor: "note",
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 235
-              },
-              __self: this
-            }, "Notes:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledTextArea, {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 237
-              },
-              __self: this
-            }))));
-          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Cancel, {
+          }, _this2.props.time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Middle, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 201
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 202
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 203
+            },
+            __self: this
+          }, "For:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 205
+            },
+            __self: this
+          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+            htmlFor: "reason",
+            className: "required",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 208
+            },
+            __self: this
+          }, "Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
+            style: {
+              paddingTop: '3px',
+              marginBottom: '10px'
+            },
+            type: "text",
+            id: "reason",
+            name: "reason",
+            placeholder: "Appointment Type",
+            autoComplete: "off",
+            required: true,
+            value: _this2.state.reason,
+            onChange: _this2.handleChange,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 210
+            },
+            __self: this
+          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+            htmlFor: "note",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 236
+            },
+            __self: this
+          }, "Notes:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledTextArea, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 238
+            },
+            __self: this
+          })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Cancel, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 244
+              lineNumber: 245
             },
             __self: this
           }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Save, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 245
+              lineNumber: 246
             },
             __self: this
           }, "Save")));
@@ -1641,7 +1614,20 @@ var Nav = function Nav() {
         lineNumber: 32
       },
       __self: this
-    }, "Sign In"))));
+    }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/signup",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 34
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35
+      },
+      __self: this
+    }, "Sign Up"))));
   });
 };
 
@@ -2143,7 +2129,7 @@ var TOGGLE_CART_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_t
 var ConfList = styled_components__WEBPACK_IMPORTED_MODULE_8___default.a.div.withConfig({
   displayName: "Slider__ConfList",
   componentId: "sc-94qe3k-0"
-})(["display:flex;font-family:'Montserrat',sans-serif;text-align:center;align-items:center;width:100%;.flexChild{display:block;align-content:center;justify-content:center;width:100%;color:white;}.scroll{height:300px;overflow-y:scroll;overscroll-behavior:contain;overflow-x:hidden;&::-webkit-scrollbar{display:none;}}.confirmed{background:rgba(100,190,90,0.9);}.canceled{background:rgba(200,80,90,0.9);}.unconfirmed{background:grey;}"]);
+})(["display:flex;font-family:'Montserrat',sans-serif;text-align:center;align-items:center;width:100%;.flexChild{display:block;align-content:center;justify-content:center;width:100%;color:white;}.scroll{height:300px;overflow-y:scroll;overscroll-behavior:contain;overflow-x:hidden;&::-webkit-scrollbar{display:none;}}.confirmed{background:rgba(100,190,90,0.9);border-radius:15px 0 0 15px;}.canceled{background:rgba(200,80,90,0.9);}.unconfirmed{background:grey;border-radius:0 15px 15px 0;}"]);
 
 var Slider =
 /*#__PURE__*/
@@ -2177,7 +2163,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 67
         },
         __self: this
       }, function (_ref) {
@@ -2187,7 +2173,7 @@ function (_Component) {
           mutation: TOGGLE_CART_MUTATION,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 69
+            lineNumber: 71
           },
           __self: this
         }, function (toggleCart) {
@@ -2195,7 +2181,7 @@ function (_Component) {
             query: LOCAL_STATE_QUERY,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 71
+              lineNumber: 73
             },
             __self: this
           }, function (_ref2) {
@@ -2204,13 +2190,13 @@ function (_Component) {
               open: data.cartOpen,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 73
+                lineNumber: 75
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 74
+                lineNumber: 76
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CloseButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -2219,40 +2205,40 @@ function (_Component) {
               className: "exy",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 75
+                lineNumber: 77
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "child",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 80
+                lineNumber: 82
               },
               __self: this
             }, "\xD7")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Supreme__WEBPACK_IMPORTED_MODULE_5__["default"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 82
+                lineNumber: 84
               },
               __self: this
             }, Object(date_fns__WEBPACK_IMPORTED_MODULE_6__["format"])(date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ConfList, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 83
+                lineNumber: 85
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 84
+                lineNumber: 86
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "confirmed",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 85
+                lineNumber: 87
               },
               __self: this
             }, "Confirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2261,20 +2247,20 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 86
+                lineNumber: 88
               },
               __self: this
             }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 87
+                lineNumber: 89
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 88
+                lineNumber: 90
               },
               __self: this
             }, me.cart.map(function (cartItem) {
@@ -2283,7 +2269,7 @@ function (_Component) {
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 90
+                  lineNumber: 92
                 },
                 __self: this
               });
@@ -2291,14 +2277,14 @@ function (_Component) {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 98
+                lineNumber: 100
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "canceled",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 99
+                lineNumber: 101
               },
               __self: this
             }, "Canceled"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2307,20 +2293,20 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 100
+                lineNumber: 102
               },
               __self: this
             }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 101
+                lineNumber: 103
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 102
+                lineNumber: 104
               },
               __self: this
             }, me.cart.map(function (cartItem) {
@@ -2329,7 +2315,7 @@ function (_Component) {
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 104
+                  lineNumber: 106
                 },
                 __self: this
               });
@@ -2337,14 +2323,14 @@ function (_Component) {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 112
+                lineNumber: 114
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "unconfirmed",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 113
+                lineNumber: 115
               },
               __self: this
             }, "Unconfirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2353,20 +2339,20 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 114
+                lineNumber: 116
               },
               __self: this
             }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 115
+                lineNumber: 117
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 116
+                lineNumber: 118
               },
               __self: this
             }, me.cart.map(function (cartItem) {
@@ -2375,14 +2361,14 @@ function (_Component) {
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 118
+                  lineNumber: 120
                 },
                 __self: this
               });
             })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 129
+                lineNumber: 131
               },
               __self: this
             }));

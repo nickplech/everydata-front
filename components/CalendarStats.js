@@ -150,6 +150,7 @@ const StatsDisplay = styled.div`
 class CalendarStats extends React.Component {
   state = {
     date: dateFns.startOfDay(new Date()),
+    // today: dateFns.startOfDay(new Date()),
   }
 
   onChange = date => this.setState({ date })
@@ -173,7 +174,7 @@ class CalendarStats extends React.Component {
             returnValue="start"
           />
         </StatsDisplay>
-        <SingleDay date={date} />
+        <SingleDay date={date} handleToday={this.handleToday} />
       </>
     )
   }

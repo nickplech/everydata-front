@@ -37,7 +37,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation addToCart($id: ID!) {\n    addToCart(id: $id) {\n      id\n      quantity\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation addToCart($id: ID!) {\n    addToCart(id: $id) {\n      id\n      quantity\n      confirmationStatus\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -79,7 +79,7 @@ function (_React$Component) {
         }],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 19
         },
         __self: this
       }, function (addToCart) {
@@ -87,7 +87,7 @@ function (_React$Component) {
           onClick: addToCart,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 23
+            lineNumber: 24
           },
           __self: this
         }, " Add ");
@@ -44391,7 +44391,7 @@ var Client = function Client(props) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!*******************************!*\
   !*** multi ./pages/client.js ***!
   \*******************************/
@@ -44416,5 +44416,5 @@ module.exports = dll_19b830e266d1a33d6422;
 
 /***/ })
 
-},[[5,"static/runtime/webpack.js"]]]));;
+},[[4,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=client.js.map
