@@ -44,7 +44,6 @@ const CartItem = ({ cartItem }) => {
           {cartItem.client.firstName} {cartItem.client.lastName}
         </a>
       </Link>
-
       <RemoveFromCart id={cartItem.id} />
     </ConfirmationStyles>
   )

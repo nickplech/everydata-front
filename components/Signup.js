@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
+import { StepList } from './StepList'
+import { Step } from './Step'
 import Form from './styles/Form'
 import Error from './ErrorMessage'
 import styled from 'styled-components'
@@ -39,10 +41,20 @@ const SIGNUP_MUTATION = gql`
     }
   }
 `
-
-const Margin = styled.div`
-  margin: 15px 25px;
+const SignUpTitle = styled.h3`
+  @import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto');
+  color: rgba(20, 110, 220, 1);
+  font-family: 'Pacifico', cursive;
+  font-size: 46px;
+  margin-bottom: 10px;
 `
+
+const StyledSignUpStepper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+`
+
 const Submitted = styled.p`
   color: green;
   background: white;
@@ -98,7 +110,8 @@ class Signup extends Component {
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
         {(signup, { error, loading, called }) => (
-          <Margin>
+          <StyledSignUpStepper>
+            <SignUpTitle>Create an Account</SignUpTitle>
             <Form
               method="post"
               onSubmit={async e => {
@@ -117,7 +130,6 @@ class Signup extends Component {
               }}
             >
               <fieldset disabled={loading} aria-busy={loading}>
-                <h2>Sign Up for An Account</h2>
                 <Error error={error} />
                 {!error && !loading && called && (
                   <Submitted>
@@ -125,128 +137,150 @@ class Signup extends Component {
                     to begin your Free Trial
                   </Submitted>
                 )}
-                <label htmlFor="firstName">
-                  First Name
-                  <input
-                    type="text"
-                    name="firstName"
-                    placeholder="Account Holder's First Name"
-                    required
-                    value={this.state.firstName}
-                    onChange={this.saveToState}
-                  />
-                </label>
-                <label htmlFor="lastName">
-                  Last Name
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Account Holder's Last Name"
-                    required
-                    value={this.state.lastName}
-                    onChange={this.saveToState}
-                  />
-                </label>
-                <label htmlFor="cellPhone">
-                  Cell Phone Number(Required for Verification)
-                  <MaskedInput
-                    mask={[
-                      '(',
-                      /[1-9]/,
-                      /\d/,
-                      /\d/,
-                      ')',
-                      ' ',
-                      /\d/,
-                      /\d/,
-                      /\d/,
-                      '-',
-                      /\d/,
-                      /\d/,
-                      /\d/,
-                      /\d/,
-                    ]}
-                    type="text"
-                    id="cellPhone"
-                    name="cellPhone"
-                    placeholder="Phone Number"
-                    autoComplete="off"
-                    required
-                    value={this.state.cellPhone}
-                    onChange={this.saveToState}
-                  />
-                </label>
+                <StepList>
+                  <Step>
+                    <h3 style={{ textAlign: 'center' }}>
+                      A Little About Your Business
+                    </h3>
+                    <label htmlFor="firstName">
+                      First Name
+                      <input
+                        type="text"
+                        name="firstName"
+                        placeholder="Account Holder's First Name"
+                        required
+                        value={
+                          this.state.firstName.charAt(0).toUpperCase() +
+                          this.state.firstName.slice(1).trim()
+                        }
+                        onChange={this.saveToState}
+                      />
+                    </label>
+                    <label htmlFor="lastName">
+                      Last Name
+                      <input
+                        type="text"
+                        name="lastName"
+                        placeholder="Account Holder's Last Name"
+                        required
+                        value={
+                          this.state.lastName.charAt(0).toUpperCase() +
+                          this.state.lastName.slice(1).trim()
+                        }
+                        onChange={this.saveToState}
+                      />
+                    </label>{' '}
+                    <label htmlFor="cellPhone">
+                      Cell Phone Number
+                      <MaskedInput
+                        mask={[
+                          '(',
+                          /[1-9]/,
+                          /\d/,
+                          /\d/,
+                          ')',
+                          ' ',
+                          /\d/,
+                          /\d/,
+                          /\d/,
+                          '-',
+                          /\d/,
+                          /\d/,
+                          /\d/,
+                          /\d/,
+                        ]}
+                        type="text"
+                        id="cellPhone"
+                        name="cellPhone"
+                        placeholder="Phone Number"
+                        autoComplete="off"
+                        required
+                        value={this.state.cellPhone}
+                        onChange={this.saveToState}
+                      />
+                    </label>
+                    <label htmlFor="businessName">
+                      Business Name
+                      <input
+                        type="text"
+                        name="businessName"
+                        placeholder="Business Name"
+                        required
+                        value={this.state.businessName}
+                        onChange={this.saveToState}
+                      />
+                    </label>
+                  </Step>
+                  <Step>
+                    <h3 style={{ textAlign: 'center' }}>
+                      Choose Your Login Credentials
+                    </h3>
 
-                <label htmlFor="businessName">
-                  Business Name
-                  <input
-                    type="text"
-                    name="businessName"
-                    placeholder="Business Name"
-                    required
-                    value={this.state.businessName}
-                    onChange={this.saveToState}
-                  />
-                </label>
-                <label htmlFor="email">
-                  Email
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                    value={this.state.email}
-                    onChange={this.saveToState}
-                  />
-                </label>
+                    <label htmlFor="email">
+                      Email
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                        value={this.state.email}
+                        onChange={this.saveToState}
+                      />
+                    </label>
 
-                <label htmlFor="password">
-                  Password
-                  <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    required
-                    minLength={6}
-                    value={this.state.password}
-                    onChange={this.saveToState}
-                  />
-                </label>
-                <label htmlFor="confirmPassword">
-                  Confirm Your Password
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="Confirm Password"
-                    value={this.state.confirmPassword}
-                    onChange={this.saveToState}
-                  />
-                </label>
-                <label htmlFor="plan">
-                  Select Which Plan Works for You:
-                  <select
-                    style={{ paddingTop: '3px', marginBottom: '10px' }}
-                    type="text"
-                    name="plan"
-                    placeholder="Appointment Type"
-                    autoComplete="off"
-                    required
-                    value={this.state.plan}
-                    onChange={this.saveToState}
-                  >
-                    {ORDER_DATA.map(plans => {
-                      return (
-                        <option key={plans.id} value={plans.id}>
-                          {plans.title}
-                        </option>
-                      )
-                    })}
-                  </select>
-                </label>
-                <SickButton type="submit">Sign Up!</SickButton>
+                    <label htmlFor="password">
+                      Password
+                      <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        required
+                        minLength={6}
+                        value={this.state.password}
+                        onChange={this.saveToState}
+                      />
+                    </label>
+                    <label htmlFor="confirmPassword">
+                      Confirm Your Password
+                      <input
+                        type="password"
+                        name="confirmPassword"
+                        placeholder="Confirm Password"
+                        value={this.state.confirmPassword}
+                        onChange={this.saveToState}
+                      />
+                    </label>
+                  </Step>
+                  <Step>
+                    <label htmlFor="plan">
+                      Select Which Plan Works for You:
+                      <select
+                        style={{ paddingTop: '3px', margin: '30px 0px' }}
+                        type="text"
+                        name="plan"
+                        placeholder="Appointment Type"
+                        autoComplete="off"
+                        required
+                        value={this.state.plan}
+                        onChange={this.saveToState}
+                      >
+                        {ORDER_DATA.map(plans => {
+                          return (
+                            <option key={plans.id} value={plans.id}>
+                              {plans.title}
+                            </option>
+                          )
+                        })}
+                      </select>
+                    </label>
+                    <SickButton style={{ float: 'right' }} type="submit">
+                      Sign Up!
+                    </SickButton>
+                  </Step>
+                </StepList>
               </fieldset>
             </Form>
-          </Margin>
+          </StyledSignUpStepper>
         )}
       </Mutation>
     )

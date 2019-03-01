@@ -3,6 +3,7 @@ import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import User from './User'
 import CartStyles from './styles/CartStyles'
+import ColumnTally from './ColumnTally'
 import Supreme from './styles/Supreme'
 import { startOfDay, format } from 'date-fns'
 import CloseButton from './styles/CloseButton'
@@ -85,43 +86,64 @@ class Slider extends Component {
                         <ConfList>
                           <div className="flexChild">
                             <p className="confirmed">Confirmed</p>
-                            <p style={{ color: 'green' }}>{me.cart.length}</p>
+                            <ColumnTally
+                              cart={me.cart}
+                              color="green"
+                              name="CONFIRMED"
+                            />
                             <div className="scroll">
                               <ul>
-                                {me.cart.map(cartItem => (
-                                  <CartItem
-                                    key={cartItem.id}
-                                    cartItem={cartItem}
-                                  />
-                                ))}
+                                {me.cart.map(cartItem =>
+                                  cartItem.confirmationStatus ===
+                                  'CONFIRMED' ? (
+                                    <CartItem
+                                      key={cartItem.id}
+                                      cartItem={cartItem}
+                                    />
+                                  ) : null,
+                                )}
                               </ul>
                             </div>
                           </div>
                           <div className="flexChild">
                             <p className="canceled">Canceled</p>
-                            <p style={{ color: 'red' }}>{me.cart.length}</p>
+                            <ColumnTally
+                              cart={me.cart}
+                              color="red"
+                              name="CANCELED"
+                            />
                             <div className="scroll">
                               <ul>
-                                {me.cart.map(cartItem => (
-                                  <CartItem
-                                    key={cartItem.id}
-                                    cartItem={cartItem}
-                                  />
-                                ))}
+                                {me.cart.map(cartItem =>
+                                  cartItem.confirmationStatus === 'CANCELED' ? (
+                                    <CartItem
+                                      key={cartItem.id}
+                                      cartItem={cartItem}
+                                    />
+                                  ) : null,
+                                )}
                               </ul>
                             </div>
                           </div>
                           <div className="flexChild">
                             <p className="unconfirmed">Unconfirmed</p>
-                            <p style={{ color: 'grey' }}>{me.cart.length}</p>
+                            <ColumnTally
+                              cart={me.cart}
+                              color="grey"
+                              name="UNCONFIRMED"
+                            />
+
                             <div className="scroll">
                               <ul>
-                                {me.cart.map(cartItem => (
-                                  <CartItem
-                                    key={cartItem.id}
-                                    cartItem={cartItem}
-                                  />
-                                ))}
+                                {me.cart.map(cartItem =>
+                                  cartItem.confirmationStatus ===
+                                  'UNCONFIRMED' ? (
+                                    <CartItem
+                                      key={cartItem.id}
+                                      cartItem={cartItem}
+                                    />
+                                  ) : null,
+                                )}
                               </ul>
                             </div>
                           </div>

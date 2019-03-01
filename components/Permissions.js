@@ -19,7 +19,7 @@ const UPDATE_PERMISSIONS_MUTATION = gql`
     updatePermissions(permissions: $permissions, userId: $userId) {
       id
       permissions
-      name
+      businessName
       email
     }
   }
@@ -29,7 +29,7 @@ const ALL_USERS_QUERY = gql`
   query {
     users {
       id
-      name
+      businessName
       email
       permissions
     }
@@ -68,7 +68,7 @@ const Permissions = props => (
 class UserPermissions extends React.Component {
   static propTypes = {
     user: PropTypes.shape({
-      name: PropTypes.string,
+      businessName: PropTypes.string,
       email: PropTypes.string,
       id: PropTypes.string,
       permissions: PropTypes.array,
@@ -112,7 +112,7 @@ class UserPermissions extends React.Component {
               </tr>
             )}
             <tr>
-              <td>{user.name}</td>
+              <td>{user.businessName}</td>
               <td>{user.email}</td>
               {possiblePermissions.map(permission => (
                 <td key={permission}>

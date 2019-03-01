@@ -105,6 +105,7 @@ class CreateClient extends Component {
             >
               <Error error={error} />
               <fieldset disabled={loading} aria-busy={loading}>
+                <h2>Add New Client to Contacts</h2>
                 <label htmlFor="firstName" className="required">
                   First Name
                   <input

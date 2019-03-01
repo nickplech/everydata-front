@@ -46,7 +46,8 @@ const MessageEdit = styled.textarea`
   border-radius: 10px;
   align-self: center;
   resize: none;
-  border: 2px solid rgba(220, 220, 220, 1);
+  border: none;
+  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.05);
   /* justify-self: center; */
   /* max-width: 800px; */
   &:focus {

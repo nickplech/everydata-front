@@ -12,11 +12,9 @@ const TabTitleItem = styled.li`
   display: inline-block;
   padding-right: 10px;
   padding-left: 10px;
-  /* background: rgba(20, 110, 220, 1); */
   padding-top: 5px;
   transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  margin: ${props =>
-    props.isActiveTab ? '50px 6px 0 6px' : '  50px 0px 0 0px'};
+  margin: ${props => (props.isActiveTab ? '70px 6px 0 6px' : '70px 0px 0 0px')};
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
   transform: ${props => (props.isActiveTab ? 'scale(1.1)' : ' scale(1)')};
   cursor: pointer;

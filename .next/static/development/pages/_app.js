@@ -387,7 +387,7 @@ var CartItem = function CartItem(_ref) {
     id: cartItem.id,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 47
     },
     __self: this
   }));
@@ -626,6 +626,88 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (ClientSearch);
+
+/***/ }),
+
+/***/ "./components/ColumnTally.js":
+/*!***********************************!*\
+  !*** ./components/ColumnTally.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/ColumnTally.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var StyledPara = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p.withConfig({
+  displayName: "ColumnTally__StyledPara",
+  componentId: "sc-1rzrjsi-0"
+})(["font-family:'Montserrat',sans-serif;"]);
+
+var ColumnTally =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ColumnTally, _Component);
+
+  function ColumnTally() {
+    _classCallCheck(this, ColumnTally);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ColumnTally).apply(this, arguments));
+  }
+
+  _createClass(ColumnTally, [{
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      var cart = this.props.cart;
+      var itemsToRender = cart.filter(function (cartItem) {
+        return cartItem.confirmationStatus === "".concat(_this.props.name);
+      });
+      var filteredCol = itemsToRender.length;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPara, {
+        style: {
+          color: "".concat(this.props.color)
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17
+        },
+        __self: this
+      }, filteredCol, " of", ' ', cart.reduce(function (tally, cartItem) {
+        return tally + cartItem.quantity;
+      }, 0));
+    }
+  }]);
+
+  return ColumnTally;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (ColumnTally);
 
 /***/ }),
 
@@ -1130,7 +1212,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  query reasons_query {\n    reasons(orderBy: name_ASC) {\n      id\n      name\n      color\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query ALL_REASONS_QUERY {\n    reasons(orderBy: name_ASC) {\n      id\n      name\n      color\n    }\n  }\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -1180,7 +1262,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var OPEN_MODAL_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 var TOGGLE_MODAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject2());
 var SINGLE_REASON_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject3());
-var reasons_query = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject4());
+var ALL_REASONS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject4());
 var BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
   displayName: "Modal__BackDrop",
   componentId: "sc-105rmtf-0"
@@ -1312,81 +1394,98 @@ function (_Component) {
               lineNumber: 196
             },
             __self: this
-          }, _this2.props.time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Middle, {
+          }, _this2.props.time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
+            query: ALL_REASONS_QUERY,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 201
+              lineNumber: 198
             },
             __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 202
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 203
-            },
-            __self: this
-          }, "For:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_5__["default"], {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 205
-            },
-            __self: this
-          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-            htmlFor: "reason",
-            className: "required",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 208
-            },
-            __self: this
-          }, "Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
-            style: {
-              paddingTop: '3px',
-              marginBottom: '10px'
-            },
-            type: "text",
-            id: "reason",
-            name: "reason",
-            placeholder: "Appointment Type",
-            autoComplete: "off",
-            required: true,
-            value: _this2.state.reason,
-            onChange: _this2.handleChange,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 210
-            },
-            __self: this
-          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-            htmlFor: "note",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 236
-            },
-            __self: this
-          }, "Notes:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledTextArea, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 238
-            },
-            __self: this
-          })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Cancel, {
+          }, function (_ref2) {
+            var data = _ref2.data;
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Middle, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 201
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 202
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 203
+              },
+              __self: this
+            }, "For:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 205
+              },
+              __self: this
+            })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+              htmlFor: "reason",
+              className: "required",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 208
+              },
+              __self: this
+            }, "Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
+              style: {
+                paddingTop: '3px',
+                marginBottom: '10px'
+              },
+              type: "text",
+              id: "reason",
+              name: "reason",
+              placeholder: "Appointment Type",
+              autoComplete: "off",
+              required: true,
+              value: _this2.state.reason,
+              onChange: _this2.handleChange,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 210
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+              value: "test",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 226
+              },
+              __self: this
+            }, "test"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+              htmlFor: "note",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 231
+              },
+              __self: this
+            }, "Notes:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledTextArea, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 233
+              },
+              __self: this
+            }))));
+          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Cancel, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 245
+              lineNumber: 240
             },
             __self: this
           }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Save, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 246
+              lineNumber: 241
             },
             __self: this
           }, "Save")));
@@ -1419,6 +1518,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_NavStyles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/NavStyles */ "./components/styles/NavStyles.js");
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./User */ "./components/User.js");
 /* harmony import */ var _Signout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Signout */ "./components/Signout.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/Nav.js";
 
 
@@ -1426,11 +1526,16 @@ var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/compone
 
 
 
+var Sign = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].a.withConfig({
+  displayName: "Nav__Sign",
+  componentId: "sc-1h4lqeb-0"
+})(["padding:4px 8px;border-radius:5px;background:rgba(20,110,220,0.8);"]);
+
 var Nav = function Nav() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 14
     },
     __self: this
   }, function (_ref) {
@@ -1438,91 +1543,91 @@ var Nav = function Nav() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_NavStyles__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 16
       },
       __self: this
     }, me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, ' ', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/account",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 13
+        lineNumber: 20
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14
+        lineNumber: 21
       },
       __self: this
     }, "Account")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/clients",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
+        lineNumber: 23
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 24
       },
       __self: this
     }, "Settings")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 26
       },
       __self: this
     })), !me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, ' ', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/pricing",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 32
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 33
       },
       __self: this
     }, "Pricing")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/hipaa",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 35
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 36
       },
       __self: this
     }, "Hipaa")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/signup",
+      href: "/login",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 38
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 39
       },
       __self: this
     }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/signup",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 41
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Sign, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 42
       },
       __self: this
     }, "Sign Up"))));
@@ -1959,12 +2064,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./User */ "./components/User.js");
 /* harmony import */ var _styles_CartStyles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/CartStyles */ "./components/styles/CartStyles.js");
-/* harmony import */ var _styles_Supreme__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/Supreme */ "./components/styles/Supreme.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _styles_CloseButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/CloseButton */ "./components/styles/CloseButton.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _CartItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./CartItem */ "./components/CartItem.js");
+/* harmony import */ var _ColumnTally__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ColumnTally */ "./components/ColumnTally.js");
+/* harmony import */ var _styles_Supreme__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/Supreme */ "./components/styles/Supreme.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _styles_CloseButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/CloseButton */ "./components/styles/CloseButton.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _CartItem__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./CartItem */ "./components/CartItem.js");
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/Slider.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -2019,9 +2125,10 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
 var LOCAL_STATE_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 var TOGGLE_CART_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject2());
-var ConfList = styled_components__WEBPACK_IMPORTED_MODULE_8__["default"].div.withConfig({
+var ConfList = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div.withConfig({
   displayName: "Slider__ConfList",
   componentId: "sc-94qe3k-0"
 })(["display:flex;font-family:'Montserrat',sans-serif;text-align:center;align-items:center;width:100%;.flexChild{display:block;align-content:center;justify-content:center;width:100%;color:white;}.scroll{height:300px;overflow-y:scroll;overscroll-behavior:contain;overflow-x:hidden;&::-webkit-scrollbar{display:none;}}.confirmed{background:rgba(100,190,90,0.9);border-radius:15px 0 0 15px;}.canceled{background:rgba(200,80,90,0.9);}.unconfirmed{background:grey;border-radius:0 15px 15px 0;}"]);
@@ -2045,7 +2152,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Slider)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      date: Object(date_fns__WEBPACK_IMPORTED_MODULE_6__["startOfDay"])(new Date())
+      date: Object(date_fns__WEBPACK_IMPORTED_MODULE_7__["startOfDay"])(new Date())
     });
 
     return _this;
@@ -2058,7 +2165,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 68
         },
         __self: this
       }, function (_ref) {
@@ -2068,7 +2175,7 @@ function (_Component) {
           mutation: TOGGLE_CART_MUTATION,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 72
           },
           __self: this
         }, function (toggleCart) {
@@ -2076,7 +2183,7 @@ function (_Component) {
             query: LOCAL_STATE_QUERY,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 73
+              lineNumber: 74
             },
             __self: this
           }, function (_ref2) {
@@ -2085,185 +2192,185 @@ function (_Component) {
               open: data.cartOpen,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 75
+                lineNumber: 76
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 76
+                lineNumber: 77
               },
               __self: this
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CloseButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CloseButton__WEBPACK_IMPORTED_MODULE_8__["default"], {
               onClick: toggleCart,
               title: "close",
               className: "exy",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 77
+                lineNumber: 78
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "child",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 82
+                lineNumber: 83
               },
               __self: this
-            }, "\xD7")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Supreme__WEBPACK_IMPORTED_MODULE_5__["default"], {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 84
-              },
-              __self: this
-            }, Object(date_fns__WEBPACK_IMPORTED_MODULE_6__["format"])(date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ConfList, {
+            }, "\xD7")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Supreme__WEBPACK_IMPORTED_MODULE_6__["default"], {
               __source: {
                 fileName: _jsxFileName,
                 lineNumber: 85
+              },
+              __self: this
+            }, Object(date_fns__WEBPACK_IMPORTED_MODULE_7__["format"])(date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ConfList, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 86
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 86
+                lineNumber: 87
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "confirmed",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 87
-              },
-              __self: this
-            }, "Confirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-              style: {
-                color: 'green'
-              },
-              __source: {
-                fileName: _jsxFileName,
                 lineNumber: 88
               },
               __self: this
-            }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-              className: "scroll",
+            }, "Confirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ColumnTally__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              cart: me.cart,
+              color: "green",
+              name: "CONFIRMED",
               __source: {
                 fileName: _jsxFileName,
                 lineNumber: 89
               },
               __self: this
+            }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+              className: "scroll",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 94
+              },
+              __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 90
+                lineNumber: 95
               },
               __self: this
             }, me.cart.map(function (cartItem) {
-              return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartItem__WEBPACK_IMPORTED_MODULE_9__["default"], {
+              return cartItem.confirmationStatus === 'CONFIRMED' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartItem__WEBPACK_IMPORTED_MODULE_10__["default"], {
                 key: cartItem.id,
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 92
+                  lineNumber: 99
                 },
                 __self: this
-              });
+              }) : null;
             })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 100
+                lineNumber: 108
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "canceled",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 101
+                lineNumber: 109
               },
               __self: this
-            }, "Canceled"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-              style: {
-                color: 'red'
-              },
+            }, "Canceled"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ColumnTally__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              cart: me.cart,
+              color: "red",
+              name: "CANCELED",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 102
+                lineNumber: 110
               },
               __self: this
-            }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 103
+                lineNumber: 115
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 104
+                lineNumber: 116
               },
               __self: this
             }, me.cart.map(function (cartItem) {
-              return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartItem__WEBPACK_IMPORTED_MODULE_9__["default"], {
+              return cartItem.confirmationStatus === 'CANCELED' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartItem__WEBPACK_IMPORTED_MODULE_10__["default"], {
                 key: cartItem.id,
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 106
+                  lineNumber: 119
                 },
                 __self: this
-              });
+              }) : null;
             })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 114
+                lineNumber: 128
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "unconfirmed",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 115
+                lineNumber: 129
               },
               __self: this
-            }, "Unconfirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-              style: {
-                color: 'grey'
-              },
+            }, "Unconfirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ColumnTally__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              cart: me.cart,
+              color: "grey",
+              name: "UNCONFIRMED",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 116
+                lineNumber: 130
               },
               __self: this
-            }, me.cart.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 117
+                lineNumber: 136
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 118
+                lineNumber: 137
               },
               __self: this
             }, me.cart.map(function (cartItem) {
-              return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartItem__WEBPACK_IMPORTED_MODULE_9__["default"], {
+              return cartItem.confirmationStatus === 'UNCONFIRMED' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartItem__WEBPACK_IMPORTED_MODULE_10__["default"], {
                 key: cartItem.id,
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 120
+                  lineNumber: 141
                 },
                 __self: this
-              });
+              }) : null;
             })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 131
+                lineNumber: 153
               },
               __self: this
             }));
@@ -2373,7 +2480,7 @@ var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/compone
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query {\n    me {\n      id\n      email\n      firstName\n      lastName\n      cellPhone\n      businessName\n      plan\n      permissions\n      orders {\n        id\n      }\n      appointments {\n        id\n      }\n      cart {\n        id\n        quantity\n        client {\n          id\n          firstName\n          lastName\n        }\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query {\n    me {\n      id\n      email\n      firstName\n      lastName\n      cellPhone\n      businessName\n      plan\n      permissions\n      orders {\n        id\n      }\n      appointments {\n        id\n      }\n      cart {\n        id\n        quantity\n        confirmationStatus\n        client {\n          id\n          firstName\n          lastName\n        }\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -2394,7 +2501,7 @@ var User = function User(props) {
     query: CURRENT_USER_QUERY,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 37
     },
     __self: this
   }), function (payload) {

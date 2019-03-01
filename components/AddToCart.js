@@ -4,8 +4,8 @@ import gql from 'graphql-tag'
 import { CURRENT_USER_QUERY } from './User'
 
 const ADD_TO_CART_MUTATION = gql`
-  mutation addToCart($id: ID!) {
-    addToCart(id: $id) {
+  mutation addToCart($id: ID!, $confirmationStatus: String!) {
+    addToCart(id: $id, confirmationStatus: $confirmationStatus) {
       id
       quantity
       confirmationStatus
@@ -18,7 +18,7 @@ class AddToCart extends React.Component {
     return (
       <Mutation
         mutation={ADD_TO_CART_MUTATION}
-        variables={{ id }}
+        variables={{ id, confirmationStatus: 'UNCONFIRMED' }}
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
         {addToCart => <button onClick={addToCart}> Add </button>}

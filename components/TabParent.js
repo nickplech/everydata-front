@@ -6,8 +6,8 @@ import SubscriptionManagement from './SubscriptionManagement'
 import { Query } from 'react-apollo'
 import UpdateScheduleSettings from './UpdateScheduleSettings'
 import { CURRENT_USER_QUERY } from './User'
+
 const Styled = styled.div`
-  /* font-family: sans-serif; */
   text-align: left;
   max-width: ${props => props.theme.innerWidth};
   margin: 0 auto;

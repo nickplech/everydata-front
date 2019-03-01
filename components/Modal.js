@@ -25,8 +25,8 @@ const SINGLE_REASON_QUERY = gql`
     }
   }
 `
-const reasons_query = gql`
-  query reasons_query {
+const ALL_REASONS_QUERY = gql`
+  query ALL_REASONS_QUERY {
     reasons(orderBy: name_ASC) {
       id
       name
@@ -195,53 +195,48 @@ class Modal extends Component {
                       <p>{format(this.props.date, 'MMMM Do, YYYY')}</p>
                       <p>{this.props.time}</p>
                     </Date>
-                    {/* <Query query={reasons_query}>
-                      {({ data }) => { */}
+                    <Query query={ALL_REASONS_QUERY}>
+                      {({ data }) => {
+                        return (
+                          <Middle>
+                            <form>
+                              <label>
+                                For:
+                                <ClientSearch />
+                              </label>
 
-                    <Middle>
-                      <form>
-                        <label>
-                          For:
-                          <ClientSearch />
-                        </label>
-
-                        <label htmlFor="reason" className="required">
-                          Type:
-                          <StyledInput
-                            style={{
-                              paddingTop: '3px',
-                              marginBottom: '10px',
-                            }}
-                            type="text"
-                            id="reason"
-                            name="reason"
-                            placeholder="Appointment Type"
-                            autoComplete="off"
-                            required
-                            value={this.state.reason}
-                            onChange={this.handleChange}
-                          >
-                            {/* {data.reasons.map(appReason => {
-                                    return (
-                                      <option
-                                        key={appReason.name}
-                                        value={appReason.name}
-                                      >
-                                        {appReason.name}
-                                      </option>
-                                    )
+                              <label htmlFor="reason" className="required">
+                                Type:
+                                <StyledInput
+                                  style={{
+                                    paddingTop: '3px',
+                                    marginBottom: '10px',
+                                  }}
+                                  type="text"
+                                  id="reason"
+                                  name="reason"
+                                  placeholder="Appointment Type"
+                                  autoComplete="off"
+                                  required
+                                  value={this.state.reason}
+                                  onChange={this.handleChange}
+                                >
+                                  {/* {data.reasons.map(appReason => {
+                                    return ( */}
+                                  <option value="test">test</option>
+                                  {/* )
                                   })} */}
-                          </StyledInput>
-                        </label>
-                        <label htmlFor="note">
-                          Notes:
-                          <StyledTextArea />
-                        </label>
-                      </form>
-                    </Middle>
-                    {/* )
+                                </StyledInput>
+                              </label>
+                              <label htmlFor="note">
+                                Notes:
+                                <StyledTextArea />
+                              </label>
+                            </form>
+                          </Middle>
+                        )
                       }}
-                    </Query> */}
+                    </Query>
                     <Cancel onClick={toggleModal}>Cancel</Cancel>
                     <Save onClick={toggleModal}>Save</Save>
                   </Modall>

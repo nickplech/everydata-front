@@ -14,11 +14,11 @@ class Chatroom extends React.Component {
           username: 'James Saif',
           content: (
             <p>
-              Welcome to Universal Dialers, if you have any questions please
+              Welcome to Perfect Day Reminders, if you have any questions please
               feel free to ask.
             </p>
           ),
-          img: './favicon.png',
+          img: './static/img/perfectdayreminders.png',
         },
       ],
       isOpen: false,
@@ -54,7 +54,7 @@ class Chatroom extends React.Component {
           {
             username: 'Nathan',
             content: <p>{ReactDOM.findDOMNode(this.refs.msg).value}</p>,
-            img: './favicon.png',
+            img: './static/img/perfectdayreminders.png',
           },
         ]),
       },

@@ -75,7 +75,7 @@ const Plus = styled.div`
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
-    color: rgba(100, 160, 220, 1);
+    color: rgba(20, 110, 220, 1);
     font-size: 25px;
     margin-bottom: 2px;
     margin-right: 0px;

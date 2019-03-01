@@ -22,6 +22,7 @@ const CURRENT_USER_QUERY = gql`
       cart {
         id
         quantity
+        confirmationStatus
         client {
           id
           firstName

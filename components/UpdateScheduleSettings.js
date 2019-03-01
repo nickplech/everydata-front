@@ -3,35 +3,26 @@ import { Mutation, Query } from 'react-apollo'
 import Form from './styles/Form'
 import gql from 'graphql-tag'
 import Router from 'next/router'
+import RadioComponent from './Radio'
 import styled from 'styled-components'
 import Error from './ErrorMessage'
 import SickButton from './styles/SickButton'
 
-const possibleColors = [
-  'Blue',
-  'Green',
-  'Yellow',
-  'Black',
-  'White',
-  'Orange',
-  'Purple',
-  'Red',
-]
-
 const CREATE_REASON_MUTATION = gql`
   mutation CREATE_REASON_MUTATION(
     $name: String!
-    $description: String
+    $defaultLength: Int
     $provider: String
     $color: String!
   ) {
     createReason(
       name: $name
-      description: $description
+      defaultLength: $defaultLength
       provider: $provider
       color: $color
     ) {
       id
+      defaultLength
       name
       color
     }
@@ -63,18 +54,11 @@ const Submitted = styled.p`
   padding: 15px 15px;
   border-left: 5px solid green;
 `
-const StyledInput = styled.select`
-  width: 100%;
-  /* background: transparent; */
-  padding: 10px;
-  border: none;
-  font-size: 2rem;
-  outline: none;
-`
+
 class UpdateScheduleSettings extends Component {
   state = {
     name: '',
-    description: '',
+    defaultLength: '',
     provider: '',
     color: '',
   }
@@ -93,7 +77,9 @@ class UpdateScheduleSettings extends Component {
     e.preventDefault()
     Router.back()
   }
-
+  selectColor = e => {
+    this.setState({ color: e.target.value })
+  }
   render() {
     return (
       <Inner>
@@ -116,44 +102,30 @@ class UpdateScheduleSettings extends Component {
                     placeholder="Name"
                     autoComplete="off"
                     required
-                    defaultValue={this.props.name}
+                    value={this.props.name}
                     onChange={this.handleChange}
                   />
                 </label>
-                <label htmlFor="description">
-                  Description(optional):
+                <RadioComponent
+                  selectColor={this.selectColor}
+                  selectedColor={this.color}
+                />
+
+                <label htmlFor="defaultLength">
+                  Default Length(optional):
                   <input
-                    type="text"
-                    id="description"
-                    name="description"
-                    placeholder="Description..."
-                    defaultValue={this.props.description}
+                    type="number"
+                    min="0"
+                    max="800"
+                    step="15"
+                    value="0"
+                    id="defaultLength"
+                    name="defaultLength"
+                    placeholder="Select a default length for these types of appointments (can be changed from default length if desired)"
+                    value={this.props.defaultLength}
                     onChange={this.handleChange}
                   />
                 </label>
-
-                <label htmlFor="color">
-                  Select Color to Represent Appointment Type
-                  <StyledInput
-                    style={{ paddingTop: '3px', marginBottom: '10px' }}
-                    type="text"
-                    id="color"
-                    name="color"
-                    placeholder="Assign Color"
-                    required
-                    value={this.state.color}
-                    onChange={this.handleChange}
-                  >
-                    {possibleColors.map(color => {
-                      return (
-                        <option key={color} value={color}>
-                          {color}
-                        </option>
-                      )
-                    })}
-                  </StyledInput>
-                </label>
-
                 <label htmlFor="provider">
                   Appointment Belongs to Specific Provider?(optional)
                   <input
@@ -161,7 +133,7 @@ class UpdateScheduleSettings extends Component {
                     id="provider"
                     name="provider"
                     placeholder="provider"
-                    defaultValue={this.props.provider}
+                    value={this.props.provider}
                     onChange={this.handleChange}
                   />
                 </label>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 const Wrapper = styled.div`
   position: relative;
@@ -91,9 +92,14 @@ const HeroButton = styled.button`
   font-size: 18px;
   cursor: pointer;
   &:hover {
-    transition: 0.4s;
-    transform: scale(1.1);
+    transition: 0.2s;
+    transform: scale(1.05);
     color: white;
+    outline: none;
+  }
+  &:active {
+    transform: scale(1);
+    outline: none;
   }
 `
 const SecondButton = styled.button`
@@ -108,9 +114,16 @@ const SecondButton = styled.button`
   border-radius: 5px;
   font-size: 18px;
   cursor: pointer;
+
   &:hover {
-    border-color: white;
+    transition: 0.2s;
+    transform: scale(1.05);
     color: white;
+    outline: none;
+  }
+  &:active {
+    transform: scale(1);
+    outline: none;
   }
 `
 const Hero = () => (
@@ -125,7 +138,10 @@ const Hero = () => (
           improving daily work flow. Start sending appointment reminders
           immediately with no credit card required for a free trial.
         </p>
-        <HeroButton>Start Your Free Trial</HeroButton>{' '}
+        <Link href="/signup">
+          <HeroButton>Start Your Free Trial</HeroButton>
+        </Link>
+
         <SecondButton>Other Button</SecondButton>
       </Left>
       <div>

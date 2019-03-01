@@ -2,6 +2,13 @@ import Link from 'next/link'
 import NavStyles from './styles/NavStyles'
 import User from './User'
 import Signout from './Signout'
+import styled from 'styled-components'
+
+const Sign = styled.a`
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: rgba(20, 110, 220, 0.8);
+`
 
 const Nav = () => (
   <User>
@@ -28,11 +35,11 @@ const Nav = () => (
             <Link href="/hipaa">
               <a>Hipaa</a>
             </Link>
-            <Link href="/signup">
+            <Link href="/login">
               <a>Login</a>
             </Link>
             <Link href="/signup">
-              <a>Sign Up</a>
+              <Sign>Sign Up</Sign>
             </Link>
           </>
         )}

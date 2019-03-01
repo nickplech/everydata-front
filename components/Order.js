@@ -7,7 +7,13 @@ import gql from 'graphql-tag'
 import formatMoney from '../lib/formatMoney'
 import Error from './ErrorMessage'
 import OrderStyles from './styles/OrderStyles'
+import styled from 'styled-components'
 
+const OrderHeader = styled.h1`
+  text-align: center;
+  margin: 45px auto 10px auto;
+  font-family: 'Montserrat', sans-serif;
+`
 const SINGLE_ORDER_QUERY = gql`
   query SINGLE_ORDER_QUERY($id: ID!) {
     order(id: $id) {
@@ -35,33 +41,35 @@ class Order extends React.Component {
           if (loading) return <p>Loading...</p>
           const order = data.order
           return (
-            <OrderStyles data-test="order">
-              <Head>
-                <title>
-                  Perfect Day Reminders - Subscription Management {order.id}
-                </title>
-              </Head>
-              <p>
-                <span>Subscription ID:</span>
-                <span>{this.props.id}</span>
-              </p>
-              <p>
-                <span>Charge</span>
-                <span>{order.charge}</span>
-              </p>
-              <p>
-                <span>Date</span>
-                <span>{format(order.createdAt, 'MMMM d, YYYY h:mm a')}</span>
-              </p>
-              <p>
-                <span>Order Total</span>
-                <span>{formatMoney(order.price)}</span>
-              </p>
-              <p>
-                <span>Item Count</span>
-                <span>1</span>
-              </p>
-              {/* <div className="items">
+            <>
+              <OrderHeader>Subscription Receipt</OrderHeader>
+              <OrderStyles data-test="order">
+                <Head>
+                  <title>
+                    Perfect Day Reminders - Subscription Management {order.id}
+                  </title>
+                </Head>
+                <p>
+                  <span>Subscription ID:</span>
+                  <span>{this.props.id}</span>
+                </p>
+                <p>
+                  <span>Charge</span>
+                  <span>{order.charge}</span>
+                </p>
+                <p>
+                  <span>Date</span>
+                  <span>{format(order.createdAt, 'MMMM d, YYYY h:mm a')}</span>
+                </p>
+                <p>
+                  <span>Order Total</span>
+                  <span>{formatMoney(order.price)}</span>
+                </p>
+                <p>
+                  <span>Item Count</span>
+                  <span>1</span>
+                </p>
+                {/* <div className="items">
                 {order.cartPackages.map(package => (
                   <div className="order-item" key={package.id}>
                     <img src={package.image} alt={package.title} />
@@ -73,7 +81,8 @@ class Order extends React.Component {
                   </div>
                 ))}
               </div> */}
-            </OrderStyles>
+              </OrderStyles>
+            </>
           )
         }}
       </Query>

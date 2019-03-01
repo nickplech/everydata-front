@@ -1,6 +1,5 @@
 import { Query } from 'react-apollo'
 import { CURRENT_USER_QUERY } from './User'
-import Signup from '../components/Signup'
 import SignIn from '../components/SignIn'
 import Footer from '../components/Footer'
 
@@ -29,7 +28,7 @@ const DoDisplay = props => (
         return (
           <>
             <Columns>
-              <SignIn /> <Signup />
+              <SignIn />
             </Columns>
             <Bottom>
               <Footer className="bottom" />

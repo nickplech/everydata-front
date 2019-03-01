@@ -1,10 +1,14 @@
-import SignInSwitch from '../components/SignInSwitch'
-import Schedule from '../components/Schedule'
+import Signup from '../components/Signup'
+import styled from 'styled-components'
 
-const SignupPage = props => (
-  <SignInSwitch>
-    <Schedule id={props.query.id} />
-  </SignInSwitch>
+const BackGround = styled.div`
+  background: rgba(253, 253, 253, 1);
+`
+
+const SignupPage = () => (
+  <BackGround>
+    <Signup />
+  </BackGround>
 )
 
 export default SignupPage
