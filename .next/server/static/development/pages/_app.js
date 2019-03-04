@@ -1273,14 +1273,14 @@ var Meta = function Meta() {
 /*!*****************************!*\
   !*** ./components/Modal.js ***!
   \*****************************/
-/*! exports provided: default, OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION, reasons_query */
+/*! exports provided: default, OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION, ALL_REASONS_QUERY */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OPEN_MODAL_QUERY", function() { return OPEN_MODAL_QUERY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOGGLE_MODAL_MUTATION", function() { return TOGGLE_MODAL_MUTATION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reasons_query", function() { return reasons_query; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_REASONS_QUERY", function() { return ALL_REASONS_QUERY; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "react-apollo");
@@ -1291,7 +1291,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _ClientSearch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ClientSearch */ "./components/ClientSearch.js");
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./User */ "./components/User.js");
+/* harmony import */ var _ClientSearch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ClientSearch */ "./components/ClientSearch.js");
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/Modal.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1315,7 +1316,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  query ALL_REASONS_QUERY {\n    reasons(orderBy: name_ASC) {\n      id\n      name\n      color\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query {\n    reasons {\n      id\n      name\n      color\n      user {\n        id\n      }\n    }\n  }\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -1362,6 +1363,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
 var OPEN_MODAL_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 var TOGGLE_MODAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject2());
 var SINGLE_REASON_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject3());
@@ -1399,7 +1401,7 @@ var Cancel = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.button.wit
 var Save = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.button.withConfig({
   displayName: "Modal__Save",
   componentId: "sc-105rmtf-7"
-})(["background-color:#fff;border-radius:5px;display:grid;grid-column:2;grid-row:3;justify-self:flex-end;position:relative;align-items:center;width:100px;height:100%;background:rgba(20,200,120,1);color:white;font-size:18px;margin-right:25px;z-index:900;&:focus{outline:none;}&:hover{opacity:0.8;}"]);
+})(["background-color:#fff;border-radius:5px;display:grid;grid-column:2;grid-row:3;justify-self:flex-end;position:relative;align-items:center;width:100px;height:100%;background:rgba(20,200,120,1);color:white;font-size:18px;margin-right:25px;z-index:900;&:focus{outline:none;}&:hover{opacity:0.8;}"]); // const SAMPLE = ['Fraxel', 'Hair']
 
 var Modal =
 /*#__PURE__*/
@@ -1449,7 +1451,7 @@ function (_Component) {
         mutation: TOGGLE_MODAL_MUTATION,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 184
+          lineNumber: 188
         },
         __self: this
       }, function (toggleModal) {
@@ -1457,7 +1459,7 @@ function (_Component) {
           query: OPEN_MODAL_QUERY,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 186
+            lineNumber: 190
           },
           __self: this
         }, function (_ref) {
@@ -1470,38 +1472,38 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BackDrop, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 192
+              lineNumber: 196
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Modall, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 193
+              lineNumber: 197
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Date, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 194
+              lineNumber: 198
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 195
+              lineNumber: 199
             },
             __self: this
           }, Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(_this2.props.date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 196
+              lineNumber: 200
             },
             __self: this
           }, _this2.props.time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
             query: ALL_REASONS_QUERY,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 198
+              lineNumber: 202
             },
             __self: this
           }, function (_ref2) {
@@ -1509,25 +1511,25 @@ function (_Component) {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Middle, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 201
+                lineNumber: 205
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 202
+                lineNumber: 206
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 203
+                lineNumber: 207
               },
               __self: this
-            }, "For:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            }, "For:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_6__["default"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 205
+                lineNumber: 209
               },
               __self: this
             })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -1535,7 +1537,7 @@ function (_Component) {
               className: "required",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 208
+                lineNumber: 212
               },
               __self: this
             }, "Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
@@ -1553,27 +1555,30 @@ function (_Component) {
               onChange: _this2.handleChange,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 210
+                lineNumber: 214
               },
               __self: this
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-              value: "test",
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 226
-              },
-              __self: this
-            }, "test"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+            }, data.reasons.map(function (reason, i) {
+              return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+                key: i,
+                value: reason.name,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 230
+                },
+                __self: this
+              }, reason.name);
+            }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
               htmlFor: "note",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 231
+                lineNumber: 238
               },
               __self: this
             }, "Notes:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledTextArea, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 233
+                lineNumber: 240
               },
               __self: this
             }))));
@@ -1581,14 +1586,14 @@ function (_Component) {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 240
+              lineNumber: 247
             },
             __self: this
           }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Save, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 241
+              lineNumber: 248
             },
             __self: this
           }, "Save")));
@@ -2272,7 +2277,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 69
         },
         __self: this
       }, function (_ref) {
@@ -2282,7 +2287,7 @@ function (_Component) {
           mutation: TOGGLE_CART_MUTATION,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 72
+            lineNumber: 73
           },
           __self: this
         }, function (toggleCart) {
@@ -2290,7 +2295,7 @@ function (_Component) {
             query: LOCAL_STATE_QUERY,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 74
+              lineNumber: 75
             },
             __self: this
           }, function (_ref2) {
@@ -2299,13 +2304,13 @@ function (_Component) {
               open: data.cartOpen,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 76
+                lineNumber: 77
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 77
+                lineNumber: 78
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CloseButton__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -2314,40 +2319,40 @@ function (_Component) {
               className: "exy",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 78
+                lineNumber: 79
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "child",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 83
+                lineNumber: 84
               },
               __self: this
             }, "\xD7")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Supreme__WEBPACK_IMPORTED_MODULE_6__["default"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 85
+                lineNumber: 86
               },
               __self: this
             }, Object(date_fns__WEBPACK_IMPORTED_MODULE_7__["format"])(date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ConfList, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 86
+                lineNumber: 87
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 87
+                lineNumber: 88
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "confirmed",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 88
+                lineNumber: 89
               },
               __self: this
             }, "Confirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ColumnTally__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -2356,20 +2361,20 @@ function (_Component) {
               name: "CONFIRMED",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 89
+                lineNumber: 90
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 94
+                lineNumber: 95
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 95
+                lineNumber: 96
               },
               __self: this
             }, me.cart.map(function (cartItem) {
@@ -2378,7 +2383,7 @@ function (_Component) {
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 99
+                  lineNumber: 100
                 },
                 __self: this
               }) : null;
@@ -2386,14 +2391,14 @@ function (_Component) {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 108
+                lineNumber: 109
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "canceled",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 109
+                lineNumber: 110
               },
               __self: this
             }, "Canceled"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ColumnTally__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -2402,20 +2407,20 @@ function (_Component) {
               name: "CANCELED",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 110
+                lineNumber: 111
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 115
+                lineNumber: 116
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 116
+                lineNumber: 117
               },
               __self: this
             }, me.cart.map(function (cartItem) {
@@ -2424,7 +2429,7 @@ function (_Component) {
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 119
+                  lineNumber: 120
                 },
                 __self: this
               }) : null;
@@ -2432,14 +2437,14 @@ function (_Component) {
               className: "flexChild",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 128
+                lineNumber: 129
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "unconfirmed",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 129
+                lineNumber: 130
               },
               __self: this
             }, "Unconfirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ColumnTally__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -2448,20 +2453,20 @@ function (_Component) {
               name: "UNCONFIRMED",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 130
+                lineNumber: 131
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "scroll",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 136
+                lineNumber: 137
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 137
+                lineNumber: 138
               },
               __self: this
             }, me.cart.map(function (cartItem) {
@@ -2470,14 +2475,14 @@ function (_Component) {
                 cartItem: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 141
+                  lineNumber: 142
                 },
                 __self: this
               }) : null;
             })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 153
+                lineNumber: 154
               },
               __self: this
             }));

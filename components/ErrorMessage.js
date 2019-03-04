@@ -7,7 +7,6 @@ const ErrorStyles = styled.div`
   padding: 2rem;
   background: rgba(250, 0, 0, 0.5);
   margin: 2rem 0;
-
   border-left: 5px solid rgba(220, 0, 0, 0.7);
 
   p {

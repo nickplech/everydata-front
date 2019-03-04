@@ -49,17 +49,23 @@ class Order extends React.Component {
                     Perfect Day Reminders - Subscription Management {order.id}
                   </title>
                 </Head>
-                <p>
+                {/* <p>
                   <span>Subscription ID:</span>
                   <span>{this.props.id}</span>
+                </p> */}
+                <p>
+                  <span />
+                  <span>
+                    Thank You For Subscribing to Perfect Day Reminders
+                  </span>
                 </p>
                 <p>
-                  <span>Charge</span>
+                  <span>Charge ID</span>
                   <span>{order.charge}</span>
                 </p>
                 <p>
                   <span>Date</span>
-                  <span>{format(order.createdAt, 'MMMM d, YYYY h:mm a')}</span>
+                  <span>{format(order.createdAt, 'MMMM Do, YYYY h:mm a')}</span>
                 </p>
                 <p>
                   <span>Order Total</span>
@@ -67,7 +73,7 @@ class Order extends React.Component {
                 </p>
                 <p>
                   <span>Item Count</span>
-                  <span>1</span>
+                  <span>{order.plan} Charged Monthly</span>
                 </p>
                 {/* <div className="items">
                 {order.cartPackages.map(package => (

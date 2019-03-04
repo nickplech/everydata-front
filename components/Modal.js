@@ -3,6 +3,7 @@ import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import { format } from 'date-fns'
 import styled from 'styled-components'
+import { CURRENT_USER_QUERY } from './User'
 import ClientSearch from './ClientSearch'
 
 const OPEN_MODAL_QUERY = gql`
@@ -26,11 +27,14 @@ const SINGLE_REASON_QUERY = gql`
   }
 `
 const ALL_REASONS_QUERY = gql`
-  query ALL_REASONS_QUERY {
-    reasons(orderBy: name_ASC) {
+  query {
+    reasons {
       id
       name
       color
+      user {
+        id
+      }
     }
   }
 `
@@ -165,7 +169,7 @@ const Save = styled.button`
     opacity: 0.8;
   }
 `
-
+// const SAMPLE = ['Fraxel', 'Hair']
 class Modal extends Component {
   state = {
     client: '',
@@ -221,13 +225,16 @@ class Modal extends Component {
                                   value={this.state.reason}
                                   onChange={this.handleChange}
                                 >
-                                  {/* {data.reasons.map(appReason => {
-                                    return ( */}
-                                  <option value="test">test</option>
-                                  {/* )
-                                  })} */}
+                                  {data.reasons.map((reason, i) => {
+                                    return (
+                                      <option key={i} value={reason.name}>
+                                        {reason.name}
+                                      </option>
+                                    )
+                                  })}
                                 </StyledInput>
                               </label>
+
                               <label htmlFor="note">
                                 Notes:
                                 <StyledTextArea />
@@ -251,4 +258,4 @@ class Modal extends Component {
 }
 
 export default Modal
-export { OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION, reasons_query }
+export { OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION, ALL_REASONS_QUERY }

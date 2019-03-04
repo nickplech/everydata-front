@@ -10,7 +10,7 @@ const StyledButton = styled.a`
   display: inline-flex;
   flex-flow: row;
   justify-self: center;
-  border-radius: 35px;
+  border-radius: 50%;
   border: 3px solid white;
   height: 75px;
   width: 75px;
@@ -64,9 +64,6 @@ const RadioComponent = props => (
           value={color}
           key={index}
           onClick={props.selectColor}
-          className={
-            possibleColors[index] === props.selectedColor ? 'picked' : ''
-          }
         >
           Select
         </StyledButton>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import DaySelector from './DaySelector'
 
 const Back = styled.div`
   display: grid;
@@ -90,8 +91,8 @@ const ReviewMessage = () => (
       {/* <div>
         <CharCount>/160</CharCount>
       </div> */}
-
-      <MessageEdit readOnly maxlength="160" content="Testing" />
+      <DaySelector />
+      <MessageEdit readOnly max={160} content="Testing" />
 
       <Send>Send</Send>
     </Flexer>

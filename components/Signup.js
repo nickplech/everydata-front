@@ -4,6 +4,7 @@ import gql from 'graphql-tag'
 import { StepList } from './StepList'
 import { Step } from './Step'
 import Form from './styles/Form'
+import Router from 'next/router'
 import Error from './ErrorMessage'
 import styled from 'styled-components'
 import { CURRENT_USER_QUERY } from './User'
@@ -55,12 +56,6 @@ const StyledSignUpStepper = styled.div`
   flex-flow: column;
 `
 
-const Submitted = styled.p`
-  color: green;
-  background: white;
-  padding: 15px 15px;
-  border-left: 5px solid green;
-`
 const ORDER_DATA = [
   {
     title: 'Test Classic Account',
@@ -127,16 +122,19 @@ class Signup extends Component {
                   confirmPassword: '',
                   plan: '',
                 })
+                Router.push({
+                  pathname: '/welcome',
+                })
               }}
             >
               <fieldset disabled={loading} aria-busy={loading}>
                 <Error error={error} />
-                {!error && !loading && called && (
+                {/* {!error && !loading && called && (
                   <Submitted>
                     Submitted! Welcome to Perfect Day Reminders, please log in
                     to begin your Free Trial
                   </Submitted>
-                )}
+                )} */}
                 <StepList>
                   <Step>
                     <h3 style={{ textAlign: 'center' }}>
@@ -235,7 +233,6 @@ class Signup extends Component {
                         name="password"
                         placeholder="Password"
                         required
-                        minLength={6}
                         value={this.state.password}
                         onChange={this.saveToState}
                       />

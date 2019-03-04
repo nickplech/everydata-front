@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
-import User from './User'
+import User, { CURRENT_USER_QUERY } from './User'
 import CartStyles from './styles/CartStyles'
 import ColumnTally from './ColumnTally'
 import Supreme from './styles/Supreme'
@@ -62,6 +62,7 @@ class Slider extends Component {
   state = {
     date: startOfDay(new Date()),
   }
+
   render() {
     let { date } = this.state
     return (

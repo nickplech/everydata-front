@@ -90,6 +90,7 @@ class UpdateUserProfiles extends Component {
                 <Submitted>Profile Updated Successfully!</Submitted>
               )}
               <fieldset disabled={loading} aria-busy={loading}>
+                <h2>Update Account Information</h2>
                 <label htmlFor="cellPhone">
                   Phone Number
                   <MaskedInput

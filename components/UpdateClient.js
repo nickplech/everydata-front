@@ -121,6 +121,7 @@ class UpdateClient extends Component {
                   <Form onSubmit={e => this.updateClient(e, updateClient)}>
                     <Error error={error} />
                     <fieldset disabled={loading} aria-busy={loading}>
+                      <h2>Update Client Information</h2>
                       <label htmlFor="firstName">
                         First Name
                         <input

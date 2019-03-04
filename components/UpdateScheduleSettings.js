@@ -58,9 +58,9 @@ const Submitted = styled.p`
 class UpdateScheduleSettings extends Component {
   state = {
     name: '',
-    defaultLength: '',
+    defaultLength: 0,
     provider: '',
-    color: '',
+    color: 'Blue',
   }
   handleChange = e => {
     const { name, type, value } = e.target
@@ -102,14 +102,11 @@ class UpdateScheduleSettings extends Component {
                     placeholder="Name"
                     autoComplete="off"
                     required
-                    value={this.props.name}
+                    value={this.state.name}
                     onChange={this.handleChange}
                   />
                 </label>
-                <RadioComponent
-                  selectColor={this.selectColor}
-                  selectedColor={this.color}
-                />
+                <RadioComponent selectColor={this.selectColor} />
 
                 <label htmlFor="defaultLength">
                   Default Length(optional):
@@ -118,11 +115,10 @@ class UpdateScheduleSettings extends Component {
                     min="0"
                     max="800"
                     step="15"
-                    value="0"
                     id="defaultLength"
                     name="defaultLength"
-                    placeholder="Select a default length for these types of appointments (can be changed from default length if desired)"
-                    value={this.props.defaultLength}
+                    defaultValue={0}
+                    value={this.state.defaultLength}
                     onChange={this.handleChange}
                   />
                 </label>
@@ -133,7 +129,7 @@ class UpdateScheduleSettings extends Component {
                     id="provider"
                     name="provider"
                     placeholder="provider"
-                    value={this.props.provider}
+                    value={this.state.provider}
                     onChange={this.handleChange}
                   />
                 </label>

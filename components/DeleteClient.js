@@ -40,7 +40,7 @@ class DeleteClient extends Component {
             onClick={() => {
               if (
                 confirm(
-                  `'Are you sure you want to delete ${firstName} ${lastName}'`,
+                  `Are you sure you want to delete ${firstName} ${lastName}`,
                 )
               ) {
                 deleteClient().catch(err => {
