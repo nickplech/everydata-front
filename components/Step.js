@@ -1,8 +1,6 @@
 import React from 'react'
 import SickButton from './styles/SickButton'
 import SVG from './SVG'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 class Step extends React.Component {
   render() {

@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -408,7 +408,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var StatsDisplay = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
   displayName: "CalendarStats__StatsDisplay",
   componentId: "sc-3vgek8-0"
-})(["position:relative;display:grid;grid-row:1/3;grid-column:1;background-color:rgba(220,220,220,0.3);width:100%;height:100%;border:5px solid white;border-radius:25px 25px 25px 25px;box-shadow:1px 1px 2px 3px rgba(0,0,0,0.05);z-index:10;.react-calendar{width:356px;border-radius:20px;max-width:100%;box-shadow:0 0 5px 3px rgba(0,0,0,0.05);height:310px;background:white;margin:5px auto;font-family:Montserrat,Helvetica,sans-serif;line-height:1.125em;}.react-calendar,.react-calendar *,.react-calendar *:before,.react-calendar *:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}.react-calendar button{margin:0;border:0;outline:none;}.react-calendar button:enabled:hover{cursor:pointer;}.react-calendar__navigation{height:60px;margin-bottom:0.5em;}.react-calendar__navigation button{min-width:44px;background:none;font-size:20px;background-color:rgba(20,110,240,1);color:white;&:first-child{border-radius:18px 0 0 0;}&:last-child{border-radius:0 16px 0 0;}&:nth-child(2){border-radius:0;}&:nth-child(3){border-radius:0;}&:nth-child(4){border-radius:0;}}.react-calendar__navigation button:enabled:hover,.react-calendar__navigation button:enabled:focus{background-color:#e6e6e6;}.react-calendar__navigation button[disabled]{background-color:rgba(20,110,240,0.1);}.react-calendar__month-view__weekdays{text-align:center;text-decoration:none;font-size:0.75em;font-weight:800;}.react-calendar__month-view__weekdays__weekday{padding:2em 0;}.react-calendar__month-view__weekNumbers{font-weight:bold;}.react-calendar__month-view__weekNumbers .react-calendar__tile{display:flex;align-items:center;justify-content:center;font-size:0.75em;padding:calc(0.75em / 0.75) calc(0.5em / 0.75);}.react-calendar__month-view__days__day--weekend{color:rgba(240,10,10,0.8);font-weight:800;}.react-calendar__month-view__days__day--neighboringMonth{color:#969696;}.react-calendar__year-view .react-calendar__tile,.react-calendar__decade-view .react-calendar__tile,.react-calendar__century-view .react-calendar__tile{padding:2em 0.5em;}.react-calendar__tile{max-width:100%;text-align:center;padding:0.75em 0.5em;background:none;}.react-calendar__tile:disabled{background-color:#f0f0f0;}.react-calendar__tile:enabled:hover,.react-calendar__tile:enabled:focus{background-color:#e6e6e6;}.react-calendar__tile--hasActive{background:rgba(20,110,240,1);color:white;}.react-calendar__tile--hasActive:enabled:hover,.react-calendar__tile--hasActive:enabled:focus{background:#a9d4ff;}.react-calendar__tile--active{background:rgba(20,110,240,1);color:white;}.react-calendar__tile--active:enabled:hover,.react-calendar__tile--active:enabled:focus{background:#1087ff;}.react-calendar--selectRange .react-calendar__tile--hover{background-color:rgba(100,100,240,1);color:white;}abbr{text-decoration:none;}"]);
+})(["position:relative;display:grid;grid-row:1/3;grid-column:1;background-color:rgba(220,220,220,0.3);width:100%;height:100%;border:5px solid white;border-radius:25px 25px 25px 25px;box-shadow:1px 1px 2px 3px rgba(0,0,0,0.05);z-index:10;.react-calendar{width:356px;border-radius:20px;max-width:100%;box-shadow:0 0 5px 3px rgba(0,0,0,0.05);height:295px;background:white;margin:5px auto;font-family:Montserrat,Helvetica,sans-serif;line-height:1.125em;}.react-calendar,.react-calendar *,.react-calendar *:before,.react-calendar *:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}.react-calendar button{margin:0;border:0;outline:none;}.react-calendar button:enabled:hover{cursor:pointer;}.react-calendar__navigation{height:60px;margin-bottom:0.5em;}.react-calendar__navigation button{min-width:44px;background:none;font-size:20px;background-color:rgba(20,110,240,1);color:white;&:first-child{border-radius:18px 0 0 0;}&:last-child{border-radius:0 16px 0 0;}&:nth-child(2){border-radius:0;}&:nth-child(3){border-radius:0;}&:nth-child(4){border-radius:0;}}.react-calendar__navigation button:enabled:hover,.react-calendar__navigation button:enabled:focus{background-color:#e6e6e6;}.react-calendar__navigation button[disabled]{background-color:rgba(20,110,240,0.1);}.react-calendar__month-view__weekdays{text-align:center;text-decoration:none;font-size:0.75em;font-weight:800;}.react-calendar__month-view__weekdays__weekday{padding:1em 0;}.react-calendar__month-view__weekNumbers{font-weight:bold;}.react-calendar__month-view__weekNumbers .react-calendar__tile{display:flex;align-items:center;justify-content:center;font-size:0.75em;padding:calc(0.75em / 0.75) calc(0.5em / 0.75);}.react-calendar__month-view__days__day--weekend{color:rgba(240,10,10,0.8);font-weight:800;}.react-calendar__month-view__days__day--neighboringMonth{color:#969696;}.react-calendar__year-view .react-calendar__tile,.react-calendar__decade-view .react-calendar__tile,.react-calendar__century-view .react-calendar__tile{padding:2em 0.5em;}.react-calendar__tile{max-width:100%;text-align:center;padding:0.75em 0.5em;background:none;}.react-calendar__tile:disabled{background-color:#f0f0f0;}.react-calendar__tile:enabled:hover,.react-calendar__tile:enabled:focus{background-color:#e6e6e6;}.react-calendar__tile--hasActive{background:rgba(20,110,240,1);color:white;}.react-calendar__tile--hasActive:enabled:hover,.react-calendar__tile--hasActive:enabled:focus{background:#a9d4ff;}.react-calendar__tile--active{background:rgba(20,110,240,1);color:white;}.react-calendar__tile--active:enabled:hover,.react-calendar__tile--active:enabled:focus{background:#1087ff;}.react-calendar--selectRange .react-calendar__tile--hover{background-color:rgba(100,100,240,1);color:white;}abbr{text-decoration:none;}"]);
 
 var CalendarStats =
 /*#__PURE__*/
@@ -467,8 +467,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_calendar_dist_entry_nostyle__WEBPACK_IMPORTED_MODULE_2___default.a, {
         name: "date",
         onChange: this.onChange,
-        minDetail: "decade" // onClick={this.handleClick}
-        ,
+        minDetail: "decade",
         value: date,
         calendarType: "US",
         returnValue: "start",
@@ -482,7 +481,7 @@ function (_React$Component) {
         handleToday: this.handleToday,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 177
+          lineNumber: 176
         },
         __self: this
       }));
@@ -817,29 +816,34 @@ DisplayError.propTypes = {
 /*!*****************************!*\
   !*** ./components/Modal.js ***!
   \*****************************/
-/*! exports provided: default, OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION, ALL_REASONS_QUERY */
+/*! exports provided: default, OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OPEN_MODAL_QUERY", function() { return OPEN_MODAL_QUERY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOGGLE_MODAL_MUTATION", function() { return TOGGLE_MODAL_MUTATION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_REASONS_QUERY", function() { return ALL_REASONS_QUERY; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "react-apollo");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "date-fns");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./User */ "./components/User.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "date-fns");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _ClientSearch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ClientSearch */ "./components/ClientSearch.js");
+
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/Modal.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -858,16 +862,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  query {\n    reasons {\n      id\n      name\n      color\n      user {\n        id\n      }\n    }\n  }\n"]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
 
 function _templateObject3() {
   var data = _taggedTemplateLiteral(["\n  query SINGLE_REASON_QUERY($id: ID!) {\n    reason(id: $id) {\n      id\n      name\n      color\n    }\n  }\n"]);
@@ -907,42 +901,40 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
-var OPEN_MODAL_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
-var TOGGLE_MODAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject2());
-var SINGLE_REASON_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject3());
-var ALL_REASONS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject4());
-var BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
+var OPEN_MODAL_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
+var TOGGLE_MODAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject2());
+var SINGLE_REASON_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject3());
+var BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.div.withConfig({
   displayName: "Modal__BackDrop",
   componentId: "sc-105rmtf-0"
 })(["position:fixed;display:flex;justify-content:center;align-items:center;top:0;bottom:0;left:0;right:0;background-color:rgba(0,0,0,0.5);z-index:990;"]);
-var Modall = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
+var Modall = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.div.withConfig({
   displayName: "Modal__Modall",
   componentId: "sc-105rmtf-1"
-})(["background-color:#fff;border-radius:25px;display:grid;grid-template-rows:120px 1fr 35px;grid-template-columns:1fr 1fr;position:absolute;align-items:flex-start;width:500px;height:500px;padding:0px 0px 25px 0px;z-index:999;box-shadow:1px 1px 5px 3px rgba(0,0,0,0.3);"]);
-var Middle = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
+})(["background-color:#fff;border-radius:25px;display:grid;grid-template-rows:1fr 35px;grid-template-columns:1fr;position:absolute;align-items:flex-start;width:500px;height:500px;padding:0px 0px 25px 0px;z-index:999;box-shadow:1px 1px 5px 3px rgba(0,0,0,0.3);"]);
+var Middle = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.div.withConfig({
   displayName: "Modal__Middle",
   componentId: "sc-105rmtf-2"
 })(["grid-row:2;width:100%;grid-column:1/3;padding:30px 20px;border-top:3px solid grey;"]);
-var StyledInput = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.select.withConfig({
+var StyledInput = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.select.withConfig({
   displayName: "Modal__StyledInput",
   componentId: "sc-105rmtf-3"
 })(["width:100%;background:transparent;border:none;font-size:2rem;outline:none;"]);
-var StyledTextArea = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.textarea.withConfig({
+var StyledTextArea = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.textarea.withConfig({
   displayName: "Modal__StyledTextArea",
   componentId: "sc-105rmtf-4"
 })(["padding:10px;width:100%;background:transparent;font-size:2rem;outline:none;resize:none;border:2px solid rgba(220,220,220,1);&:focus{outline:none;}"]);
-var Date = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
+var Date = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.div.withConfig({
   displayName: "Modal__Date",
   componentId: "sc-105rmtf-5"
 })(["align-self:center;grid-column:1/3;grid-row:1;justify-content:center;border-radius:25px 25px 0 0;overflow:hidden;height:100%;padding:5px 20px 0px 20px;p{margin:0;font-family:'Montserrat',sans-serif;color:", ";display:block;text-align:center;padding:0px 0px;font-size:2.2rem;position:relative;}h3{margin:0;}"], function (props) {
   return props.theme.blue;
 });
-var Cancel = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.button.withConfig({
+var Cancel = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.button.withConfig({
   displayName: "Modal__Cancel",
   componentId: "sc-105rmtf-6"
 })(["background-color:#fff;border-radius:5px;display:grid;grid-row:3;grid-column:2;position:relative;align-items:center;justify-self:flex-start;height:100%;background:rgba(220,100,120,1);color:white;width:100px;font-size:18px;z-index:900;&:focus{outline:none;}&:hover{opacity:0.8;}"]);
-var Save = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.button.withConfig({
+var Save = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.button.withConfig({
   displayName: "Modal__Save",
   componentId: "sc-105rmtf-7"
 })(["background-color:#fff;border-radius:5px;display:grid;grid-column:2;grid-row:3;justify-self:flex-end;position:relative;align-items:center;width:100px;height:100%;background:rgba(20,200,120,1);color:white;font-size:18px;margin-right:25px;z-index:900;&:focus{outline:none;}&:hover{opacity:0.8;}"]); // const SAMPLE = ['Fraxel', 'Hair']
@@ -965,9 +957,11 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Modal)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
+    _defineProperty(_assertThisInitialized(_this), "reasonsRef", react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef());
+
     _defineProperty(_assertThisInitialized(_this), "state", {
       client: '',
-      reason: '',
+      reason: [],
       date: '',
       startTime: '',
       length: ''
@@ -991,19 +985,19 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Mutation"], {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
         mutation: TOGGLE_MODAL_MUTATION,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 188
+          lineNumber: 175
         },
         __self: this
       }, function (toggleModal) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
           query: OPEN_MODAL_QUERY,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 190
+            lineNumber: 177
           },
           __self: this
         }, function (_ref) {
@@ -1013,141 +1007,142 @@ function (_Component) {
             return null;
           }
 
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BackDrop, {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(BackDrop, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 196
+              lineNumber: 183
             },
             __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Modall, {
+          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Modall, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 184
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+            onSubmit:
+            /*#__PURE__*/
+            function () {
+              var _ref2 = _asyncToGenerator(
+              /*#__PURE__*/
+              _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+                var res;
+                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+                  while (1) {
+                    switch (_context.prev = _context.next) {
+                      case 0:
+                        e.preventDefault();
+                        _context.next = 3;
+                        return createAppointment();
+
+                      case 3:
+                        res = _context.sent;
+                        console.log(res);
+
+                      case 5:
+                      case "end":
+                        return _context.stop();
+                    }
+                  }
+                }, _callee, this);
+              }));
+
+              return function (_x) {
+                return _ref2.apply(this, arguments);
+              };
+            }(),
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 185
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Date, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 192
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 193
+            },
+            __self: this
+          }, Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(_this2.props.date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 194
+            },
+            __self: this
+          }, _this2.props.time)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             __source: {
               fileName: _jsxFileName,
               lineNumber: 197
             },
             __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Date, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 198
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          }, "For:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_6__["default"], {
             __source: {
               fileName: _jsxFileName,
               lineNumber: 199
             },
             __self: this
-          }, Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(_this2.props.date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 200
-            },
-            __self: this
-          }, _this2.props.time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
-            query: ALL_REASONS_QUERY,
+          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(StyledInput, {
+            name: "reason",
+            type: "select",
+            ref: _this2.reasonsRef,
+            multiple: false,
+            value: _this2.state.reason,
+            onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
               lineNumber: 202
             },
             __self: this
-          }, function (_ref2) {
-            var data = _ref2.data;
-            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Middle, {
+          }, _this2.props.reasons.map(function (reason, i) {
+            return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+              value: reason.name,
+              key: reason.name,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 205
+                lineNumber: 211
               },
               __self: this
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 206
-              },
-              __self: this
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 207
-              },
-              __self: this
-            }, "For:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_6__["default"], {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 209
-              },
-              __self: this
-            })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-              htmlFor: "reason",
-              className: "required",
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 212
-              },
-              __self: this
-            }, "Type:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
-              style: {
-                paddingTop: '3px',
-                marginBottom: '10px'
-              },
-              type: "text",
-              id: "reason",
-              name: "reason",
-              placeholder: "Appointment Type",
-              autoComplete: "off",
-              required: true,
-              value: _this2.state.reason,
-              onChange: _this2.handleChange,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 214
-              },
-              __self: this
-            }, data.reasons.map(function (reason, i) {
-              return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-                key: i,
-                value: reason.name,
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 230
-                },
-                __self: this
-              }, reason.name);
-            }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-              htmlFor: "note",
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 238
-              },
-              __self: this
-            }, "Notes:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledTextArea, {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 240
-              },
-              __self: this
-            }))));
-          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Cancel, {
+            }, reason.name);
+          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+            htmlFor: "note",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 217
+            },
+            __self: this
+          }, "Notes:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(StyledTextArea, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 219
+            },
+            __self: this
+          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Cancel, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 247
+              lineNumber: 222
             },
             __self: this
-          }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Save, {
+          }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Save, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 248
+              lineNumber: 223
             },
             __self: this
-          }, "Save")));
+          }, "Save"))));
         });
       });
     }
   }]);
 
   return Modal;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Modal);
 
@@ -1577,11 +1572,12 @@ function (_Component) {
 /*!*********************************!*\
   !*** ./components/SingleDay.js ***!
   \*********************************/
-/*! exports provided: default */
+/*! exports provided: default, ALL_REASONS_QUERY */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_REASONS_QUERY", function() { return ALL_REASONS_QUERY; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
@@ -1590,10 +1586,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_pose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_pose__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "react-apollo");
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Modal */ "./components/Modal.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns */ "date-fns");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _lib_timeSlots__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../lib/timeSlots */ "./lib/timeSlots.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Modal */ "./components/Modal.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns */ "date-fns");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _lib_timeSlots__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../lib/timeSlots */ "./lib/timeSlots.js");
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/SingleDay.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1616,6 +1614,17 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  query ALL_REASONS_QUERY {\n    reasons(orderBy: name_ASC) {\n      id\n      name\n      color\n      user {\n        id\n      }\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
@@ -1624,6 +1633,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
+var ALL_REASONS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_4___default()(_templateObject());
 var TodayButton = react_pose__WEBPACK_IMPORTED_MODULE_2___default.a.div({
   hoverable: true,
   pressable: true,
@@ -1678,7 +1690,7 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       selectedTime: '',
-      today: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["startOfDay"])(new Date())
+      today: Object(date_fns__WEBPACK_IMPORTED_MODULE_6__["startOfDay"])(new Date())
     });
 
     _defineProperty(_assertThisInitialized(_this), "update", function (e) {
@@ -1698,92 +1710,103 @@ function (_Component) {
       var date = this.props.date;
       var today = this.state.today;
       var time = this.state.selectedTime;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DayView, {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["Query"], {
+        query: ALL_REASONS_QUERY,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 194
+          lineNumber: 207
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "parent",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 195
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TodayButton, {
-        onClick: this.props.handleToday,
-        className: "todayButton",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 196
-        },
-        __self: this
-      }, Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["format"])(today, 'ddd')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sideDate",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 199
-        },
-        __self: this
-      }, Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["format"])(date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "date",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 200
-        },
-        __self: this
-      }, Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["format"])(date, 'dddd'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DayGrid, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 202
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TopBlock, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 203
-        },
-        __self: this
-      }), _lib_timeSlots__WEBPACK_IMPORTED_MODULE_6__["Data_15"].map(function (timeblock, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["Mutation"], {
-          key: i,
-          mutation: _Modal__WEBPACK_IMPORTED_MODULE_4__["TOGGLE_MODAL_MUTATION"],
+      }, function (_ref) {
+        var data = _ref.data;
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DayView, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 206
+            lineNumber: 210
           },
           __self: this
-        }, function (toggleModal) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TimeCell, {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "parent",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 211
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TodayButton, {
+          onClick: _this2.props.handleToday,
+          className: "todayButton",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 212
+          },
+          __self: this
+        }, Object(date_fns__WEBPACK_IMPORTED_MODULE_6__["format"])(today, 'ddd')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sideDate",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 218
+          },
+          __self: this
+        }, Object(date_fns__WEBPACK_IMPORTED_MODULE_6__["format"])(date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "date",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 219
+          },
+          __self: this
+        }, Object(date_fns__WEBPACK_IMPORTED_MODULE_6__["format"])(date, 'dddd'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DayGrid, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 221
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TopBlock, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 222
+          },
+          __self: this
+        }), _lib_timeSlots__WEBPACK_IMPORTED_MODULE_7__["Data_15"].map(function (timeblock, i) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["Mutation"], {
+            key: i,
+            mutation: _Modal__WEBPACK_IMPORTED_MODULE_5__["TOGGLE_MODAL_MUTATION"],
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 208
+              lineNumber: 225
             },
             __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
-            onDoubleClick: toggleModal,
-            key: timeblock.time,
-            className: "number",
-            value: timeblock.time,
-            onClick: _this2.update,
-            readOnly: true,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 209
-            },
-            __self: this
-          }, timeblock.display));
-        });
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        date: date,
-        time: time,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 225
-        },
-        __self: this
-      }));
+          }, function (toggleModal) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TimeCell, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 227
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
+              onDoubleClick: toggleModal,
+              key: timeblock.time,
+              className: "number",
+              value: timeblock.time,
+              onClick: _this2.update,
+              readOnly: true,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 228
+              },
+              __self: this
+            }, timeblock.display));
+          });
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          date: date,
+          time: time,
+          reasons: data.reasons,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 244
+          },
+          __self: this
+        }));
+      });
     }
   }]);
 
@@ -1791,6 +1814,7 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (SingleDay);
+
 
 /***/ }),
 
@@ -1943,104 +1967,12 @@ var SickButton = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button
 /*!**************************!*\
   !*** ./lib/timeSlots.js ***!
   \**************************/
-/*! exports provided: Data_15, Data_20 */
+/*! exports provided: Data_15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Data_15", function() { return Data_15; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Data_20", function() { return Data_20; });
-var Data_20 = [{
-  time: '7:00 am'
-}, {
-  time: '7:20 am'
-}, {
-  time: '7:40 am'
-}, {
-  time: '8:00 am'
-}, {
-  time: '8:20 am'
-}, {
-  time: '8:40 am'
-}, {
-  time: '9:00 am'
-}, {
-  time: '9:20 am'
-}, {
-  time: '9:40 am'
-}, {
-  time: '10:00 am'
-}, {
-  time: '10:20 am'
-}, {
-  time: '10:40 am'
-}, {
-  time: '11:00 am'
-}, {
-  time: '11:20 am'
-}, {
-  time: '11:40 am'
-}, {
-  time: '12:00 pm'
-}, {
-  time: '12:20 pm'
-}, {
-  time: '12:40 pm'
-}, {
-  time: '1:00 pm'
-}, {
-  time: '1:20 pm'
-}, {
-  time: '1:40 pm'
-}, {
-  time: '2:00 pm'
-}, {
-  time: '2:20 pm'
-}, {
-  time: '2:40 pm'
-}, {
-  time: '3:00 pm'
-}, {
-  time: '3:20 pm'
-}, {
-  time: '3:40 pm'
-}, {
-  time: '4:00 pm'
-}, {
-  time: '4:20 pm'
-}, {
-  time: '4:40 pm'
-}, {
-  time: '5:00 pm'
-}, {
-  time: '5:20 pm'
-}, {
-  time: '5:40 pm'
-}, {
-  time: '6:00 pm'
-}, {
-  time: '6:20 pm'
-}, {
-  time: '6:40 pm'
-}, {
-  time: '7:00 pm'
-}, {
-  time: '7:20 pm'
-}, {
-  time: '7:40 pm'
-}, {
-  time: '8:00 pm'
-}, {
-  time: '8:20 pm'
-}, {
-  time: '8:40 pm'
-}, {
-  time: '9:00 pm'
-}, {
-  time: '9:20 pm'
-}, {
-  time: '9:40 pm'
-}];
 var Data_15 = [{
   time: '7:00 am',
   display: '7:00 am'
@@ -2265,7 +2197,7 @@ var Scheduler = function Scheduler(props) {
 
 /***/ }),
 
-/***/ 6:
+/***/ 5:
 /*!*********************************!*\
   !*** multi ./pages/schedule.js ***!
   \*********************************/

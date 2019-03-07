@@ -106,7 +106,7 @@ const Flexer = styled.div`
     justify-content: center;
     align-content: center;
     align-items: center;
-    background: rgba(100, 120, 240, 1);
+    background: rgba(30, 110, 240, 1);
     text-align: center;
   }
 `
@@ -127,7 +127,7 @@ const StyledTitle = styled.h2`
   text-align: center;
   font-size: 19px;
   line-height: 28px;
-  color: rgba(100, 120, 240, 1);
+  color: rgba(30, 110, 240, 1);
 `
 const StyledSub = styled.p`
   margin: 0;

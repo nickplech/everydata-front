@@ -3,7 +3,6 @@ import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import { format } from 'date-fns'
 import styled from 'styled-components'
-import { CURRENT_USER_QUERY } from './User'
 import ClientSearch from './ClientSearch'
 
 const OPEN_MODAL_QUERY = gql`
@@ -26,18 +25,6 @@ const SINGLE_REASON_QUERY = gql`
     }
   }
 `
-const ALL_REASONS_QUERY = gql`
-  query {
-    reasons {
-      id
-      name
-      color
-      user {
-        id
-      }
-    }
-  }
-`
 
 const BackDrop = styled.div`
   position: fixed;
@@ -56,8 +43,8 @@ const Modall = styled.div`
   background-color: #fff;
   border-radius: 25px;
   display: grid;
-  grid-template-rows: 120px 1fr 35px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 35px;
+  grid-template-columns: 1fr;
   position: absolute;
   align-items: flex-start;
   width: 500px;
@@ -107,8 +94,6 @@ const Date = styled.div`
 
   p {
     margin: 0;
-    /* border: 2px solid ${props => props.theme.blue};
-    border-radius: 5px; */
     font-family: 'Montserrat', sans-serif;
     color: ${props => props.theme.blue};
     display: block;
@@ -171,9 +156,10 @@ const Save = styled.button`
 `
 // const SAMPLE = ['Fraxel', 'Hair']
 class Modal extends Component {
+  reasonsRef = React.createRef()
   state = {
     client: '',
-    reason: '',
+    reason: [],
     date: '',
     startTime: '',
     length: '',
@@ -183,6 +169,7 @@ class Modal extends Component {
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
   }
+
   render() {
     return (
       <Mutation mutation={TOGGLE_MODAL_MUTATION}>
@@ -195,57 +182,46 @@ class Modal extends Component {
               return (
                 <BackDrop>
                   <Modall>
-                    <Date>
-                      <p>{format(this.props.date, 'MMMM Do, YYYY')}</p>
-                      <p>{this.props.time}</p>
-                    </Date>
-                    <Query query={ALL_REASONS_QUERY}>
-                      {({ data }) => {
-                        return (
-                          <Middle>
-                            <form>
-                              <label>
-                                For:
-                                <ClientSearch />
-                              </label>
-
-                              <label htmlFor="reason" className="required">
-                                Type:
-                                <StyledInput
-                                  style={{
-                                    paddingTop: '3px',
-                                    marginBottom: '10px',
-                                  }}
-                                  type="text"
-                                  id="reason"
-                                  name="reason"
-                                  placeholder="Appointment Type"
-                                  autoComplete="off"
-                                  required
-                                  value={this.state.reason}
-                                  onChange={this.handleChange}
-                                >
-                                  {data.reasons.map((reason, i) => {
-                                    return (
-                                      <option key={i} value={reason.name}>
-                                        {reason.name}
-                                      </option>
-                                    )
-                                  })}
-                                </StyledInput>
-                              </label>
-
-                              <label htmlFor="note">
-                                Notes:
-                                <StyledTextArea />
-                              </label>
-                            </form>
-                          </Middle>
-                        )
+                    <form
+                      onSubmit={async e => {
+                        e.preventDefault()
+                        const res = await createAppointment()
+                        console.log(res)
                       }}
-                    </Query>
-                    <Cancel onClick={toggleModal}>Cancel</Cancel>
-                    <Save onClick={toggleModal}>Save</Save>
+                    >
+                      <Date>
+                        <p>{format(this.props.date, 'MMMM Do, YYYY')}</p>
+                        <p>{this.props.time}</p>
+                      </Date>
+
+                      <label>
+                        For:
+                        <ClientSearch />
+                      </label>
+
+                      <StyledInput
+                        name="reason"
+                        type="select"
+                        ref={this.reasonsRef}
+                        multiple={false}
+                        value={this.state.reason}
+                        onChange={this.handleChange}
+                      >
+                        {this.props.reasons.map((reason, i) => (
+                          <option value={reason.name} key={reason.name}>
+                            {reason.name}
+                          </option>
+                        ))}
+                      </StyledInput>
+
+                      <label htmlFor="note">
+                        Notes:
+                        <StyledTextArea />
+                      </label>
+
+                      <Cancel onClick={toggleModal}>Cancel</Cancel>
+                      <Save onClick={toggleModal}>Save</Save>
+                    </form>
                   </Modall>
                 </BackDrop>
               )
@@ -258,4 +234,4 @@ class Modal extends Component {
 }
 
 export default Modal
-export { OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION, ALL_REASONS_QUERY }
+export { OPEN_MODAL_QUERY, TOGGLE_MODAL_MUTATION }

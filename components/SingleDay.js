@@ -1,12 +1,25 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import posed from 'react-pose'
-import { Mutation } from 'react-apollo'
+import { Query, Mutation } from 'react-apollo'
+import gql from 'graphql-tag'
 import { TOGGLE_MODAL_MUTATION } from './Modal'
 import { format, startOfDay } from 'date-fns'
-import { Data_15, Data_20 } from '../lib/timeSlots'
+import { Data_15 } from '../lib/timeSlots'
 import Modal from './Modal'
 
+const ALL_REASONS_QUERY = gql`
+  query ALL_REASONS_QUERY {
+    reasons(orderBy: name_ASC) {
+      id
+      name
+      color
+      user {
+        id
+      }
+    }
+  }
+`
 const TodayButton = posed.div({
   hoverable: true,
   pressable: true,
@@ -191,41 +204,51 @@ class SingleDay extends Component {
     let today = this.state.today
     let time = this.state.selectedTime
     return (
-      <DayView>
-        <div className="parent">
-          <TodayButton onClick={this.props.handleToday} className="todayButton">
-            {format(today, 'ddd')}
-          </TodayButton>
-          <div className="sideDate">{format(date, 'MMMM Do, YYYY')}</div>
-          <div className="date">{format(date, 'dddd')}</div>
-        </div>
-        <DayGrid>
-          <TopBlock />
-          {Data_15.map((timeblock, i) => {
-            return (
-              <Mutation key={i} mutation={TOGGLE_MODAL_MUTATION}>
-                {toggleModal => (
-                  <TimeCell>
-                    <StyledInput
-                      onDoubleClick={toggleModal}
-                      key={timeblock.time}
-                      className="number"
-                      value={timeblock.time}
-                      onClick={this.update}
-                      readOnly
-                    >
-                      {timeblock.display}
-                    </StyledInput>
-                  </TimeCell>
-                )}
-              </Mutation>
-            )
-          })}
-        </DayGrid>
-        <Modal date={date} time={time} />
-      </DayView>
+      <Query query={ALL_REASONS_QUERY}>
+        {({ data }) => {
+          return (
+            <DayView>
+              <div className="parent">
+                <TodayButton
+                  onClick={this.props.handleToday}
+                  className="todayButton"
+                >
+                  {format(today, 'ddd')}
+                </TodayButton>
+                <div className="sideDate">{format(date, 'MMMM Do, YYYY')}</div>
+                <div className="date">{format(date, 'dddd')}</div>
+              </div>
+              <DayGrid>
+                <TopBlock />
+                {Data_15.map((timeblock, i) => {
+                  return (
+                    <Mutation key={i} mutation={TOGGLE_MODAL_MUTATION}>
+                      {toggleModal => (
+                        <TimeCell>
+                          <StyledInput
+                            onDoubleClick={toggleModal}
+                            key={timeblock.time}
+                            className="number"
+                            value={timeblock.time}
+                            onClick={this.update}
+                            readOnly
+                          >
+                            {timeblock.display}
+                          </StyledInput>
+                        </TimeCell>
+                      )}
+                    </Mutation>
+                  )
+                })}
+              </DayGrid>
+              <Modal date={date} time={time} reasons={data.reasons} />
+            </DayView>
+          )
+        }}
+      </Query>
     )
   }
 }
 
 export default SingleDay
+export { ALL_REASONS_QUERY }

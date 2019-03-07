@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Client from './Client'
 import Pagination from './Pagination'
 import { perPage } from '../config'
+import { CURRENT_USER_QUERY } from './User'
 import Error from './ErrorMessage'
 
 const SINGLE_CLIENT_QUERY = gql`
@@ -54,13 +55,13 @@ const Clientlisting = styled.div`
   grid-auto-rows: 20px;
   background-color: rgba(20, 20, 100, 0.1);
   max-width: 100%;
-  grid-gap: 10px;
+  grid-gap: 15px;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 15px;
   margin-bottom: 15px;
-
   padding-top: 0px;
+
   overflow-y: scroll;
   padding-bottom: 0px;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -70,26 +71,35 @@ class Clients extends Component {
   render() {
     return (
       <React.Fragment>
-        <List>
-          <Pagination page={this.props.page} />
-          <Query
-            query={ALL_CLIENTS_QUERY} // fetchPolicy=
-            variables={{ skip: this.props.page * perPage - perPage, first: 19 }}
-          >
-            {({ data, error, loading }) => {
-              if (loading) return <p>Loading...</p>
-              if (error) return <p>Error: {error.message}</p>
-              return (
-                <Clientlisting>
-                  {data.clients.map(client => (
-                    <Client client={client} key={client.id} />
-                  ))}
-                </Clientlisting>
-              )
-            }}
-          </Query>
-          <Pagination page={this.props.page} />
-        </List>
+        <Query query={CURRENT_USER_QUERY}>
+          {({ data: { me } }) => {
+            return (
+              <List>
+                <Pagination user={me.id} page={this.props.page} />
+                <Query
+                  query={ALL_CLIENTS_QUERY}
+                  variables={{
+                    skip: this.props.page * perPage - perPage,
+                    first: 19,
+                  }}
+                >
+                  {({ data, error, loading }) => {
+                    if (loading) return <p>Loading...</p>
+                    if (error) return <p>Error: {error.message}</p>
+                    return (
+                      <Clientlisting>
+                        {data.clients.map(client => (
+                          <Client client={client} key={client.id} />
+                        ))}
+                      </Clientlisting>
+                    )
+                  }}
+                </Query>
+                <Pagination user={me.id} page={this.props.page} />
+              </List>
+            )
+          }}
+        </Query>
       </React.Fragment>
     )
   }

@@ -13,6 +13,7 @@ const Days = styled.div`
   justify-content: center;
   outline: none;
   border: none;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   &:hover {
     background: lavender;

@@ -4,7 +4,6 @@ import User from './User'
 import { format, addWeeks, eachDay, subDays } from 'date-fns'
 
 import ActualDay from './ActualDay'
-import TimePicker from './TimePicker'
 
 const Flexer = styled.div`
   display: flex;
@@ -85,10 +84,11 @@ class DaySelector extends Component {
     const { today } = this.state
     const twoWeeks = addWeeks(today, 2)
     const result = eachDay(today, twoWeeks)
+    const fixedArray = result.splice(-1, 1)
+
     const oneWeek = addWeeks(today, 1)
     const dayNameResult = eachDay(today, oneWeek)
     const fixedOneWeek = dayNameResult.splice(-1, 1)
-    const fixedArray = result.splice(-1, 1)
 
     return (
       <User>

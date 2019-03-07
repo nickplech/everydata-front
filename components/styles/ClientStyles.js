@@ -1,9 +1,12 @@
 import styled from 'styled-components'
 
 const ClientStyles = styled.div`
-  border-bottom: 1px solid grey;
-
+  border: none;
+  border-radius: 25px;
+  margin: 1px 0px;
+  background: white;
   height: 30px;
+  box-shadow: 0, 0, 4px, 2px rgba(0, 0, 0, 0.1);
   &:hover {
     background: rgba(20, 110, 240, 0.4);
   }
@@ -44,7 +47,7 @@ const ClientStyles = styled.div`
       outline: none;
     }
     &:hover {
-      background: rgba(20, 110, 220, 0.5);
+      background: rgba(220, 10, 20, 0.5);
     }
   }
 `

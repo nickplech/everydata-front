@@ -117,7 +117,6 @@ class UpdateScheduleSettings extends Component {
                     step="15"
                     id="defaultLength"
                     name="defaultLength"
-                    defaultValue={0}
                     value={this.state.defaultLength}
                     onChange={this.handleChange}
                   />

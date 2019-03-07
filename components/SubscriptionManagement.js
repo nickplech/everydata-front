@@ -30,13 +30,13 @@ const Inner = styled.div`
 
 const ORDER_DATA = [
   {
-    title: 'Express Account',
-    id: '1',
+    title: 'Test Classic Account',
+    id: 'plan_Ea8mmCdhMNHxxk',
     price: 2999,
   },
   {
     title: 'Classic Account',
-    id: 'plan_Ea8mmCdhMNHxxk',
+    id: 'plan_EW7xrpDzOE9d5I',
     price: 3999,
   },
 

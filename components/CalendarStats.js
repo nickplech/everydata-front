@@ -22,7 +22,7 @@ const StatsDisplay = styled.div`
     border-radius: 20px;
     max-width: 100%;
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
-    height: 310px;
+    height: 295px;
     background: white;
     margin: 5px auto;
     font-family: Montserrat, Helvetica, sans-serif;
@@ -84,7 +84,7 @@ const StatsDisplay = styled.div`
     font-weight: 800;
   }
   .react-calendar__month-view__weekdays__weekday {
-    padding: 2em 0;
+    padding: 1em 0;
   }
   .react-calendar__month-view__weekNumbers {
     font-weight: bold;
@@ -168,7 +168,6 @@ class CalendarStats extends React.Component {
             name="date"
             onChange={this.onChange}
             minDetail="decade"
-            // onClick={this.handleClick}
             value={date}
             calendarType="US"
             returnValue="start"

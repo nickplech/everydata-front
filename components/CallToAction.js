@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 const GradientDiv = styled.div`
   display: flex;
@@ -54,7 +55,9 @@ const CallToAction = () => (
     <h2 className="sub">
       Try Perfect Day Reminders On Us + No Credit Card Required!
     </h2>
-    <StyledButton>Start Your Free Trial</StyledButton>
+    <Link href="/signup">
+      <StyledButton>Start Your Free Trial</StyledButton>
+    </Link>
   </GradientDiv>
 )
 

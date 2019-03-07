@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import DaySelector from './DaySelector'
+import TimePicker from './TimePicker'
 
 const Back = styled.div`
   display: grid;
@@ -27,6 +28,7 @@ const Flexer = styled.div`
   align-self: flex-start;
   justify-content: center;
 `
+
 // const CharCount = styled.div`
 //   display: block;
 //   font-size: 11px;
@@ -35,6 +37,7 @@ const Flexer = styled.div`
 //   position: absolute;
 //   z-index: 10px;
 // `
+
 const MessageEdit = styled.textarea`
   background: white;
   display: grid;
@@ -43,37 +46,33 @@ const MessageEdit = styled.textarea`
   z-index: 6;
   width: 95%;
   padding: 10px;
-  height: calc(100% - 40px);
+  height: calc(100% - 50px);
   border-radius: 10px;
-  align-self: center;
+  align-self: flex-end;
   resize: none;
   border: none;
-  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.05);
-  /* justify-self: center; */
-  /* max-width: 800px; */
+  box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.05);
   &:focus {
     outline: none;
   }
 `
+
 const Send = styled.button`
   background: rgba(30, 110, 240, 1);
   color: white;
   font-weight: 800;
-  border: 0;
-  /* margin-bottom: 10px; */
-  width: 95%;
-
+  border: none;
+  width: 75px;
   display: grid;
   grid-column: 2;
   font-size: 2rem;
-  /* justify-self: center; */
-  padding: 0rem 1.2rem;
-  height: 70%;
+  justify-self: flex-end;
+  height: 75px;
   font-size: 1.8rem;
-  border-radius: 5px;
+  border-radius: 50%;
   outline: none;
   cursor: pointer;
-  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
   &:active {
     box-shadow: none;
   }
@@ -91,9 +90,8 @@ const ReviewMessage = () => (
       {/* <div>
         <CharCount>/160</CharCount>
       </div> */}
-      <DaySelector />
+      <TimePicker /> <DaySelector />
       <MessageEdit readOnly max={160} content="Testing" />
-
       <Send>Send</Send>
     </Flexer>
   </Back>

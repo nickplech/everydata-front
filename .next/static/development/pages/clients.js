@@ -170,7 +170,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Client */ "./components/Client.js");
 /* harmony import */ var _Pagination__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Pagination */ "./components/Pagination.js");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../config */ "./config.js");
-/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./User */ "./components/User.js");
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/Clients.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -221,6 +222,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
 var SINGLE_CLIENT_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 var ALL_CLIENTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject2(), _config__WEBPACK_IMPORTED_MODULE_6__["perPage"]);
 var List = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
@@ -230,7 +232,7 @@ var List = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withCon
 var Clientlisting = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
   displayName: "Clients__Clientlisting",
   componentId: "sc-1jwta3s-1"
-})(["display:grid;grid-template-columns:100%;grid-auto-rows:20px;background-color:rgba(20,20,100,0.1);max-width:100%;grid-gap:10px;margin-left:20px;margin-right:20px;margin-top:15px;margin-bottom:15px;padding-top:0px;overflow-y:scroll;padding-bottom:0px;border:1px solid rgba(0,0,0,0.2);"]);
+})(["display:grid;grid-template-columns:100%;grid-auto-rows:20px;background-color:rgba(20,20,100,0.1);max-width:100%;grid-gap:15px;margin-left:20px;margin-right:20px;margin-top:15px;margin-bottom:15px;padding-top:0px;overflow-y:scroll;padding-bottom:0px;border:1px solid rgba(0,0,0,0.2);"]);
 
 var Clients =
 /*#__PURE__*/
@@ -246,80 +248,93 @@ function (_Component) {
   _createClass(Clients, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 72
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(List, {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 73
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Pagination__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        page: this.props.page,
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
+        query: _User__WEBPACK_IMPORTED_MODULE_7__["CURRENT_USER_QUERY"],
         __source: {
           fileName: _jsxFileName,
           lineNumber: 74
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
-        query: ALL_CLIENTS_QUERY // fetchPolicy=
-        ,
-        variables: {
-          skip: this.props.page * _config__WEBPACK_IMPORTED_MODULE_6__["perPage"] - _config__WEBPACK_IMPORTED_MODULE_6__["perPage"],
-          first: 19
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 75
-        },
-        __self: this
       }, function (_ref) {
-        var data = _ref.data,
-            error = _ref.error,
-            loading = _ref.loading;
-        if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        var me = _ref.data.me;
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(List, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 80
+            lineNumber: 77
           },
           __self: this
-        }, "Loading...");
-        if (error) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Pagination__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          user: me.id,
+          page: _this.props.page,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 81
+            lineNumber: 78
           },
           __self: this
-        }, "Error: ", error.message);
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Clientlisting, {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
+          query: ALL_CLIENTS_QUERY,
+          variables: {
+            skip: _this.props.page * _config__WEBPACK_IMPORTED_MODULE_6__["perPage"] - _config__WEBPACK_IMPORTED_MODULE_6__["perPage"],
+            first: 19
+          },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83
+            lineNumber: 79
           },
           __self: this
-        }, data.clients.map(function (client) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Client__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            client: client,
-            key: client.id,
+        }, function (_ref2) {
+          var data = _ref2.data,
+              error = _ref2.error,
+              loading = _ref2.loading;
+          if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 85
+              lineNumber: 87
             },
             __self: this
-          });
+          }, "Loading...");
+          if (error) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 88
+            },
+            __self: this
+          }, "Error: ", error.message);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Clientlisting, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 90
+            },
+            __self: this
+          }, data.clients.map(function (client) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Client__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              client: client,
+              key: client.id,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 92
+              },
+              __self: this
+            });
+          }));
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Pagination__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          user: me.id,
+          page: _this.props.page,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 98
+          },
+          __self: this
         }));
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Pagination__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        page: this.props.page,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 91
-        },
-        __self: this
-      })));
+      }));
     }
   }]);
 
@@ -577,7 +592,7 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/Pagination.js";
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query PAGINATION_QUERY {\n    clientsConnection {\n      aggregate {\n        count\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query PAGINATION_QUERY($userId: ID!) {\n    clientsConnection(where: { user: { id: $userId } }) {\n      aggregate {\n        count\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -598,106 +613,100 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var PAGINATION_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject());
 
 var Pagination = function Pagination(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
+    query: PAGINATION_QUERY,
+    variables: {
+      userId: props.user
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19
     },
     __self: this
   }, function (_ref) {
-    var me = _ref.data;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
-      query: PAGINATION_QUERY,
+    var data = _ref.data,
+        loading = _ref.loading,
+        error = _ref.error;
+    if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 21
       },
       __self: this
-    }, function (_ref2) {
-      var data = _ref2.data,
-          loading = _ref2.loading,
-          error = _ref2.error;
-      if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 24
-        },
-        __self: this
-      }, "Loading...");
-      var count = data.clientsConnection.aggregate.count;
-      var pages = Math.ceil(count / _config__WEBPACK_IMPORTED_MODULE_6__["perPage"]);
-      var page = props.page;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_PaginationStyles__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 29
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-        prefetch: true,
-        href: {
-          pathname: 'clients',
-          query: {
-            page: page - 1
-          }
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 30
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "prev",
-        "aria-disabled": page <= 1,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 34
-        },
-        __self: this
-      }, "\u2190 Prev")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "totes",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 38
-        },
-        __self: this
-      }, "Page ", props.page, " of", ' ', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "totalPages",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 40
-        },
-        __self: this
-      }, pages)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "totes",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 42
-        },
-        __self: this
-      }, count, " Clients Total"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-        prefetch: true,
-        href: {
-          pathname: 'clients',
-          query: {
-            page: page + 1
-          }
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 43
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "next",
-        "aria-disabled": page >= pages,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 47
-        },
-        __self: this
-      }, "Next \u2192")));
-    });
+    }, "Loading...");
+    var count = data.clientsConnection.aggregate.count;
+    var pages = Math.ceil(count / _config__WEBPACK_IMPORTED_MODULE_6__["perPage"]);
+    var page = props.page;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_PaginationStyles__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      prefetch: true,
+      href: {
+        pathname: 'clients',
+        query: {
+          page: page - 1
+        }
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      className: "prev",
+      "aria-disabled": page <= 1,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31
+      },
+      __self: this
+    }, "\u2190 Prev")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "totes",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35
+      },
+      __self: this
+    }, "Page ", props.page, " of ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "totalPages",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 36
+      },
+      __self: this
+    }, pages)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "totes",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38
+      },
+      __self: this
+    }, count, " Clients Total"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      prefetch: true,
+      href: {
+        pathname: 'clients',
+        query: {
+          page: page + 1
+        }
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      className: "next",
+      "aria-disabled": page >= pages,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 43
+      },
+      __self: this
+    }, "Next \u2192")));
   });
 };
 
@@ -1118,7 +1127,7 @@ __webpack_require__.r(__webpack_exports__);
 var ClientStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "ClientStyles",
   componentId: "hqsscu-0"
-})(["border-bottom:1px solid grey;height:30px;&:hover{background:rgba(20,110,240,0.4);}img{width:100%;height:100px;object-fit:cover;}.buttonList{text-align:left;display:grid;width:100%;align-items:center;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));& > *{}}p,a{padding-left:10px;margin:0;}button{padding:2px 0;border-radius:5px;margin:0 10px;border:none;font-size:14px;cursor:pointer;&:focus{outline:none;}&:active{outline:none;}&:hover{background:rgba(20,110,220,0.5);}}"]);
+})(["border:none;border-radius:25px;margin:1px 0px;background:white;height:30px;box-shadow:0,0,4px,2px rgba(0,0,0,0.1);&:hover{background:rgba(20,110,240,0.4);}img{width:100%;height:100px;object-fit:cover;}.buttonList{text-align:left;display:grid;width:100%;align-items:center;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));& > *{}}p,a{padding-left:10px;margin:0;}button{padding:2px 0;border-radius:5px;margin:0 10px;border:none;font-size:14px;cursor:pointer;&:focus{outline:none;}&:active{outline:none;}&:hover{background:rgba(220,10,20,0.5);}}"]);
 /* harmony default export */ __webpack_exports__["default"] = (ClientStyles);
 
 /***/ }),
