@@ -27,8 +27,8 @@ const Inner = styled.div`
     }
   }
   .profPic {
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 150px;
     background-color: lightgrey;
     background-position: center;
     background-repeat: no-repeat;
@@ -98,6 +98,20 @@ class UpdateClient extends Component {
     const files = e.target.files
     const data = new FormData()
     data.append('file', files[0])
+    data.append('upload_preset', 'perfectday')
+
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/pdayrem/image/upload',
+      {
+        method: 'POST',
+        body: data,
+      },
+    )
+    const file = await res.json()
+    console.log(file)
+    this.setState({
+      image: file.secure_url,
+    })
   }
   render() {
     return (
@@ -202,18 +216,34 @@ class UpdateClient extends Component {
                         />
                       </label>
                       <label htmlFor="file">
-                        {/* <input
+                        <input
                           type="file"
                           id="file"
                           name="file"
-                          defaultValue={data.client.image}
+                          placeholder="upload picture"
                           onChange={this.uploadFile}
-                        /> */}
+                        />
                         {data.client.image && (
                           <img
                             className="profPic"
                             width="150"
                             src={data.client.image}
+                            alt="upload preview"
+                          />
+                        )}
+                        {this.state.image && (
+                          <img
+                            className="profPic"
+                            width="150"
+                            src={this.state.image}
+                            alt="upload preview"
+                          />
+                        )}
+                        {data.client.image && this.state.image && (
+                          <img
+                            className="profPic"
+                            width="150"
+                            src={this.state.image}
                             alt="upload preview"
                           />
                         )}

@@ -50,30 +50,6 @@ const Flexer = styled.div`
     height: 300px;
     text-align: center;
   }
-  .profile .image {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    margin: 30px auto 0 auto;
-  }
-
-  .profile .image img {
-    display: block;
-    border-radius: 50%;
-    background: #f5e8df;
-  }
-  .profile .image:hover {
-    cursor: pointer;
-  }
-  .profile .image:hover .circle-1,
-  .profile .image:hover .circle-2 {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-  .profile .image:hover .circle-2 {
-    -webkit-transform: rotate(-360deg);
-    transform: rotate(-360deg);
-  }
 
   .stats {
     display: flex;
@@ -84,10 +60,24 @@ const Flexer = styled.div`
     justify-content: center;
     align-content: center;
     align-items: center;
-    background: rgba(30, 110, 240, 1);
+    background: #3d5866;
     text-align: center;
   }
 `
+const ProfilePic = styled.img`
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 30px auto 0 auto;
+  display: block;
+  border-radius: 50%;
+  background: #f5e8df;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.2);
+  &:hover {
+    cursor: pointer;
+  }
+`
+
 const Cake = styled.img`
   width: 15px;
   height: 15px;
@@ -161,16 +151,12 @@ class ClientStats extends React.Component {
                       </a>
                     </Link>
                     <div className="profile">
-                      <div className="image">
-                        <div />
-                        <div />
-                        <img
-                          src={client.image}
-                          width="100"
-                          height="100"
-                          alt="Client Profile Pic"
-                        />
-                      </div>
+                      <ProfilePic
+                        src={client.image}
+                        width="100"
+                        height="100"
+                        alt="Client Profile Pic"
+                      />
                       <StyledTitle>
                         {client.firstName} {client.lastName}
                       </StyledTitle>

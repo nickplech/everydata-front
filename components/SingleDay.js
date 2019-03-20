@@ -44,8 +44,8 @@ const TopBlock = styled.div`
 const DayView = styled.div`
   position: relative;
   display: grid;
-  grid-row: 1/3;
-  grid-column: 2/3;
+  /* grid-row: 1/3;
+  grid-column: 2/3; */
   width: 100%;
   height: 100%;
   background-color: white;
@@ -125,12 +125,12 @@ const DayGrid = styled.div`
   grid-template-columns: 75px 1fr;
   position: absolute;
   grid-auto-rows: 22px;
-  border-radius: 0px 0 25px 0;
+  border-radius: 0px 0 15px 0;
   grid-gap: 1px;
   width: 100%;
   right: 0px;
   margin-top: 67px;
-  height: 75vh;
+  height: calc(100% - 67px);
   overflow-y: scroll;
   overscroll-behavior: contain;
 `
@@ -140,14 +140,11 @@ const StyledInput = styled.button`
   text-align: left;
   font-weight: 800;
   height: 100%;
-
   background: transparent;
   border: none;
   opacity: 1;
   cursor: pointer;
-
   color: white;
-
   &:focus {
     outline: none;
   }
@@ -156,18 +153,15 @@ const TimeCell = styled.div`
   display: grid;
   border-left: none;
   grid-column: 2/3;
-
   align-items: center;
   border-bottom: none;
   border: 0px solid rgba(243, 241, 244, 1);
   background: rgba(243, 241, 244, 1);
   cursor: pointer;
-
   &:nth-child(4n + 2) {
     display: grid;
     grid-column: 1/3;
     align-items: center;
-    /* border-bottom: none; */
     border: 0px solid rgba(20, 110, 240, 0.65);
     border-radius: 20px 0 0 20px;
     background: rgba(20, 110, 240, 0.65);
@@ -181,7 +175,6 @@ const TimeCell = styled.div`
     display: grid;
     font-size: 14px;
     align-self: center;
-
     justify-content: flex-start;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -194,11 +187,9 @@ const TimeCell = styled.div`
 
 class SingleDay extends Component {
   state = { selectedTime: '', today: startOfDay(new Date()) }
-
   update = e => {
     this.setState({ selectedTime: e.target.value })
   }
-
   render() {
     let date = this.props.date
     let today = this.state.today

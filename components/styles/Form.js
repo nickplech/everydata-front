@@ -16,7 +16,7 @@ const Form = styled.form`
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.1),
     0 6px 10px 5px rgba(0, 0, 0, 0.1), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
   background: white;
-  border: 5px solid rgba(20, 110, 220, 0.2);
+
   padding: 20px;
   margin: 20px 0;
   margin-top: 0px;
@@ -37,12 +37,14 @@ const Form = styled.form`
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
     font-size: 1.5rem;
-    border: none;
+    border-radius: 5px;
+
     background: transparent;
-    border-bottom: 2px solid rgba(20, 110, 220, 1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     margin-top: 0.8rem;
     &:focus {
       outline: 0;
+      border: 2px solid rgba(20, 110, 220, 0.5);
     }
   }
 

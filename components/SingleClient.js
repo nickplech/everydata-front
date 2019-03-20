@@ -13,6 +13,7 @@ const ALL_CLIENTS_REMINDERS = gql`
       text
       createdAt
       updatedAt
+      confirmationStatus
       user {
         id
       }
@@ -37,17 +38,19 @@ const GridSub = styled.div`
   overscroll-behavior: contain;
   overflow: scroll;
   &:after {
-    width: 100%;
+    width: calc(100% - 300px);
     position: fixed;
     display: flex;
     margin: 0 auto;
     content: 'Appointment Reminder Log';
     justify-content: center;
+    border-bottom: 2px solid grey;
+    /* box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.1); */
     line-height: 28px;
     color: white;
     border-radius: 20px 20px 0 0;
     padding: 2px 10px;
-    background: rgba(20, 110, 240, 1);
+    background: rgba(20,110,220,1);
   }
 `
 
@@ -81,11 +84,11 @@ const TextChunk = styled.div`
     font-size: 12px;
     padding: 10px 14px;
     margin: 30px 0;
-    border-radius: 8px;
+    border-radius: 10px;
     width: 40%;
     height: 80%;
     max-width: 600px;
-    min-width: 300px;
+
     @media (min-width: 1200px) {
       font-size: 13px;
     }
@@ -94,8 +97,15 @@ const TextChunk = styled.div`
     display: inline-flex;
     justify-content: center;
     flex-direction: column;
-    margin-left: 40px;
+    margin-left: 10%;
   }
+`
+const Nothing = styled.h2`
+  display: block;
+  font-size: 20px;
+  margin-top: 150px;
+  opacity: 0.5;
+  text-align: center;
 `
 const P = styled.p`
   font-size: 10px;
@@ -106,21 +116,37 @@ const PU = styled.p`
   font-size: 10px;
 
   margin: 0;
-  color: rgba(50, 50, 50, 0.4);
+  color: rgba(50, 50, 50, 0.6);
 `
 const PG = styled.p`
   font-size: 10px;
 
   margin: 0;
-  color: rgba(50, 250, 50, 0.4);
+  color: rgba(10, 150, 10, 0.6);
 `
 const PR = styled.p`
   font-size: 10px;
 
   margin: 0;
-  color: rgba(250, 50, 50, 0.4);
+  color: rgba(250, 50, 50, 0.6);
 `
 class SingleClient extends Component {
+  constructor(props) {
+    super(props)
+    this.myRef = React.createRef()
+  }
+
+  componentDidMount() {
+    this.scrollToBottom()
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom()
+  }
+  scrollToBottom = () => {
+    this.myRef.current.scrollIntoView()
+  }
+
   render() {
     return (
       <GridSub>
@@ -141,6 +167,12 @@ class SingleClient extends Component {
                 variables={{ client: this.props.id }}
               >
                 {({ data }) => {
+                  if (data.textReminders.length < 1)
+                    return (
+                      <Nothing>
+                        You Haven't Sent {client.firstName} Any Reminders Yet
+                      </Nothing>
+                    )
                   return (
                     <Fragment>
                       <Head>
@@ -150,14 +182,34 @@ class SingleClient extends Component {
                       </Head>
                       <div>
                         <Lister>
-                          {data.textReminders.map((message, index) => {
+                          {data.textReminders.map(message => {
                             return (
                               <TextChunk key={message.id}>
                                 <div className="message-text">
                                   {message.text}
                                 </div>
                                 <div className="confirmationStatus">
-                                  <P>{message.confirmationStatus}</P>
+                                  {message.confirmationStatus ===
+                                    'UNCONFIRMED' && (
+                                    <PU>{message.confirmationStatus}</PU>
+                                  )}
+                                  {message.confirmationStatus ===
+                                    'CONFIRMED' && (
+                                    <PG>{message.confirmationStatus}</PG>
+                                  )}
+                                  {message.confirmationStatus ===
+                                    'CANCELED' && (
+                                    <PR>{message.confirmationStatus}</PR>
+                                  )}
+                                  {message.updatedAt !== message.createdAt && (
+                                    <P>
+                                      on{' '}
+                                      {format(
+                                        message.updatedAt,
+                                        'MMMM Do, YYYY h:mm a',
+                                      )}
+                                    </P>
+                                  )}
                                   <P>
                                     Sent:{' '}
                                     {format(
@@ -165,15 +217,6 @@ class SingleClient extends Component {
                                       'MMMM Do, YYYY h:mm a',
                                     )}
                                   </P>
-                                  {message.updatedAt !== message.createdAt && (
-                                    <P>
-                                      Updated:{' '}
-                                      {format(
-                                        message.updatedAt,
-                                        'MMMM Do, YYYY h:mm a',
-                                      )}
-                                    </P>
-                                  )}
                                 </div>
                               </TextChunk>
                             )
@@ -187,6 +230,13 @@ class SingleClient extends Component {
             )
           }}
         </Query>
+        <div
+          style={{
+            float: 'left',
+            clear: 'both',
+          }}
+          ref={this.myRef}
+        />
       </GridSub>
     )
   }

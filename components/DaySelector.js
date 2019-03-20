@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import User from './User'
-import { format, addWeeks, eachDay, subDays } from 'date-fns'
+import { format, addWeeks, eachDay } from 'date-fns'
 
 const DateSelector = styled.div`
   grid-row: 2;
@@ -42,17 +41,23 @@ const Days = styled.input`
   margin: 2px;
   width: 12.25%;
   height: 40%;
-  color: rgba(20, 110, 240, 0.8);
+  color: white;
   grid-row: 3;
-  background: lightskyblue;
+  background: #3d5866;
   align-content: center;
   text-align: center;
   outline: none;
+  font-family: 'Montserrat', sans-serif;
+  transition: 0.2s;
+
   border: none;
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  &:first-child {
+    background: rgba(20, 110, 240, 0.8);
+  }
   &:hover {
-    background: lavender;
+    transform: scale(1.1);
   }
   &:active {
     background: lavender;
@@ -94,7 +99,8 @@ const DaySelector = props => (
           <Days
             key={day}
             readOnly
-            onClick={props.handleDate}
+            name="date"
+            onChange={props.saveToState}
             value={format(day, 'D')}
           />
         )

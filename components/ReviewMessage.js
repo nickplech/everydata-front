@@ -61,25 +61,28 @@ const Back = styled.form`
   background-color: rgba(240, 240, 240, 1);
 `
 
-// const CharCount = styled.div`
-//   display: block;
-//   font-size: 11px;
-//   bottom: 70px;
-//   right: 40px;
-//   position: absolute;
-//   z-index: 10px;
-// `
+const CharCount = styled.p`
+  display: block;
+  font-size: 11px;
+  bottom: 15px;
+  left: 628px;
+  position: absolute;
+  z-index: 7;
+`
 
-const Message = styled.div`
+const Message = styled.textarea`
   grid-column: 2;
   grid-row: 2;
   position: relative;
   z-index: 6;
   margin: 0 10px;
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(20, 20, 20, 0.7);
   width: 80%;
   padding: 10px;
   height: 100%;
-  max-height: 138px;
+  line-height: 22px;
+  max-height: 140px;
   border-radius: 10px;
   font-size: 1.5rem;
   resize: none;
@@ -140,15 +143,12 @@ class ReviewMessage extends Component {
   state = {
     time: '8:00 am',
     date: addDays(new Date(), 3),
-    text: 'Hello',
-    message: 'Appointment Reminder Successfully Sent For Delivery',
+    text: '',
+    message: 'Appointment Reminder has Been Sent',
   }
 
-  handleDate = e => {
-    this.setState({ date: e.target.value })
-  }
-  handleText = event => {
-    this.setState({ text: event.currentTarget.textContent })
+  saveToState = e => {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   render() {
@@ -164,7 +164,11 @@ class ReviewMessage extends Component {
           return (
             <Query query={TEXT_TEMPLATES_QUERY}>
               {({ data }) => {
-                const defaultTemplate = data.textTemplates[0]
+                const defaultTemplate = data.textTemplates[0].content
+                  .replace('<business>', business)
+                  .replace('<phone>', phone)
+                  .replace('<time>', time)
+                  .replace('<date>', date)
                 return (
                   <Mutation
                     mutation={SEND_TEXT_MUTATION}
@@ -203,17 +207,21 @@ class ReviewMessage extends Component {
                           )}
 
                           <>
-                            <DaySelector handleDate={this.handleDate} />
+                            <DaySelector saveToState={this.saveToState} />
                             {/* <Timer /> */}
 
-                            <Message onChange={this.handleText}>
-                              {defaultTemplate.content
-                                .replace('<business>', business)
-                                .replace('<phone>', phone)
-                                .replace('<time>', time)
-                                .replace('<date>', date)}
-                            </Message>
-                            <Send type="submit">Send</Send>
+                            <Message
+                              readOnly
+                              name="text"
+                              defaultValue={defaultTemplate}
+                              onChange={this.saveToState}
+                            />
+                            <CharCount>
+                              {defaultTemplate.length} of 160
+                            </CharCount>
+                            {defaultTemplate.length < 160 && (
+                              <Send type="submit">Send</Send>
+                            )}
                           </>
                         </Back>
                       )

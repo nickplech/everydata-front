@@ -19,17 +19,17 @@ const TabTitleItem = styled.li`
   transform: ${props => (props.isActiveTab ? 'scale(1.1)' : ' scale(1)')};
   cursor: pointer;
   background: ${props =>
-    props.isActiveTab ? 'rgba(100, 210, 220, 1)' : 'rgba(20, 110, 220, 1)'};
+    props.isActiveTab ? 'rgba(20,110,220,.8)' : '#0c344b'};
   opacity: 1;
   border-bottom: none;
   z-index: 0;
   position: relative;
   &:hover {
-    background: rgba(100, 210, 220, 1);
+    background: rgba(20, 110, 220, 0.8);
   }
 
   &:focus {
-    background: rgba(20, 110, 220, 1);
+    background: rgba(20, 110, 220, 0.8);
   }
   &:nth-child(1) {
     border-radius: 10px 0 0 0;

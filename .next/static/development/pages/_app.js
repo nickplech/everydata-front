@@ -1088,11 +1088,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User */ "./components/User.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/DaySelector.js";
-
 
 
 
@@ -1107,37 +1105,37 @@ var Day = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConf
 var Days = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].input.withConfig({
   displayName: "DaySelector__Days",
   componentId: "pruyuv-2"
-})(["display:flex;margin:2px;width:12.25%;height:40%;color:rgba(20,110,240,0.8);grid-row:3;background:lightskyblue;align-content:center;text-align:center;outline:none;border:none;box-shadow:0 0 5px 3px rgba(0,0,0,0.1);cursor:pointer;&:hover{background:lavender;}&:active{background:lavender;}"]);
+})(["display:flex;margin:2px;width:12.25%;height:40%;color:white;grid-row:3;background:#3d5866;align-content:center;text-align:center;outline:none;font-family:'Montserrat',sans-serif;transition:0.2s;border:none;box-shadow:0 0 5px 3px rgba(0,0,0,0.1);cursor:pointer;&:first-child{background:rgba(20,110,240,0.8);}&:hover{transform:scale(1.1);}&:active{background:lavender;}"]);
 var StyledDiv = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
   displayName: "DaySelector__StyledDiv",
   componentId: "pruyuv-3"
 })(["display:flex;color:lightslategray;margin:2px 1px;grid-row:2;justify-content:space-around;background:transparent;p{margin:0 0px;}"]);
 var today = new Date();
-var twoWeeks = Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["addWeeks"])(today, 2);
-var result = Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["eachDay"])(today, twoWeeks);
+var twoWeeks = Object(date_fns__WEBPACK_IMPORTED_MODULE_2__["addWeeks"])(today, 2);
+var result = Object(date_fns__WEBPACK_IMPORTED_MODULE_2__["eachDay"])(today, twoWeeks);
 var fixedArray = result.splice(-1, 1);
-var oneWeek = Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["addWeeks"])(today, 1);
-var dayNameResult = Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["eachDay"])(today, oneWeek);
+var oneWeek = Object(date_fns__WEBPACK_IMPORTED_MODULE_2__["addWeeks"])(today, 1);
+var dayNameResult = Object(date_fns__WEBPACK_IMPORTED_MODULE_2__["eachDay"])(today, oneWeek);
 var fixedOneWeek = dayNameResult.splice(-1, 1);
 
 var DaySelector = function DaySelector(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DateSelector, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 87
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "month",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83
+      lineNumber: 88
     },
     __self: this
-  }, Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(today, 'MMMM')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledDiv, {
+  }, Object(date_fns__WEBPACK_IMPORTED_MODULE_2__["format"])(today, 'MMMM')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledDiv, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 90
     },
     __self: this
   }, dayNameResult.map(function (weekDayName) {
@@ -1145,25 +1143,26 @@ var DaySelector = function DaySelector(props) {
       key: weekDayName,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87
+        lineNumber: 92
       },
       __self: this
-    }, " ", Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(weekDayName, 'dd'));
+    }, " ", Object(date_fns__WEBPACK_IMPORTED_MODULE_2__["format"])(weekDayName, 'dd'));
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Day, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91
+      lineNumber: 96
     },
     __self: this
   }, result.map(function (day) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Days, {
       key: day,
       readOnly: true,
-      onClick: props.handleDate,
-      value: Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(day, 'D'),
+      name: "date",
+      onChange: props.saveToState,
+      value: Object(date_fns__WEBPACK_IMPORTED_MODULE_2__["format"])(day, 'D'),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94
+        lineNumber: 99
       },
       __self: this
     });
@@ -2372,6 +2371,10 @@ var theme = {
   blue: 'rgba(100,100,230,1)',
   green: 'rgba(50,230,150,1)',
   lightblue: 'rgba(100,160,250,1)',
+  primary: '#3d5866',
+  secondary: '#3d5866',
+  tertiary: '#3d5866',
+  quaternary: '#3d5866',
   black: '#393939',
   grey: '#3A3A3A',
   lightgrey: '#E1E1E1',
@@ -2412,31 +2415,31 @@ function (_Component) {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 66
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 67
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 68
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 69
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Inner, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 70
         },
         __self: this
       }, this.props.children)));
@@ -2847,26 +2850,22 @@ var TEXT_TEMPLATES_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_t
 var Back = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].form.withConfig({
   displayName: "ReviewMessage__Back",
   componentId: "sc-1kkiazb-0"
-})(["display:grid;grid-template-columns:300px 1fr;grid-template-rows:70px 1fr;align-items:flex-end;width:100%;height:100%;padding:20px 20px;z-index:5;border-radius:20px;border:5px solid white;box-shadow:1px 0 4px 2px rgba(0,0,0,0.1);background-color:rgba(240,240,240,1);"]); // const CharCount = styled.div`
-//   display: block;
-//   font-size: 11px;
-//   bottom: 70px;
-//   right: 40px;
-//   position: absolute;
-//   z-index: 10px;
-// `
-
-var Message = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
-  displayName: "ReviewMessage__Message",
+})(["display:grid;grid-template-columns:300px 1fr;grid-template-rows:70px 1fr;align-items:flex-end;width:100%;height:100%;padding:20px 20px;z-index:5;border-radius:20px;border:5px solid white;box-shadow:1px 0 4px 2px rgba(0,0,0,0.1);background-color:rgba(240,240,240,1);"]);
+var CharCount = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].p.withConfig({
+  displayName: "ReviewMessage__CharCount",
   componentId: "sc-1kkiazb-1"
-})(["grid-column:2;grid-row:2;position:relative;z-index:6;margin:0 10px;width:80%;padding:10px;height:100%;max-height:138px;border-radius:10px;font-size:1.5rem;resize:none;border:none;background:rgba(250,250,250,1);box-shadow:0 0 4px 3px rgba(0,0,0,0.05);&:focus{outline:none;}"]);
+})(["display:block;font-size:11px;bottom:15px;left:628px;position:absolute;z-index:7;"]);
+var Message = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].textarea.withConfig({
+  displayName: "ReviewMessage__Message",
+  componentId: "sc-1kkiazb-2"
+})(["grid-column:2;grid-row:2;position:relative;z-index:6;margin:0 10px;font-family:'Montserrat',sans-serif;color:rgba(20,20,20,0.7);width:80%;padding:10px;height:100%;line-height:22px;max-height:140px;border-radius:10px;font-size:1.5rem;resize:none;border:none;background:rgba(250,250,250,1);box-shadow:0 0 4px 3px rgba(0,0,0,0.05);&:focus{outline:none;}"]);
 var Error = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
   displayName: "ReviewMessage__Error",
-  componentId: "sc-1kkiazb-2"
+  componentId: "sc-1kkiazb-3"
 })(["display:block;position:absolute;min-width:300px;width:30%;text-align:center;padding:10px;background:rgba(180,110,20,0.9);color:white;border-radius:5px;bottom:15px;box-shadow:0 16px 24px 2px rgba(0,0,0,0.1),0 6px 10px 5px rgba(0,0,0,0.1),0 8px 10px -5px rgba(0,0,0,0.2);right:20px;z-index:999;"]);
 var Send = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button.withConfig({
   displayName: "ReviewMessage__Send",
-  componentId: "sc-1kkiazb-3"
+  componentId: "sc-1kkiazb-4"
 })(["background:rgba(30,110,240,1);color:white;font-weight:800;border:none;width:75px;font-size:2rem;grid-column:2;grid-row:2;justify-self:flex-end;height:75px;font-size:1.8rem;border-radius:50%;outline:none;cursor:pointer;transition:0.1s;box-shadow:0 0 5px 3px rgba(0,0,0,0.1);&:active{box-shadow:none;}&[disabled]{opacity:0.5;}&:hover{transform:scale(1.1);}"]);
 
 var ReviewMessage =
@@ -2890,20 +2889,12 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "state", {
       time: '8:00 am',
       date: Object(date_fns__WEBPACK_IMPORTED_MODULE_6__["addDays"])(new Date(), 3),
-      text: 'Hello',
-      message: 'Appointment Reminder Successfully Sent For Delivery'
+      text: '',
+      message: 'Appointment Reminder has Been Sent'
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleDate", function (e) {
-      _this.setState({
-        date: e.target.value
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleText", function (event) {
-      _this.setState({
-        text: event.currentTarget.textContent
-      });
+    _defineProperty(_assertThisInitialized(_this), "saveToState", function (e) {
+      _this.setState(_defineProperty({}, e.target.name, e.target.value));
     });
 
     return _this;
@@ -2937,7 +2928,7 @@ function (_Component) {
           __self: this
         }, function (_ref2) {
           var data = _ref2.data;
-          var defaultTemplate = data.textTemplates[0];
+          var defaultTemplate = data.textTemplates[0].content.replace('<business>', business).replace('<phone>', phone).replace('<time>', time).replace('<date>', date);
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_4__["Mutation"], {
             mutation: SEND_TEXT_MUTATION,
             variables: {
@@ -2955,7 +2946,7 @@ function (_Component) {
             }],
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 169
+              lineNumber: 173
             },
             __self: this
           }, function (createTextReminder, _ref3) {
@@ -2996,41 +2987,50 @@ function (_Component) {
               }(),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 187
+                lineNumber: 191
               },
               __self: this
             }, error && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Error, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 196
+                lineNumber: 200
               },
               __self: this
             }, "Appointment Reminder Failed to Send. Please Try Again Shortly"), !error && !loading && called && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Submitted__WEBPACK_IMPORTED_MODULE_8__["default"], {
               message: _this2.state.message,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 202
-              },
-              __self: this
-            }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_DaySelector__WEBPACK_IMPORTED_MODULE_5__["default"], {
-              handleDate: _this2.handleDate,
-              __source: {
-                fileName: _jsxFileName,
                 lineNumber: 206
               },
               __self: this
-            }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Message, {
-              onChange: _this2.handleText,
+            }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_DaySelector__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              saveToState: _this2.saveToState,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 209
+                lineNumber: 210
               },
               __self: this
-            }, defaultTemplate.content.replace('<business>', business).replace('<phone>', phone).replace('<time>', time).replace('<date>', date)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Send, {
+            }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Message, {
+              readOnly: true,
+              name: "text",
+              defaultValue: defaultTemplate,
+              onChange: _this2.saveToState,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 213
+              },
+              __self: this
+            }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(CharCount, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 219
+              },
+              __self: this
+            }, defaultTemplate.length, " of 160"), defaultTemplate.length < 160 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Send, {
               type: "submit",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 216
+                lineNumber: 223
               },
               __self: this
             }, "Send")));
@@ -3197,16 +3197,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query ALL_CLIENTS_REMINDERS($client: ID!) {\n    textReminders(client: $client, orderBy: createdAt_ASC) {\n      id\n      text\n      createdAt\n      updatedAt\n      user {\n        id\n      }\n      client {\n        id\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query ALL_CLIENTS_REMINDERS($client: ID!) {\n    textReminders(client: $client, orderBy: createdAt_ASC) {\n      id\n      text\n      createdAt\n      updatedAt\n      confirmationStatus\n      user {\n        id\n      }\n      client {\n        id\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -3228,7 +3230,7 @@ var ALL_CLIENTS_REMINDERS = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_
 var GridSub = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].div.withConfig({
   displayName: "SingleClient__GridSub",
   componentId: "sc-4ocb50-0"
-})(["display:grid;grid-column:2;grid-row:1;background-color:transparent;box-shadow:0 0 5px 3px rgba(0,0,0,0.05);border:5px solid white;border-radius:25px;z-index:-1;height:100%;width:100%;overscroll-behavior:contain;overflow:scroll;&:after{width:100%;position:fixed;display:flex;margin:0 auto;content:'Appointment Reminder Log';justify-content:center;line-height:28px;color:white;border-radius:20px 20px 0 0;padding:2px 10px;background:rgba(20,110,240,1);}"]);
+})(["display:grid;grid-column:2;grid-row:1;background-color:transparent;box-shadow:0 0 5px 3px rgba(0,0,0,0.05);border:5px solid white;border-radius:25px;z-index:-1;height:100%;width:100%;overscroll-behavior:contain;overflow:scroll;&:after{width:calc(100% - 300px);position:fixed;display:flex;margin:0 auto;content:'Appointment Reminder Log';justify-content:center;border-bottom:2px solid grey;line-height:28px;color:white;border-radius:20px 20px 0 0;padding:2px 10px;background:rgba(20,110,220,1);}"]);
 var Lister = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].div.withConfig({
   displayName: "SingleClient__Lister",
   componentId: "sc-4ocb50-1"
@@ -3236,44 +3238,67 @@ var Lister = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].div.withC
 var TextChunk = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].div.withConfig({
   displayName: "SingleClient__TextChunk",
   componentId: "sc-4ocb50-2"
-})(["display:flex;align-content:center;margin:0px 30px;padding:0px;border-top:1.5px solid rgba(220,220,220,0.4);&:first-child{margin-top:30px;border-top:none;}.message-text{align-self:center;background:rgba(220,220,220,0.8);font-family:'Montserrat',sans-serif;color:black;display:inline-flex;font-size:12px;padding:10px 14px;margin:30px 0;border-radius:8px;width:40%;height:80%;max-width:600px;min-width:300px;@media (min-width:1200px){font-size:13px;}}.confirmationStatus{display:inline-flex;justify-content:center;flex-direction:column;margin-left:40px;}"]);
+})(["display:flex;align-content:center;margin:0px 30px;padding:0px;border-top:1.5px solid rgba(220,220,220,0.4);&:first-child{margin-top:30px;border-top:none;}.message-text{align-self:center;background:rgba(220,220,220,0.8);font-family:'Montserrat',sans-serif;color:black;display:inline-flex;font-size:12px;padding:10px 14px;margin:30px 0;border-radius:10px;width:40%;height:80%;max-width:600px;@media (min-width:1200px){font-size:13px;}}.confirmationStatus{display:inline-flex;justify-content:center;flex-direction:column;margin-left:10%;}"]);
+var Nothing = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].h2.withConfig({
+  displayName: "SingleClient__Nothing",
+  componentId: "sc-4ocb50-3"
+})(["display:block;font-size:20px;margin-top:150px;opacity:0.5;text-align:center;"]);
 var P = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "SingleClient__P",
-  componentId: "sc-4ocb50-3"
+  componentId: "sc-4ocb50-4"
 })(["font-size:10px;opacity:0.7;margin:0;"]);
 var PU = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "SingleClient__PU",
-  componentId: "sc-4ocb50-4"
-})(["font-size:10px;margin:0;color:rgba(50,50,50,0.4);"]);
+  componentId: "sc-4ocb50-5"
+})(["font-size:10px;margin:0;color:rgba(50,50,50,0.6);"]);
 var PG = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "SingleClient__PG",
-  componentId: "sc-4ocb50-5"
-})(["font-size:10px;margin:0;color:rgba(50,250,50,0.4);"]);
+  componentId: "sc-4ocb50-6"
+})(["font-size:10px;margin:0;color:rgba(10,150,10,0.6);"]);
 var PR = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "SingleClient__PR",
-  componentId: "sc-4ocb50-6"
-})(["font-size:10px;margin:0;color:rgba(250,50,50,0.4);"]);
+  componentId: "sc-4ocb50-7"
+})(["font-size:10px;margin:0;color:rgba(250,50,50,0.6);"]);
 
 var SingleClient =
 /*#__PURE__*/
 function (_Component) {
   _inherits(SingleClient, _Component);
 
-  function SingleClient() {
+  function SingleClient(props) {
+    var _this;
+
     _classCallCheck(this, SingleClient);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SingleClient).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SingleClient).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "scrollToBottom", function () {
+      _this.myRef.current.scrollIntoView();
+    });
+
+    _this.myRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
+    return _this;
   }
 
   _createClass(SingleClient, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.scrollToBottom();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.scrollToBottom();
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(GridSub, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 126
+          lineNumber: 152
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
@@ -3283,7 +3308,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 127
+          lineNumber: 153
         },
         __self: this
       }, function (_ref) {
@@ -3293,7 +3318,7 @@ function (_Component) {
         if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 134
+            lineNumber: 160
           },
           __self: this
         }, "Loading...");
@@ -3301,103 +3326,133 @@ function (_Component) {
           error: error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 135
+            lineNumber: 161
           },
           __self: this
         });
         if (!data.client) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 136
+            lineNumber: 162
           },
           __self: this
-        }, "No Client Found for ", _this.props.id);
+        }, "No Client Found for ", _this2.props.id);
         var client = data.client;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
           query: ALL_CLIENTS_REMINDERS,
           variables: {
-            client: _this.props.id
+            client: _this2.props.id
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 139
+            lineNumber: 165
           },
           __self: this
         }, function (_ref2) {
           var data = _ref2.data;
+          if (data.textReminders.length < 1) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Nothing, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 172
+            },
+            __self: this
+          }, "You Haven't Sent ", client.firstName, " Any Reminders Yet");
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 145
+              lineNumber: 177
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_4___default.a, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 146
+              lineNumber: 178
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 147
+              lineNumber: 179
             },
             __self: this
           }, "Client | ", client.firstName, " ", client.lastName)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 151
+              lineNumber: 183
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Lister, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 152
+              lineNumber: 184
             },
             __self: this
-          }, data.textReminders.map(function (message, index) {
+          }, data.textReminders.map(function (message) {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TextChunk, {
               key: message.id,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 155
+                lineNumber: 187
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "message-text",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 156
+                lineNumber: 188
               },
               __self: this
             }, message.text), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "confirmationStatus",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 159
+                lineNumber: 191
               },
               __self: this
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(P, {
+            }, message.confirmationStatus === 'UNCONFIRMED' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PU, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 160
+                lineNumber: 194
               },
               __self: this
-            }, message.confirmationStatus), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(P, {
+            }, message.confirmationStatus), message.confirmationStatus === 'CONFIRMED' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PG, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 161
+                lineNumber: 198
               },
               __self: this
-            }, "Sent:", ' ', Object(date_fns__WEBPACK_IMPORTED_MODULE_1__["format"])(message.createdAt, 'MMMM Do, YYYY h:mm a')), message.updatedAt !== message.createdAt && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(P, {
+            }, message.confirmationStatus), message.confirmationStatus === 'CANCELED' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PR, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 169
+                lineNumber: 202
               },
               __self: this
-            }, "Updated:", ' ', Object(date_fns__WEBPACK_IMPORTED_MODULE_1__["format"])(message.updatedAt, 'MMMM Do, YYYY h:mm a'))));
+            }, message.confirmationStatus), message.updatedAt !== message.createdAt && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(P, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 205
+              },
+              __self: this
+            }, "on", ' ', Object(date_fns__WEBPACK_IMPORTED_MODULE_1__["format"])(message.updatedAt, 'MMMM Do, YYYY h:mm a')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(P, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 213
+              },
+              __self: this
+            }, "Sent:", ' ', Object(date_fns__WEBPACK_IMPORTED_MODULE_1__["format"])(message.createdAt, 'MMMM Do, YYYY h:mm a'))));
           }))));
         });
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          float: 'left',
+          clear: 'both'
+        },
+        ref: this.myRef,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 233
+        },
+        __self: this
       }));
     }
   }]);
