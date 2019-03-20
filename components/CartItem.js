@@ -16,7 +16,7 @@ const ConfirmationStyles = styled.li`
   a {
     color: black;
     font-size: 12px;
-    padding: 10px 0;
+    padding: 6px 0;
     &:hover {
       background: rgba(100, 100, 230, 0.2);
     }

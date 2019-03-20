@@ -113,6 +113,7 @@ class UpdateUserProfiles extends Component {
                     type="text"
                     id="cellPhone"
                     name="cellPhone"
+                    className="short"
                     placeholder="Phone Number"
                     required
                     defaultValue={this.props.cellPhone}

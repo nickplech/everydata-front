@@ -52,33 +52,11 @@ const Flexer = styled.div`
   }
   .profile .image {
     position: relative;
-    width: 70px;
-    height: 70px;
-    margin: 38px auto 0 auto;
+    width: 100px;
+    height: 100px;
+    margin: 30px auto 0 auto;
   }
-  .profile .image .circle-1,
-  .profile .image .circle-2 {
-    position: absolute;
-    box-sizing: border-box;
-    width: 76px;
-    height: 76px;
-    top: -3px;
-    left: -3px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba(100, 120, 240, 1) rgba(100, 120, 240, 1)
-      rgba(100, 120, 240, 1) transparent;
-    border-radius: 50%;
-    transition: all 1.5s ease-in-out;
-  }
-  .profile .image .circle-2 {
-    width: 82px;
-    height: 82px;
-    top: -6px;
-    left: -6px;
-    border-color: rgba(100, 120, 240, 1) transparent rgba(100, 120, 240, 1)
-      rgba(100, 120, 240, 1);
-  }
+
   .profile .image img {
     display: block;
     border-radius: 50%;
@@ -184,12 +162,12 @@ class ClientStats extends React.Component {
                     </Link>
                     <div className="profile">
                       <div className="image">
-                        <div className="circle-1" />
-                        <div className="circle-2" />
+                        <div />
+                        <div />
                         <img
                           src={client.image}
-                          width="70"
-                          height="70"
+                          width="100"
+                          height="100"
                           alt="Client Profile Pic"
                         />
                       </div>

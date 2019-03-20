@@ -20,7 +20,7 @@ const Bottom = styled.div`
   margin-top: 300px;
 `
 
-const DoDisplay = props => (
+const SignInSwitch = props => (
   <Query query={CURRENT_USER_QUERY}>
     {({ data, loading }) => {
       if (loading) return <p>Loading...</p>
@@ -41,4 +41,4 @@ const DoDisplay = props => (
   </Query>
 )
 
-export default DoDisplay
+export default SignInSwitch

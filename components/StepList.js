@@ -27,7 +27,6 @@ class StepList extends React.Component {
         isActive: index === currentStep,
         displayPrevious: currentStep > 0,
         displayNext: currentStep < totalSteps,
-        // displaySubmit: currentStep === totalSteps,
         goToPreviousStep: () => this.goToPreviousStep(),
         goToNextStep: () => this.goToNextStep(),
       })

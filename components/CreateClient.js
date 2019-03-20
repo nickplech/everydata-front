@@ -27,8 +27,8 @@ const Inner = styled.div`
     }
   }
   .profPic {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     background-color: lightgrey;
     background-position: center;
     background-repeat: no-repeat;
@@ -84,6 +84,20 @@ class CreateClient extends Component {
     const files = e.target.files
     const data = new FormData()
     data.append('file', files[0])
+    data.append('upload_preset', 'perfectday')
+
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/pdayrem/image/upload',
+      {
+        method: 'POST',
+        body: data,
+      },
+    )
+    const file = await res.json()
+    console.log(file)
+    this.setState({
+      image: file.secure_url,
+    })
   }
 
   render() {
@@ -200,7 +214,7 @@ class CreateClient extends Component {
                     type="file"
                     id="file"
                     name="file"
-                    placeholder="upload their picture"
+                    placeholder="upload picture"
                     onChange={this.uploadFile}
                   />
                   {this.state.image && (

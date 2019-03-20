@@ -3,6 +3,7 @@ import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import { format } from 'date-fns'
 import styled from 'styled-components'
+
 import ClientSearch from './ClientSearch'
 
 const OPEN_MODAL_QUERY = gql`
@@ -43,33 +44,29 @@ const Modall = styled.div`
   background-color: #fff;
   border-radius: 25px;
   display: grid;
-  grid-template-rows: 1fr 35px;
+  grid-template-rows: 1fr 55px;
   grid-template-columns: 1fr;
   position: absolute;
   align-items: flex-start;
   width: 500px;
   height: 500px;
-  padding: 0px 0px 25px 0px;
+  padding: 15px 25px;
   z-index: 999;
   box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.3);
 `
 
-const Middle = styled.div`
-  grid-row: 2;
-  width: 100%;
-  grid-column: 1/3;
-  padding: 30px 20px;
-  border-top: 3px solid grey;
-`
 const StyledInput = styled.select`
   width: 100%;
-  background: transparent;
+  background: rgba(20, 110, 240, 0.5);
+  margin: 20px 0;
   border: none;
   font-size: 2rem;
+  font-weight: 700;
+  color: white;
   outline: none;
 `
 const StyledTextArea = styled.textarea`
-  padding: 10px;
+  padding: 5px;
   width: 100%;
   background: transparent;
   font-size: 2rem;
@@ -82,10 +79,9 @@ const StyledTextArea = styled.textarea`
   }
 `
 const Date = styled.div`
-  align-self: center;
-  grid-column: 1/3;
+  grid-column: 1;
   grid-row: 1;
-  justify-content: center;
+  justify-content: flex-end;
   border-radius: 25px 25px 0 0;
 
   overflow: hidden;
@@ -97,7 +93,7 @@ const Date = styled.div`
     font-family: 'Montserrat', sans-serif;
     color: ${props => props.theme.blue};
     display: block;
-    text-align: center;
+
     padding: 0px 0px;
 
     font-size: 2.2rem;
@@ -110,17 +106,20 @@ const Date = styled.div`
 `
 const Cancel = styled.button`
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 20px;
   display: grid;
-  grid-row: 3;
-  grid-column: 2;
-  position: relative;
+  grid-row: 2;
+  margin-left: 25px;
+  position: absolute;
+  left: 0;
   align-items: center;
-  justify-self: flex-start;
-  height: 100%;
+  height: 60%;
   background: rgba(220, 100, 120, 1);
   color: white;
   width: 100px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
   font-size: 18px;
   z-index: 900;
   &:focus {
@@ -128,38 +127,41 @@ const Cancel = styled.button`
   }
   &:hover {
     opacity: 0.8;
+    transform: scale(1.1);
   }
 `
 
 const Save = styled.button`
   background-color: #fff;
-  border-radius: 5px;
+  border: none;
+  border-radius: 20px;
   display: grid;
-  grid-column: 2;
-  grid-row: 3;
-  justify-self: flex-end;
-  position: relative;
+  right: 0;
+  grid-row: 2;
+  cursor: pointer;
+  position: absolute;
   align-items: center;
   width: 100px;
-  height: 100%;
+  height: 60%;
   background: rgba(20, 200, 120, 1);
   color: white;
   font-size: 18px;
   margin-right: 25px;
+  transition: 0.3s;
   z-index: 900;
   &:focus {
     outline: none;
   }
   &:hover {
     opacity: 0.8;
+    transform: scale(1.1);
   }
 `
 // const SAMPLE = ['Fraxel', 'Hair']
 class Modal extends Component {
-  reasonsRef = React.createRef()
   state = {
-    client: '',
-    reason: [],
+    selection: [],
+    reason: '',
     date: '',
     startTime: '',
     length: '',
@@ -169,7 +171,20 @@ class Modal extends Component {
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
   }
-
+  // handleSearch = () => {
+  //   debounce(async (e, client) => {
+  //     console.log('Searching...')
+  //     this.setState({ loading: true })
+  //     const res = await client.query({
+  //       query: SEARCH_CLIENTS_QUERY,
+  //       variables: { searchTerm: e.target.value },
+  //     })
+  //     this.setState({
+  //       clients: res.data.clients,
+  //       loading: false,
+  //     })
+  //   }, 350)
+  // }
   render() {
     return (
       <Mutation mutation={TOGGLE_MODAL_MUTATION}>
@@ -193,16 +208,11 @@ class Modal extends Component {
                         <p>{format(this.props.date, 'MMMM Do, YYYY')}</p>
                         <p>{this.props.time}</p>
                       </Date>
-
-                      <label>
-                        For:
-                        <ClientSearch />
-                      </label>
+                      <ClientSearch />
 
                       <StyledInput
                         name="reason"
                         type="select"
-                        ref={this.reasonsRef}
                         multiple={false}
                         value={this.state.reason}
                         onChange={this.handleChange}

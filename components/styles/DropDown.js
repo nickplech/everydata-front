@@ -41,6 +41,8 @@ const SearchStyles = styled.div`
     height: 100%;
     padding: 10px;
     border: 0;
+    border-radius: 5px;
+
     font-size: 2rem;
     outline: none;
     &.loading {

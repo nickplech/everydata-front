@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
-import User, { CURRENT_USER_QUERY } from './User'
+import User from './User'
 import CartStyles from './styles/CartStyles'
 import ColumnTally from './ColumnTally'
 import Supreme from './styles/Supreme'

@@ -1,25 +1,35 @@
 import React, { Component } from 'react'
 import Downshift, { resetIdCounter } from 'downshift'
-import styled from 'styled-components'
 import { ApolloConsumer } from 'react-apollo'
-
-import debounce from 'lodash.debounce'
 import { SEARCH_CLIENTS_QUERY } from './AutoComplete'
+import styled from 'styled-components'
+import debounce from 'lodash.debounce'
 import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown'
+
+const InputDiv = styled.div`
+  border: 2px solid rgba(20, 110, 240, 1);
+  border-radius: 5px;
+`
+
+const Img = styled.img`
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+`
 
 class ClientSearch extends Component {
   state = {
     clients: [],
     loading: false,
   }
-
   onChange = debounce(async (e, client) => {
     console.log('Searching...')
     this.setState({ loading: true })
     const res = await client.query({
       query: SEARCH_CLIENTS_QUERY,
-      variables: { searchTerm: e.target.value },
+      variables: { searchTerm: e.target.value, userId: this.props.id },
     })
+    console.log(res)
     this.setState({
       clients: res.data.clients,
       loading: false,
@@ -46,20 +56,21 @@ class ClientSearch extends Component {
             <div>
               <ApolloConsumer>
                 {client => (
-                  <input
-                    style={{ paddingTop: '3px', marginBottom: '10px' }}
-                    {...getInputProps({
-                      type: 'search',
-                      placeholder: 'Client Name',
-                      id: 'search',
-                      className: this.state.loading ? 'loading' : '',
-                      spellCheck: false,
-                      onChange: e => {
-                        e.persist()
-                        this.onChange(e, client)
-                      },
-                    })}
-                  />
+                  <InputDiv>
+                    <input
+                      {...getInputProps({
+                        type: 'search',
+                        placeholder: 'Search Clients',
+                        id: 'search',
+                        className: this.state.loading ? 'loading' : '',
+                        spellCheck: false,
+                        onChange: e => {
+                          e.persist()
+                          this.onChange(e, client)
+                        },
+                      })}
+                    />
+                  </InputDiv>
                 )}
               </ApolloConsumer>
               {isOpen && (
@@ -70,6 +81,7 @@ class ClientSearch extends Component {
                       key={item.id}
                       highlighted={index === highlightedIndex}
                     >
+                      <Img src={item.image} alt={item.firstName} />
                       {item.lastName}, {item.firstName}
                     </DropDownItem>
                   ))}

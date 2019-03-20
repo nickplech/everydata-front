@@ -32,9 +32,6 @@ const Nav = () => (
             <Link href="/pricing">
               <a>Pricing</a>
             </Link>
-            <Link href="/hipaa">
-              <a>Hipaa</a>
-            </Link>
             <Link href="/login">
               <a>Login</a>
             </Link>

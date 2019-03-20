@@ -130,12 +130,6 @@ class Signup extends Component {
               <fieldset disabled={loading} aria-busy={loading}>
                 <Error error={error} />
 
-                {/* {!error && !loading && called && (
-                  <Submitted>
-                    Submitted! Welcome to Perfect Day Reminders, please log in
-                    to begin your Free Trial
-                  </Submitted>
-                )} */}
                 <StepList
                   firstName={this.state.firstName}
                   lastName={this.state.lastName}

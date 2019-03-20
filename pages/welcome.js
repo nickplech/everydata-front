@@ -1,20 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 const Submitted = styled.p`
-  color: green;
+  color: white;
   text-align: center;
-  background: white;
+  background: #36b37e;
   margin-top: 100px;
-  font-size: 2vw;
-  padding: 15px 15px;
-  border-left: 5px solid green;
+  font-size: 22px;
+  padding: 25px 15px;
+  a {
+    color: white;
+    padding-bottom: 3px;
+    border-bottom: 3px solid white;
+  }
 `
 const welcome = () => {
   return (
     <div>
       <Submitted>
-        Welcome to Perfect Day Reminders, please log in to begin your Free Trial
+        Welcome to Perfect Day Reminders, please{' '}
+        <Link href="/login">
+          <a>Login Here</a>
+        </Link>{' '}
+        to begin your Free Trial
       </Submitted>
     </div>
   )

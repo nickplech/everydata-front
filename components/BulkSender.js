@@ -1,24 +1,27 @@
 import React, { Component } from 'react'
 import { Query } from 'react-apollo'
-import { ALL_REASONS_QUERY } from './Modal'
+import { SEARCH_CLIENTS_QUERY } from './AutoComplete'
+import Select from 'react-select'
 
 class BulkSender extends Component {
+  state = { clients: [] }
   render() {
     return (
-      <Query
-        query={ALL_REASONS_QUERY}
-        // variables={{ id: 'cjstnpzd3ivu00b79dw8jevg5' }}
-      >
-        {({ data }) => {
-          return (
-            <ul>
-              {data.reasons.map((reason, i) => (
-                <li key={i}>{reason.name}</li>
-              ))}
-            </ul>
-          )
-        }}
-      </Query>
+      <div>
+        {/* <Query query={SEARCH_CLIENTS_QUERY} variables={this.state.searchTerm}>
+          {({ data: { clients } }) => (
+            <label>
+              <Select
+                isMulti
+                name="clients"
+                options={clients}
+                className="basic-multi-select"
+                classNamePrefix="select"
+              />
+            </label>
+          )}
+        </Query> */}
+      </div>
     )
   }
 }

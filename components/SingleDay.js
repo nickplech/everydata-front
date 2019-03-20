@@ -204,7 +204,7 @@ class SingleDay extends Component {
     let today = this.state.today
     let time = this.state.selectedTime
     return (
-      <Query query={ALL_REASONS_QUERY}>
+      <Query query={ALL_REASONS_QUERY} prefetch>
         {({ data }) => {
           return (
             <DayView>

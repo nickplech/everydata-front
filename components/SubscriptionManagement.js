@@ -39,12 +39,6 @@ const ORDER_DATA = [
     id: 'plan_EW7xrpDzOE9d5I',
     price: 3999,
   },
-
-  {
-    title: 'HIPAA Compliant',
-    id: '3',
-    price: 1000,
-  },
 ]
 const handleClick = e => {
   e.preventDefault()
