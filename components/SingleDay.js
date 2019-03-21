@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import posed from 'react-pose'
+import Error from './ErrorMessage'
 import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import { TOGGLE_MODAL_MUTATION } from './Modal'
@@ -196,7 +197,10 @@ class SingleDay extends Component {
     let time = this.state.selectedTime
     return (
       <Query query={ALL_REASONS_QUERY} prefetch>
-        {({ data }) => {
+        {({ data, loading, error }) => {
+          if (error) return <Error error={error} />
+          if (loading) return <p>Loading...</p>
+          console.log(data)
           return (
             <DayView>
               <div className="parent">

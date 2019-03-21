@@ -48,7 +48,7 @@ const TEXT_TEMPLATES_QUERY = gql`
 
 const Back = styled.form`
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 280px 40px 1fr 100px;
   grid-template-rows: 70px 1fr;
   align-items: flex-end;
   width: 100%;
@@ -62,23 +62,24 @@ const Back = styled.form`
 `
 
 const CharCount = styled.p`
-  display: block;
   font-size: 11px;
-  bottom: 15px;
-  left: 628px;
-  position: absolute;
-  z-index: 7;
+  grid-column: 3;
+  grid-row: 2;
+  justify-self: flex-end;
+  margin: 2px 0;
+  z-index: 100;
 `
 
 const Message = styled.textarea`
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 2;
   position: relative;
   z-index: 6;
   margin: 0 10px;
   font-family: 'Montserrat', sans-serif;
   color: rgba(20, 20, 20, 0.7);
-  width: 80%;
+  width: 100%;
+  min-width: 250px;
   padding: 10px;
   height: 100%;
   line-height: 22px;
@@ -117,7 +118,7 @@ const Send = styled.button`
   border: none;
   width: 75px;
   font-size: 2rem;
-  grid-column: 2;
+  grid-column: 4;
   grid-row: 2;
   justify-self: flex-end;
   height: 75px;

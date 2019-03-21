@@ -19,7 +19,7 @@ const TabTitleItem = styled.li`
   transform: ${props => (props.isActiveTab ? 'scale(1.1)' : ' scale(1)')};
   cursor: pointer;
   background: ${props =>
-    props.isActiveTab ? 'rgba(20,110,220,.8)' : '#0c344b'};
+    props.isActiveTab ? 'rgba(20,110,220,.8)' : '#3d5866'};
   opacity: 1;
   border-bottom: none;
   z-index: 0;

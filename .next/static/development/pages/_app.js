@@ -2263,7 +2263,7 @@ var Nav = function Nav() {
         lineNumber: 24
       },
       __self: this
-    }, "Settings")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, "Clients")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 26
@@ -2850,15 +2850,15 @@ var TEXT_TEMPLATES_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_t
 var Back = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].form.withConfig({
   displayName: "ReviewMessage__Back",
   componentId: "sc-1kkiazb-0"
-})(["display:grid;grid-template-columns:300px 1fr;grid-template-rows:70px 1fr;align-items:flex-end;width:100%;height:100%;padding:20px 20px;z-index:5;border-radius:20px;border:5px solid white;box-shadow:1px 0 4px 2px rgba(0,0,0,0.1);background-color:rgba(240,240,240,1);"]);
+})(["display:grid;grid-template-columns:280px 40px 1fr 100px;grid-template-rows:70px 1fr;align-items:flex-end;width:100%;height:100%;padding:20px 20px;z-index:5;border-radius:20px;border:5px solid white;box-shadow:1px 0 4px 2px rgba(0,0,0,0.1);background-color:rgba(240,240,240,1);"]);
 var CharCount = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].p.withConfig({
   displayName: "ReviewMessage__CharCount",
   componentId: "sc-1kkiazb-1"
-})(["display:block;font-size:11px;bottom:15px;left:628px;position:absolute;z-index:7;"]);
+})(["font-size:11px;grid-column:3;grid-row:2;justify-self:flex-end;margin:2px 0;z-index:100;"]);
 var Message = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].textarea.withConfig({
   displayName: "ReviewMessage__Message",
   componentId: "sc-1kkiazb-2"
-})(["grid-column:2;grid-row:2;position:relative;z-index:6;margin:0 10px;font-family:'Montserrat',sans-serif;color:rgba(20,20,20,0.7);width:80%;padding:10px;height:100%;line-height:22px;max-height:140px;border-radius:10px;font-size:1.5rem;resize:none;border:none;background:rgba(250,250,250,1);box-shadow:0 0 4px 3px rgba(0,0,0,0.05);&:focus{outline:none;}"]);
+})(["grid-column:3;grid-row:2;position:relative;z-index:6;margin:0 10px;font-family:'Montserrat',sans-serif;color:rgba(20,20,20,0.7);width:100%;min-width:250px;padding:10px;height:100%;line-height:22px;max-height:140px;border-radius:10px;font-size:1.5rem;resize:none;border:none;background:rgba(250,250,250,1);box-shadow:0 0 4px 3px rgba(0,0,0,0.05);&:focus{outline:none;}"]);
 var Error = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
   displayName: "ReviewMessage__Error",
   componentId: "sc-1kkiazb-3"
@@ -2866,7 +2866,7 @@ var Error = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withCo
 var Send = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button.withConfig({
   displayName: "ReviewMessage__Send",
   componentId: "sc-1kkiazb-4"
-})(["background:rgba(30,110,240,1);color:white;font-weight:800;border:none;width:75px;font-size:2rem;grid-column:2;grid-row:2;justify-self:flex-end;height:75px;font-size:1.8rem;border-radius:50%;outline:none;cursor:pointer;transition:0.1s;box-shadow:0 0 5px 3px rgba(0,0,0,0.1);&:active{box-shadow:none;}&[disabled]{opacity:0.5;}&:hover{transform:scale(1.1);}"]);
+})(["background:rgba(30,110,240,1);color:white;font-weight:800;border:none;width:75px;font-size:2rem;grid-column:4;grid-row:2;justify-self:flex-end;height:75px;font-size:1.8rem;border-radius:50%;outline:none;cursor:pointer;transition:0.1s;box-shadow:0 0 5px 3px rgba(0,0,0,0.1);&:active{box-shadow:none;}&[disabled]{opacity:0.5;}&:hover{transform:scale(1.1);}"]);
 
 var ReviewMessage =
 /*#__PURE__*/
@@ -2912,7 +2912,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_10__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 160
+          lineNumber: 161
         },
         __self: this
       }, function (_ref) {
@@ -2923,7 +2923,7 @@ function (_Component) {
           query: TEXT_TEMPLATES_QUERY,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 165
+            lineNumber: 166
           },
           __self: this
         }, function (_ref2) {
@@ -2946,7 +2946,7 @@ function (_Component) {
             }],
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 173
+              lineNumber: 174
             },
             __self: this
           }, function (createTextReminder, _ref3) {
@@ -2987,27 +2987,27 @@ function (_Component) {
               }(),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 191
+                lineNumber: 192
               },
               __self: this
             }, error && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Error, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 200
+                lineNumber: 201
               },
               __self: this
             }, "Appointment Reminder Failed to Send. Please Try Again Shortly"), !error && !loading && called && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Submitted__WEBPACK_IMPORTED_MODULE_8__["default"], {
               message: _this2.state.message,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 206
+                lineNumber: 207
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_DaySelector__WEBPACK_IMPORTED_MODULE_5__["default"], {
               saveToState: _this2.saveToState,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 210
+                lineNumber: 211
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Message, {
@@ -3017,20 +3017,20 @@ function (_Component) {
               onChange: _this2.saveToState,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 213
+                lineNumber: 214
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(CharCount, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 219
+                lineNumber: 220
               },
               __self: this
             }, defaultTemplate.length, " of 160"), defaultTemplate.length < 160 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Send, {
               type: "submit",
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 223
+                lineNumber: 224
               },
               __self: this
             }, "Send")));
@@ -6060,7 +6060,7 @@ var unitlessKeys = {
 /*!************************************************!*\
   !*** ./node_modules/apollo-boost/lib/index.js ***!
   \************************************************/
-/*! exports provided: ObservableQuery, NetworkStatus, isApolloError, ApolloError, ApolloClient, FetchType, Observable, createOperation, makePromise, toPromise, fromPromise, fromError, getOperationName, empty, from, split, concat, ApolloLink, execute, gql, HttpLink, default, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory */
+/*! exports provided: gql, HttpLink, default, ObservableQuery, NetworkStatus, isApolloError, ApolloError, ApolloClient, Observable, createOperation, makePromise, toPromise, fromPromise, fromError, getOperationName, empty, from, split, concat, ApolloLink, execute, InMemoryCache, defaultDataIdFromObject, FetchType, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

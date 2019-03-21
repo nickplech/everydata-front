@@ -5,9 +5,12 @@ import gql from 'graphql-tag'
 import chroma from 'chroma-js'
 import Select from 'react-select'
 import Router from 'next/router'
-import styled from 'styled-components'
 import Error from './ErrorMessage'
+import Accordian from './Accordian'
+import styled from 'styled-components'
 import SickButton from './styles/SickButton'
+import Reason from './Reason'
+import { ALL_REASONS_QUERY } from './SingleDay'
 
 const CREATE_REASON_MUTATION = gql`
   mutation CREATE_REASON_MUTATION(
@@ -58,8 +61,8 @@ const Submitted = styled.p`
   border-left: 5px solid green;
 `
 const colourOptions = [
-  { value: 'ocean', label: 'Ocean', color: '#00B8D9' },
   { value: 'blue', label: 'Blue', color: '#0052CC' },
+  { value: 'ocean', label: 'Ocean', color: '#00B8D9' },
   { value: 'purple', label: 'Purple', color: '#5243AA' },
   { value: 'red', label: 'Red', color: '#FF5630' },
   { value: 'orange', label: 'Orange', color: '#FF8B00' },
@@ -116,7 +119,7 @@ class UpdateScheduleSettings extends Component {
     defaultLength: 0,
     provider: '',
     checked: false,
-    selectedOption: null,
+    selectedOption: 'blue',
   }
   handleChange = e => {
     const { name, type, value } = e.target
@@ -124,8 +127,7 @@ class UpdateScheduleSettings extends Component {
     this.setState({ [name]: val })
   }
   handleColor = selectedOption => {
-    selectedOption.toString()
-    this.setState({ selectedOption })
+    this.setState({ selectedOption: selectedOption })
     console.log(`Option selected:`, selectedOption)
   }
   createReason = async (e, createReasonMutation) => {
@@ -143,73 +145,93 @@ class UpdateScheduleSettings extends Component {
     const selectedOption = this.state.selectedOption
     return (
       <Inner>
-        <Mutation
-          mutation={CREATE_REASON_MUTATION}
-          variables={{ ...this.state, color: this.state.selectedOption }}
-        >
-          {(createReason, { loading, error, called }) => (
-            <Form onSubmit={e => this.createReason(e, createReason)}>
-              <Error error={error} />
-              {!error && !loading && called && (
-                <Submitted>
-                  New Appointment Type Created SuccessFully!
-                </Submitted>
-              )}
-              <fieldset disabled={loading} aria-busy={loading}>
-                <label htmlFor="firstName">
-                  Name of Appointment Type
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Name"
-                    autoComplete="off"
-                    required
-                    value={this.state.name}
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <label>
-                  Select Color to Identify Appointment Type
-                  <Select
-                    className="color"
-                    styles={colourStyles}
-                    value={selectedOption}
-                    onChange={this.handleColor}
-                    options={colourOptions}
-                  />
-                </label>
-                <label htmlFor="defaultLength">
-                  Default Length(optional):
-                  <input
-                    type="number"
-                    min="0"
-                    max="800"
-                    step="15"
-                    id="defaultLength"
-                    name="defaultLength"
-                    value={this.state.defaultLength}
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <label htmlFor="provider">
-                  Appointment Belongs to Specific Provider?(optional)
-                  <input
-                    type="text"
-                    id="provider"
-                    name="provider"
-                    placeholder="provider"
-                    value={this.state.provider}
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <SickButton type="submit">
-                  Creat{loading ? 'ing' : 'e'} Appointment Type
-                </SickButton>
-              </fieldset>
-            </Form>
-          )}
-        </Mutation>
+        <Query query={ALL_REASONS_QUERY}>
+          {({ data, loading, error }) => {
+            if (error) return <Error error={error} />
+            if (loading) return <p>Loading...</p>
+            console.log(data)
+            return (
+              <Mutation
+                mutation={CREATE_REASON_MUTATION}
+                variables={{
+                  ...this.state,
+                  color: this.state.selectedOption.color,
+                }}
+              >
+                {(createReason, { loading, error, called }) => (
+                  <Form onSubmit={e => this.createReason(e, createReason)}>
+                    <Error error={error} />
+                    {!error && !loading && called && (
+                      <Submitted>
+                        New Appointment Type Created SuccessFully!
+                      </Submitted>
+                    )}
+                    <fieldset disabled={loading} aria-busy={loading}>
+                      <h2>Appointment Types</h2>
+
+                      <ul style={{ padding: '0' }}>
+                        {data.reasons.map(reason => {
+                          return <Reason key={reason.id} reason={reason} />
+                        })}
+                      </ul>
+
+                      <label htmlFor="firstName">
+                        Name of Appointment Type
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          placeholder="Name"
+                          autoComplete="off"
+                          required
+                          value={this.state.name}
+                          onChange={this.handleChange}
+                        />
+                      </label>
+                      <label>
+                        Select Color to Identify Appointment Type
+                        <Select
+                          className="color"
+                          styles={colourStyles}
+                          value={selectedOption}
+                          onChange={this.handleColor}
+                          options={colourOptions}
+                        />
+                      </label>
+                      <label htmlFor="defaultLength">
+                        Default Length(optional):
+                        <input
+                          type="number"
+                          min="0"
+                          max="800"
+                          step="15"
+                          id="defaultLength"
+                          name="defaultLength"
+                          value={this.state.defaultLength}
+                          onChange={this.handleChange}
+                        />
+                      </label>
+                      <label htmlFor="provider">
+                        Appointment Belongs to Specific Provider?(optional)
+                        <input
+                          type="text"
+                          id="provider"
+                          name="provider"
+                          placeholder="provider"
+                          value={this.state.provider}
+                          onChange={this.handleChange}
+                        />
+                      </label>
+                      <SickButton type="submit">
+                        Creat{loading ? 'ing' : 'e'} Appointment Type
+                      </SickButton>
+                    </fieldset>
+                  </Form>
+                )}
+              </Mutation>
+            )
+          }}
+        </Query>
       </Inner>
     )
   }

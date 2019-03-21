@@ -216,6 +216,7 @@ class UpdateClient extends Component {
                         />
                       </label>
                       <label htmlFor="file">
+                        Change Client's Photo
                         <input
                           type="file"
                           id="file"
@@ -223,29 +224,16 @@ class UpdateClient extends Component {
                           placeholder="upload picture"
                           onChange={this.uploadFile}
                         />
-                        {data.client.image && (
-                          <img
-                            className="profPic"
-                            width="150"
-                            src={data.client.image}
-                            alt="upload preview"
-                          />
-                        )}
                         {this.state.image && (
-                          <img
-                            className="profPic"
-                            width="150"
-                            src={this.state.image}
-                            alt="upload preview"
-                          />
-                        )}
-                        {data.client.image && this.state.image && (
-                          <img
-                            className="profPic"
-                            width="150"
-                            src={this.state.image}
-                            alt="upload preview"
-                          />
+                          <>
+                            <img
+                              className="profPic"
+                              width="150"
+                              src={this.state.image}
+                              alt="upload preview"
+                            />
+                            <p>New Picture Preview</p>
+                          </>
                         )}
                       </label>
                       <SickButton type="submit">

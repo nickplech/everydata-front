@@ -1437,7 +1437,7 @@ function (_Component) {
               lineNumber: 218
             },
             __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          }, "Change Client's Photo", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
             type: "file",
             id: "file",
             name: "file",
@@ -1445,51 +1445,37 @@ function (_Component) {
             onChange: _this2.uploadFile,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 219
+              lineNumber: 220
             },
             __self: this
-          }), data.client.image && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
-            className: "profPic",
-            width: "150",
-            src: data.client.image,
-            alt: "upload preview",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 227
-            },
-            __self: this
-          }), _this2.state.image && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+          }), _this2.state.image && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
             className: "profPic",
             width: "150",
             src: _this2.state.image,
             alt: "upload preview",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 229
+            },
+            __self: this
+          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
               lineNumber: 235
             },
             __self: this
-          }), data.client.image && _this2.state.image && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
-            className: "profPic",
-            width: "150",
-            src: _this2.state.image,
-            alt: "upload preview",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 243
-            },
-            __self: this
-          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          }, "New Picture Preview"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_10__["default"], {
             type: "submit",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 251
+              lineNumber: 239
             },
             __self: this
           }, "Sav", loading ? 'ing' : 'e', " Changes"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickerButton__WEBPACK_IMPORTED_MODULE_12__["default"], {
             onClick: _this2.handleCancelClick,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 254
+              lineNumber: 242
             },
             __self: this
           }, "Cancel")));
@@ -38538,7 +38524,7 @@ var AddClient = function AddClient(props) {
 
 /***/ }),
 
-/***/ 8:
+/***/ 3:
 /*!*******************************!*\
   !*** multi ./pages/update.js ***!
   \*******************************/
@@ -38563,5 +38549,5 @@ module.exports = dll_19b830e266d1a33d6422;
 
 /***/ })
 
-},[[8,"static/runtime/webpack.js"]]]));;
+},[[3,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=update.js.map
