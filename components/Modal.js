@@ -160,16 +160,22 @@ const Save = styled.button`
 // const SAMPLE = ['Fraxel', 'Hair']
 class Modal extends Component {
   state = {
-    selection: [],
+    clients: [],
     reason: '',
     date: '',
     startTime: '',
     length: '',
+    notes: '',
   }
   handleChange = e => {
     const { name, type, value } = e.target
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
+  }
+  handleCancelClick = (e, toggleModal) => {
+    e.preventDefault()
+
+    this.setState({ notes: '', reason: '', clients: [] })
   }
   // handleSearch = () => {
   //   debounce(async (e, client) => {
@@ -200,21 +206,26 @@ class Modal extends Component {
                     <form
                       onSubmit={async e => {
                         e.preventDefault()
-                        const res = await createAppointment()
-                        console.log(res)
+                        await createAppointment()
                       }}
                     >
                       <Date>
                         <p>{format(this.props.date, 'MMMM Do, YYYY')}</p>
                         <p>{this.props.time}</p>
                       </Date>
-                      <ClientSearch />
+                      <ClientSearch
+                        name="clients"
+                        type="text"
+                        value={this.state.clients}
+                        onChange={this.handleChange}
+                      />
 
                       <StyledInput
                         name="reason"
                         type="select"
                         multiple={false}
                         value={this.state.reason}
+placeholder="Search your favourite book"
                         onChange={this.handleChange}
                       >
                         {this.props.reasons.map((reason, i) => (
@@ -226,11 +237,23 @@ class Modal extends Component {
 
                       <label htmlFor="note">
                         Notes:
-                        <StyledTextArea />
+                        <StyledTextArea
+                          name="notes"
+                          type="text"
+                          value={this.state.notes}
+                          onChange={this.handleChange}
+                        />
                       </label>
 
-                      <Cancel onClick={toggleModal}>Cancel</Cancel>
-                      <Save onClick={toggleModal}>Save</Save>
+                      <Cancel
+                        onChange={this.handleCancelClick}
+                        onClick={toggleModal}
+                      >
+                        Cancel
+                      </Cancel>
+                      <Save type="submit" onClick={toggleModal}>
+                        Save
+                      </Save>
                     </form>
                   </Modall>
                 </BackDrop>

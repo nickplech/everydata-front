@@ -6,10 +6,12 @@ import chroma from 'chroma-js'
 import Select from 'react-select'
 import Router from 'next/router'
 import Error from './ErrorMessage'
-import Accordian from './Accordian'
+import MyDropdown, { OPEN_SLIDE_QUERY } from './SlideDown'
 import styled from 'styled-components'
 import SickButton from './styles/SickButton'
+import SickerButton from './styles/SickerButton'
 import Reason from './Reason'
+import { TOGGLE_SLIDE_MUTATION } from './SlideDown'
 import { ALL_REASONS_QUERY } from './SingleDay'
 
 const CREATE_REASON_MUTATION = gql`
@@ -54,6 +56,50 @@ const Inner = styled.div`
     }
   }
 `
+const Flex = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+`
+const Types = styled.h2`
+  display: inline-flex;
+`
+const AButton = styled.a`
+  background: rgba(20, 110, 240, 1);
+  border-radius: 50%;
+  display: inline-flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 25px;
+  margin: 0px 10px;
+  box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);
+  border: none;
+  position: relative;
+  z-index: 20;
+  cursor: pointer;
+
+  outline: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  &:hover {
+    opacity: 0.7;
+  }
+  .child {
+    position: absolute;
+    justify-self: center;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 2.8rem;
+    padding-left: 0px;
+  }
+`
+
 const Submitted = styled.p`
   color: green;
   background: white;
@@ -71,6 +117,8 @@ const colourOptions = [
   { value: 'forest', label: 'Forest', color: '#00875A' },
   { value: 'slate', label: 'Slate', color: '#253858' },
   { value: 'silver', label: 'Silver', color: '#666666' },
+  { value: 'ghostwhite', label: 'Ghost White', color: '#F8F8FF' },
+  { value: 'black', label: 'Black', color: '#000000' },
 ]
 
 const dot = (color = '#ccc') => ({
@@ -118,8 +166,7 @@ class UpdateScheduleSettings extends Component {
     name: '',
     defaultLength: 0,
     provider: '',
-    checked: false,
-    selectedOption: 'blue',
+    selectedOption: '',
   }
   handleChange = e => {
     const { name, type, value } = e.target
@@ -134,6 +181,12 @@ class UpdateScheduleSettings extends Component {
     e.preventDefault()
     const res = await createReasonMutation()
     console.log(res)
+    this.setState({
+      name: '',
+      selectedOption: '',
+      defaultLength: 0,
+      provider: '',
+    })
   }
 
   handleCancelClick = e => {
@@ -153,81 +206,118 @@ class UpdateScheduleSettings extends Component {
             return (
               <Mutation
                 mutation={CREATE_REASON_MUTATION}
+                update={this.update}
+                refetchQueries={[
+                  {
+                    query: ALL_REASONS_QUERY,
+                  },
+                ]}
                 variables={{
                   ...this.state,
                   color: this.state.selectedOption.color,
                 }}
               >
-                {(createReason, { loading, error, called }) => (
-                  <Form onSubmit={e => this.createReason(e, createReason)}>
-                    <Error error={error} />
-                    {!error && !loading && called && (
-                      <Submitted>
-                        New Appointment Type Created SuccessFully!
-                      </Submitted>
-                    )}
-                    <fieldset disabled={loading} aria-busy={loading}>
-                      <h2>Appointment Types</h2>
-
-                      <ul style={{ padding: '0' }}>
-                        {data.reasons.map(reason => {
-                          return <Reason key={reason.id} reason={reason} />
-                        })}
-                      </ul>
-
-                      <label htmlFor="firstName">
-                        Name of Appointment Type
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          placeholder="Name"
-                          autoComplete="off"
-                          required
-                          value={this.state.name}
-                          onChange={this.handleChange}
-                        />
-                      </label>
-                      <label>
-                        Select Color to Identify Appointment Type
-                        <Select
-                          className="color"
-                          styles={colourStyles}
-                          value={selectedOption}
-                          onChange={this.handleColor}
-                          options={colourOptions}
-                        />
-                      </label>
-                      <label htmlFor="defaultLength">
-                        Default Length(optional):
-                        <input
-                          type="number"
-                          min="0"
-                          max="800"
-                          step="15"
-                          id="defaultLength"
-                          name="defaultLength"
-                          value={this.state.defaultLength}
-                          onChange={this.handleChange}
-                        />
-                      </label>
-                      <label htmlFor="provider">
-                        Appointment Belongs to Specific Provider?(optional)
-                        <input
-                          type="text"
-                          id="provider"
-                          name="provider"
-                          placeholder="provider"
-                          value={this.state.provider}
-                          onChange={this.handleChange}
-                        />
-                      </label>
-                      <SickButton type="submit">
-                        Creat{loading ? 'ing' : 'e'} Appointment Type
-                      </SickButton>
-                    </fieldset>
-                  </Form>
-                )}
+                {(createReason, { loading, error, called }) => {
+                  if (!this.state.color)
+                    return (
+                      <Form onSubmit={e => this.createReason(e, createReason)}>
+                        <Error error={error} />
+                        {!error && !loading && called && (
+                          <Submitted>
+                            New Appointment Type Created SuccessFully!
+                          </Submitted>
+                        )}
+                        <fieldset disabled={loading} aria-busy={loading}>
+                          <Mutation mutation={TOGGLE_SLIDE_MUTATION}>
+                            {toggleSlide => (
+                              <Query query={OPEN_SLIDE_QUERY}>
+                                {({ data: { openSlide } }) => (
+                                  <>
+                                    <Flex>
+                                      <Types>Appointment Types</Types>
+                                      {!openSlide && (
+                                        <AButton onClick={toggleSlide}>
+                                          <div className="child">+</div>
+                                        </AButton>
+                                      )}
+                                    </Flex>
+                                    <Flex style={{ padding: '0' }}>
+                                      {data.reasons.map(reason => {
+                                        return (
+                                          <Reason
+                                            key={reason.id}
+                                            reason={reason}
+                                          />
+                                        )
+                                      })}
+                                    </Flex>
+                                    <MyDropdown>
+                                      <label htmlFor="firstName">
+                                        Name of Appointment Type
+                                        <input
+                                          type="text"
+                                          id="name"
+                                          name="name"
+                                          placeholder="Name"
+                                          autoComplete="off"
+                                          required
+                                          value={this.state.name}
+                                          onChange={this.handleChange}
+                                        />
+                                      </label>
+                                      <label>
+                                        Select Color to Identify Appointment
+                                        Type
+                                        <Select
+                                          className="color"
+                                          styles={colourStyles}
+                                          value={selectedOption}
+                                          onChange={this.handleColor}
+                                          options={colourOptions}
+                                        />
+                                      </label>
+                                      <label htmlFor="defaultLength">
+                                        Default Length:
+                                        <input
+                                          type="number"
+                                          min="0"
+                                          max="800"
+                                          step="15"
+                                          id="defaultLength"
+                                          name="defaultLength"
+                                          value={this.state.defaultLength}
+                                          onChange={this.handleChange}
+                                        />
+                                      </label>
+                                      <label htmlFor="provider">
+                                        Appointment Belongs to Specific
+                                        Provider?
+                                        <input
+                                          type="text"
+                                          id="provider"
+                                          name="provider"
+                                          placeholder="provider"
+                                          value={this.state.provider}
+                                          onChange={this.handleChange}
+                                        />
+                                      </label>{' '}
+                                      <SickButton type="submit">
+                                        Creat{loading ? 'ing' : 'e'} Appointment
+                                        Type
+                                      </SickButton>{' '}
+                                      <SickerButton onClick={toggleSlide}>
+                                        Cancel
+                                      </SickerButton>
+                                    </MyDropdown>
+                                  </>
+                                )}
+                              </Query>
+                            )}
+                          </Mutation>
+                        </fieldset>
+                      </Form>
+                    )
+                }}
               </Mutation>
             )
           }}

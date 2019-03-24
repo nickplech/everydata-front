@@ -245,7 +245,7 @@ function (_Component) {
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee);
       }));
 
       return function (_x, _x2) {
@@ -626,7 +626,7 @@ function (_Component) {
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee);
       }));
 
       return function (_x, _x2) {
@@ -973,11 +973,12 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Modal)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      selection: [],
+      clients: [],
       reason: '',
       date: '',
       startTime: '',
-      length: ''
+      length: '',
+      notes: ''
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
@@ -988,6 +989,16 @@ function (_Component) {
       var val = type === 'number' ? parseFloat(value) : value;
 
       _this.setState(_defineProperty({}, name, val));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleCancelClick", function (e, toggleModal) {
+      e.preventDefault();
+
+      _this.setState({
+        notes: '',
+        reason: '',
+        clients: []
+      });
     });
 
     return _this;
@@ -1016,7 +1027,7 @@ function (_Component) {
         mutation: TOGGLE_MODAL_MUTATION,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 190
+          lineNumber: 196
         },
         __self: this
       }, function (toggleModal) {
@@ -1024,7 +1035,7 @@ function (_Component) {
           query: OPEN_MODAL_QUERY,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 192
+            lineNumber: 198
           },
           __self: this
         }, function (_ref) {
@@ -1037,13 +1048,13 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(BackDrop, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 198
+              lineNumber: 204
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Modall, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 199
+              lineNumber: 205
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
@@ -1053,7 +1064,6 @@ function (_Component) {
               var _ref2 = _asyncToGenerator(
               /*#__PURE__*/
               _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-                var res;
                 return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
                   while (1) {
                     switch (_context.prev = _context.next) {
@@ -1063,15 +1073,11 @@ function (_Component) {
                         return createAppointment();
 
                       case 3:
-                        res = _context.sent;
-                        console.log(res);
-
-                      case 5:
                       case "end":
                         return _context.stop();
                     }
                   }
-                }, _callee, this);
+                }, _callee);
               }));
 
               return function (_x) {
@@ -1080,31 +1086,35 @@ function (_Component) {
             }(),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 200
+              lineNumber: 206
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Date, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 207
+              lineNumber: 212
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 208
+              lineNumber: 213
             },
             __self: this
           }, Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(_this2.props.date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 209
+              lineNumber: 214
             },
             __self: this
           }, _this2.props.time)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            name: "clients",
+            type: "text",
+            value: _this2.state.clients,
+            onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 211
+              lineNumber: 216
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(StyledInput, {
@@ -1112,10 +1122,11 @@ function (_Component) {
             type: "select",
             multiple: false,
             value: _this2.state.reason,
+            placeholder: "Search your favourite book",
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 213
+              lineNumber: 223
             },
             __self: this
           }, _this2.props.reasons.map(function (reason, i) {
@@ -1124,7 +1135,7 @@ function (_Component) {
               key: reason.name,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 221
+                lineNumber: 232
               },
               __self: this
             }, reason.name);
@@ -1132,27 +1143,33 @@ function (_Component) {
             htmlFor: "note",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 227
+              lineNumber: 238
             },
             __self: this
           }, "Notes:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(StyledTextArea, {
+            name: "notes",
+            type: "text",
+            value: _this2.state.notes,
+            onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 229
+              lineNumber: 240
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Cancel, {
+            onChange: _this2.handleCancelClick,
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 232
+              lineNumber: 248
             },
             __self: this
           }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Save, {
+            type: "submit",
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 233
+              lineNumber: 254
             },
             __self: this
           }, "Save"))));
@@ -1486,7 +1503,7 @@ function (_Component) {
                       return _context.stop();
                   }
                 }
-              }, _callee, this);
+              }, _callee);
             }));
 
             return function (_x) {

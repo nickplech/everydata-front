@@ -41,11 +41,12 @@ const Days = styled.input`
   margin: 2px;
   width: 12.25%;
   height: 40%;
+  font-size: 12px;
   color: white;
   grid-row: 3;
   background: #3d5866;
-  align-content: center;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
   outline: none;
   font-family: 'Montserrat', sans-serif;
   transition: 0.2s;
@@ -53,14 +54,14 @@ const Days = styled.input`
   border: none;
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  &:first-child {
+  &:focus {
     background: rgba(20, 110, 240, 0.8);
   }
   &:hover {
     transform: scale(1.1);
   }
   &:active {
-    background: lavender;
+    background: rgba(20, 110, 240, 0.8);
   }
 `
 const StyledDiv = styled.div`
@@ -100,8 +101,8 @@ const DaySelector = props => (
             key={day}
             readOnly
             name="date"
-            onChange={props.saveToState}
-            value={format(day, 'D')}
+            onClick={props.saveToState}
+            value={day}
           />
         )
       })}

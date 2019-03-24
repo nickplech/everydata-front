@@ -6,6 +6,7 @@ import DaySelector from './DaySelector'
 import { format, addDays } from 'date-fns'
 import Timer from './TimePicker'
 import Submitted from './Submitted'
+import { SINGLE_CLIENT_QUERY } from './Clients'
 import { ALL_CLIENTS_REMINDERS } from './SingleClient'
 import User from './User'
 
@@ -46,7 +47,7 @@ const TEXT_TEMPLATES_QUERY = gql`
   }
 `
 
-const Back = styled.form`
+const Form = styled.form`
   display: grid;
   grid-template-columns: 280px 40px 1fr 100px;
   grid-template-rows: 70px 1fr;
@@ -102,7 +103,7 @@ const Error = styled.div`
   width: 30%;
   text-align: center;
   padding: 10px;
-  background: rgba(180, 110, 20, 0.9);
+  background: rgba(220, 50, 20, 0.9);
   color: white;
   border-radius: 5px;
   bottom: 15px;
@@ -140,102 +141,130 @@ const Send = styled.button`
   }
 `
 
+const MessageBody = props => (
+  <User>
+    {({ data: { me } }) => {
+      const business = me.businessName.toString()
+      const phone = me.cellPhone.toString()
+      return (
+        <Query query={SINGLE_CLIENT_QUERY} variables={{ id: props.id }}>
+          {({ data: { client } }) => {
+            return (
+              <Query query={TEXT_TEMPLATES_QUERY}>
+                {({ data }) => {
+                  const seed = data.textTemplates[0].content
+                    .replace('<business>', business)
+                    .replace('<phone>', phone)
+                  return (
+                    <ReviewMessage
+                      user={me.id}
+                      client={client.id}
+                      seededMessage={seed}
+                      cellPhone={client.cellPhone}
+                    />
+                  )
+                }}
+              </Query>
+            )
+          }}
+        </Query>
+      )
+    }}
+  </User>
+)
+
 class ReviewMessage extends Component {
   state = {
     time: '8:00 am',
-    date: addDays(new Date(), 3),
-    text: '',
+    text: this.props.seededMessage,
+    date: '',
     message: 'Appointment Reminder has Been Sent',
   }
 
   saveToState = e => {
-    this.setState({ [e.target.name]: e.target.value })
+    const { name, type, value } = e.target
+    const val = type === 'number' ? parseFloat(value) : value
+    if (name === 'date') {
+      this.setState({ date: val })
+    }
+    if (name === 'time') {
+      this.setState({ time: val })
+    }
+
+    let date = format(val, 'ddd, MMM Do')
+    let time = this.state.time
+    const textTemplate = this.props.seededMessage
+      .replace('<date>', date)
+      .replace('<time>', time)
+    this.setState({ text: textTemplate })
   }
-
   render() {
-    const time = this.state.time
-    const date = format(this.state.date, 'ddd, MMM Do')
-    const text = this.state.text
-    const to = this.props.cellPhone.toString()
+    const tooLong = this.state.text.length > 159
+    const needsDate = this.state.date.length < 2
+    const needsTime = this.state.time.length < 2
+
     return (
-      <User>
-        {({ data: { me } }) => {
-          const business = me.businessName.toString()
-          const phone = me.cellPhone.toString()
+      <Mutation
+        mutation={SEND_TEXT_MUTATION}
+        variables={{
+          to: this.props.cellPhone.toString(),
+          text: this.state.text,
+          client: this.props.client,
+          user: this.props.user,
+
+          confirmationStatus: 'UNCONFIRMED',
+        }}
+        refetchQueries={[
+          {
+            query: ALL_CLIENTS_REMINDERS,
+            variables: { client: this.props.client },
+          },
+        ]}
+      >
+        {(createTextReminder, { error, loading, called }) => {
           return (
-            <Query query={TEXT_TEMPLATES_QUERY}>
-              {({ data }) => {
-                const defaultTemplate = data.textTemplates[0].content
-                  .replace('<business>', business)
-                  .replace('<phone>', phone)
-                  .replace('<time>', time)
-                  .replace('<date>', date)
-                return (
-                  <Mutation
-                    mutation={SEND_TEXT_MUTATION}
-                    variables={{
-                      to: to,
-                      text: text,
-                      client: this.props.id,
-                      user: me.id,
-                      confirmationStatus: 'UNCONFIRMED',
-                    }}
-                    refetchQueries={[
-                      {
-                        query: ALL_CLIENTS_REMINDERS,
-                        variables: { client: this.props.id },
-                      },
-                    ]}
-                  >
-                    {(createTextReminder, { error, loading, called }) => {
-                      return (
-                        <Back
-                          onSubmit={async e => {
-                            e.preventDefault()
-                            const res = await createTextReminder()
-
-                            console.log(res)
-                          }}
-                        >
-                          {error && (
-                            <Error>
-                              Appointment Reminder Failed to Send. Please Try
-                              Again Shortly
-                            </Error>
-                          )}
-                          {!error && !loading && called && (
-                            <Submitted message={this.state.message} />
-                          )}
-
-                          <>
-                            <DaySelector saveToState={this.saveToState} />
-                            {/* <Timer /> */}
-
-                            <Message
-                              readOnly
-                              name="text"
-                              defaultValue={defaultTemplate}
-                              onChange={this.saveToState}
-                            />
-                            <CharCount>
-                              {defaultTemplate.length} of 160
-                            </CharCount>
-                            {defaultTemplate.length < 160 && (
-                              <Send type="submit">Send</Send>
-                            )}
-                          </>
-                        </Back>
-                      )
-                    }}
-                  </Mutation>
-                )
+            <Form
+              onSubmit={async e => {
+                e.preventDefault()
+                const res = await createTextReminder()
+                this.setState({ date: '', time: '' })
+                console.log(res)
               }}
-            </Query>
+            >
+              {error && (
+                <Error>
+                  Appointment Reminder Failed to Send. Please Try Again Shortly
+                </Error>
+              )}
+              {!error && !loading && called && (
+                <Submitted message={this.state.message} />
+              )}
+
+              <>
+                <DaySelector saveToState={this.saveToState} />
+
+                <Message
+                  readOnly
+                  name="text"
+                  value={this.state.text}
+                  onChange={this.saveToState}
+                />
+                <CharCount>{this.state.text.length} of 160</CharCount>
+
+                <Send
+                  disabled={loading || tooLong || needsDate || needsTime}
+                  aria-busy={loading}
+                  type="submit"
+                >
+                  Send
+                </Send>
+              </>
+            </Form>
           )
         }}
-      </User>
+      </Mutation>
     )
   }
 }
-export default ReviewMessage
+export default MessageBody
 export { TEXT_TEMPLATES_QUERY, SEND_TEXT_MUTATION }

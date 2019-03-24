@@ -1,15 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import DeleteReason from './DeleteReason'
 
-const Li = styled.li`
+const Div = styled.div`
   padding: 3px 10px;
-  margin: 4px 1px;
+  margin: 4px 5px;
   border-width: 2px;
   border-style: solid;
   background: transparent;
   color: white;
-  width: 250px;
+  min-width: 50px;
   text-align: center;
+  cursor: pointer;
   border-radius: 25px;
   list-style: none;
   transition: 0.2s;
@@ -21,9 +23,18 @@ const Li = styled.li`
 
 const Reason = ({ reason }) => {
   return (
-    <Li style={{ borderColor: `${reason.color}`, color: `${reason.color}` }}>
-      {reason.name}
-    </Li>
+    <>
+      <Div
+        style={{
+          background: `${reason.color}`,
+          color: reason.color === '#F8F8FF' && 'black',
+          borderColor: reason.color === '#F8F8FF' && 'lightgrey',
+        }}
+      >
+        {reason.name}
+        <DeleteReason color={reason.color} id={reason.id} name={reason.name} />
+      </Div>
+    </>
   )
 }
 

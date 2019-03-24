@@ -12,7 +12,7 @@ const StatsDisplay = styled.div`
   display: grid;
   grid-row: 1/3;
   grid-column: 1;
-  background-color: rgba(220, 220, 220, 0.3);
+  background-color: rgba(240, 240, 240, 1);
   padding-left: 5px;
   padding-top: 5px;
   width: 100%;

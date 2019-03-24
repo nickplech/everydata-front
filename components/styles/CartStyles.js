@@ -42,12 +42,6 @@ const CartStyles = styled.div`
     padding: 0;
     list-style: none;
   }
-
-  .exy {
-    cursor: pointer;
-    opacity: 0.6;
-    outline: none;
-  }
 `
 
 export default CartStyles

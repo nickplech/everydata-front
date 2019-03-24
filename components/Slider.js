@@ -6,7 +6,6 @@ import CartStyles from './styles/CartStyles'
 import ColumnTally from './ColumnTally'
 import Supreme from './styles/Supreme'
 import { startOfDay, format } from 'date-fns'
-import CloseButton from './styles/CloseButton'
 import styled from 'styled-components'
 import CartItem from './CartItem'
 
@@ -19,6 +18,33 @@ const LOCAL_STATE_QUERY = gql`
 const TOGGLE_CART_MUTATION = gql`
   mutation {
     toggleCart @client
+  }
+`
+const CloseButton = styled.button`
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  padding-bottom: 6px;
+  border: 1px solid red;
+  position: absolute;
+  z-index: 20;
+  left: 5px;
+  top: 5px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  .child {
+    position: absolute;
+    justify-self: center;
+    display: flex;
+    color: red;
+    font-size: 3rem;
+    padding-left: 0px;
   }
 `
 
@@ -76,11 +102,7 @@ class Slider extends Component {
                   {({ data }) => (
                     <CartStyles open={data.cartOpen}>
                       <header>
-                        <CloseButton
-                          onClick={toggleCart}
-                          title="close"
-                          className="exy"
-                        >
+                        <CloseButton onClick={toggleCart} title="close">
                           <div className="child">&times;</div>
                         </CloseButton>
                         <Supreme>{format(date, 'MMMM Do, YYYY')}</Supreme>
