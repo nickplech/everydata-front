@@ -3,7 +3,7 @@ import { SINGLE_CLIENT_QUERY } from './SingleClient'
 import { Query } from 'react-apollo'
 import Link from 'next/link'
 import { format } from 'date-fns'
-import AddToCart from './AddToCart'
+
 import posed from 'react-pose'
 import styled from 'styled-components'
 
@@ -72,7 +72,7 @@ const ProfilePic = styled.img`
   display: block;
   border-radius: 50%;
   background: #f5e8df;
-  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.15);
   &:hover {
     cursor: pointer;
   }
@@ -177,8 +177,6 @@ class ClientStats extends React.Component {
                       </div>
                     </div>
                   </div>
-
-                  <AddToCart id={this.props.id} />
                 </Flexer>
               </Fragment>
             )

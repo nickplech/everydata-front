@@ -3,30 +3,33 @@ import styled from 'styled-components'
 import gql from 'graphql-tag'
 import { Query, Mutation } from 'react-apollo'
 import DaySelector from './DaySelector'
-import { format, addDays } from 'date-fns'
+import { format } from 'date-fns'
 import Timer from './TimePicker'
 import Submitted from './Submitted'
 import { SINGLE_CLIENT_QUERY } from './Clients'
 import { ALL_CLIENTS_REMINDERS } from './SingleClient'
 import User from './User'
+import { ALL_CARTITEMS_QUERY } from './Slider'
 
 const SEND_TEXT_MUTATION = gql`
   mutation SEND_TEXT_MUTATION(
     $to: String!
     $text: String!
     $client: ID!
-    $user: ID!
     $confirmationStatus: String!
+    $forDate: String!
   ) {
     createTextReminder(
       to: $to
       text: $text
       client: $client
-      user: $user
       confirmationStatus: $confirmationStatus
+      forDate: $forDate
     ) {
+      confirmationStatus
       id
       text
+      forDate
       user {
         id
       }
@@ -148,7 +151,10 @@ const MessageBody = props => (
       const phone = me.cellPhone.toString()
       return (
         <Query query={SINGLE_CLIENT_QUERY} variables={{ id: props.id }}>
-          {({ data: { client } }) => {
+          {({ loading, error, data: { client } }) => {
+            if (loading) return <p>Loading...</p>
+            if (error) return <Error error={error} />
+            if (!client) return null
             return (
               <Query query={TEXT_TEMPLATES_QUERY}>
                 {({ data }) => {
@@ -157,7 +163,6 @@ const MessageBody = props => (
                     .replace('<phone>', phone)
                   return (
                     <ReviewMessage
-                      user={me.id}
                       client={client.id}
                       seededMessage={seed}
                       cellPhone={client.cellPhone}
@@ -190,7 +195,6 @@ class ReviewMessage extends Component {
     if (name === 'time') {
       this.setState({ time: val })
     }
-
     let date = format(val, 'ddd, MMM Do')
     let time = this.state.time
     const textTemplate = this.props.seededMessage
@@ -198,6 +202,7 @@ class ReviewMessage extends Component {
       .replace('<time>', time)
     this.setState({ text: textTemplate })
   }
+
   render() {
     const tooLong = this.state.text.length > 159
     const needsDate = this.state.date.length < 2
@@ -210,24 +215,27 @@ class ReviewMessage extends Component {
           to: this.props.cellPhone.toString(),
           text: this.state.text,
           client: this.props.client,
-          user: this.props.user,
-
           confirmationStatus: 'UNCONFIRMED',
+          forDate: this.state.date,
         }}
         refetchQueries={[
           {
-            query: ALL_CLIENTS_REMINDERS,
+            query: {
+              ALL_CLIENTS_REMINDERS,
+            },
             variables: { client: this.props.client },
           },
         ]}
       >
         {(createTextReminder, { error, loading, called }) => {
+          if (loading) return <p>Loading...</p>
+          if (error) return <Error error={error} />
+
           return (
             <Form
               onSubmit={async e => {
                 e.preventDefault()
                 const res = await createTextReminder()
-                this.setState({ date: '', time: '' })
                 console.log(res)
               }}
             >

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
-import User from './User'
 import CartStyles from './styles/CartStyles'
 import ColumnTally from './ColumnTally'
 import Supreme from './styles/Supreme'
@@ -18,6 +17,21 @@ const LOCAL_STATE_QUERY = gql`
 const TOGGLE_CART_MUTATION = gql`
   mutation {
     toggleCart @client
+  }
+`
+
+const ALL_CARTITEMS_QUERY = gql`
+  query ALL_CARTITEMS_QUERY {
+    cartItems {
+      id
+      confirmationStatus
+      quantity
+      client {
+        id
+        firstName
+        lastName
+      }
+    }
   }
 `
 const CloseButton = styled.button`
@@ -92,9 +106,9 @@ class Slider extends Component {
   render() {
     let { date } = this.state
     return (
-      <User>
-        {({ data: { me } }) => {
-          if (!me) return null
+      <Query query={ALL_CARTITEMS_QUERY}>
+        {({ data: { cartItems } }) => {
+          if (!cartItems) return null
           return (
             <Mutation mutation={TOGGLE_CART_MUTATION}>
               {toggleCart => (
@@ -110,13 +124,13 @@ class Slider extends Component {
                           <div className="flexChild">
                             <p className="confirmed">Confirmed</p>
                             <ColumnTally
-                              cart={me.cart}
+                              cart={cartItems}
                               color="green"
                               name="CONFIRMED"
                             />
                             <div className="scroll">
                               <ul>
-                                {me.cart.map(cartItem =>
+                                {cartItems.map(cartItem =>
                                   cartItem.confirmationStatus ===
                                   'CONFIRMED' ? (
                                     <CartItem
@@ -131,13 +145,13 @@ class Slider extends Component {
                           <div className="flexChild">
                             <p className="canceled">Canceled</p>
                             <ColumnTally
-                              cart={me.cart}
+                              cart={cartItems}
                               color="red"
                               name="CANCELED"
                             />
                             <div className="scroll">
                               <ul>
-                                {me.cart.map(cartItem =>
+                                {cartItems.map(cartItem =>
                                   cartItem.confirmationStatus === 'CANCELED' ? (
                                     <CartItem
                                       key={cartItem.id}
@@ -151,14 +165,14 @@ class Slider extends Component {
                           <div className="flexChild">
                             <p className="unconfirmed">Unconfirmed</p>
                             <ColumnTally
-                              cart={me.cart}
+                              cart={cartItems}
                               color="grey"
                               name="UNCONFIRMED"
                             />
 
                             <div className="scroll">
                               <ul>
-                                {me.cart.map(cartItem =>
+                                {cartItems.map(cartItem =>
                                   cartItem.confirmationStatus ===
                                   'UNCONFIRMED' ? (
                                     <CartItem
@@ -181,9 +195,9 @@ class Slider extends Component {
             </Mutation>
           )
         }}
-      </User>
+      </Query>
     )
   }
 }
 export default Slider
-export { LOCAL_STATE_QUERY, TOGGLE_CART_MUTATION }
+export { LOCAL_STATE_QUERY, TOGGLE_CART_MUTATION, ALL_CARTITEMS_QUERY }

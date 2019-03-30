@@ -16,19 +16,19 @@ const CURRENT_USER_QUERY = gql`
       orders {
         id
       }
-      appointments {
-        id
-      }
-      cart {
-        id
-        quantity
-        confirmationStatus
-        client {
-          id
-          firstName
-          lastName
-        }
-      }
+      # appointments {
+      #   id
+      # }
+      # cart {
+      #   id
+      #   quantity
+      #   confirmationStatus
+      #   client {
+      #     id
+      #     firstName
+      #     lastName
+      #   }
+      # }
     }
   }
 `

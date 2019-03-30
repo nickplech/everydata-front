@@ -80,8 +80,8 @@ const StatsDisplay = styled.div`
   .react-calendar__month-view__weekdays {
     text-align: center;
     text-decoration: none;
-    font-size: 0.75em;
-    font-weight: 800;
+    font-size: 0.9em;
+    font-weight: 200;
   }
   .react-calendar__month-view__weekdays__weekday {
     padding: 1em 0;
@@ -96,12 +96,17 @@ const StatsDisplay = styled.div`
     font-size: 0.75em;
     padding: calc(0.75em / 0.75) calc(0.5em / 0.75);
   }
+  .react-calendar__month-view__days__day {
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.8);
+  }
   .react-calendar__month-view__days__day--weekend {
-    color: rgba(240, 10, 10, 0.8);
-    font-weight: 800;
+    color: rgba(240, 10, 10, 0.7);
+    font-weight: 700;
   }
   .react-calendar__month-view__days__day--neighboringMonth {
     color: #969696;
+    font-weight: 500;
   }
   .react-calendar__year-view .react-calendar__tile,
   .react-calendar__decade-view .react-calendar__tile,
@@ -150,7 +155,6 @@ const StatsDisplay = styled.div`
 class CalendarStats extends React.Component {
   state = {
     date: dateFns.startOfDay(new Date()),
-    // today: dateFns.startOfDay(new Date()),
   }
 
   onChange = date => this.setState({ date })

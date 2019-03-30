@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import Nav from './Nav'
-import { Query } from 'react-apollo'
-import { CURRENT_USER_QUERY } from './User'
+import User from './User'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import InfoBar from './InfoBar'
@@ -90,7 +89,11 @@ class Header extends Component {
                 </Plus>
               </a>
             </Link>
-            <AutoComplete />
+            <User>
+              {({ data: { me } }) => {
+                return me && <AutoComplete user={me.id} />
+              }}
+            </User>
             <InfoBar />
             <Slider />
           </div>

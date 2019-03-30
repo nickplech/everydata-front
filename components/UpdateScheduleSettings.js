@@ -6,12 +6,12 @@ import chroma from 'chroma-js'
 import Select from 'react-select'
 import Router from 'next/router'
 import Error from './ErrorMessage'
-import MyDropdown, { OPEN_SLIDE_QUERY } from './SlideDown'
+import MyDropdown from './SlideDown'
 import styled from 'styled-components'
 import SickButton from './styles/SickButton'
 import SickerButton from './styles/SickerButton'
 import Reason from './Reason'
-import { TOGGLE_SLIDE_MUTATION } from './SlideDown'
+
 import { ALL_REASONS_QUERY } from './SingleDay'
 
 const CREATE_REASON_MUTATION = gql`
@@ -167,6 +167,11 @@ class UpdateScheduleSettings extends Component {
     defaultLength: 0,
     provider: '',
     selectedOption: '',
+    openSlide: false,
+  }
+
+  openSlide = () => {
+    this.setState({ openSlide: !this.state.openSlide })
   }
   handleChange = e => {
     const { name, type, value } = e.target
@@ -195,6 +200,7 @@ class UpdateScheduleSettings extends Component {
   }
 
   render() {
+    const { openSlide } = this.state
     const selectedOption = this.state.selectedOption
     return (
       <Inner>
@@ -228,92 +234,78 @@ class UpdateScheduleSettings extends Component {
                           </Submitted>
                         )}
                         <fieldset disabled={loading} aria-busy={loading}>
-                          <Mutation mutation={TOGGLE_SLIDE_MUTATION}>
-                            {toggleSlide => (
-                              <Query query={OPEN_SLIDE_QUERY}>
-                                {({ data: { openSlide } }) => (
-                                  <>
-                                    <Flex>
-                                      <Types>Appointment Types</Types>
-                                      {!openSlide && (
-                                        <AButton onClick={toggleSlide}>
-                                          <div className="child">+</div>
-                                        </AButton>
-                                      )}
-                                    </Flex>
-                                    <Flex style={{ padding: '0' }}>
-                                      {data.reasons.map(reason => {
-                                        return (
-                                          <Reason
-                                            key={reason.id}
-                                            reason={reason}
-                                          />
-                                        )
-                                      })}
-                                    </Flex>
-                                    <MyDropdown>
-                                      <label htmlFor="firstName">
-                                        Name of Appointment Type
-                                        <input
-                                          type="text"
-                                          id="name"
-                                          name="name"
-                                          placeholder="Name"
-                                          autoComplete="off"
-                                          required
-                                          value={this.state.name}
-                                          onChange={this.handleChange}
-                                        />
-                                      </label>
-                                      <label>
-                                        Select Color to Identify Appointment
-                                        Type
-                                        <Select
-                                          className="color"
-                                          styles={colourStyles}
-                                          value={selectedOption}
-                                          onChange={this.handleColor}
-                                          options={colourOptions}
-                                        />
-                                      </label>
-                                      <label htmlFor="defaultLength">
-                                        Default Length:
-                                        <input
-                                          type="number"
-                                          min="0"
-                                          max="800"
-                                          step="15"
-                                          id="defaultLength"
-                                          name="defaultLength"
-                                          value={this.state.defaultLength}
-                                          onChange={this.handleChange}
-                                        />
-                                      </label>
-                                      <label htmlFor="provider">
-                                        Appointment Belongs to Specific
-                                        Provider?
-                                        <input
-                                          type="text"
-                                          id="provider"
-                                          name="provider"
-                                          placeholder="provider"
-                                          value={this.state.provider}
-                                          onChange={this.handleChange}
-                                        />
-                                      </label>{' '}
-                                      <SickButton type="submit">
-                                        Creat{loading ? 'ing' : 'e'} Appointment
-                                        Type
-                                      </SickButton>{' '}
-                                      <SickerButton onClick={toggleSlide}>
-                                        Cancel
-                                      </SickerButton>
-                                    </MyDropdown>
-                                  </>
-                                )}
-                              </Query>
-                            )}
-                          </Mutation>
+                          <>
+                            <Flex>
+                              <Types>Appointment Types</Types>
+                              {!openSlide && (
+                                <AButton onClick={this.openSlide}>
+                                  <div className="child">+</div>
+                                </AButton>
+                              )}
+                            </Flex>
+                            <Flex style={{ padding: '0' }}>
+                              {data.reasons.map(reason => {
+                                return (
+                                  <Reason key={reason.id} reason={reason} />
+                                )
+                              })}
+                            </Flex>
+                            <MyDropdown openSlide={this.state.openSlide}>
+                              <label htmlFor="firstName">
+                                Name of Appointment Type
+                                <input
+                                  type="text"
+                                  id="name"
+                                  name="name"
+                                  placeholder="Name"
+                                  autoComplete="off"
+                                  required
+                                  value={this.state.name}
+                                  onChange={this.handleChange}
+                                />
+                              </label>
+                              <label>
+                                Select Color to Identify Appointment Type
+                                <Select
+                                  className="color"
+                                  styles={colourStyles}
+                                  value={selectedOption}
+                                  onChange={this.handleColor}
+                                  options={colourOptions}
+                                />
+                              </label>
+                              <label htmlFor="defaultLength">
+                                Default Length:
+                                <input
+                                  type="number"
+                                  min="0"
+                                  max="800"
+                                  step="15"
+                                  id="defaultLength"
+                                  name="defaultLength"
+                                  value={this.state.defaultLength}
+                                  onChange={this.handleChange}
+                                />
+                              </label>
+                              <label htmlFor="provider">
+                                Appointment Belongs to Specific Provider?
+                                <input
+                                  type="text"
+                                  id="provider"
+                                  name="provider"
+                                  placeholder="provider"
+                                  value={this.state.provider}
+                                  onChange={this.handleChange}
+                                />
+                              </label>{' '}
+                              <SickButton type="submit">
+                                Creat{loading ? 'ing' : 'e'} Appointment Type
+                              </SickButton>{' '}
+                              <SickerButton onClick={this.openSlide}>
+                                Close
+                              </SickerButton>
+                            </MyDropdown>
+                          </>
                         </fieldset>
                       </Form>
                     )

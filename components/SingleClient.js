@@ -28,8 +28,6 @@ const ALL_CLIENTS_REMINDERS = gql`
 
 const GridSub = styled.div`
   display: grid;
-  grid-column: 2;
-  grid-row: 1;
   background-color: white;
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
   border: 5px solid white;
@@ -39,64 +37,61 @@ const GridSub = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
-  &:after {
-    width: calc(100%);
-    height: 30px;
-    position: relative;
-    display: flex;
-    margin: 0 auto;
-    content: 'Appointment Reminder Log';
-    justify-content: center;
-    border-bottom: 2px solid grey;
-    line-height: 28px;
-    color: white;
-    border-radius: 20px 20px 0 0;
-    padding: 2px 10px;
-    background: #3d5866;
-  }
+`
+
+const Header = styled.div`
+  width: 100%;
+  height: 30px;
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  z-index: 100;
+  justify-content: center;
+  border-bottom: 2px solid grey;
+  line-height: 28px;
+  color: white;
+  border-radius: 20px 20px 0 0;
+  padding: 2px 10px;
+  background: #3d5866;
 `
 const Lister = styled.div`
   position: absolute;
-  display: grid;
-  grid-template-rows: repeat(auto-fit, minmax(200px, 600px));
+  display: flex;
+  /* grid-template-rows: repeat(minmax(200px, auto)); */
+  flex-flow: column;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding-left: 6px;
+  padding-left: 25px;
   background: white;
   overscroll-behavior: contain;
   overflow-y: scroll;
 `
 const TextChunk = styled.div`
-  display: grid;
-  margin: 0px 30px;
-  padding: 0px;
+  display: flex;
+  min-height: 170px;
   border-top: 1.5px solid rgba(220, 220, 220, 0.4);
+
   &:first-child {
     margin-top: 30px;
     border-top: none;
   }
   .message-text {
-    align-self: center;
     background: rgba(220, 220, 220, 0.8);
     font-family: 'Montserrat', sans-serif;
     color: black;
-    grid-column: 1;
     display: inline-flex;
+    align-self: center;
     font-size: 12px;
     padding: 10px 14px;
-    margin: 30px 20px;
     border-radius: 10px;
     min-width: 300px;
     max-width: 600px;
   }
   .conf {
-    grid-column: 2;
-    display: flex;
-    align-content: center;
-  }
-  .confirmationStatus {
+    /* grid-column: 2; */
     display: inline-flex;
+    padding: 0 0 0 40px;
     justify-content: center;
     flex-direction: column;
   }
@@ -104,8 +99,8 @@ const TextChunk = styled.div`
 const Nothing = styled.h2`
   display: block;
   font-size: 20px;
-  margin-top: 150px;
-  opacity: 0.5;
+  margin-top: 70px;
+  opacity: 0.4;
   text-align: center;
 `
 const P = styled.p`
@@ -170,6 +165,7 @@ class SingleClient extends Component {
                   if (data.textReminders.length < 1)
                     return (
                       <>
+                        <Header>Appointment Reminder Log</Header>
                         <Nothing>
                           You Haven't Sent {client.firstName} Any Reminders Yet
                         </Nothing>
@@ -190,6 +186,7 @@ class SingleClient extends Component {
                         </title>
                       </Head>
                       <>
+                        <Header>Appointment Reminder Log</Header>
                         <Lister myRef={this.myRef}>
                           {data.textReminders.map(message => {
                             return (
@@ -198,37 +195,34 @@ class SingleClient extends Component {
                                   {message.text}
                                 </div>
                                 <div className="conf">
-                                  <div className="confirmationStatus">
-                                    {message.confirmationStatus ===
-                                      'UNCONFIRMED' && (
-                                      <PU>{message.confirmationStatus}</PU>
-                                    )}
-                                    {message.confirmationStatus ===
-                                      'CONFIRMED' && (
-                                      <PG>{message.confirmationStatus}</PG>
-                                    )}
-                                    {message.confirmationStatus ===
-                                      'CANCELED' && (
-                                      <PR>{message.confirmationStatus}</PR>
-                                    )}
-                                    {message.updatedAt !==
-                                      message.createdAt && (
-                                      <P>
-                                        on{' '}
-                                        {format(
-                                          message.updatedAt,
-                                          'MMMM Do, YYYY h:mm a',
-                                        )}
-                                      </P>
-                                    )}
+                                  {message.confirmationStatus ===
+                                    'UNCONFIRMED' && (
+                                    <PU>{message.confirmationStatus}</PU>
+                                  )}
+                                  {message.confirmationStatus ===
+                                    'CONFIRMED' && (
+                                    <PG>{message.confirmationStatus}</PG>
+                                  )}
+                                  {message.confirmationStatus ===
+                                    'CANCELED' && (
+                                    <PR>{message.confirmationStatus}</PR>
+                                  )}
+                                  {message.updatedAt !== message.createdAt && (
                                     <P>
-                                      Sent:{' '}
+                                      on{' '}
                                       {format(
-                                        message.createdAt,
+                                        message.updatedAt,
                                         'MMMM Do, YYYY h:mm a',
                                       )}
                                     </P>
-                                  </div>
+                                  )}
+                                  <P>
+                                    Sent:{' '}
+                                    {format(
+                                      message.createdAt,
+                                      'MMMM Do, YYYY h:mm a',
+                                    )}
+                                  </P>
                                 </div>
                               </TextChunk>
                             )

@@ -36,7 +36,7 @@ const Day = styled.div`
   align-content: flex-start;
   justify-content: center;
 `
-const Days = styled.input`
+const Days = styled.label`
   display: flex;
   margin: 2px;
   width: 12.25%;
@@ -63,6 +63,30 @@ const Days = styled.input`
   &:active {
     background: rgba(20, 110, 240, 0.8);
   }
+`
+const Dayz = styled.span`
+  display: flex;
+  margin: 2px;
+  width: 12.25%;
+  height: 40%;
+  font-size: 12px;
+  color: white;
+  grid-row: 3;
+  background: #3d5866;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  transition: 0.2s;
+  border: none;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
 `
 const StyledDiv = styled.div`
   display: flex;
@@ -97,13 +121,16 @@ const DaySelector = props => (
     <Day>
       {result.map(day => {
         return (
-          <Days
-            key={day}
-            readOnly
-            name="date"
-            onClick={props.saveToState}
-            value={day}
-          />
+          <Days key={day}>
+            <input
+              style={{ display: 'none' }}
+              readOnly
+              name="date"
+              onClick={props.saveToState}
+              value={day}
+            />
+            <Dayz>{format(day, 'D')}</Dayz>
+          </Days>
         )
       })}
     </Day>

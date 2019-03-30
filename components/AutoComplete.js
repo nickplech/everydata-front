@@ -12,7 +12,7 @@ const SEARCH_CLIENTS_QUERY = gql`
     clients(
       orderBy: updatedAt_DESC
       where: {
-        OR: [
+        AND: [
           { firstName_contains: $searchTerm }
           { lastName_contains: $searchTerm }
         ]

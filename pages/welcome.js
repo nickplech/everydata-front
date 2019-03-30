@@ -15,18 +15,18 @@ const Submitted = styled.p`
     border-bottom: 3px solid white;
   }
 `
-const welcome = () => {
+const Welcome = () => {
   return (
     <div>
       <Submitted>
-        Welcome to Perfect Day Reminders, please{' '}
+        Welcome to Perfect Day Reminders, Please{' '}
         <Link href="/login">
           <a>Login Here</a>
         </Link>{' '}
-        to begin your Free Trial
+        to Begin Your Free Trial
       </Submitted>
     </div>
   )
 }
 
-export default welcome
+export default Welcome

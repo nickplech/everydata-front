@@ -3,7 +3,7 @@ import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import { format } from 'date-fns'
 import styled from 'styled-components'
-
+import Select from 'react-select'
 import ClientSearch from './ClientSearch'
 
 const OPEN_MODAL_QUERY = gql`
@@ -57,13 +57,23 @@ const Modall = styled.div`
 
 const StyledInput = styled.select`
   width: 100%;
-  background: rgba(20, 110, 240, 0.5);
+  border: 2px solid rgba(20, 110, 220, .8);
+  background: transparent;
   margin: 20px 0;
-  border: none;
+  height: 50px;
   font-size: 2rem;
-  font-weight: 700;
-  color: white;
+  font-weight: 500;
+  color: rgba(0,0,0,.5);
   outline: none;
+option {
+   /* border-bottom: 1px solid ${props => props.theme.lightgrey}; */
+  background: white;
+  padding: 1rem;
+  transition: all 0.2s;
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+}
 `
 const StyledTextArea = styled.textarea`
   padding: 5px;
@@ -83,19 +93,14 @@ const Date = styled.div`
   grid-row: 1;
   justify-content: flex-end;
   border-radius: 25px 25px 0 0;
-
-  overflow: hidden;
   height: 100%;
   padding: 5px 20px 0px 20px;
 
   p {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    margin: 10px ;
+    /* font-family: 'Montserrat', sans-serif; */
     color: ${props => props.theme.blue};
-    display: block;
-
     padding: 0px 0px;
-
     font-size: 2.2rem;
     position: relative;
   }
@@ -157,7 +162,12 @@ const Save = styled.button`
     transform: scale(1.1);
   }
 `
-// const SAMPLE = ['Fraxel', 'Hair']
+const colourStyles = {
+
+  input: styles => ({ ...styles }),
+  placeholder: styles => ({ ...styles }),
+  singleValue: (styles, { data }) => ({ ...styles }),
+}
 class Modal extends Component {
   state = {
     clients: [],
@@ -171,6 +181,11 @@ class Modal extends Component {
     const { name, type, value } = e.target
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
+  }
+
+    handleReason = reason => {
+    this.setState({ reason: reason })
+    console.log(`Option selected:`, reason)
   }
   handleCancelClick = (e, toggleModal) => {
     e.preventDefault()
@@ -192,6 +207,7 @@ class Modal extends Component {
   //   }, 350)
   // }
   render() {
+
     return (
       <Mutation mutation={TOGGLE_MODAL_MUTATION}>
         {toggleModal => (
@@ -225,7 +241,7 @@ class Modal extends Component {
                         type="select"
                         multiple={false}
                         value={this.state.reason}
-placeholder="Search your favourite book"
+                        placeholder="Search your favourite book"
                         onChange={this.handleChange}
                       >
                         {this.props.reasons.map((reason, i) => (

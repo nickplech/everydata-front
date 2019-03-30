@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Mutation, Query } from 'react-apollo'
 import { TOGGLE_CART_MUTATION } from './Slider'
 import { CURRENT_USER_QUERY } from './User'
+import { ALL_CARTITEMS_QUERY } from './Slider'
 import Link from 'next/link'
 import SuccessCount from './SuccessCount'
 import styled from 'styled-components'
@@ -60,16 +61,16 @@ class InfoBar extends Component {
             <Block name="Schedule" />
           </a>
         </Link>
-        <Query query={CURRENT_USER_QUERY}>
-          {({ data: { me } }) => (
+        <Query query={ALL_CARTITEMS_QUERY}>
+          {({ data: { cartItems } }) => (
             <Mutation mutation={TOGGLE_CART_MUTATION}>
               {toggleCart => (
                 <Confirmer onClick={toggleCart}>
                   <span className="confirmations">Confirmations</span>
                   <SuccessCount
                     count={
-                      me &&
-                      me.cart.reduce(
+                      cartItems &&
+                      cartItems.reduce(
                         (tally, cartItem) => tally + cartItem.quantity,
                         0,
                       )

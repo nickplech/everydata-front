@@ -39,7 +39,12 @@ const DisplayError = ({ error }) => {
     <ErrorStyles>
       <p data-test="graphql-error">
         <strong>Oops...</strong>
-        {error.message.replace('GraphQL error: ', '')}
+        {error.message
+          .replace('GraphQL error: ', '')
+          .replace(
+            'A unique constraint would be violated on User. Details: Field name = cellPhone',
+            'This phone number is already in use! Please enter a new cellphone number',
+          )}
       </p>
     </ErrorStyles>
   )

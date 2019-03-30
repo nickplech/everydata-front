@@ -18,7 +18,8 @@ const Styled = styled.div`
 const TabParent = () => (
   <Styled>
     <Query query={CURRENT_USER_QUERY}>
-      {({ data: { me }, error }) => {
+      {({ data: { me }, loading, error }) => {
+        if (loading) return <p>loading...</p>
         return (
           <Tabs
             activeTab={{

@@ -4,6 +4,7 @@ import Form from './styles/Form'
 import MaskedInput from 'react-text-mask'
 import Router from 'next/router'
 import { format } from 'date-fns'
+
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
 import gql from 'graphql-tag'
 import styled, { ThemeProvider } from 'styled-components'
@@ -16,7 +17,7 @@ const Inner = styled.div`
   margin: 0 auto;
   padding: 2rem;
   .dates {
-    font-family: montserrat, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
 
     &:focus {
@@ -34,9 +35,110 @@ const Inner = styled.div`
     background-repeat: no-repeat;
     border-radius: 50%;
     margin-top: 20px;
-    border: 2px solid rgba(20, 110, 220, 0.5);
-    box-shadow: 1px 2px 5px 3px rgba(0, 0, 0, 0.1);
+    /* border: 2px solid rgba(20, 110, 220, 0.5); */
+    box-shadow: 1px 2px 5px 3px rgba(0, 0, 0, 0.15);
     cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .field {
+    margin: 20px 0;
+    width: 100%;
+    height: 56px;
+    border-radius: 4px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out;
+  }
+
+  .field:hover {
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+  }
+
+  .field.active {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .field.active input {
+    padding: 24px 16px 8px 16px;
+  }
+
+  .field.active input + label {
+    top: 4px;
+    opacity: 1;
+    color: #512da8;
+  }
+
+  .field.locked {
+    pointer-events: none;
+  }
+
+  .field input {
+    width: 100%;
+    height: 56px;
+    position: relative;
+    padding: 0px 16px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    background-color: transparent;
+    color: #282828;
+    outline: none;
+    box-shadow: 0px 4px 20px 0px transparent;
+    transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out,
+      0.1s padding ease-in-out;
+    -webkit-appearance: none;
+  }
+
+  .field input::-webkit-input-placeholder {
+    color: rgba(20, 20, 20, 0.4);
+  }
+  .field input::-moz-placeholder {
+    color: rgba(20, 20, 20, 0.4);
+  }
+  .field input:-ms-input-placeholder {
+    color: rgba(20, 20, 20, 0.4);
+  }
+  .field input:-moz-placeholder {
+    color: rgba(20, 20, 20, 0.4);
+  }
+
+  .field input + label {
+    position: absolute;
+    top: 24px;
+    left: 16px;
+    font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #ffffff;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.1s all ease-in-out;
+  }
+
+  .field input + label.error {
+    color: #ec392f;
+  }
+
+  .field p.predicted {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #e0e0e0;
+    opacity: 1;
+    pointer-events: none;
   }
 `
 
@@ -69,6 +171,7 @@ class CreateClient extends Component {
     cellPhone: '',
     birthDay: '',
     image: '../static/img/profpic.jpg',
+    active: false,
   }
   handleChange = e => {
     const { name, type, value } = e.target
@@ -79,6 +182,10 @@ class CreateClient extends Component {
   handleCancelClick = e => {
     e.preventDefault()
     Router.back()
+  }
+
+  handleLabel = e => {
+    this.setState({ label: e.target.name })
   }
   uploadFile = async e => {
     const files = e.target.files
@@ -101,6 +208,9 @@ class CreateClient extends Component {
   }
 
   render() {
+    let { firstName, lastName, active } = this.state
+
+    const fieldClassName = `field ${active && 'active'}`
     return (
       <Inner>
         <Mutation mutation={CREATE_CLIENT_MUTATION} variables={this.state}>
@@ -120,8 +230,7 @@ class CreateClient extends Component {
               <Error error={error} />
               <fieldset disabled={loading} aria-busy={loading}>
                 <h2>Add New Client to Contacts</h2>
-                <label htmlFor="firstName" className="required">
-                  First Name
+                <div className={fieldClassName}>
                   <input
                     type="text"
                     id="firstName"
@@ -131,14 +240,18 @@ class CreateClient extends Component {
                     autoFocus
                     required
                     value={
-                      this.state.firstName.charAt(0).toUpperCase() +
-                      this.state.firstName.slice(1).trim()
+                      firstName.charAt(0).toUpperCase() +
+                      firstName.slice(1).trim()
                     }
                     onChange={this.handleChange}
+                    onFocus={() => this.setState({ active: true })}
+                    onBlur={() => this.setState({ active: false })}
                   />
-                </label>
-                <label htmlFor="lastName">
-                  Last Name
+                  <label htmlFor="firstName" className="required">
+                    First Name
+                  </label>
+                </div>
+                <div className={fieldClassName}>
                   <input
                     type="text"
                     id="lastName"
@@ -147,14 +260,16 @@ class CreateClient extends Component {
                     autoComplete="off"
                     required
                     value={
-                      this.state.lastName.charAt(0).toUpperCase() +
-                      this.state.lastName.slice(1).trim()
+                      lastName.charAt(0).toUpperCase() +
+                      lastName.slice(1).trim()
                     }
                     onChange={this.handleChange}
+                    onFocus={() => this.setState({ active: true })}
+                    onBlur={() => this.setState({ active: false })}
                   />
-                </label>
-                <label htmlFor="cellPhone">
-                  Cell Phone
+                  <label htmlFor="lastName">Last Name</label>
+                </div>
+                <div className={fieldClassName}>
                   <MaskedInput
                     mask={[
                       '(',
@@ -180,8 +295,11 @@ class CreateClient extends Component {
                     required
                     value={this.state.cellPhone}
                     onChange={this.handleChange}
+                    onFocus={() => this.setState({ active: true })}
+                    onBlur={() => this.setState({ active: false })}
                   />
-                </label>
+                  <label htmlFor="cellPhone">Cell Phone</label>
+                </div>
                 <label htmlFor="birthDay">
                   Birthday
                   <MaskedInput
@@ -220,7 +338,7 @@ class CreateClient extends Component {
                   {this.state.image && (
                     <img
                       className="profPic"
-                      width="150"
+                      width="120"
                       src={this.state.image}
                       alt="upload preview"
                     />

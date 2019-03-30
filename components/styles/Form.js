@@ -57,7 +57,6 @@ const Form = styled.form`
     font-weight: 600;
     padding: 0.5rem 1.2rem;
     margin-top: 1rem;
-
   }
   fieldset {
     border: 0;
@@ -65,7 +64,6 @@ const Form = styled.form`
 
     &[disabled] {
       opacity: 0.5;
-
     }
     &::before {
       height: 10px;
