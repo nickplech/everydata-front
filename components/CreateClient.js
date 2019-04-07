@@ -171,7 +171,6 @@ class CreateClient extends Component {
     cellPhone: '',
     birthDay: '',
     image: '../static/img/profpic.jpg',
-    active: false,
   }
   handleChange = e => {
     const { name, type, value } = e.target
@@ -208,9 +207,8 @@ class CreateClient extends Component {
   }
 
   render() {
-    let { firstName, lastName, active } = this.state
+    let { firstName, lastName } = this.state
 
-    const fieldClassName = `field ${active && 'active'}`
     return (
       <Inner>
         <Mutation mutation={CREATE_CLIENT_MUTATION} variables={this.state}>
@@ -230,7 +228,8 @@ class CreateClient extends Component {
               <Error error={error} />
               <fieldset disabled={loading} aria-busy={loading}>
                 <h2>Add New Client to Contacts</h2>
-                <div className={fieldClassName}>
+                <label htmlFor="firstName" className="required">
+                  First Name{' '}
                   <input
                     type="text"
                     id="firstName"
@@ -244,14 +243,10 @@ class CreateClient extends Component {
                       firstName.slice(1).trim()
                     }
                     onChange={this.handleChange}
-                    onFocus={() => this.setState({ active: true })}
-                    onBlur={() => this.setState({ active: false })}
                   />
-                  <label htmlFor="firstName" className="required">
-                    First Name
-                  </label>
-                </div>
-                <div className={fieldClassName}>
+                </label>
+                <label htmlFor="lastName">
+                  Last Name
                   <input
                     type="text"
                     id="lastName"
@@ -264,12 +259,10 @@ class CreateClient extends Component {
                       lastName.slice(1).trim()
                     }
                     onChange={this.handleChange}
-                    onFocus={() => this.setState({ active: true })}
-                    onBlur={() => this.setState({ active: false })}
                   />
-                  <label htmlFor="lastName">Last Name</label>
-                </div>
-                <div className={fieldClassName}>
+                </label>
+                <label htmlFor="cellPhone">
+                  Cell Phone
                   <MaskedInput
                     mask={[
                       '(',
@@ -295,11 +288,8 @@ class CreateClient extends Component {
                     required
                     value={this.state.cellPhone}
                     onChange={this.handleChange}
-                    onFocus={() => this.setState({ active: true })}
-                    onBlur={() => this.setState({ active: false })}
                   />
-                  <label htmlFor="cellPhone">Cell Phone</label>
-                </div>
+                </label>
                 <label htmlFor="birthDay">
                   Birthday
                   <MaskedInput

@@ -11,7 +11,7 @@ const StyledAccordian = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin: 0;
+  margin: 0 0 60px 0;
   padding: 0;
 
   #root {
@@ -30,7 +30,8 @@ const StyledAccordian = styled.div`
   h2 {
     margin: 0;
     color: rgba(20, 110, 220, 1);
-    font-size: 16px;
+    font-size: 14px;
+    min-width: 330px;
     width: 50%;
   }
 
@@ -46,6 +47,7 @@ const StyledAccordian = styled.div`
     font-size: 18px;
     background: rgba(240, 240, 240, 0.7);
     color: black;
+    min-width: 330px;
     width: 50%;
   }
 

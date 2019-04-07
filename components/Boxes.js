@@ -6,7 +6,7 @@ const StyledBoxes = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 130vh;
+  height: 100vh;
   width: 100vw;
   .c-hero-flex__item {
     flex-grow: 1;
@@ -22,10 +22,7 @@ const StyledBoxes = styled.div`
       flex-grow: 2;
       box-shadow: inset 0 0 0 100vmax rgba(20, 0, 100, 0.5);
     }
-    &:nth-child(3) {
-      background: url('../static/img/doc.jpg') no-repeat center center;
-      text-decoration: none;
-    }
+
     &:nth-child(2) {
       background: url('../static/img/fitness-appointment-reminders.jpg')
         no-repeat center center;
@@ -36,7 +33,7 @@ const StyledBoxes = styled.div`
         center center;
       text-decoration: none;
     }
-    &:nth-child(4) {
+    &:nth-child(3) {
       background: url('../static/img/realestate.jpg') no-repeat center center;
       text-decoration: none;
     }
@@ -90,11 +87,7 @@ const Boxes = () => {
           <h2 className="c-hero-flex__title">Fitness Instruction</h2>
         </a>
       </Link>
-      <Link href="/medical">
-        <a className="c-hero-flex__item">
-          <h2 className="c-hero-flex__title">Health Care</h2>
-        </a>
-      </Link>
+
       <Link href="/realestate">
         <a className="c-hero-flex__item">
           <h2 className="c-hero-flex__title">Real Estate</h2>

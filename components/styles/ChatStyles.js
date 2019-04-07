@@ -6,6 +6,8 @@ const StyledChat = styled.div`
   ${props => props.open && `transform: translateY(0);`};
   width: 340px;
   height: 600px;
+  /* overscroll-behavior: contain; */
+  /* overflow-y: hidden; */
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 5px 5px 0 0;
   overflow: hidden;

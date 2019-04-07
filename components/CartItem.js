@@ -5,21 +5,30 @@ import Link from 'next/link'
 import RemoveFromCart from './RemoveFromCart'
 
 const ConfirmationStyles = styled.li`
-  padding: 0rem 10px;
+  padding: 0rem 0px;
   margin: 0 10px;
   border-bottom: 1px solid ${props => props.theme.lightgrey};
   color: black;
-  display: grid;
+
   align-items: center;
   grid-template-columns: auto 10px;
-
+  &:hover {
+    background: rgba(100, 100, 230, 0.2);
+  }
   a {
     color: black;
+    display: block;
     font-size: 12px;
-    padding: 6px 0;
-    &:hover {
-      background: rgba(100, 100, 230, 0.2);
-    }
+    padding: 6px 0 0 0;
+    cursor: pointer;
+  }
+  p {
+    display: block;
+    color: blue;
+    margin: 0;
+    font-size: 12px;
+    line-height: 10px;
+    padding-bottom: 12px;
   }
 `
 
@@ -44,7 +53,8 @@ const CartItem = ({ cartItem }) => {
           {cartItem.client.firstName} {cartItem.client.lastName}
         </a>
       </Link>
-      <RemoveFromCart id={cartItem.id} />
+      <p>{cartItem.time}</p>
+      {/* <RemoveFromCart id={cartItem.id} /> */}
     </ConfirmationStyles>
   )
 }

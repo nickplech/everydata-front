@@ -9,56 +9,29 @@ import styled from 'styled-components'
 import CartItem from './CartItem'
 
 const LOCAL_STATE_QUERY = gql`
-  query {
+  query LOCAL_STATE_QUERY {
     cartOpen @client
-  }
-`
-
-const TOGGLE_CART_MUTATION = gql`
-  mutation {
-    toggleCart @client
   }
 `
 
 const ALL_CARTITEMS_QUERY = gql`
   query ALL_CARTITEMS_QUERY {
-    cartItems {
+    cartItems(orderBy: time_DESC) {
       id
       confirmationStatus
       quantity
+      date
+      time
+      textReminder {
+        id
+        forTime
+      }
       client {
         id
         firstName
         lastName
       }
     }
-  }
-`
-const CloseButton = styled.button`
-  background: transparent;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
-  width: 30px;
-  padding-bottom: 6px;
-  border: 1px solid red;
-  position: absolute;
-  z-index: 20;
-  left: 5px;
-  top: 5px;
-  cursor: pointer;
-  &:focus {
-    outline: none;
-  }
-  .child {
-    position: absolute;
-    justify-self: center;
-    display: flex;
-    color: red;
-    font-size: 3rem;
-    padding-left: 0px;
   }
 `
 
@@ -110,89 +83,80 @@ class Slider extends Component {
         {({ data: { cartItems } }) => {
           if (!cartItems) return null
           return (
-            <Mutation mutation={TOGGLE_CART_MUTATION}>
-              {toggleCart => (
-                <Query query={LOCAL_STATE_QUERY}>
-                  {({ data }) => (
-                    <CartStyles open={data.cartOpen}>
-                      <header>
-                        <CloseButton onClick={toggleCart} title="close">
-                          <div className="child">&times;</div>
-                        </CloseButton>
-                        <Supreme>{format(date, 'MMMM Do, YYYY')}</Supreme>
-                        <ConfList>
-                          <div className="flexChild">
-                            <p className="confirmed">Confirmed</p>
-                            <ColumnTally
-                              cart={cartItems}
-                              color="green"
-                              name="CONFIRMED"
-                            />
-                            <div className="scroll">
-                              <ul>
-                                {cartItems.map(cartItem =>
-                                  cartItem.confirmationStatus ===
-                                  'CONFIRMED' ? (
-                                    <CartItem
-                                      key={cartItem.id}
-                                      cartItem={cartItem}
-                                    />
-                                  ) : null,
-                                )}
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="flexChild">
-                            <p className="canceled">Canceled</p>
-                            <ColumnTally
-                              cart={cartItems}
-                              color="red"
-                              name="CANCELED"
-                            />
-                            <div className="scroll">
-                              <ul>
-                                {cartItems.map(cartItem =>
-                                  cartItem.confirmationStatus === 'CANCELED' ? (
-                                    <CartItem
-                                      key={cartItem.id}
-                                      cartItem={cartItem}
-                                    />
-                                  ) : null,
-                                )}
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="flexChild">
-                            <p className="unconfirmed">Unconfirmed</p>
-                            <ColumnTally
-                              cart={cartItems}
-                              color="grey"
-                              name="UNCONFIRMED"
-                            />
+            <Query query={LOCAL_STATE_QUERY}>
+              {({ data }) => (
+                <CartStyles open={data.cartOpen}>
+                  <header>
+                    <Supreme>{format(date, 'MMMM Do, YYYY')}</Supreme>
+                    <ConfList>
+                      <div className="flexChild">
+                        <p className="confirmed">Confirmed</p>
+                        <ColumnTally
+                          cart={cartItems}
+                          color="green"
+                          name="CONFIRMED"
+                        />
+                        <div className="scroll">
+                          <ul>
+                            {cartItems.map(cartItem =>
+                              cartItem.confirmationStatus === 'CONFIRMED' ? (
+                                <CartItem
+                                  key={cartItem.id}
+                                  cartItem={cartItem}
+                                />
+                              ) : null,
+                            )}
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="flexChild">
+                        <p className="canceled">Canceled</p>
+                        <ColumnTally
+                          cart={cartItems}
+                          color="red"
+                          name="CANCELED"
+                        />
+                        <div className="scroll">
+                          <ul>
+                            {cartItems.map(cartItem =>
+                              cartItem.confirmationStatus === 'CANCELED' ? (
+                                <CartItem
+                                  key={cartItem.id}
+                                  cartItem={cartItem}
+                                />
+                              ) : null,
+                            )}
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="flexChild">
+                        <p className="unconfirmed">Unconfirmed</p>
+                        <ColumnTally
+                          cart={cartItems}
+                          color="grey"
+                          name="UNCONFIRMED"
+                        />
 
-                            <div className="scroll">
-                              <ul>
-                                {cartItems.map(cartItem =>
-                                  cartItem.confirmationStatus ===
-                                  'UNCONFIRMED' ? (
-                                    <CartItem
-                                      key={cartItem.id}
-                                      cartItem={cartItem}
-                                    />
-                                  ) : null,
-                                )}
-                              </ul>
-                            </div>
-                          </div>
-                        </ConfList>
-                      </header>
+                        <div className="scroll">
+                          <ul>
+                            {cartItems.map(cartItem =>
+                              cartItem.confirmationStatus === 'UNCONFIRMED' ? (
+                                <CartItem
+                                  key={cartItem.id}
+                                  cartItem={cartItem}
+                                />
+                              ) : null,
+                            )}
+                          </ul>
+                        </div>
+                      </div>
+                    </ConfList>
+                  </header>
 
-                      <footer />
-                    </CartStyles>
-                  )}
-                </Query>
+                  <footer />
+                </CartStyles>
               )}
-            </Mutation>
+            </Query>
           )
         }}
       </Query>
@@ -200,4 +164,4 @@ class Slider extends Component {
   }
 }
 export default Slider
-export { LOCAL_STATE_QUERY, TOGGLE_CART_MUTATION, ALL_CARTITEMS_QUERY }
+export { LOCAL_STATE_QUERY, ALL_CARTITEMS_QUERY }

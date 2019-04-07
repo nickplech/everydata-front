@@ -25,17 +25,8 @@ const CartStyles = styled.div`
     padding-bottom: 1rem;
   }
   footer {
-    border-top: 5px solid ${props => props.theme.black};
-    margin-top: 2rem;
-    padding-top: 2rem;
     display: grid;
     grid-template-columns: 1fr;
-    align-items: center;
-    font-size: 3rem;
-    font-weight: 900;
-    p {
-      margin: 0;
-    }
   }
   ul {
     margin: 0;

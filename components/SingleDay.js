@@ -67,7 +67,7 @@ const DayView = styled.div`
     margin-top: 1px;
     height: 65px;
     width: 100%;
-    background: rgba(20, 110, 240, 1);
+    background: #3d5866;
   }
   .todayButton {
     justify-content: center;

@@ -49,7 +49,7 @@ class RequestReset extends Component {
               }}
             >
               <fieldset disabled={loading} aria-busy={loading}>
-                <h2>Forget Your Password?</h2>
+                <h2>Reset Your Password?</h2>
                 <Error error={error} />
                 {!error && !loading && called && (
                   <Submitted>

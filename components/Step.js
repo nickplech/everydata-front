@@ -8,7 +8,6 @@ class Step extends React.Component {
       isActive,
       displayPrevious,
       displayNext,
-
       component,
       children,
     } = this.props

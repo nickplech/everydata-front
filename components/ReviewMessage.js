@@ -3,12 +3,13 @@ import styled from 'styled-components'
 import gql from 'graphql-tag'
 import { Query, Mutation } from 'react-apollo'
 import DaySelector from './DaySelector'
-import { format } from 'date-fns'
-import Timer from './TimePicker'
+import { format, setHours } from 'date-fns'
+import Timer from './Timer'
 import Submitted from './Submitted'
 import { SINGLE_CLIENT_QUERY } from './Clients'
 import { ALL_CLIENTS_REMINDERS } from './SingleClient'
 import User from './User'
+import Error from './ErrorMessage'
 import { ALL_CARTITEMS_QUERY } from './Slider'
 
 const SEND_TEXT_MUTATION = gql`
@@ -18,6 +19,7 @@ const SEND_TEXT_MUTATION = gql`
     $client: ID!
     $confirmationStatus: String!
     $forDate: String!
+    $forTime: String!
   ) {
     createTextReminder(
       to: $to
@@ -25,11 +27,13 @@ const SEND_TEXT_MUTATION = gql`
       client: $client
       confirmationStatus: $confirmationStatus
       forDate: $forDate
+      forTime: $forTime
     ) {
       confirmationStatus
       id
       text
       forDate
+      forTime
       user {
         id
       }
@@ -52,7 +56,7 @@ const TEXT_TEMPLATES_QUERY = gql`
 
 const Form = styled.form`
   display: grid;
-  grid-template-columns: 280px 40px 1fr 100px;
+  grid-template-columns: 280px 10px 1fr 100px;
   grid-template-rows: 70px 1fr;
   align-items: flex-end;
   width: 100%;
@@ -97,24 +101,11 @@ const Message = styled.textarea`
   &:focus {
     outline: none;
   }
+  span {
+    color: blue;
+  }
 `
 
-const Error = styled.div`
-  display: block;
-  position: absolute;
-  min-width: 300px;
-  width: 30%;
-  text-align: center;
-  padding: 10px;
-  background: rgba(220, 50, 20, 0.9);
-  color: white;
-  border-radius: 5px;
-  bottom: 15px;
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.1),
-    0 6px 10px 5px rgba(0, 0, 0, 0.1), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-  right: 20px;
-  z-index: 999;
-`
 const Send = styled.button`
   background: rgba(30, 110, 240, 1);
   color: white;
@@ -125,9 +116,9 @@ const Send = styled.button`
   grid-column: 4;
   grid-row: 2;
   justify-self: flex-end;
-  height: 75px;
+  height: 35px;
   font-size: 1.8rem;
-  border-radius: 50%;
+  border-radius: 5px;
   outline: none;
   cursor: pointer;
   transition: 0.1s;
@@ -180,33 +171,74 @@ const MessageBody = props => (
 
 class ReviewMessage extends Component {
   state = {
-    time: '8:00 am',
+    time: '',
     text: this.props.seededMessage,
     date: '',
-    message: 'Appointment Reminder has Been Sent',
   }
 
   saveToState = e => {
-    const { name, type, value } = e.target
-    const val = type === 'number' ? parseFloat(value) : value
-    if (name === 'date') {
-      this.setState({ date: val })
+    const { value } = e.target
+    this.setState({ date: value })
+    const date = format(value, 'ddd, MMM Do')
+    const time = this.state.time.length > 0 ? this.state.time : '<time>'
+    let str = this.props.seededMessage
+
+    const mapObj = {
+      '<date>': `${date}`,
+      '<time>': `${time}`,
     }
-    if (name === 'time') {
-      this.setState({ time: val })
+    const re = new RegExp(Object.keys(mapObj).join('|'), 'gi')
+    str = str.replace(re, function(matched) {
+      return mapObj[matched]
+    })
+    this.setState({ text: str })
+  }
+
+  saveTime = e => {
+    const { name } = e.target
+    this.setState({ time: name })
+    const date =
+      this.state.date.length > 7
+        ? format(this.state.date, 'ddd, MMM Do')
+        : '<date>'
+    let str = this.props.seededMessage
+    let time = name
+    const mapObj = {
+      '<date>': `${date}`,
+      '<time>': `${time}`,
     }
-    let date = format(val, 'ddd, MMM Do')
-    let time = this.state.time
-    const textTemplate = this.props.seededMessage
-      .replace('<date>', date)
-      .replace('<time>', time)
-    this.setState({ text: textTemplate })
+    const re = new RegExp(Object.keys(mapObj).join('|'), 'gi')
+    str = str.replace(re, function(matched) {
+      return mapObj[matched]
+    })
+    this.setState({ text: str })
+  }
+
+  saveTimeMin = e => {
+    const { value } = e.target
+    let built = this.state.time.replace(/(00|15|30|45)/, `${value}`)
+    this.setState({ time: built })
+
+    const date =
+      this.state.date.length > 7
+        ? format(this.state.date, 'ddd, MMM Do')
+        : '<date>'
+    let str = this.props.seededMessage
+    const mapObj = {
+      '<date>': `${date}`,
+      '<time>': `${built}`,
+    }
+    const re = new RegExp(Object.keys(mapObj).join('|'), 'gi')
+    str = str.replace(re, function(matched) {
+      return mapObj[matched]
+    })
+    this.setState({ text: str })
   }
 
   render() {
     const tooLong = this.state.text.length > 159
     const needsDate = this.state.date.length < 2
-    const needsTime = this.state.time.length < 2
+    const needsTime = this.state.time.length < 1
 
     return (
       <Mutation
@@ -217,18 +249,20 @@ class ReviewMessage extends Component {
           client: this.props.client,
           confirmationStatus: 'UNCONFIRMED',
           forDate: this.state.date,
+          forTime: this.state.time,
         }}
         refetchQueries={[
           {
-            query: {
-              ALL_CLIENTS_REMINDERS,
-            },
+            query: ALL_CLIENTS_REMINDERS,
             variables: { client: this.props.client },
+          },
+          {
+            query: ALL_CARTITEMS_QUERY,
           },
         ]}
       >
         {(createTextReminder, { error, loading, called }) => {
-          if (loading) return <p>Loading...</p>
+          // if (loading) return <p>Loading...</p>
           if (error) return <Error error={error} />
 
           return (
@@ -239,16 +273,14 @@ class ReviewMessage extends Component {
                 console.log(res)
               }}
             >
-              {error && (
-                <Error>
-                  Appointment Reminder Failed to Send. Please Try Again Shortly
-                </Error>
-              )}
-              {!error && !loading && called && (
-                <Submitted message={this.state.message} />
-              )}
+              {!loading && !error && called && <Submitted />}
 
               <>
+                <Timer
+                  saveTime={this.saveTime}
+                  time={this.state.time}
+                  saveTimeMin={this.saveTimeMin}
+                />
                 <DaySelector saveToState={this.saveToState} />
 
                 <Message

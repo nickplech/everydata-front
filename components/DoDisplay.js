@@ -1,7 +1,13 @@
 import { Query } from 'react-apollo'
 import { CURRENT_USER_QUERY } from './User'
 import HomePage from './HomePage'
-import Chat from '../components/Chat'
+import Chat from './Chat'
+import styled from 'styled-components'
+
+const NoScroll = styled.div`
+  /* overscroll-behavior: contain; */
+  overflow-y: hidden;
+`
 
 const DoDisplay = props => (
   <Query query={CURRENT_USER_QUERY}>
@@ -9,10 +15,10 @@ const DoDisplay = props => (
       if (loading) return <p>Loading...</p>
       if (!data.me) {
         return (
-          <div>
+          <NoScroll>
             <HomePage />
             <Chat />
-          </div>
+          </NoScroll>
         )
       }
       return props.children

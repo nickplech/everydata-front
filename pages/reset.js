@@ -11,8 +11,6 @@ const reset = props => (
       if (!data.me) {
         return (
           <>
-            <p>Password Reset Token: {props.query.resetToken}</p>
-            {/* <p>Please Reset Your Password Below!</p> */}
             <Reset resetToken={props.query.resetToken} />
           </>
         )

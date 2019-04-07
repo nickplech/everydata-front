@@ -7,12 +7,12 @@ import Select from 'react-select'
 import ClientSearch from './ClientSearch'
 
 const OPEN_MODAL_QUERY = gql`
-  query {
+  query OPEN_MODAL_QUERY {
     openModal @client
   }
 `
 const TOGGLE_MODAL_MUTATION = gql`
-  mutation {
+  mutation TOGGLE_MODAL_MUTATION {
     toggleModal @client
   }
 `
@@ -57,23 +57,24 @@ const Modall = styled.div`
 
 const StyledInput = styled.select`
   width: 100%;
-  border: 2px solid rgba(20, 110, 220, .8);
+  border: 2px solid rgba(20, 20, 20, 0.4);
   background: transparent;
-  margin: 20px 0;
+  margin: 5px 0 20px 0;
   height: 50px;
   font-size: 2rem;
   font-weight: 500;
-  color: rgba(0,0,0,.5);
+  color: rgba(0, 0, 0, 0.5);
   outline: none;
-option {
-   /* border-bottom: 1px solid ${props => props.theme.lightgrey}; */
-  background: white;
-  padding: 1rem;
-  transition: all 0.2s;
-  padding-left: 2rem;
-  display: flex;
-  align-items: center;
-}
+  position: relative;
+  z-index: 990;
+  option {
+    background: white;
+    padding: 1rem;
+    transition: all 0.2s;
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+  }
 `
 const StyledTextArea = styled.textarea`
   padding: 5px;
@@ -82,8 +83,8 @@ const StyledTextArea = styled.textarea`
   font-size: 2rem;
   outline: none;
   resize: none;
-  border: 2px solid rgba(220, 220, 220, 1);
-
+  border: 2px solid rgba(20, 20, 20, 0.4);
+  border-radius: 5px;
   &:focus {
     outline: none;
   }
@@ -97,8 +98,7 @@ const Date = styled.div`
   padding: 5px 20px 0px 20px;
 
   p {
-    margin: 10px ;
-    /* font-family: 'Montserrat', sans-serif; */
+    margin: 10px;
     color: ${props => props.theme.blue};
     padding: 0px 0px;
     font-size: 2.2rem;
@@ -109,7 +109,7 @@ const Date = styled.div`
     margin: 0;
   }
 `
-const Cancel = styled.button`
+const Cancel = styled.a`
   background-color: #fff;
   border-radius: 20px;
   display: grid;
@@ -118,6 +118,7 @@ const Cancel = styled.button`
   position: absolute;
   left: 0;
   align-items: center;
+  justify-content: center;
   height: 60%;
   background: rgba(220, 100, 120, 1);
   color: white;
@@ -163,7 +164,6 @@ const Save = styled.button`
   }
 `
 const colourStyles = {
-
   input: styles => ({ ...styles }),
   placeholder: styles => ({ ...styles }),
   singleValue: (styles, { data }) => ({ ...styles }),
@@ -183,31 +183,12 @@ class Modal extends Component {
     this.setState({ [name]: val })
   }
 
-    handleReason = reason => {
+  handleReason = reason => {
     this.setState({ reason: reason })
     console.log(`Option selected:`, reason)
   }
-  handleCancelClick = (e, toggleModal) => {
-    e.preventDefault()
 
-    this.setState({ notes: '', reason: '', clients: [] })
-  }
-  // handleSearch = () => {
-  //   debounce(async (e, client) => {
-  //     console.log('Searching...')
-  //     this.setState({ loading: true })
-  //     const res = await client.query({
-  //       query: SEARCH_CLIENTS_QUERY,
-  //       variables: { searchTerm: e.target.value },
-  //     })
-  //     this.setState({
-  //       clients: res.data.clients,
-  //       loading: false,
-  //     })
-  //   }, 350)
-  // }
   render() {
-
     return (
       <Mutation mutation={TOGGLE_MODAL_MUTATION}>
         {toggleModal => (
@@ -235,21 +216,23 @@ class Modal extends Component {
                         value={this.state.clients}
                         onChange={this.handleChange}
                       />
-
-                      <StyledInput
-                        name="reason"
-                        type="select"
-                        multiple={false}
-                        value={this.state.reason}
-                        placeholder="Search your favourite book"
-                        onChange={this.handleChange}
-                      >
-                        {this.props.reasons.map((reason, i) => (
-                          <option value={reason.name} key={reason.name}>
-                            {reason.name}
-                          </option>
-                        ))}
-                      </StyledInput>
+                      <label htmlFor="reason">
+                        Appointment Type:
+                        <StyledInput
+                          name="reason"
+                          type="select"
+                          multiple={false}
+                          value={this.state.reason}
+                          placeholder="Search your favourite book"
+                          onChange={this.handleChange}
+                        >
+                          {this.props.reasons.map((reason, i) => (
+                            <option value={reason.name} key={reason.name}>
+                              {reason.name}
+                            </option>
+                          ))}
+                        </StyledInput>
+                      </label>
 
                       <label htmlFor="note">
                         Notes:
@@ -261,12 +244,7 @@ class Modal extends Component {
                         />
                       </label>
 
-                      <Cancel
-                        onChange={this.handleCancelClick}
-                        onClick={toggleModal}
-                      >
-                        Cancel
-                      </Cancel>
+                      <Cancel onClick={toggleModal}>Cancel</Cancel>
                       <Save type="submit" onClick={toggleModal}>
                         Save
                       </Save>

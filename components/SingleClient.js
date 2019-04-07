@@ -57,7 +57,6 @@ const Header = styled.div`
 const Lister = styled.div`
   position: absolute;
   display: flex;
-  /* grid-template-rows: repeat(minmax(200px, auto)); */
   flex-flow: column;
   width: 100%;
   height: 100%;
@@ -89,7 +88,6 @@ const TextChunk = styled.div`
     max-width: 600px;
   }
   .conf {
-    /* grid-column: 2; */
     display: inline-flex;
     padding: 0 0 0 40px;
     justify-content: center;
@@ -116,12 +114,12 @@ const PU = styled.p`
 const PG = styled.p`
   font-size: 10px;
   margin: 0;
-  color: rgba(10, 150, 10, 0.6);
+  color: rgba(10, 180, 10, 0.8);
 `
 const PR = styled.p`
   font-size: 10px;
   margin: 0;
-  color: rgba(250, 50, 50, 0.6);
+  color: rgba(250, 50, 50, 0.8);
 `
 class SingleClient extends Component {
   constructor(props) {
@@ -169,13 +167,7 @@ class SingleClient extends Component {
                         <Nothing>
                           You Haven't Sent {client.firstName} Any Reminders Yet
                         </Nothing>
-                        <ScrollToBottomComponent
-                          style={{
-                            float: 'left',
-                            clear: 'both',
-                          }}
-                          ref={this.myRef}
-                        />
+                        <ScrollToBottomComponent ref={this.myRef} />
                       </>
                     )
                   return (
@@ -209,7 +201,6 @@ class SingleClient extends Component {
                                   )}
                                   {message.updatedAt !== message.createdAt && (
                                     <P>
-                                      on{' '}
                                       {format(
                                         message.updatedAt,
                                         'MMMM Do, YYYY h:mm a',
@@ -227,13 +218,7 @@ class SingleClient extends Component {
                               </TextChunk>
                             )
                           })}
-                          <ScrollToBottomComponent
-                            style={{
-                              float: 'left',
-                              clear: 'both',
-                            }}
-                            ref={this.myRef}
-                          />
+                          <ScrollToBottomComponent ref={this.myRef} />
                         </Lister>
                       </>
                     </Fragment>

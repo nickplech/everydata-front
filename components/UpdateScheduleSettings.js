@@ -6,13 +6,20 @@ import chroma from 'chroma-js'
 import Select from 'react-select'
 import Router from 'next/router'
 import Error from './ErrorMessage'
-import MyDropdown from './SlideDown'
+
 import styled from 'styled-components'
 import SickButton from './styles/SickButton'
 import SickerButton from './styles/SickerButton'
 import Reason from './Reason'
+import posed from 'react-pose'
+
+const Content = posed.div({
+  closed: { height: 0 },
+  open: { height: 'auto' },
+})
 
 import { ALL_REASONS_QUERY } from './SingleDay'
+import { visible } from 'ansi-colors'
 
 const CREATE_REASON_MUTATION = gql`
   mutation CREATE_REASON_MUTATION(
@@ -55,6 +62,14 @@ const Inner = styled.div`
       opacity: 1;
     }
   }
+  .content {
+    padding-top: 50px;
+    overflow-y: hidden;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 98%;
+  }
 `
 const Flex = styled.div`
   display: flex;
@@ -95,8 +110,7 @@ const AButton = styled.a`
     display: flex;
     font-family: 'Montserrat', sans-serif;
     color: white;
-    font-size: 2.8rem;
-    padding-left: 0px;
+    font-size: 2.3rem;
   }
 `
 
@@ -136,7 +150,11 @@ const dot = (color = '#ccc') => ({
   },
 })
 const colourStyles = {
-  control: styles => ({ ...styles, backgroundColor: 'white' }),
+  control: styles => ({
+    ...styles,
+    backgroundColor: 'white',
+    overflow: visible,
+  }),
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
     const color = chroma(data.color)
     return {
@@ -167,11 +185,11 @@ class UpdateScheduleSettings extends Component {
     defaultLength: 0,
     provider: '',
     selectedOption: '',
-    openSlide: false,
+    open: false,
   }
 
   openSlide = () => {
-    this.setState({ openSlide: !this.state.openSlide })
+    this.setState({ open: open === true ? false : true })
   }
   handleChange = e => {
     const { name, type, value } = e.target
@@ -200,7 +218,7 @@ class UpdateScheduleSettings extends Component {
   }
 
   render() {
-    const { openSlide } = this.state
+    const { open } = this.state
     const selectedOption = this.state.selectedOption
     return (
       <Inner>
@@ -237,7 +255,7 @@ class UpdateScheduleSettings extends Component {
                           <>
                             <Flex>
                               <Types>Appointment Types</Types>
-                              {!openSlide && (
+                              {!open && (
                                 <AButton onClick={this.openSlide}>
                                   <div className="child">+</div>
                                 </AButton>
@@ -250,8 +268,11 @@ class UpdateScheduleSettings extends Component {
                                 )
                               })}
                             </Flex>
-                            <MyDropdown openSlide={this.state.openSlide}>
-                              <label htmlFor="firstName">
+                            <Content
+                              className="content"
+                              pose={open === true ? 'open' : 'closed'}
+                            >
+                              <label htmlFor="name">
                                 Name of Appointment Type
                                 <input
                                   type="text"
@@ -259,7 +280,7 @@ class UpdateScheduleSettings extends Component {
                                   name="name"
                                   placeholder="Name"
                                   autoComplete="off"
-                                  required
+                                  // required
                                   value={this.state.name}
                                   onChange={this.handleChange}
                                 />
@@ -299,12 +320,14 @@ class UpdateScheduleSettings extends Component {
                                 />
                               </label>{' '}
                               <SickButton type="submit">
-                                Creat{loading ? 'ing' : 'e'} Appointment Type
+                                Creat{loading ? 'ing' : 'e'} Type
                               </SickButton>{' '}
-                              <SickerButton onClick={this.openSlide}>
+                              <SickerButton
+                                onClick={() => this.setState({ open: false })}
+                              >
                                 Close
                               </SickerButton>
-                            </MyDropdown>
+                            </Content>
                           </>
                         </fieldset>
                       </Form>

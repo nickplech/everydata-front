@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import { Mutation, Query } from 'react-apollo'
-import { TOGGLE_CART_MUTATION } from './Slider'
-import { CURRENT_USER_QUERY } from './User'
+import gql from 'graphql-tag'
 import { ALL_CARTITEMS_QUERY } from './Slider'
+import { LOCAL_STATE_QUERY } from './Slider'
 import Link from 'next/link'
 import SuccessCount from './SuccessCount'
 import styled from 'styled-components'
 import Block from './Block'
 import Slider from './Slider'
 
+const TOGGLE_CART_MUTATION = gql`
+  mutation {
+    toggleCart @client
+  }
+`
 const StyledBar = styled.div`
   display: flex;
   position: relative;
@@ -31,7 +36,7 @@ const StyledBar = styled.div`
   }
 `
 
-const Confirmer = styled.div`
+const Confirmer = styled.a`
   display: flex;
   background: lightseagreen;
   justify-content: center;
@@ -88,3 +93,4 @@ class InfoBar extends Component {
 }
 
 export default InfoBar
+export { TOGGLE_CART_MUTATION }

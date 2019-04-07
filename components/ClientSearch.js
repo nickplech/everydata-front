@@ -2,13 +2,67 @@ import React, { Component } from 'react'
 import Downshift, { resetIdCounter } from 'downshift'
 import { ApolloConsumer } from 'react-apollo'
 import { SEARCH_CLIENTS_QUERY } from './AutoComplete'
-import styled from 'styled-components'
 import debounce from 'lodash.debounce'
-import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown'
+import styled, { keyframes } from 'styled-components'
+
+const DropDown = styled.div`
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+  border: 1px solid ${props => props.theme.lightgrey};
+  max-height: 50vh;
+  overflow-y: scroll;
+  z-index: 999;
+`
+
+const DropDownItem = styled.div`
+  border-bottom: 1px solid ${props => props.theme.lightgrey};
+  background: white;
+  padding: 1rem;
+  transition: all 0.2s;
+  z-index: 999;
+  ${props => (props.highlighted ? 'padding-left: 2rem;' : null)};
+  display: flex;
+  align-items: center;
+  border-left: 10px solid
+    ${props => (props.highlighted ? props.theme.lightgrey : 'white')};
+  img {
+    margin-right: 10px;
+  }
+`
+
+const glow = keyframes`
+  from {
+    box-shadow: 0 0 0px yellow;
+  }
+
+  to {
+    box-shadow: 0 0 10px 1px yellow;
+  }
+`
+
+const SearchStyles = styled.div`
+  position: relative;
+  input {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    z-index: 999;
+    font-size: 2rem;
+    outline: none;
+
+    &.loading {
+      animation: ${glow} 0.5s ease-in-out infinite alternate;
+    }
+  }
+`
 
 const InputDiv = styled.div`
-  border: 2px solid rgba(20, 110, 240, 1);
+  border: 2px solid rgba(20, 20, 20, 0.4);
   border-radius: 5px;
+  margin-bottom: 20px;
 `
 
 const Img = styled.img`

@@ -35,6 +35,8 @@ const StatsDisplay = styled.div`
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    position: relative;
+    z-index: 4;
   }
   .react-calendar button {
     margin: 0;
@@ -52,7 +54,7 @@ const StatsDisplay = styled.div`
     min-width: 44px;
     background: none;
     font-size: 20px;
-    background-color: rgba(20, 110, 240, 1);
+    background: #3d5866;
     color: white;
     &:first-child {
       border-radius: 18px 0 0 0;
@@ -72,7 +74,7 @@ const StatsDisplay = styled.div`
   }
   .react-calendar__navigation button:enabled:hover,
   .react-calendar__navigation button:enabled:focus {
-    background-color: #e6e6e6;
+    background-color: rgba(20, 110, 240, 1);
   }
   .react-calendar__navigation button[disabled] {
     background-color: rgba(20, 110, 240, 0.1);

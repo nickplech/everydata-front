@@ -78,11 +78,11 @@ const ProfilePic = styled.img`
   }
 `
 
-const Cake = styled.img`
-  width: 15px;
-  height: 15px;
-  margin-right: 5px;
-`
+// const Cake = styled.img`
+//   width: 15px;
+//   height: 15px;
+//   margin-right: 5px;
+// `
 const Stat = styled.div`
   display: flex;
   font-size: 14px;
@@ -165,12 +165,12 @@ class ClientStats extends React.Component {
                       <div className="stats">
                         <div className="box">
                           <Stat>
-                            <span>
+                            {/* <span>
                               <Cake
                                 src="../static/img/cake.png"
                                 alt="birthday cake"
                               />
-                            </span>
+                            </span> */}
                             {format(client.birthDay, 'MMMM Do, YYYY')}
                           </Stat>
                         </div>

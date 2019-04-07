@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const SickerButton = styled.button`
+const SickerButton = styled.a`
   background: rgba(10, 120, 240, 1);
   color: white;
   font-weight: 800;
@@ -10,7 +10,8 @@ const SickerButton = styled.button`
   font-size: 2rem;
   padding: 0.5rem 1.2rem;
   font-size: 1.8rem;
-  display: inline-block;
+
+  /* display: inline-block; */
   transition: all 0.5s;
   outline: none;
   cursor: pointer;

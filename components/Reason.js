@@ -4,7 +4,7 @@ import DeleteReason from './DeleteReason'
 
 const Div = styled.div`
   padding: 3px 10px;
-  margin: 4px 5px;
+  margin: 4px 6px;
   border-width: 2px;
   border-style: solid;
   background: transparent;
@@ -17,6 +17,7 @@ const Div = styled.div`
   transition: 0.2s;
   &:hover {
     transform: scale(1.1);
+
     box-shadow: 1px 1px 4px 3px rgba(0, 0, 0, 0.1);
   }
 `
