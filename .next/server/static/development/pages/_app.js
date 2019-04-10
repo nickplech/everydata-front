@@ -150,7 +150,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query SEARCH_CLIENTS_QUERY($searchTerm: String!) {\n    clients(\n      orderBy: updatedAt_DESC\n      where: {\n        AND: [\n          { firstName_contains: $searchTerm }\n          { lastName_contains: $searchTerm }\n        ]\n      }\n    ) {\n      id\n      image\n      firstName\n      lastName\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query SEARCH_CLIENTS_QUERY($searchTerm: String!, $user: ID!) {\n    clients(\n      orderBy: updatedAt_DESC\n      where: {\n        AND: [\n          {\n            OR: [\n              { firstName_contains: $searchTerm }\n              { lastName_contains: $searchTerm }\n            ]\n          }\n          { user: { id: $user } }\n        ]\n      }\n    ) {\n      id\n      image\n      firstName\n      lastName\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -228,7 +228,8 @@ function (_Component) {
                 return client.query({
                   query: SEARCH_CLIENTS_QUERY,
                   variables: {
-                    searchTerm: e.target.value
+                    searchTerm: e.target.value,
+                    user: _this.props.user.id
                   }
                 });
 
@@ -265,7 +266,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_8__["SearchStyles"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 68
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(downshift__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -275,7 +276,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 69
         },
         __self: this
       }, function (_ref2) {
@@ -287,13 +288,13 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 79
+            lineNumber: 84
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_4__["ApolloConsumer"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 80
+            lineNumber: 85
           },
           __self: this
         }, function (client) {
@@ -311,14 +312,14 @@ function (_Component) {
           }), {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 82
+              lineNumber: 87
             },
             __self: this
           }));
         }), isOpen && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_8__["DropDown"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 98
+            lineNumber: 103
           },
           __self: this
         }, _this2.state.clients.map(function (item, index) {
@@ -329,7 +330,7 @@ function (_Component) {
             highlighted: index === highlightedIndex,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 100
+              lineNumber: 105
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Img, {
@@ -337,14 +338,14 @@ function (_Component) {
             alt: item.firstName,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 105
+              lineNumber: 110
             },
             __self: this
           }), item.lastName, ", ", item.firstName);
         }), !_this2.state.clients.length && !_this2.state.loading && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_8__["DropDownItem"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 110
+            lineNumber: 115
           },
           __self: this
         }, " Nothing Found for ", inputValue)));
@@ -516,8 +517,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AutoComplete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AutoComplete */ "./components/AutoComplete.js");
 /* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash.debounce */ "lodash.debounce");
 /* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./User */ "./components/User.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_7__);
 
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/ClientSearch.js";
 
@@ -553,13 +555,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var DropDown = styled_components__WEBPACK_IMPORTED_MODULE_6___default.a.div.withConfig({
+
+var DropDown = styled_components__WEBPACK_IMPORTED_MODULE_7___default.a.div.withConfig({
   displayName: "ClientSearch__DropDown",
   componentId: "sc-176btmj-0"
 })(["position:absolute;width:100%;z-index:5;border:1px solid ", ";max-height:50vh;overflow-y:scroll;z-index:999;"], function (props) {
   return props.theme.lightgrey;
 });
-var DropDownItem = styled_components__WEBPACK_IMPORTED_MODULE_6___default.a.div.withConfig({
+var DropDownItem = styled_components__WEBPACK_IMPORTED_MODULE_7___default.a.div.withConfig({
   displayName: "ClientSearch__DropDownItem",
   componentId: "sc-176btmj-1"
 })(["border-bottom:1px solid ", ";background:white;padding:1rem;transition:all 0.2s;z-index:999;", ";display:flex;align-items:center;border-left:10px solid ", ";img{margin-right:10px;}"], function (props) {
@@ -569,19 +572,40 @@ var DropDownItem = styled_components__WEBPACK_IMPORTED_MODULE_6___default.a.div.
 }, function (props) {
   return props.highlighted ? props.theme.lightgrey : 'white';
 });
-var glow = Object(styled_components__WEBPACK_IMPORTED_MODULE_6__["keyframes"])(["from{box-shadow:0 0 0px yellow;}to{box-shadow:0 0 10px 1px yellow;}"]);
-var SearchStyles = styled_components__WEBPACK_IMPORTED_MODULE_6___default.a.div.withConfig({
+var glow = Object(styled_components__WEBPACK_IMPORTED_MODULE_7__["keyframes"])(["from{box-shadow:0 0 0px yellow;}to{box-shadow:0 0 10px 1px yellow;}"]);
+var SearchStyles = styled_components__WEBPACK_IMPORTED_MODULE_7___default.a.div.withConfig({
   displayName: "ClientSearch__SearchStyles",
   componentId: "sc-176btmj-2"
 })(["position:relative;input{width:100%;height:100%;padding:10px;border:0;border-radius:5px;z-index:999;font-size:2rem;outline:none;&.loading{animation:", " 0.5s ease-in-out infinite alternate;}}"], glow);
-var InputDiv = styled_components__WEBPACK_IMPORTED_MODULE_6___default.a.div.withConfig({
+var InputDiv = styled_components__WEBPACK_IMPORTED_MODULE_7___default.a.div.withConfig({
   displayName: "ClientSearch__InputDiv",
   componentId: "sc-176btmj-3"
 })(["border:2px solid rgba(20,20,20,0.4);border-radius:5px;margin-bottom:20px;"]);
-var Img = styled_components__WEBPACK_IMPORTED_MODULE_6___default.a.img.withConfig({
+var Img = styled_components__WEBPACK_IMPORTED_MODULE_7___default.a.img.withConfig({
   displayName: "ClientSearch__Img",
   componentId: "sc-176btmj-4"
 })(["border-radius:50%;width:40px;height:40px;"]);
+
+var UserProps = function UserProps(props) {
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: this
+  }, function (_ref) {
+    var me = _ref.data.me;
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ClientSearch, {
+      onChange: props.handleChange,
+      user: me,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 77
+      },
+      __self: this
+    });
+  });
+};
 
 var ClientSearch =
 /*#__PURE__*/
@@ -609,7 +633,7 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "onChange", lodash_debounce__WEBPACK_IMPORTED_MODULE_5___default()(
     /*#__PURE__*/
     function () {
-      var _ref = _asyncToGenerator(
+      var _ref2 = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e, client) {
         var res;
@@ -628,7 +652,7 @@ function (_Component) {
                   query: _AutoComplete__WEBPACK_IMPORTED_MODULE_4__["SEARCH_CLIENTS_QUERY"],
                   variables: {
                     searchTerm: e.target.value,
-                    userId: _this.props.id
+                    user: _this.props.user.id
                   }
                 });
 
@@ -650,7 +674,7 @@ function (_Component) {
       }));
 
       return function (_x, _x2) {
-        return _ref.apply(this, arguments);
+        return _ref2.apply(this, arguments);
       };
     }(), 350));
 
@@ -666,7 +690,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(SearchStyles, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95
+          lineNumber: 103
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(downshift__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -675,32 +699,32 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96
+          lineNumber: 104
         },
         __self: this
-      }, function (_ref2) {
-        var getInputProps = _ref2.getInputProps,
-            getItemProps = _ref2.getItemProps,
-            isOpen = _ref2.isOpen,
-            inputValue = _ref2.inputValue,
-            highlightedIndex = _ref2.highlightedIndex;
+      }, function (_ref3) {
+        var getInputProps = _ref3.getInputProps,
+            getItemProps = _ref3.getItemProps,
+            isOpen = _ref3.isOpen,
+            inputValue = _ref3.inputValue,
+            highlightedIndex = _ref3.highlightedIndex;
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 110
+            lineNumber: 118
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["ApolloConsumer"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 111
+            lineNumber: 119
           },
           __self: this
         }, function (client) {
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(InputDiv, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 113
+              lineNumber: 121
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", _extends({}, getInputProps({
@@ -717,14 +741,14 @@ function (_Component) {
           }), {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 114
+              lineNumber: 122
             },
             __self: this
           })));
         }), isOpen && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(DropDown, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 131
+            lineNumber: 139
           },
           __self: this
         }, _this2.state.clients.map(function (item, index) {
@@ -735,7 +759,7 @@ function (_Component) {
             highlighted: index === highlightedIndex,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 133
+              lineNumber: 141
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Img, {
@@ -743,14 +767,14 @@ function (_Component) {
             alt: item.firstName,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 138
+              lineNumber: 146
             },
             __self: this
           }), item.lastName, ", ", item.firstName);
         }), !_this2.state.clients.length && !_this2.state.loading && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(DropDownItem, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 143
+            lineNumber: 151
           },
           __self: this
         }, " Nothing Found for ", inputValue)));
@@ -761,7 +785,7 @@ function (_Component) {
   return ClientSearch;
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (ClientSearch);
+/* harmony default export */ __webpack_exports__["default"] = (UserProps);
 
 /***/ }),
 
@@ -877,25 +901,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AutoComplete__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./AutoComplete */ "./components/AutoComplete.js");
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/Header.js";
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
 
 
 
@@ -937,133 +942,116 @@ var Plus = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.button.withC
   componentId: "sc-2cpreo-2"
 })(["cursor:pointer;border:none;margin-top:3px;outline:none;"]);
 
-var Header =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Header, _Component);
-
-  function Header() {
-    _classCallCheck(this, Header);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Header).apply(this, arguments));
-  }
-
-  _createClass(Header, [{
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHeader, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 70
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "bar",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 71
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Logo, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 72
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-        href: "/",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 73
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 74
-        },
-        __self: this
-      }, "Perfect Day Reminders"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 77
-        },
-        __self: this
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SignInNoDisplay__WEBPACK_IMPORTED_MODULE_10__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 79
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sub-bar",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 80
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-        href: "/addclient",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 81
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 82
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Plus, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 83
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_buttons__WEBPACK_IMPORTED_MODULE_9__["PlusButton"], {
-        color: "rgba(100,100,200,1)",
-        size: 35,
-        thickness: 2,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 84
-        },
-        __self: this
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 92
-        },
-        __self: this
-      }, function (_ref) {
-        var me = _ref.data.me;
-        return me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AutoComplete__WEBPACK_IMPORTED_MODULE_11__["default"], {
-          user: me.id,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 94
-          },
-          __self: this
-        });
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InfoBar__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 97
-        },
-        __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slider__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 98
-        },
-        __self: this
-      }))));
-    }
-  }]);
-
-  return Header;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+var Header = function Header() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHeader, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "bar",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Logo, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 73
+    },
+    __self: this
+  }, "Perfect Day Reminders"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76
+    },
+    __self: this
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SignInNoDisplay__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sub-bar",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 79
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/addclient",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Plus, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_buttons__WEBPACK_IMPORTED_MODULE_9__["PlusButton"], {
+    color: "rgba(100,100,200,1)",
+    size: 35,
+    thickness: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83
+    },
+    __self: this
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91
+    },
+    __self: this
+  }, function (_ref) {
+    var me = _ref.data.me;
+    return me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AutoComplete__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      user: me,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 93
+      },
+      __self: this
+    });
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InfoBar__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slider__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97
+    },
+    __self: this
+  }))));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
 
@@ -1133,7 +1121,6 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
 var TOGGLE_CART_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 var StyledBar = styled_components__WEBPACK_IMPORTED_MODULE_6___default.a.div.withConfig({
   displayName: "InfoBar__StyledBar",
@@ -1161,56 +1148,56 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledBar, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 57
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
         href: "/bulk",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 58
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "tab2",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 59
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Block__WEBPACK_IMPORTED_MODULE_7__["default"], {
         name: "Bulk Sender",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 60
         },
         __self: this
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
         href: "/schedule",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 63
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "tab3",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 64
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Block__WEBPACK_IMPORTED_MODULE_7__["default"], {
         name: "Schedule",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 65
         },
         __self: this
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
         query: _Slider__WEBPACK_IMPORTED_MODULE_3__["ALL_CARTITEMS_QUERY"],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 68
         },
         __self: this
       }, function (_ref) {
@@ -1219,7 +1206,7 @@ function (_Component) {
           mutation: TOGGLE_CART_MUTATION,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 70
           },
           __self: this
         }, function (toggleCart) {
@@ -1227,14 +1214,14 @@ function (_Component) {
             onClick: toggleCart,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 73
+              lineNumber: 72
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "confirmations",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 74
+              lineNumber: 73
             },
             __self: this
           }, "Confirmations"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessCount__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -1243,7 +1230,7 @@ function (_Component) {
             }, 0),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 75
+              lineNumber: 74
             },
             __self: this
           }));
@@ -1358,9 +1345,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-select */ "react-select");
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_select__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _ClientSearch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ClientSearch */ "./components/ClientSearch.js");
+/* harmony import */ var _ClientSearch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ClientSearch */ "./components/ClientSearch.js");
 
 var _jsxFileName = "/Users/nickplechas/coding/pday-app/pday-front-master/components/Modal.js";
 
@@ -1386,19 +1371,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  query SINGLE_REASON_QUERY($id: ID!) {\n    reason(id: $id) {\n      id\n      name\n      color\n    }\n  }\n"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
 
 function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n  mutation TOGGLE_MODAL_MUTATION {\n    toggleModal @client\n  }\n"]);
@@ -1428,10 +1401,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
 var OPEN_MODAL_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
 var TOGGLE_MODAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject2());
-var SINGLE_REASON_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject3());
 var BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.div.withConfig({
   displayName: "Modal__BackDrop",
   componentId: "sc-105rmtf-0"
@@ -1462,18 +1433,6 @@ var Save = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.button.withC
   displayName: "Modal__Save",
   componentId: "sc-105rmtf-6"
 })(["background-color:#fff;border:none;border-radius:20px;display:grid;right:0;grid-row:2;cursor:pointer;position:absolute;align-items:center;width:100px;height:60%;background:rgba(20,200,120,1);color:white;font-size:18px;margin-right:25px;transition:0.3s;z-index:900;&:focus{outline:none;}&:hover{opacity:0.8;transform:scale(1.1);}"]);
-var colourStyles = {
-  input: function input(styles) {
-    return _objectSpread({}, styles);
-  },
-  placeholder: function placeholder(styles) {
-    return _objectSpread({}, styles);
-  },
-  singleValue: function singleValue(styles, _ref) {
-    var data = _ref.data;
-    return _objectSpread({}, styles);
-  }
-};
 
 var Modal =
 /*#__PURE__*/
@@ -1512,14 +1471,6 @@ function (_Component) {
       _this.setState(_defineProperty({}, name, val));
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleReason", function (reason) {
-      _this.setState({
-        reason: reason
-      });
-
-      console.log("Option selected:", reason);
-    });
-
     return _this;
   }
 
@@ -1532,7 +1483,7 @@ function (_Component) {
         mutation: TOGGLE_MODAL_MUTATION,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 193
+          lineNumber: 173
         },
         __self: this
       }, function (toggleModal) {
@@ -1540,11 +1491,11 @@ function (_Component) {
           query: OPEN_MODAL_QUERY,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 195
+            lineNumber: 175
           },
           __self: this
-        }, function (_ref2) {
-          var data = _ref2.data;
+        }, function (_ref) {
+          var data = _ref.data;
 
           if (!data.openModal) {
             return null;
@@ -1553,20 +1504,20 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(BackDrop, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 201
+              lineNumber: 181
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Modall, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 202
+              lineNumber: 182
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
             onSubmit:
             /*#__PURE__*/
             function () {
-              var _ref3 = _asyncToGenerator(
+              var _ref2 = _asyncToGenerator(
               /*#__PURE__*/
               _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
                 return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -1586,47 +1537,47 @@ function (_Component) {
               }));
 
               return function (_x) {
-                return _ref3.apply(this, arguments);
+                return _ref2.apply(this, arguments);
               };
             }(),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 203
+              lineNumber: 183
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Date, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 209
+              lineNumber: 189
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 210
+              lineNumber: 190
             },
             __self: this
           }, Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(_this2.props.date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 211
+              lineNumber: 191
             },
             __self: this
-          }, _this2.props.time)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          }, _this2.props.time)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ClientSearch__WEBPACK_IMPORTED_MODULE_6__["default"], {
             name: "clients",
-            type: "text",
+            type: "search",
             value: _this2.state.clients,
-            onChange: _this2.handleChange,
+            handleChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 213
+              lineNumber: 193
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "reason",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 219
+              lineNumber: 199
             },
             __self: this
           }, "Appointment Type:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(StyledInput, {
@@ -1634,11 +1585,10 @@ function (_Component) {
             type: "select",
             multiple: false,
             value: _this2.state.reason,
-            placeholder: "Search your favourite book",
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 221
+              lineNumber: 201
             },
             __self: this
           }, _this2.props.reasons.map(function (reason, i) {
@@ -1647,7 +1597,7 @@ function (_Component) {
               key: reason.name,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 230
+                lineNumber: 209
               },
               __self: this
             }, reason.name);
@@ -1655,7 +1605,7 @@ function (_Component) {
             htmlFor: "note",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 237
+              lineNumber: 216
             },
             __self: this
           }, "Notes:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(StyledTextArea, {
@@ -1665,14 +1615,14 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 239
+              lineNumber: 218
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Cancel, {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 247
+              lineNumber: 226
             },
             __self: this
           }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Save, {
@@ -1680,7 +1630,7 @@ function (_Component) {
             onClick: toggleModal,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 248
+              lineNumber: 227
             },
             __self: this
           }, "Save"))));
@@ -2374,43 +2324,46 @@ function (_Component) {
           __self: this
         }, function (_ref2) {
           var data = _ref2.data;
+          // if (!data.cartOpen) {
+          //   return null
+          // }
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CartStyles__WEBPACK_IMPORTED_MODULE_3__["default"], {
             open: data.cartOpen,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 88
+              lineNumber: 92
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 89
+              lineNumber: 93
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Supreme__WEBPACK_IMPORTED_MODULE_5__["default"], {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 90
+              lineNumber: 94
             },
             __self: this
           }, Object(date_fns__WEBPACK_IMPORTED_MODULE_6__["format"])(date, 'MMMM Do, YYYY')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ConfList, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 91
+              lineNumber: 95
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "flexChild",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 92
+              lineNumber: 96
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             className: "confirmed",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 93
+              lineNumber: 97
             },
             __self: this
           }, "Confirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ColumnTally__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -2419,20 +2372,20 @@ function (_Component) {
             name: "CONFIRMED",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 94
+              lineNumber: 98
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "scroll",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 99
+              lineNumber: 103
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 100
+              lineNumber: 104
             },
             __self: this
           }, cartItems.map(function (cartItem) {
@@ -2441,7 +2394,7 @@ function (_Component) {
               cartItem: cartItem,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 103
+                lineNumber: 107
               },
               __self: this
             }) : null;
@@ -2449,14 +2402,14 @@ function (_Component) {
             className: "flexChild",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 112
+              lineNumber: 116
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             className: "canceled",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 113
+              lineNumber: 117
             },
             __self: this
           }, "Canceled"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ColumnTally__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -2465,20 +2418,20 @@ function (_Component) {
             name: "CANCELED",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 114
+              lineNumber: 118
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "scroll",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 119
+              lineNumber: 123
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 120
+              lineNumber: 124
             },
             __self: this
           }, cartItems.map(function (cartItem) {
@@ -2487,7 +2440,7 @@ function (_Component) {
               cartItem: cartItem,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 123
+                lineNumber: 127
               },
               __self: this
             }) : null;
@@ -2495,14 +2448,14 @@ function (_Component) {
             className: "flexChild",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 132
+              lineNumber: 136
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             className: "unconfirmed",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 133
+              lineNumber: 137
             },
             __self: this
           }, "Unconfirmed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ColumnTally__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -2511,20 +2464,20 @@ function (_Component) {
             name: "UNCONFIRMED",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 134
+              lineNumber: 138
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "scroll",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 140
+              lineNumber: 144
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 141
+              lineNumber: 145
             },
             __self: this
           }, cartItems.map(function (cartItem) {
@@ -2533,14 +2486,14 @@ function (_Component) {
               cartItem: cartItem,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 144
+                lineNumber: 149
               },
               __self: this
             }) : null;
           })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 156
+              lineNumber: 161
             },
             __self: this
           }));
@@ -2702,7 +2655,7 @@ __webpack_require__.r(__webpack_exports__);
 var CartStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "CartStyles",
   componentId: "sc-1tvog53-0"
-})(["padding:40px;position:relative;background:white;position:fixed;height:100%;top:0;right:0;width:40%;min-width:500px;max-width:700px;bottom:0;transform:translateX(100%);transition:all 0.3s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);z-index:90;display:grid;grid-template-rows:40vh auto;overflow-y:scroll;", ";header{margin-bottom:1rem;padding-bottom:1rem;}footer{display:grid;grid-template-columns:1fr;}ul{margin:0;padding:0;list-style:none;}"], function (props) {
+})(["padding:40px;position:relative;background:white;position:fixed;height:100%;top:0;right:0;width:40%;min-width:500px;max-width:700px;bottom:0;transform:translateX(100%);transition:all 0.3s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);z-index:90;display:grid;grid-template-rows:60vh auto;overflow-y:scroll;", ";header{margin-bottom:1rem;padding-bottom:1rem;border-bottom:2px solid black;overflow:hidden;}footer{display:grid;grid-template-columns:1fr;}ul{margin:0;padding:0;list-style:none;}"], function (props) {
   return props.open && "transform: translateX(0);";
 });
 /* harmony default export */ __webpack_exports__["default"] = (CartStyles);
@@ -3225,17 +3178,6 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-apollo");
-
-/***/ }),
-
-/***/ "react-select":
-/*!*******************************!*\
-  !*** external "react-select" ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("react-select");
 
 /***/ }),
 

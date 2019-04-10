@@ -192,7 +192,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  query ALL_CLIENTS_QUERY($skip: Int = 0, $first: Int = ", ") {\n    clients(first: $first, skip: $skip, orderBy: lastName_ASC) {\n      id\n      firstName\n      lastName\n      cellPhone\n      birthDay\n      image\n      user {\n        id\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query ALL_CLIENTS_QUERY($skip: Int = 0, $first: Int = ", ", $user: ID!) {\n    clients(first: $first, skip: $skip, orderBy: lastName_ASC, where: {user: { id: $user }}) {\n      id\n      firstName\n      lastName\n      cellPhone\n      birthDay\n      image\n      user {\n        id\n      }\n    }\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -282,7 +282,8 @@ function (_Component) {
           query: ALL_CLIENTS_QUERY,
           variables: {
             skip: _this.props.page * _config__WEBPACK_IMPORTED_MODULE_6__["perPage"] - _config__WEBPACK_IMPORTED_MODULE_6__["perPage"],
-            first: 19
+            first: 19,
+            user: me.id
           },
           __source: {
             fileName: _jsxFileName,
@@ -296,21 +297,21 @@ function (_Component) {
           if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 87
+              lineNumber: 88
             },
             __self: this
           }, "Loading...");
           if (error) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 88
+              lineNumber: 89
             },
             __self: this
           }, "Error: ", error.message);
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Clientlisting, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 90
+              lineNumber: 91
             },
             __self: this
           }, data.clients.map(function (client) {
@@ -319,7 +320,7 @@ function (_Component) {
               key: client.id,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 92
+                lineNumber: 93
               },
               __self: this
             });
@@ -329,7 +330,7 @@ function (_Component) {
           page: _this.props.page,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 98
+            lineNumber: 99
           },
           __self: this
         }));
@@ -37252,7 +37253,7 @@ var Settings = function Settings(props) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!********************************!*\
   !*** multi ./pages/clients.js ***!
   \********************************/
@@ -37277,5 +37278,5 @@ module.exports = dll_357ed521ea49f3b22381;
 
 /***/ })
 
-},[[5,"static/runtime/webpack.js"]]]));;
+},[[4,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=clients.js.map

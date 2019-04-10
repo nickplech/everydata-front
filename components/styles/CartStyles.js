@@ -17,12 +17,14 @@ const CartStyles = styled.div`
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
   z-index: 90;
   display: grid;
-  grid-template-rows: 40vh auto;
+  grid-template-rows: 60vh auto;
   overflow-y: scroll;
   ${props => props.open && `transform: translateX(0);`};
   header {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
+    border-bottom: 2px solid black;
+    overflow: hidden;
   }
   footer {
     display: grid;

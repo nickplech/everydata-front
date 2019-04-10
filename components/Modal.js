@@ -3,8 +3,7 @@ import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import { format } from 'date-fns'
 import styled from 'styled-components'
-import Select from 'react-select'
-import ClientSearch from './ClientSearch'
+import UserProps from './ClientSearch'
 
 const OPEN_MODAL_QUERY = gql`
   query OPEN_MODAL_QUERY {
@@ -14,16 +13,6 @@ const OPEN_MODAL_QUERY = gql`
 const TOGGLE_MODAL_MUTATION = gql`
   mutation TOGGLE_MODAL_MUTATION {
     toggleModal @client
-  }
-`
-
-const SINGLE_REASON_QUERY = gql`
-  query SINGLE_REASON_QUERY($id: ID!) {
-    reason(id: $id) {
-      id
-      name
-      color
-    }
   }
 `
 
@@ -163,11 +152,7 @@ const Save = styled.button`
     transform: scale(1.1);
   }
 `
-const colourStyles = {
-  input: styles => ({ ...styles }),
-  placeholder: styles => ({ ...styles }),
-  singleValue: (styles, { data }) => ({ ...styles }),
-}
+
 class Modal extends Component {
   state = {
     clients: [],
@@ -181,11 +166,6 @@ class Modal extends Component {
     const { name, type, value } = e.target
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
-  }
-
-  handleReason = reason => {
-    this.setState({ reason: reason })
-    console.log(`Option selected:`, reason)
   }
 
   render() {
@@ -210,11 +190,11 @@ class Modal extends Component {
                         <p>{format(this.props.date, 'MMMM Do, YYYY')}</p>
                         <p>{this.props.time}</p>
                       </Date>
-                      <ClientSearch
+                      <UserProps
                         name="clients"
-                        type="text"
+                        type="search"
                         value={this.state.clients}
-                        onChange={this.handleChange}
+                        handleChange={this.handleChange}
                       />
                       <label htmlFor="reason">
                         Appointment Type:
@@ -223,7 +203,6 @@ class Modal extends Component {
                           type="select"
                           multiple={false}
                           value={this.state.reason}
-                          placeholder="Search your favourite book"
                           onChange={this.handleChange}
                         >
                           {this.props.reasons.map((reason, i) => (

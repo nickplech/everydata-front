@@ -64,43 +64,41 @@ const Plus = styled.button`
   outline: none;
 `
 
-class Header extends Component {
-  render() {
-    return (
-      <StyledHeader>
-        <div className="bar">
-          <Logo>
-            <Link href="/">
-              <a>Perfect Day Reminders</a>
-            </Link>
-          </Logo>
-          <Nav />
+const Header = () => {
+  return (
+    <StyledHeader>
+      <div className="bar">
+        <Logo>
+          <Link href="/">
+            <a>Perfect Day Reminders</a>
+          </Link>
+        </Logo>
+        <Nav />
+      </div>
+      <SignInNoDisplay>
+        <div className="sub-bar">
+          <Link href="/addclient">
+            <a>
+              <Plus>
+                <PlusButton
+                  color="rgba(100,100,200,1)"
+                  size={35}
+                  thickness={2}
+                />
+              </Plus>
+            </a>
+          </Link>
+          <User>
+            {({ data: { me } }) => {
+              return me && <AutoComplete user={me} />
+            }}
+          </User>
+          <InfoBar />
+          <Slider />
         </div>
-        <SignInNoDisplay>
-          <div className="sub-bar">
-            <Link href="/addclient">
-              <a>
-                <Plus>
-                  <PlusButton
-                    color="rgba(100,100,200,1)"
-                    size={35}
-                    thickness={2}
-                  />
-                </Plus>
-              </a>
-            </Link>
-            <User>
-              {({ data: { me } }) => {
-                return me && <AutoComplete user={me.id} />
-              }}
-            </User>
-            <InfoBar />
-            <Slider />
-          </div>
-        </SignInNoDisplay>
-      </StyledHeader>
-    )
-  }
+      </SignInNoDisplay>
+    </StyledHeader>
+  )
 }
 
 export default Header

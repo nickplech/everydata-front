@@ -8,13 +8,18 @@ import debounce from 'lodash.debounce'
 import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown'
 
 const SEARCH_CLIENTS_QUERY = gql`
-  query SEARCH_CLIENTS_QUERY($searchTerm: String!) {
+  query SEARCH_CLIENTS_QUERY($searchTerm: String!, $user: ID!) {
     clients(
       orderBy: updatedAt_DESC
       where: {
         AND: [
-          { firstName_contains: $searchTerm }
-          { lastName_contains: $searchTerm }
+          {
+            OR: [
+              { firstName_contains: $searchTerm }
+              { lastName_contains: $searchTerm }
+            ]
+          }
+          { user: { id: $user } }
         ]
       }
     ) {
@@ -50,7 +55,7 @@ class AutoComplete extends Component {
     this.setState({ loading: true })
     const res = await client.query({
       query: SEARCH_CLIENTS_QUERY,
-      variables: { searchTerm: e.target.value },
+      variables: { searchTerm: e.target.value, user: this.props.user.id },
     })
     this.setState({
       clients: res.data.clients,

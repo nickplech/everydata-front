@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Mutation, Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import { ALL_CARTITEMS_QUERY } from './Slider'
-import { LOCAL_STATE_QUERY } from './Slider'
 import Link from 'next/link'
 import SuccessCount from './SuccessCount'
 import styled from 'styled-components'
@@ -86,6 +85,7 @@ class InfoBar extends Component {
             </Mutation>
           )}
         </Query>
+
         <Slider />
       </StyledBar>
     )

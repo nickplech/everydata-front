@@ -11,7 +11,7 @@ class Chatroom extends React.Component {
     this.state = {
       chats: [
         {
-          username: 'James Saif',
+          username: 'Perfect Day Reminders',
           content: (
             <p>
               Welcome to Perfect Day Reminders, if you have any questions please
@@ -44,7 +44,9 @@ class Chatroom extends React.Component {
     const toggleChat = this.state.isOpen ? false : true
     this.setState({ isOpen: toggleChat })
   }
-
+  // addText = () => {
+  //   this.setState({ inputText: e.target.value })
+  // }
   submitMessage(e) {
     e.preventDefault()
 
@@ -52,7 +54,7 @@ class Chatroom extends React.Component {
       {
         chats: this.state.chats.concat([
           {
-            username: 'Nathan',
+            username: 'Username',
             content: <p>{ReactDOM.findDOMNode(this.refs.msg).value}</p>,
             img: './static/img/perfectdayreminders.png',
           },
@@ -65,10 +67,10 @@ class Chatroom extends React.Component {
   }
 
   render() {
-    const username = 'Nathan'
+    const username = 'Username'
     const { chats } = this.state
     const { isOpen } = this.state
-
+    const tooShort = chats.length < 1
     return (
       <StyledChat open={isOpen}>
         <h3 onClick={this.slideChat}>
@@ -81,7 +83,9 @@ class Chatroom extends React.Component {
         </ul>
         <TextInput onSubmit={e => this.submitMessage(e)}>
           <input type="text" ref="msg" />
-          <button type="submit">Submit</button>
+          <button disabled={tooShort} type="submit">
+            Submit
+          </button>
         </TextInput>
       </StyledChat>
     )

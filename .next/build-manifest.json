@@ -11,11 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/client": [
+    "/clients": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/clients": [
+    "/client": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

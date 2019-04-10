@@ -6,7 +6,6 @@ import chroma from 'chroma-js'
 import Select from 'react-select'
 import Router from 'next/router'
 import Error from './ErrorMessage'
-
 import styled from 'styled-components'
 import SickButton from './styles/SickButton'
 import SickerButton from './styles/SickerButton'

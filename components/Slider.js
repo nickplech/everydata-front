@@ -84,78 +84,84 @@ class Slider extends Component {
           if (!cartItems) return null
           return (
             <Query query={LOCAL_STATE_QUERY}>
-              {({ data }) => (
-                <CartStyles open={data.cartOpen}>
-                  <header>
-                    <Supreme>{format(date, 'MMMM Do, YYYY')}</Supreme>
-                    <ConfList>
-                      <div className="flexChild">
-                        <p className="confirmed">Confirmed</p>
-                        <ColumnTally
-                          cart={cartItems}
-                          color="green"
-                          name="CONFIRMED"
-                        />
-                        <div className="scroll">
-                          <ul>
-                            {cartItems.map(cartItem =>
-                              cartItem.confirmationStatus === 'CONFIRMED' ? (
-                                <CartItem
-                                  key={cartItem.id}
-                                  cartItem={cartItem}
-                                />
-                              ) : null,
-                            )}
-                          </ul>
+              {({ data }) => {
+                // if (!data.cartOpen) {
+                //   return null
+                // }
+                return (
+                  <CartStyles open={data.cartOpen}>
+                    <header>
+                      <Supreme>{format(date, 'MMMM Do, YYYY')}</Supreme>
+                      <ConfList>
+                        <div className="flexChild">
+                          <p className="confirmed">Confirmed</p>
+                          <ColumnTally
+                            cart={cartItems}
+                            color="green"
+                            name="CONFIRMED"
+                          />
+                          <div className="scroll">
+                            <ul>
+                              {cartItems.map(cartItem =>
+                                cartItem.confirmationStatus === 'CONFIRMED' ? (
+                                  <CartItem
+                                    key={cartItem.id}
+                                    cartItem={cartItem}
+                                  />
+                                ) : null,
+                              )}
+                            </ul>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flexChild">
-                        <p className="canceled">Canceled</p>
-                        <ColumnTally
-                          cart={cartItems}
-                          color="red"
-                          name="CANCELED"
-                        />
-                        <div className="scroll">
-                          <ul>
-                            {cartItems.map(cartItem =>
-                              cartItem.confirmationStatus === 'CANCELED' ? (
-                                <CartItem
-                                  key={cartItem.id}
-                                  cartItem={cartItem}
-                                />
-                              ) : null,
-                            )}
-                          </ul>
+                        <div className="flexChild">
+                          <p className="canceled">Canceled</p>
+                          <ColumnTally
+                            cart={cartItems}
+                            color="red"
+                            name="CANCELED"
+                          />
+                          <div className="scroll">
+                            <ul>
+                              {cartItems.map(cartItem =>
+                                cartItem.confirmationStatus === 'CANCELED' ? (
+                                  <CartItem
+                                    key={cartItem.id}
+                                    cartItem={cartItem}
+                                  />
+                                ) : null,
+                              )}
+                            </ul>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flexChild">
-                        <p className="unconfirmed">Unconfirmed</p>
-                        <ColumnTally
-                          cart={cartItems}
-                          color="grey"
-                          name="UNCONFIRMED"
-                        />
+                        <div className="flexChild">
+                          <p className="unconfirmed">Unconfirmed</p>
+                          <ColumnTally
+                            cart={cartItems}
+                            color="grey"
+                            name="UNCONFIRMED"
+                          />
 
-                        <div className="scroll">
-                          <ul>
-                            {cartItems.map(cartItem =>
-                              cartItem.confirmationStatus === 'UNCONFIRMED' ? (
-                                <CartItem
-                                  key={cartItem.id}
-                                  cartItem={cartItem}
-                                />
-                              ) : null,
-                            )}
-                          </ul>
+                          <div className="scroll">
+                            <ul>
+                              {cartItems.map(cartItem =>
+                                cartItem.confirmationStatus ===
+                                'UNCONFIRMED' ? (
+                                  <CartItem
+                                    key={cartItem.id}
+                                    cartItem={cartItem}
+                                  />
+                                ) : null,
+                              )}
+                            </ul>
+                          </div>
                         </div>
-                      </div>
-                    </ConfList>
-                  </header>
+                      </ConfList>
+                    </header>
 
-                  <footer />
-                </CartStyles>
-              )}
+                    <footer />
+                  </CartStyles>
+                )
+              }}
             </Query>
           )
         }}

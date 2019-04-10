@@ -6,7 +6,6 @@ import MaskedInput from 'react-text-mask'
 import gql from 'graphql-tag'
 import styled, { ThemeProvider } from 'styled-components'
 import Error from './ErrorMessage'
-
 import { format } from 'date-fns'
 import SickButton from './styles/SickButton'
 import { SINGLE_CLIENT_QUERY } from './Clients'
@@ -27,14 +26,14 @@ const Inner = styled.div`
     }
   }
   .profPic {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     background-color: lightgrey;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 50%;
-    margin-top: 20px;
-    border: 2px solid rgba(20, 110, 220, 0.5);
+    margin-top: 0px;
+    border: none;
     box-shadow: 1px 2px 5px 3px rgba(0, 0, 0, 0.1);
     cursor: pointer;
   }
@@ -226,13 +225,13 @@ class UpdateClient extends Component {
                         />
                         {this.state.image && (
                           <>
+                            <p>Preview of Updated Picture</p>
                             <img
                               className="profPic"
                               width="150"
                               src={this.state.image}
                               alt="upload preview"
                             />
-                            <p>New Picture Preview</p>
                           </>
                         )}
                       </label>

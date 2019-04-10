@@ -138,7 +138,6 @@ class SingleClient extends Component {
   }
 
   render() {
-    console.log(this.myRef)
     return (
       <GridSub>
         <Query

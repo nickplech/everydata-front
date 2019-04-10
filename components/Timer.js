@@ -15,7 +15,7 @@ const Div = styled.div`
 `
 const Input = styled.input`
   border: none;
-  border-radius: 5px 5px 0 0;
+  border-radius: 50%;
   display: flex;
   outline: none;
   text-align: center;
@@ -24,7 +24,7 @@ const Input = styled.input`
   position: relative;
   width: 30px;
   height: 30px;
-  margin: 0px 1px -5px 1px;
+  margin: 2px;
   &:hover {
     transform: scale(1.1);
   }

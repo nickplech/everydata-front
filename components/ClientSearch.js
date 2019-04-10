@@ -3,6 +3,7 @@ import Downshift, { resetIdCounter } from 'downshift'
 import { ApolloConsumer } from 'react-apollo'
 import { SEARCH_CLIENTS_QUERY } from './AutoComplete'
 import debounce from 'lodash.debounce'
+import User from './User'
 import styled, { keyframes } from 'styled-components'
 
 const DropDown = styled.div`
@@ -70,6 +71,13 @@ const Img = styled.img`
   width: 40px;
   height: 40px;
 `
+const UserProps = props => (
+  <User>
+    {({ data: { me } }) => {
+      return <ClientSearch onChange={props.handleChange} user={me} />
+    }}
+  </User>
+)
 
 class ClientSearch extends Component {
   state = {
@@ -81,7 +89,7 @@ class ClientSearch extends Component {
     this.setState({ loading: true })
     const res = await client.query({
       query: SEARCH_CLIENTS_QUERY,
-      variables: { searchTerm: e.target.value, userId: this.props.id },
+      variables: { searchTerm: e.target.value, user: this.props.user.id },
     })
     console.log(res)
     this.setState({
@@ -152,4 +160,4 @@ class ClientSearch extends Component {
   }
 }
 
-export default ClientSearch
+export default UserProps

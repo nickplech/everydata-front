@@ -25,8 +25,8 @@ const SINGLE_CLIENT_QUERY = gql`
 `
 
 const ALL_CLIENTS_QUERY = gql`
-  query ALL_CLIENTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
-    clients(first: $first, skip: $skip, orderBy: lastName_ASC) {
+  query ALL_CLIENTS_QUERY($skip: Int = 0, $first: Int = ${perPage}, $user: ID!) {
+    clients(first: $first, skip: $skip, orderBy: lastName_ASC, where: {user: { id: $user }}) {
       id
       firstName
       lastName
@@ -81,6 +81,7 @@ class Clients extends Component {
                   variables={{
                     skip: this.props.page * perPage - perPage,
                     first: 19,
+                    user: me.id,
                   }}
                 >
                   {({ data, error, loading }) => {
