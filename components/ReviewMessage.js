@@ -262,7 +262,6 @@ class ReviewMessage extends Component {
         ]}
       >
         {(createTextReminder, { error, loading, called }) => {
-          // if (loading) return <p>Loading...</p>
           if (error) return <Error error={error} />
 
           return (
@@ -274,7 +273,6 @@ class ReviewMessage extends Component {
               }}
             >
               {!loading && !error && called && <Submitted />}
-
               <>
                 <Timer
                   saveTime={this.saveTime}

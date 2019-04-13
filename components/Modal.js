@@ -32,14 +32,11 @@ const BackDrop = styled.div`
 const Modall = styled.div`
   background-color: #fff;
   border-radius: 25px;
-  display: grid;
-  grid-template-rows: 1fr 55px;
-  grid-template-columns: 1fr;
+  display: block;
   position: absolute;
-  align-items: flex-start;
   width: 500px;
   height: 500px;
-  padding: 15px 25px;
+  padding: 15px 25px 15px 25px;
   z-index: 999;
   box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.3);
 `
@@ -79,77 +76,80 @@ const StyledTextArea = styled.textarea`
   }
 `
 const Date = styled.div`
-  grid-column: 1;
-  grid-row: 1;
-  justify-content: flex-end;
-  border-radius: 25px 25px 0 0;
-  height: 100%;
-  padding: 5px 20px 0px 20px;
-
-  p {
-    margin: 10px;
-    color: ${props => props.theme.blue};
-    padding: 0px 0px;
-    font-size: 2.2rem;
-    position: relative;
-  }
-
-  h3 {
-    margin: 0;
-  }
-`
-const Cancel = styled.a`
-  background-color: #fff;
-  border-radius: 20px;
-  display: grid;
-  grid-row: 2;
-  margin-left: 25px;
-  position: absolute;
-  left: 0;
-  align-items: center;
+  padding: 3px 10px;
+  margin: 4px auto;
+  border-width: 2px;
+  border-style: solid;
+  position: relative;
+  display: flex;
   justify-content: center;
-  height: 60%;
-  background: rgba(220, 100, 120, 1);
+  box-shadow: 1px 1px 4px 3px rgba(0, 0, 0, 0.1);
   color: white;
-  width: 100px;
+  background: rgba(20, 110, 240, 1);
+  color: white;
+  border-color: white;
+  min-width: 50px;
+  text-align: center;
   cursor: pointer;
-  border: none;
-  transition: 0.3s;
-  font-size: 18px;
-  z-index: 900;
-  &:focus {
-    outline: none;
+  border-radius: 25px;
+  list-style: none;
+`
+const SickButton = styled.button`
+  background: rgba(30, 110, 240, 1);
+  color: white;
+  font-weight: 800;
+  border: 0;
+  margin: 20px 0;
+  float: right;
+  display: flex;
+  border-radius: 5px;
+  font-size: 2rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 2rem;
+  transition: all 0.5s;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);
+  &[disabled] {
+    opacity: 0.5;
   }
   &:hover {
-    opacity: 0.8;
+    background: rgba(30, 110, 240, 0.9);
     transform: scale(1.1);
+  }
+  &:active {
+    box-shadow: none;
   }
 `
 
-const Save = styled.button`
-  background-color: #fff;
-  border: none;
-  border-radius: 20px;
-  display: grid;
-  right: 0;
-  grid-row: 2;
+const SickerButton = styled.button`
+  background: transparent;
+  color: red;
+  font-weight: 800;
+  display: flex;
+  position: relative;
+  border: 3px solid red;
+  margin: 10px 0px 10px 15px;
+  border-radius: 50%;
+  font-size: 2rem;
+  float: right;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.8rem;
+  transition: all 0.5s;
+  outline: none;
   cursor: pointer;
-  position: absolute;
-  align-items: center;
-  width: 100px;
-  height: 60%;
-  background: rgba(20, 200, 120, 1);
-  color: white;
-  font-size: 18px;
-  margin-right: 25px;
-  transition: 0.3s;
-  z-index: 900;
-  &:focus {
-    outline: none;
+  box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);
+  &[disabled] {
+    opacity: 0.5;
   }
   &:hover {
-    opacity: 0.8;
+    background: rgba(230, 10, 40, 0.5);
+    color: white;
+    border-color: white;
     transform: scale(1.1);
+  }
+  &:active {
+    box-shadow: none;
   }
 `
 
@@ -186,10 +186,9 @@ class Modal extends Component {
                         await createAppointment()
                       }}
                     >
-                      <Date>
-                        <p>{format(this.props.date, 'MMMM Do, YYYY')}</p>
-                        <p>{this.props.time}</p>
-                      </Date>
+                      <SickerButton onClick={toggleModal}>&times;</SickerButton>
+                      <Date>{format(this.props.date, 'MMMM Do, YYYY')}</Date>
+                      <Date>{this.props.time}</Date>
                       <UserProps
                         name="clients"
                         type="search"
@@ -212,7 +211,6 @@ class Modal extends Component {
                           ))}
                         </StyledInput>
                       </label>
-
                       <label htmlFor="note">
                         Notes:
                         <StyledTextArea
@@ -222,11 +220,9 @@ class Modal extends Component {
                           onChange={this.handleChange}
                         />
                       </label>
-
-                      <Cancel onClick={toggleModal}>Cancel</Cancel>
-                      <Save type="submit" onClick={toggleModal}>
+                      <SickButton type="submit" onClick={toggleModal}>
                         Save
-                      </Save>
+                      </SickButton>
                     </form>
                   </Modall>
                 </BackDrop>

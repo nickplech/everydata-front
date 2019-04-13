@@ -61,7 +61,8 @@ const Lister = styled.div`
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding-left: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
   background: white;
   overscroll-behavior: contain;
   overflow-y: scroll;
@@ -70,7 +71,7 @@ const TextChunk = styled.div`
   display: flex;
   min-height: 170px;
   border-top: 1.5px solid rgba(220, 220, 220, 0.4);
-
+  padding-left: 20px;
   &:first-child {
     margin-top: 30px;
     border-top: none;

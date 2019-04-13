@@ -95,6 +95,7 @@ const StyledTitle = styled.h2`
   text-align: center;
   font-size: 19px;
   line-height: 28px;
+  padding: 0 3px;
   color: rgba(30, 110, 240, 1);
 `
 const StyledSub = styled.p`

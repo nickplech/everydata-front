@@ -90,7 +90,7 @@ class Clients extends Component {
                     return (
                       <Clientlisting>
                         {data.clients.map(client => (
-                          <Client client={client} key={client.id} />
+                          <Client user={me} client={client} key={client.id} />
                         ))}
                       </Clientlisting>
                     )

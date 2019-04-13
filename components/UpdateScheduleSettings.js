@@ -11,12 +11,6 @@ import SickButton from './styles/SickButton'
 import SickerButton from './styles/SickerButton'
 import Reason from './Reason'
 import posed from 'react-pose'
-
-const Content = posed.div({
-  closed: { height: 0 },
-  open: { height: 'auto' },
-})
-
 import { ALL_REASONS_QUERY } from './SingleDay'
 import { visible } from 'ansi-colors'
 
@@ -40,7 +34,10 @@ const CREATE_REASON_MUTATION = gql`
     }
   }
 `
-
+const Content = posed.div({
+  closed: { height: 0 },
+  open: { height: 'auto' },
+})
 const Inner = styled.div`
   text-align: left;
   max-width: ${props => props.theme.innerWidth};
@@ -271,19 +268,6 @@ class UpdateScheduleSettings extends Component {
                               className="content"
                               pose={open === true ? 'open' : 'closed'}
                             >
-                              <label htmlFor="name">
-                                Name of Appointment Type
-                                <input
-                                  type="text"
-                                  id="name"
-                                  name="name"
-                                  placeholder="Name"
-                                  autoComplete="off"
-                                  // required
-                                  value={this.state.name}
-                                  onChange={this.handleChange}
-                                />
-                              </label>
                               <label>
                                 Select Color to Identify Appointment Type
                                 <Select
@@ -292,6 +276,18 @@ class UpdateScheduleSettings extends Component {
                                   value={selectedOption}
                                   onChange={this.handleColor}
                                   options={colourOptions}
+                                />
+                              </label>
+                              <label htmlFor="name">
+                                Name of Appointment Type
+                                <input
+                                  type="text"
+                                  id="name"
+                                  name="name"
+                                  placeholder="Name"
+                                  autoComplete="off"
+                                  value={this.state.name}
+                                  onChange={this.handleChange}
                                 />
                               </label>
                               <label htmlFor="defaultLength">
@@ -317,7 +313,7 @@ class UpdateScheduleSettings extends Component {
                                   value={this.state.provider}
                                   onChange={this.handleChange}
                                 />
-                              </label>{' '}
+                              </label>
                               <SickButton type="submit">
                                 Creat{loading ? 'ing' : 'e'} Type
                               </SickButton>{' '}

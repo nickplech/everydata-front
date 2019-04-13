@@ -61,7 +61,13 @@ class DeleteReason extends React.Component {
               disabled={loading}
               onClick={() => {
                 if (
-                  confirm(`Are you sure you want to delete ${this.props.name}?`)
+                  confirm(
+                    `WARNING: By deleting the ${
+                      this.props.name
+                    } appointment type, all existing appointments made with this type will revert to Appointment Type: Standard. Are you sure you want to delete ${
+                      this.props.name
+                    }?`,
+                  )
                 ) {
                   deleteReason().catch(err => alert(err.message))
                 }

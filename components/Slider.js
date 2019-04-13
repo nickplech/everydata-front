@@ -18,13 +18,13 @@ const ALL_CARTITEMS_QUERY = gql`
   query ALL_CARTITEMS_QUERY {
     cartItems(orderBy: time_DESC) {
       id
-      confirmationStatus
       quantity
       date
       time
       textReminder {
         id
         forTime
+        confirmationStatus
       }
       client {
         id
@@ -103,7 +103,8 @@ class Slider extends Component {
                           <div className="scroll">
                             <ul>
                               {cartItems.map(cartItem =>
-                                cartItem.confirmationStatus === 'CONFIRMED' ? (
+                                cartItem.textReminder.confirmationStatus ===
+                                'CONFIRMED' ? (
                                   <CartItem
                                     key={cartItem.id}
                                     cartItem={cartItem}
@@ -123,7 +124,8 @@ class Slider extends Component {
                           <div className="scroll">
                             <ul>
                               {cartItems.map(cartItem =>
-                                cartItem.confirmationStatus === 'CANCELED' ? (
+                                cartItem.textReminder.confirmationStatus ===
+                                'CANCELED' ? (
                                   <CartItem
                                     key={cartItem.id}
                                     cartItem={cartItem}
@@ -144,7 +146,7 @@ class Slider extends Component {
                           <div className="scroll">
                             <ul>
                               {cartItems.map(cartItem =>
-                                cartItem.confirmationStatus ===
+                                cartItem.textReminder.confirmationStatus ===
                                 'UNCONFIRMED' ? (
                                   <CartItem
                                     key={cartItem.id}

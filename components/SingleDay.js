@@ -7,6 +7,7 @@ import gql from 'graphql-tag'
 import { TOGGLE_MODAL_MUTATION } from './Modal'
 import { format, startOfDay } from 'date-fns'
 import { Data_15 } from '../lib/timeSlots'
+import Appointment from './Appointment'
 import Modal from './Modal'
 
 const ALL_REASONS_QUERY = gql`
@@ -45,8 +46,6 @@ const TopBlock = styled.div`
 const DayView = styled.div`
   position: relative;
   display: grid;
-  /* grid-row: 1/3;
-  grid-column: 2/3; */
   width: 100%;
   height: 100%;
   background-color: white;

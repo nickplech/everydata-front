@@ -37,6 +37,7 @@ export default class Client extends Component {
             <button>Edit</button>
           </Link>
           <DeleteClient
+            user={this.props.user}
             firstName={client.firstName}
             lastName={client.lastName}
             id={client.id}

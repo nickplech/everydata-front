@@ -9,7 +9,8 @@ class ColumnTally extends Component {
   render() {
     const cart = this.props.cart
     const itemsToRender = cart.filter(
-      cartItem => cartItem.confirmationStatus === `${this.props.name}`,
+      cartItem =>
+        cartItem.textReminder.confirmationStatus === `${this.props.name}`,
     )
     const filteredCol = itemsToRender.length
 
