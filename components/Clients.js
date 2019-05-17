@@ -14,28 +14,28 @@ const SINGLE_CLIENT_QUERY = gql`
       id
       firstName
       lastName
+      fullName
       cellPhone
-      birthDay
+      email
       image
-      user {
-        id
-      }
+      createdAt
+      updatedAt
     }
   }
 `
 
 const ALL_CLIENTS_QUERY = gql`
-  query ALL_CLIENTS_QUERY($skip: Int = 0, $first: Int = ${perPage}, $user: ID!) {
-    clients(first: $first, skip: $skip, orderBy: lastName_ASC, where: {user: { id: $user }}) {
+  query ALL_CLIENTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
+    clients(first: $first, skip: $skip, orderBy: lastName_ASC) {
       id
       firstName
       lastName
+      fullName
       cellPhone
-      birthDay
+      email
       image
-      user {
-        id
-      }
+      createdAt
+      updatedAt
     }
   }
 `
@@ -80,8 +80,7 @@ class Clients extends Component {
                   query={ALL_CLIENTS_QUERY}
                   variables={{
                     skip: this.props.page * perPage - perPage,
-                    first: 19,
-                    user: me.id,
+                    first: 10,
                   }}
                 >
                   {({ data, error, loading }) => {

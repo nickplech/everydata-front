@@ -1,3 +1,5 @@
 // This is client side config only - don't put anything in here that shouldn't be public!
 export const endpoint = `http://localhost:4444`
-export const perPage = 19
+// export const prodEndpoint = `https://yoga`
+export const perPage = 5
+export const postsPerPage = 10

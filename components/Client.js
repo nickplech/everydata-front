@@ -27,7 +27,7 @@ export default class Client extends Component {
           </Link>
 
           <p>{client.cellPhone}</p>
-          <p>{format(client.birthDay, 'MMMM Do, YYYY')}</p>
+          <p>{client.email}</p>
           <Link
             href={{
               pathname: 'update',

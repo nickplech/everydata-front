@@ -1,125 +1,191 @@
 import React from 'react'
 import styled from 'styled-components'
 import posed from 'react-pose'
+import Typist from 'react-typist'
 
-const MainPhone = styled.div`
+const Computer = styled.img`
   .main-phone {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 190px 125px 45px 1fr;
-    background-image: url('../static/img/bg-phone2.png');
-    bottom: 0%;
-    width: 425px;
-    min-height: 550px;
     z-index: 4;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
-    padding-left: 35px;
     margin: 0 auto;
   }
+`
 
-  .med-text1 {
-    grid-row: 2/3;
+const Flex = styled.div`
+  display: flex;
+  justify-content: center;
+  .logoWhite {
+    position: absolute;
+    padding: 0px;
+    display: block;
+    z-index: 15;
+    margin: 110px auto 70px auto;
     height: auto;
-    width: 270px;
-    top: 35%;
-    left: 35px;
-    z-index: 5;
+    width: 500px;
+    z-index: 10;
+  }
+  .compTitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 185px auto 20px auto;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    position: absolute;
+    display: block;
+    z-index: 900;
+  }
+  .clickhere {
+    cursor: pointer;
+    padding: 6px 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    position: absolute;
+    display: block;
+    margin-top: 310px;
+    &:hover {
+      background: white;
+      color: rgba(20, 110, 240, 0.8);
+    }
+  }
+  .typing {
+    @import url('https://fonts.googleapis.com/css?family=Audiowide|Comfortaa|Orbitron|Rajdhani|VT323');
+    position: absolute;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    transform: translateY(260px);
+    color: white;
   }
 
-  .med-text2 {
-    margin-left: 245px;
-    grid-row: 3/4;
-    height: auto;
-    width: 110px;
-    top: 97%;
-    left: 283px;
-    z-index: 5;
+  .Typist .Cursor {
+    display: inline-block;
   }
-  .med-text3 {
-    grid-row: 4/5;
-    height: auto;
-    width: 270px;
-    top: 66%;
-    left: 35px;
-    z-index: 5;
+  .Typist .Cursor--blinking {
+    opacity: 1;
+    animation: blink 1s linear infinite;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 `
-const PhoneSlide = posed.div({
-  exit: {
-    y: '0%',
-  },
-  enter: {
-    y: '0%',
-    beforeChildren: true,
-    staggerChildren: 500,
-  },
-})
 
 const Bub1 = posed.img({
   exit: {
+    y: -35,
     opacity: 0,
-    scale: 0.9,
   },
   enter: {
+    y: 0,
+    x: 0,
     opacity: 1,
-    scale: 1,
-    transition: { type: 'spring', stiffness: 300 },
+    delay: 900,
+    transition: {
+      y: { type: 'spring', stiffness: 600, damping: 15 },
+      default: { duration: 300 },
+    },
   },
 })
 
-const Bub2 = posed.img({
+const Bub2 = posed.a({
   exit: {
     opacity: 0,
-    scale: 0.9,
+
+    y: -50,
   },
   enter: {
+    y: 0,
     opacity: 1,
-    scale: 1,
-    transition: { type: 'spring', stiffness: 300 },
+    delay: 1900,
+    transition: {
+      y: { type: 'spring', stiffness: 1000, damping: 15 },
+      default: { duration: 300 },
+    },
   },
 })
 
-const Bub3 = posed.img({
+const Bub3 = posed.p({
   exit: {
     opacity: 0,
-    scale: 0.9,
+    x: 100,
   },
   enter: {
+    x: 160,
     opacity: 1,
-    scale: 1,
-    transition: { type: 'spring', stiffness: 300 },
+    delay: 1500,
+    transition: {
+      y: { type: 'spring', stiffness: 1000, damping: 15 },
+      default: { duration: 300 },
+    },
   },
 })
+const Color = styled.span`
+  color: rgba(200, 80, 150, 1);
+  font-weight: 800;
+`
+const Phone = props => {
+  return (
+    <>
+      <Flex>
+        <Bub1
+          initialPose="exit"
+          pose="enter"
+          key="bub1"
+          className="logoWhite"
+          src={'../static/img/ogocalibri.svg'}
+        />
+        <Bub2
+          initialPose="exit"
+          pose="enter"
+          key="bub2"
+          onClick={props.toggleModal}
+          className="clickhere"
+        >
+          Click Here to Start
+        </Bub2>
+        <Bub3 initialPose="exit" pose="enter" key="bub3" className="compTitle">
+          Business &amp; Consumer Lists
+        </Bub3>
+        <Typist
+          className="typing"
+          cursor={{
+            show: true,
+            blink: true,
+            element: '|',
+            hideWhenDone: true,
+          }}
+          startDelay={3000}
+        >
+          Our database contains <Color>150 million Consumers</Color>
+          <Typist.Delay ms={500} />
+          <Typist.Backspace count={21} delay={1000} />
+          <Color>110 million Homeowners</Color>
+          <Typist.Delay ms={500} />
+          <Typist.Backspace count={22} delay={1000} />
+          <Color>30 million Businesses</Color>
+          <Typist.Delay ms={500} />
+          <Typist.Backspace count={21} delay={1000} />
+          <Color>15 million Business Owners</Color>
+          <Typist.Delay ms={500} />
+          <Typist.Backspace count={48} delay={1000} />
+          Data for Any Industry that Makes Calls
+        </Typist>
+      </Flex>
 
-class Phone extends React.Component {
-  render() {
-    return (
-      <MainPhone>
-        <PhoneSlide initialPose="exit" pose="enter" className="main-phone">
-          <Bub1
-            key="bub1"
-            id="i1"
-            className="med-text1"
-            src="../static/img/medical-reminder.png"
-          />
-          <Bub2
-            key="bub2"
-            id="i2"
-            className="med-text2"
-            src="../static/img/confirm2.png"
-          />
-          <Bub3
-            key="bub3"
-            id="i3"
-            className="med-text3"
-            src="../static/img/confirmrem.png"
-          />
-        </PhoneSlide>
-      </MainPhone>
-    )
-  }
+      <Computer width="805px" height="auto" src={'../static/img/comp2.svg'} />
+    </>
+  )
 }
 
 export default Phone

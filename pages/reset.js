@@ -2,7 +2,7 @@ import React from 'react'
 import Reset from '../components/Reset'
 import { Query } from 'react-apollo'
 import { CURRENT_USER_QUERY } from '../components/User'
-import Schedule from '../components/Schedule'
+import InboxComponent from '../components/InboxComponent'
 
 const reset = props => (
   <Query query={CURRENT_USER_QUERY}>
@@ -17,7 +17,7 @@ const reset = props => (
       }
       return (
         <div>
-          <Schedule id={data.me.id} />
+          <InboxComponent id={data.me.id} />
         </div>
       )
     }}

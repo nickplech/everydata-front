@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import { ALL_CLIENTS_QUERY } from './Clients'
 import { PAGINATION_QUERY } from './Pagination'
+import { SEARCH_CLIENTS_QUERY } from './AutoComplete'
 
 const DELETE_CLIENT_MUTATION = gql`
   mutation DELETE_CLIENT_MUTATION($id: ID!) {
@@ -24,8 +25,9 @@ const DeleteClient = props => {
         firstName: firstName,
       }}
       refetchQueries={[
-        { query: ALL_CLIENTS_QUERY, variables: { user: props.user.id } },
-        { query: PAGINATION_QUERY, variables: { userId: props.user.id } },
+        { query: ALL_CLIENTS_QUERY },
+        { query: SEARCH_CLIENTS_QUERY },
+        { query: PAGINATION_QUERY },
       ]}
     >
       {(deleteClient, { error }) => (

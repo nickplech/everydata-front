@@ -1,241 +1,124 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import posed from 'react-pose'
 import Error from './ErrorMessage'
-import { Query, Mutation } from 'react-apollo'
+import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import { TOGGLE_MODAL_MUTATION } from './Modal'
-import { format, startOfDay } from 'date-fns'
-import { Data_15 } from '../lib/timeSlots'
-import Appointment from './Appointment'
-import Modal from './Modal'
+import { CURRENT_USER_QUERY } from './User'
+import { postsPerPage } from '../config'
+import PostsPagination from './PostsPagination'
+import { format, distanceInWordsToNow } from 'date-fns'
+import DeletePost from './DeletePost'
+import TablePdf from './TablePdf'
 
-const ALL_REASONS_QUERY = gql`
-  query ALL_REASONS_QUERY {
-    reasons(orderBy: name_ASC) {
+const ALL_POSTS_QUERY = gql`
+  query ALL_POSTS_QUERY($skip: Int = 0, $first: Int = ${postsPerPage}) {
+    posts(skip: $skip, first: $first, orderBy: createdAt_DESC) {
       id
-      name
-      color
+      message
+      file
+      createdAt
+      updatedAt
       user {
         id
       }
     }
   }
 `
-const TodayButton = posed.div({
-  hoverable: true,
-  pressable: true,
-  init: {
-    scale: 1,
-  },
-  hover: {
-    scale: 1.1,
-  },
-  press: {
-    scale: 1.05,
-  },
-})
-const TopBlock = styled.div`
-  display: grid;
-  grid-column: 2;
-  grid-row: 1/3;
-  width: 100%;
-  height: 100%;
-  background: rgba(240, 240, 240, 1);
-`
 const DayView = styled.div`
   position: relative;
+  width: 95%;
   display: grid;
-  width: 100%;
+  grid-row: 1;
+  grid-column: 1;
   height: 100%;
+  margin: 0 auto;
   background-color: white;
   box-shadow: 0 1px 5px 3px rgba(0, 0, 0, 0.05);
-  border: 5px solid white;
-  border-radius: 20px 20px 25px 25px;
-  z-index: -1;
 
-  .parent {
+  border-radius: 20px 20px 5px 5px;
+  z-index: 500;
+  overflow-y: scroll;
+`
+const Post = styled.div`
+  flex-flow: column;
+  padding: 0px 0px 60px 0;
+  display: flex;
+  margin: 0 40px;
+  .postMessage {
     display: flex;
-    flex-flow: column;
-    position: absolute;
-    right: 0px;
-    align-items: flex-end;
-    border-radius: 15px 15px 0 0;
-    text-align: center;
-    padding-right: 20px;
-    margin-top: 1px;
-    height: 65px;
-    width: 100%;
-    background: #3d5866;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background: rgba(150, 150, 150, 0.1);
   }
-  .todayButton {
-    justify-content: center;
-    position: absolute;
-    display: flex;
-    border-radius: 5px;
-    background: white;
-    left: 15px;
-    border-top: 13px solid red;
-    top: 10px;
-    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.2);
-    width: 48px;
-    height: 45px;
-    cursor: pointer;
-    z-index: 50;
-    &:before {
-      content: 'TODAY';
-      color: white;
-      position: absolute;
-      font-size: 9px;
-      top: -14.8px;
+  span {
+    &:nth-child(1) {
+      font-family: 'Montserrat', sans-serrif;
     }
   }
-  .date {
-    display: flex;
-    text-transform: uppercase;
-    margin: 0;
-    color: rgba(230, 230, 230, 0.8);
-    font-size: 14px;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none;
-  }
-  .sideDate {
-    display: flex;
-    color: white;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 26px;
-    line-height: 26px;
-    padding-top: 10px;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none;
+  div {
+    opacity: 0.6;
+    font-size: 12px;
+    line-height: 10px;
   }
 `
-const DayGrid = styled.div`
-  display: grid;
-  position: relative;
-  grid-template-columns: 75px 1fr;
-  position: absolute;
-  grid-auto-rows: 22px;
-  border-radius: 0px 0 15px 0;
-  grid-gap: 1px;
-  width: 100%;
-  right: 0px;
-  margin-top: 67px;
-  height: calc(100% - 67px);
-  overflow-y: scroll;
-  overscroll-behavior: contain;
-`
-const StyledInput = styled.button`
-  display: grid;
-  grid-column: 1;
-  text-align: left;
-  font-weight: 800;
-  height: 100%;
-  background: transparent;
-  border: none;
-  opacity: 1;
-  cursor: pointer;
-  color: white;
-  &:focus {
-    outline: none;
-  }
-`
-const TimeCell = styled.div`
-  display: grid;
-  border-left: none;
-  grid-column: 2/3;
-  align-items: center;
-  border-bottom: none;
-  border: 0px solid rgba(243, 241, 244, 1);
-  background: rgba(243, 241, 244, 1);
-  cursor: pointer;
-  &:nth-child(4n + 2) {
-    display: grid;
-    grid-column: 1/3;
-    align-items: center;
-    border: 0px solid rgba(20, 110, 240, 0.65);
-    border-radius: 20px 0 0 20px;
-    background: rgba(20, 110, 240, 0.65);
-    color: grey;
-    border-right: none;
-  }
-  &:hover {
-    opacity: 0.5;
-  }
-  .number {
-    display: grid;
-    font-size: 14px;
-    align-self: center;
-    justify-content: flex-start;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+const MostRecent = styled.div`
+  text-align: center;
+  margin-top: 36px;
+  margin-bottom: 30px;
+  color: rgba(20, 110, 220, 0.7);
+  span {
+    border-top: 1px solid #ccc;
+    opacity: 0.7;
+    width: 100px;
+    display: inline-block;
+    margin: 0 10px 5px 10px;
   }
 `
 
 class SingleDay extends Component {
-  state = { selectedTime: '', today: startOfDay(new Date()) }
-  update = e => {
-    this.setState({ selectedTime: e.target.value })
-  }
   render() {
-    let date = this.props.date
-    let today = this.state.today
-    let time = this.state.selectedTime
     return (
-      <Query query={ALL_REASONS_QUERY} prefetch>
-        {({ data, loading, error }) => {
-          if (error) return <Error error={error} />
-          if (loading) return <p>Loading...</p>
-          console.log(data)
+      <Query query={CURRENT_USER_QUERY}>
+        {({ data: { me } }) => {
           return (
             <DayView>
-              <div className="parent">
-                <TodayButton
-                  onClick={this.props.handleToday}
-                  className="todayButton"
-                >
-                  {format(today, 'ddd')}
-                </TodayButton>
-                <div className="sideDate">{format(date, 'MMMM Do, YYYY')}</div>
-                <div className="date">{format(date, 'dddd')}</div>
-              </div>
-              <DayGrid>
-                <TopBlock />
-                {Data_15.map((timeblock, i) => {
+              <Query
+                query={ALL_POSTS_QUERY}
+                variables={{
+                  skip: this.props.page * postsPerPage - postsPerPage,
+                  first: 5,
+                }}
+              >
+                {({ data, loading, error }) => {
+                  if (error) return <Error error={error} />
+                  if (loading) return <p>Loading...</p>
+                  if (!data.posts) return null
                   return (
-                    <Mutation key={i} mutation={TOGGLE_MODAL_MUTATION}>
-                      {toggleModal => (
-                        <TimeCell>
-                          <StyledInput
-                            onDoubleClick={toggleModal}
-                            key={timeblock.time}
-                            className="number"
-                            value={timeblock.time}
-                            onClick={this.update}
-                            readOnly
-                          >
-                            {timeblock.display}
-                          </StyledInput>
-                        </TimeCell>
-                      )}
-                    </Mutation>
+                    <>
+                      <MostRecent>
+                        <span />
+                        Most Recent
+                        <span />
+                      </MostRecent>
+                      {data.posts.map(post => (
+                        <Post key={post.createdAt}>
+                          <span>
+                            {format(post.createdAt, 'dddd MMMM Do, YYYY ')}
+                            <div>
+                              {distanceInWordsToNow(post.createdAt, {
+                                addSuffix: true,
+                              })}
+                            </div>
+                          </span>
+                          <DeletePost id={post.id} me={me} />
+                          <span className="postMessage">{post.message}</span>
+                          {TablePdf && <TablePdf file={post.file} />}
+                        </Post>
+                      ))}
+                    </>
                   )
-                })}
-              </DayGrid>
-              <Modal date={date} time={time} reasons={data.reasons} />
+                }}
+              </Query>
             </DayView>
           )
         }}
@@ -245,4 +128,4 @@ class SingleDay extends Component {
 }
 
 export default SingleDay
-export { ALL_REASONS_QUERY }
+export { ALL_POSTS_QUERY }

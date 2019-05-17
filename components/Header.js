@@ -5,11 +5,6 @@ import Nav from './Nav'
 import User from './User'
 import Router from 'next/router'
 import NProgress from 'nprogress'
-import InfoBar from './InfoBar'
-import Slider from './Slider'
-import { PlusButton } from 'react-svg-buttons'
-import SignInNoDisplay from './SignInNoDisplay'
-import AutoComplete from './AutoComplete'
 
 Router.onRouteChangeStart = () => {
   NProgress.start()
@@ -31,37 +26,45 @@ const Logo = styled.h1`
   z-index: 0;
   a {
     padding: 0rem 1rem;
-    background: rgba(10, 110, 240, 1);
-    color: white;
-    text-transform: uppercase;
+    background: white;
+    color: rgba(10, 110, 240, 1);
     text-decoration: none;
   }
 `
 
 const StyledHeader = styled.header`
+  position: fixed;
+  width: 100%;
+  background: rgba(10, 110, 240, 1);
+  z-index: 1000;
   .bar {
-    border-bottom: 1px solid ${props => props.theme.lightgrey};
     display: grid;
     grid-template-columns: auto 1fr;
+    background: rgba(10, 110, 240, 1);
     justify-content: space-between;
-    align-items: stretch;
-    z-index: -2;
+    align-items: center;
   }
-  .sub-bar {
-    display: grid;
-    grid-template-columns: 50px 295px 1fr;
-    height: 45px;
-    align-self: center;
-    border-bottom: 1px solid ${props => props.theme.lightgrey};
-    opacity: 1;
-  }
-`
 
-const Plus = styled.button`
-  cursor: pointer;
-  border: none;
-  margin-top: 3px;
-  outline: none;
+  /* .tab {
+    background: green;
+    height: 44px;
+    opacity: 0.8;
+  }
+  .tab2 {
+    background: purple;
+    height: 44px;
+    opacity: 0.8;
+  }
+  .tab3 {
+    background: blue;
+    height: 44px;
+    opacity: 0.8;
+  }
+  .tab4 {
+    background: rgba(20, 110, 240, 1);
+    height: 44px;
+    opacity: 0.8;
+  } */
 `
 
 const Header = () => {
@@ -70,33 +73,11 @@ const Header = () => {
       <div className="bar">
         <Logo>
           <Link href="/">
-            <a>Perfect Day Reminders</a>
+            <a>EveryData</a>
           </Link>
         </Logo>
         <Nav />
       </div>
-      <SignInNoDisplay>
-        <div className="sub-bar">
-          <Link href="/addclient">
-            <a>
-              <Plus>
-                <PlusButton
-                  color="rgba(100,100,200,1)"
-                  size={35}
-                  thickness={2}
-                />
-              </Plus>
-            </a>
-          </Link>
-          <User>
-            {({ data: { me } }) => {
-              return me && <AutoComplete user={me} />
-            }}
-          </User>
-          <InfoBar />
-          <Slider />
-        </div>
-      </SignInNoDisplay>
     </StyledHeader>
   )
 }

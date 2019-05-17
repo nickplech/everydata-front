@@ -4,8 +4,8 @@ import styled from 'styled-components'
 const Tabs = styled.div`
   display: flex;
   padding: 10px;
-  min-width: 150px;
-  height: 45px;
+  min-width: 100px;
+  height: 100%;
   justify-content: center;
   align-content: center;
   align-items: center;
@@ -16,17 +16,14 @@ const Tabs = styled.div`
     text-transform: uppercase;
     font-size: 10px;
   }
-  &:hover {
-    background: rgba(240, 240, 240, 0.3);
-  }
 `
 
 const Block = props => (
-  <>
+
     <Tabs>
       <p className="textWhite">{props.name}</p>
     </Tabs>
-  </>
+
 )
 
 export default Block

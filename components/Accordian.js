@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
-import posed from 'react-pose'
 import styled from 'styled-components'
-
+import posed from 'react-pose'
 const Content = posed.div({
   closed: { height: 0 },
   open: { height: 'auto' },

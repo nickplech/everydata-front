@@ -3,12 +3,8 @@ import NavStyles from './styles/NavStyles'
 import User from './User'
 import Signout from './Signout'
 import styled from 'styled-components'
-
-const Sign = styled.a`
-  padding: 4px 8px;
-  border-radius: 5px;
-  background: rgba(20, 110, 220, 0.8);
-`
+import AutoComplete from './AutoComplete'
+import Block from './Block'
 
 const Nav = () => (
   <User>
@@ -16,27 +12,32 @@ const Nav = () => (
       <NavStyles>
         {me && (
           <>
-            {' '}
+            <Link href="/inbox">
+              <a className="tab">
+                <Block name="Dashboard" />
+              </a>
+            </Link>
+            <Link href="/feedupload">
+              <a className="tab2">
+                <Block name="Feed Upload" />
+              </a>
+            </Link>
             <Link href="/account">
-              <a>Account</a>
+              <a className="tab3">
+                <Block name="Admin Settings" />
+              </a>
             </Link>
-            <Link href="/clients">
-              <a>Clients</a>
-            </Link>
+            <AutoComplete user={me} />
             <Signout />
           </>
         )}
         {!me && (
           <>
-            {' '}
             <Link href="/pricing">
               <a>Pricing</a>
             </Link>
             <Link href="/login">
               <a>Login</a>
-            </Link>
-            <Link href="/signup">
-              <Sign>Sign Up</Sign>
             </Link>
           </>
         )}

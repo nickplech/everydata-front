@@ -3,14 +3,13 @@ import { Mutation } from 'react-apollo'
 import Form from './styles/Form'
 import MaskedInput from 'react-text-mask'
 import Router from 'next/router'
-import { format } from 'date-fns'
 
-import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
 import gql from 'graphql-tag'
-import styled, { ThemeProvider } from 'styled-components'
+import styled from 'styled-components'
 import Error from './ErrorMessage'
 import SickButton from './styles/SickButton'
 import SickerButton from './styles/SickerButton'
+import { ALL_CLIENTS_QUERY } from './Clients'
 
 const Inner = styled.div`
   max-width: ${props => props.theme.innerWidth};
@@ -18,7 +17,6 @@ const Inner = styled.div`
   padding: 2rem;
   .dates {
     font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
 
     &:focus {
       opacity: 1;
@@ -147,14 +145,16 @@ const CREATE_CLIENT_MUTATION = gql`
     $firstName: String!
     $lastName: String!
     $cellPhone: String!
-    $birthDay: DateTime
+    $email: String!
+    $businessName: String
     $image: String
   ) {
     createClient(
       firstName: $firstName
       lastName: $lastName
       cellPhone: $cellPhone
-      birthDay: $birthDay
+      email: $email
+      businessName: $businessName
       image: $image
     ) {
       id
@@ -162,14 +162,12 @@ const CREATE_CLIENT_MUTATION = gql`
   }
 `
 
-const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy')
-
 class CreateClient extends Component {
   state = {
     firstName: '',
     lastName: '',
     cellPhone: '',
-    birthDay: '',
+    email: '',
     image: '../static/img/profpic.jpg',
   }
   handleChange = e => {
@@ -227,7 +225,7 @@ class CreateClient extends Component {
             >
               <Error error={error} />
               <fieldset disabled={loading} aria-busy={loading}>
-                <h2>Add New Client to Contacts</h2>
+                <h2>Add to Contacts List</h2>
                 <label htmlFor="firstName" className="required">
                   First Name{' '}
                   <input
@@ -290,30 +288,16 @@ class CreateClient extends Component {
                     onChange={this.handleChange}
                   />
                 </label>
-                <label htmlFor="birthDay">
-                  Birthday
-                  <MaskedInput
+                <label htmlFor="email">
+                  Email
+                  <input
                     className="dates"
-                    id="birthDay"
-                    name="birthDay"
+                    id="email"
+                    name="email"
                     autoComplete="off"
-                    keepCharPositions={true}
-                    pipe={autoCorrectedDatePipe}
-                    value={this.state.birthDay}
-                    placeholder="MM/DD/YYYY"
+                    value={this.state.email}
+                    placeholder="client@email.com"
                     onChange={this.handleChange}
-                    mask={[
-                      /\d/,
-                      /\d/,
-                      '/',
-                      /\d/,
-                      /\d/,
-                      '/',
-                      /\d/,
-                      /\d/,
-                      /\d/,
-                      /\d/,
-                    ]}
                   />
                 </label>
                 <label htmlFor="file">

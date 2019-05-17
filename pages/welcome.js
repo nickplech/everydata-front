@@ -5,8 +5,8 @@ import Link from 'next/link'
 const Submitted = styled.p`
   color: white;
   text-align: center;
-  background: #36b37e;
-  margin-top: 100px;
+  background: rgba(20, 110, 240, 0.8);
+  margin: 100px 50px;
   font-size: 22px;
   padding: 25px 15px;
   a {
@@ -17,15 +17,10 @@ const Submitted = styled.p`
 `
 const Welcome = () => {
   return (
-    <div>
-      <Submitted>
-        Welcome to Perfect Day Reminders, Please{' '}
-        <Link href="/login">
-          <a>Login Here</a>
-        </Link>{' '}
-        to Begin Your Free Trial
-      </Submitted>
-    </div>
+    <Submitted>
+      Thank You for Your Interest in EveryData, a Data Specialist Will be in
+      Contact with You Shortly
+    </Submitted>
   )
 }
 

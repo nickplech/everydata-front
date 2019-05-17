@@ -11,24 +11,7 @@ const CURRENT_USER_QUERY = gql`
       lastName
       cellPhone
       businessName
-      plan
       permissions
-      orders {
-        id
-      }
-      # appointments {
-      #   id
-      # }
-      # cart {
-      #   id
-      #   quantity
-      #   confirmationStatus
-      #   client {
-      #     id
-      #     firstName
-      #     lastName
-      #   }
-      # }
     }
   }
 `

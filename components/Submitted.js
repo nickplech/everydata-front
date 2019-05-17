@@ -2,30 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
-const AnimationStyles = styled.span`
+const OuterDiv = styled.div`
   position: absolute;
   right: 20px;
   top: -25px;
-  .count {
-    display: block;
-
-    transition: all 0.4s;
-  }
-  /* Intial State of the entered Dot */
-  .count-enter {
-    opacity: 0;
-  }
-  .count-enter-active {
-    opacity: 1;
-  }
-  .count-exit {
-    top: 0;
-    position: absolute;
-    opacity: 1;
-  }
-  .count-exit-active {
-    opacity: 0;
-  }
 `
 
 const Submit = styled.div`
@@ -39,19 +19,10 @@ const Submit = styled.div`
   z-index: 999;
 `
 
-const Submitted = () => (
-  <AnimationStyles>
-    <TransitionGroup>
-      <CSSTransition
-        unmountOnExit
-        className="count"
-        classNames="count"
-        timeout={{ enter: 2000, exit: 2000 }}
-      >
-        <Submit>Appointment Reminder Sent Successfully</Submit>
-      </CSSTransition>
-    </TransitionGroup>
-  </AnimationStyles>
+const Submitted = props => (
+  <OuterDiv>
+    <Submit>Appointment Reminder Sent Successfully</Submit>
+  </OuterDiv>
 )
 
 export default Submitted

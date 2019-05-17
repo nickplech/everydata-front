@@ -1,2 +1,0 @@
-# pday-front
-# everydata-front

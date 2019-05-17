@@ -8,12 +8,10 @@ import debounce from 'lodash.debounce'
 import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown'
 
 const SEARCH_CLIENTS_QUERY = gql`
-  query SEARCH_CLIENTS_QUERY($searchTerm: String!, $user: ID!) {
+  query SEARCH_CLIENTS_QUERY($searchTerm: String!) {
     clients(
       orderBy: updatedAt_DESC
-      where: {
-        AND: [{ fullName_contains: $searchTerm }, { user: { id: $user } }]
-      }
+      where: { AND: [{ fullName_contains: $searchTerm }] }
     ) {
       id
       image
@@ -47,7 +45,7 @@ class AutoComplete extends Component {
     this.setState({ loading: true })
     const res = await client.query({
       query: SEARCH_CLIENTS_QUERY,
-      variables: { searchTerm: e.target.value, user: this.props.user.id },
+      variables: { searchTerm: e.target.value },
     })
     this.setState({
       clients: res.data.clients,
@@ -72,6 +70,7 @@ class AutoComplete extends Component {
             isOpen,
             inputValue,
             highlightedIndex,
+
           }) => (
             <div>
               <ApolloConsumer>
@@ -79,7 +78,7 @@ class AutoComplete extends Component {
                   <input
                     {...getInputProps({
                       type: 'search',
-                      placeholder: 'Search Clients',
+                      placeholder: 'Search Contacts',
                       id: 'search',
                       className: this.state.loading ? 'loading' : '',
                       spellCheck: false,

@@ -1,11 +1,10 @@
 import { Query } from 'react-apollo'
 import { CURRENT_USER_QUERY } from './User'
 import HomePage from './HomePage'
-import Chat from './Chat'
+
 import styled from 'styled-components'
 
 const NoScroll = styled.div`
-  /* overscroll-behavior: contain; */
   overflow-y: hidden;
 `
 
@@ -17,7 +16,6 @@ const DoDisplay = props => (
         return (
           <NoScroll>
             <HomePage />
-            <Chat />
           </NoScroll>
         )
       }

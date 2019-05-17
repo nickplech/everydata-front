@@ -5,14 +5,7 @@ import Table from './styles/Table'
 import SickButton from './styles/SickButton'
 import PropTypes from 'prop-types'
 
-const possiblePermissions = [
-  'ADMIN',
-  'USER',
-  'CLIENTCREATE',
-  'CLIENTUPDATE',
-  'CLIENTDELETE',
-  'PERMISSIONUPDATE',
-]
+const possiblePermissions = ['ADMIN', 'USER', 'PERMISSIONUPDATE']
 
 const UPDATE_PERMISSIONS_MUTATION = gql`
   mutation updatePermissions($permissions: [Permission], $userId: ID!) {

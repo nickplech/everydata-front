@@ -16,7 +16,7 @@ const Form = styled.form`
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.1),
     0 6px 10px 5px rgba(0, 0, 0, 0.1), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
   background: white;
-
+  z-index: 999;
   padding: 20px;
   margin: 20px 0;
   margin-top: 0px;

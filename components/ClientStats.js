@@ -3,7 +3,6 @@ import { SINGLE_CLIENT_QUERY } from './SingleClient'
 import { Query } from 'react-apollo'
 import Link from 'next/link'
 import { format } from 'date-fns'
-
 import posed from 'react-pose'
 import styled from 'styled-components'
 
@@ -37,7 +36,7 @@ const Flexer = styled.div`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     position: relative;
-    height: 299px;
+    /* height: 299px; */
     width: 250px;
     background: #fff;
     border-radius: 18px;
@@ -48,19 +47,6 @@ const Flexer = styled.div`
   .profile {
     width: 100%;
     height: 100%;
-    text-align: center;
-  }
-
-  .stats {
-    display: flex;
-    flex-flow: row nowrap;
-    margin-top: 35px;
-    height: 100px;
-    color: white;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    background: #3d5866;
     text-align: center;
   }
 `
@@ -78,19 +64,30 @@ const ProfilePic = styled.img`
   }
 `
 
-// const Cake = styled.img`
-//   width: 15px;
-//   height: 15px;
-//   margin-right: 5px;
-// `
 const Stat = styled.div`
   display: flex;
-  font-size: 14px;
+  font-size: 18px;
+  padding: 0px 0 10px 0;
+  flex-flow: column;
+  color: white;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background: #3d5866;
+  text-align: center;
+  h5 {
+    display: flex;
+    margin: 10px auto 0 auto;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+  }
 `
 
 const StyledTitle = styled.h2`
   margin-top: 10px;
-  margin-bottom: 0;
+  margin-bottom: 20px;
   display: block;
   text-align: center;
   font-size: 19px;
@@ -100,7 +97,7 @@ const StyledTitle = styled.h2`
 `
 const StyledSub = styled.p`
   margin: 0;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
 `
 
@@ -133,6 +130,7 @@ class ClientStats extends React.Component {
             if (error) return <Error error={error} />
             if (!data.client) return <p>No Client Found for {this.props.id}</p>
             const client = data.client
+
             return (
               <Fragment>
                 <Flexer>
@@ -161,21 +159,14 @@ class ClientStats extends React.Component {
                       <StyledTitle>
                         {client.firstName} {client.lastName}
                       </StyledTitle>
-                      <StyledSub>{client.cellPhone}</StyledSub>
 
-                      <div className="stats">
-                        <div className="box">
-                          <Stat>
-                            {/* <span>
-                              <Cake
-                                src="../static/img/cake.png"
-                                alt="birthday cake"
-                              />
-                            </span> */}
-                            {format(client.birthDay, 'MMMM Do, YYYY')}
-                          </Stat>
-                        </div>
-                      </div>
+                      <Stat className="stats">
+                        <h5>Submission Recieved:</h5>
+                        <p>
+                          {format(client.createdAt, 'M/D/YYYY')} at{' '}
+                          {format(client.createdAt, 'h:mm a')}
+                        </p>
+                      </Stat>
                     </div>
                   </div>
                 </Flexer>

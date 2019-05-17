@@ -18,7 +18,7 @@ const privacy = () => {
       <TermsPage>
         <h1>Privacy Policy</h1>
 
-        <p>PerfectDayReminders.com Privacy Policy</p>
+        <p>EveryData.com Privacy Policy</p>
 
         <p>
           This privacy policy has been compiled to better serve those who are
@@ -230,9 +230,7 @@ const privacy = () => {
           noncompliance by data processors.
         </p>
 
-        <p className="header">HIPAA Compliance</p>
-
-        <p>CAN SPAM Act</p>
+        <p className="header">CAN SPAM Act</p>
 
         <p>
           The CAN-SPAM Act is a law that sets the rules for commercial email,
@@ -289,10 +287,8 @@ const privacy = () => {
 
         <p>
           If at any time you would like to unsubscribe from receiving future
-          emails, you can email us at
-          <a href="mailto:info@perfectdayreminders.com">
-            info@perfectdayreminders.com
-          </a>
+          emails, you can email us at{' '}
+          <a href="mailto:info@EveryData.com">info@EveryData.com</a>
         </p>
 
         <p className="header">Contacting Us</p>
@@ -303,16 +299,17 @@ const privacy = () => {
         </p>
 
         <p>
-          PerfectDayReminders.com
+          EveryData.com
           <br />
-          17815 Sky Park Cir Suite F<br />
-          Irvine, CA 92614
+          123 Adams
+          <br />
+          Huntington Beach, CA 92614
           <br />
           USA
           <br />
-          info@perfectdayreminders.com
+          info@EveryData.com
           <br />
-          Phone: (949)887-3031
+          Phone: (714)555-5555
         </p>
       </TermsPage>
       <Footer />

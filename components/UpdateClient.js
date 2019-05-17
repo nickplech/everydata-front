@@ -4,12 +4,37 @@ import Form from './styles/Form'
 import Router from 'next/router'
 import MaskedInput from 'react-text-mask'
 import gql from 'graphql-tag'
-import styled, { ThemeProvider } from 'styled-components'
+import styled from 'styled-components'
 import Error from './ErrorMessage'
-import { format } from 'date-fns'
+import DeleteAlt from './DeleteAlt'
+import SVG from './SVG'
 import SickButton from './styles/SickButton'
 import { SINGLE_CLIENT_QUERY } from './Clients'
-import SickerButton from './styles/SickerButton'
+
+const SickerButton = styled.div`
+  background: rgba(10, 120, 240, 1);
+  color: white;
+  font-weight: 800;
+  border: 0;
+  margin: 10px 20px;
+  border-radius: 5px;
+  font-size: 2rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1.3rem;
+  transition: all 0.5s;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);
+  &[disabled] {
+    opacity: 0.5;
+  }
+  &:hover {
+    background: rgba(230, 10, 40, 0.7);
+  }
+  &:active {
+    box-shadow: none;
+  }
+`
 
 const Inner = styled.div`
   max-width: ${props => props.theme.innerWidth};
@@ -17,7 +42,6 @@ const Inner = styled.div`
   padding: 2rem;
   .dates {
     font-family: montserrat, sans-serif;
-    text-transform: uppercase;
     &:focus {
       opacity: 1;
     }
@@ -45,23 +69,26 @@ const UPDATE_CLIENT_MUTATION = gql`
     $firstName: String
     $lastName: String
     $cellPhone: String
-    $birthDay: DateTime
-    $image: String
+    $email: String
+    $seen: Boolean
   ) {
     updateClient(
       id: $id
       firstName: $firstName
       lastName: $lastName
       cellPhone: $cellPhone
-      birthDay: $birthDay
-      image: $image
+      email: $email
+      seen: $seen
     ) {
       id
       firstName
       lastName
+      fullName
       cellPhone
-      birthDay
+      email
       image
+      seen
+      handled
     }
   }
 `
@@ -93,162 +120,116 @@ class UpdateClient extends Component {
     e.preventDefault()
     Router.back()
   }
-  uploadFile = async e => {
-    const files = e.target.files
-    const data = new FormData()
-    data.append('file', files[0])
-    data.append('upload_preset', 'perfectday')
 
-    const res = await fetch(
-      'https://api.cloudinary.com/v1_1/pdayrem/image/upload',
-      {
-        method: 'POST',
-        body: data,
-      },
-    )
-    const file = await res.json()
-    console.log(file)
-    this.setState({
-      image: file.secure_url,
-    })
-  }
   render() {
     return (
-      <Inner>
-        <Query
-          query={SINGLE_CLIENT_QUERY}
-          variables={{
-            id: this.props.id,
-          }}
-        >
-          {({ data, loading }) => {
-            if (loading) return <p>Loading...</p>
-            if (!data.client)
-              return <p>No Client Found for ID {this.props.id}</p>
-            return (
-              <Mutation
-                mutation={UPDATE_CLIENT_MUTATION}
-                variables={this.state}
-              >
-                {(updateClient, { loading, error }) => (
-                  <Form onSubmit={e => this.updateClient(e, updateClient)}>
-                    <Error error={error} />
-                    <fieldset disabled={loading} aria-busy={loading}>
-                      <h2>Update Client Information</h2>
-                      <label htmlFor="firstName">
-                        First Name
-                        <input
-                          type="text"
-                          id="firstName"
-                          name="firstName"
-                          placeholder="First Name"
-                          required
-                          defaultValue={data.client.firstName}
-                          onChange={this.handleChange}
-                        />
-                      </label>
-                      <label htmlFor="lastName">
-                        Last Name
-                        <input
-                          type="text"
-                          id="lastName"
-                          name="lastName"
-                          placeholder="Last Name"
-                          required
-                          defaultValue={data.client.lastName}
-                          onChange={this.handleChange}
-                        />
-                      </label>
-                      <label htmlFor="cellPhone">
-                        Cell Phone
-                        <MaskedInput
-                          mask={[
-                            '(',
-                            /[1-9]/,
-                            /\d/,
-                            /\d/,
-                            ')',
-                            ' ',
-                            /\d/,
-                            /\d/,
-                            /\d/,
-                            '-',
-                            /\d/,
-                            /\d/,
-                            /\d/,
-                            /\d/,
-                          ]}
-                          type="text"
-                          id="cellPhone"
-                          name="cellPhone"
-                          placeholder="Phone Number"
-                          required
-                          defaultValue={data.client.cellPhone}
-                          onChange={this.handleChange}
-                        />
-                      </label>
-                      <label htmlFor="birthDay">
-                        Birthday
-                        <input
-                          className="dates"
-                          id="birthDay"
-                          name="birthDay"
-                          autoComplete="off"
-                          placeholder="mm/dd/yyyy"
-                          mask={[
-                            /\d/,
-                            /\d/,
-                            '/',
-                            /\d/,
-                            /\d/,
-                            '/',
-                            /\d/,
-                            /\d/,
-                            /\d/,
-                            /\d/,
-                          ]}
-                          defaultValue={format(
-                            data.client.birthDay,
-                            'MM/DD/YYYY',
-                          )}
-                          onChange={this.handleChange}
-                        />
-                      </label>
-                      <label htmlFor="file">
-                        Change Client's Photo
-                        <input
-                          type="file"
-                          id="file"
-                          name="file"
-                          placeholder="upload picture"
-                          onChange={this.uploadFile}
-                        />
-                        {this.state.image && (
-                          <>
-                            <p>Preview of Updated Picture</p>
-                            <img
-                              className="profPic"
-                              width="150"
-                              src={this.state.image}
-                              alt="upload preview"
-                            />
-                          </>
-                        )}
-                      </label>
-                      <SickButton type="submit">
-                        Sav{loading ? 'ing' : 'e'} Changes
-                      </SickButton>
-                      <SickerButton onClick={this.handleCancelClick}>
-                        Cancel
-                      </SickerButton>
-                    </fieldset>
-                  </Form>
-                )}
-              </Mutation>
-            )
-          }}
-        </Query>
-      </Inner>
+      <>
+        <Inner>
+          <Query
+            query={SINGLE_CLIENT_QUERY}
+            variables={{
+              id: this.props.id,
+            }}
+          >
+            {({ data, loading }) => {
+              if (loading) return <p>Loading...</p>
+              if (!data.client)
+                return <p>No Client Found for ID {this.props.id}</p>
+              return (
+                <Mutation
+                  mutation={UPDATE_CLIENT_MUTATION}
+                  variables={this.state}
+                >
+                  {(updateClient, { loading, error }) => (
+                    <Form onSubmit={e => this.updateClient(e, updateClient)}>
+                      <Error error={error} />
+                      <SVG handleCancelClick={this.handleCancelClick} />
+                      <fieldset disabled={loading} aria-busy={loading}>
+                        <DeleteAlt
+                          firstName={data.client.firstName}
+                          lastName={data.client.lastName}
+                          id={data.client.id}
+                        >
+                          <SickerButton style={{ float: 'right' }}>
+                            Delete Client &times;
+                          </SickerButton>
+                        </DeleteAlt>
+                        <h2>Update {data.client.fullName}'s Info</h2>{' '}
+                        <label htmlFor="firstName">
+                          First Name
+                          <input
+                            type="text"
+                            id="firstName"
+                            name="firstName"
+                            placeholder="First Name"
+                            required
+                            defaultValue={data.client.firstName}
+                            onChange={this.handleChange}
+                          />
+                        </label>
+                        <label htmlFor="lastName">
+                          Last Name
+                          <input
+                            type="text"
+                            id="lastName"
+                            name="lastName"
+                            placeholder="Last Name"
+                            required
+                            defaultValue={data.client.lastName}
+                            onChange={this.handleChange}
+                          />
+                        </label>
+                        <label htmlFor="cellPhone">
+                          Cell Phone
+                          <MaskedInput
+                            mask={[
+                              '(',
+                              /[1-9]/,
+                              /\d/,
+                              /\d/,
+                              ')',
+                              ' ',
+                              /\d/,
+                              /\d/,
+                              /\d/,
+                              '-',
+                              /\d/,
+                              /\d/,
+                              /\d/,
+                              /\d/,
+                            ]}
+                            type="text"
+                            id="cellPhone"
+                            name="cellPhone"
+                            placeholder="Phone Number"
+                            required
+                            defaultValue={data.client.cellPhone}
+                            onChange={this.handleChange}
+                          />
+                        </label>
+                        <label htmlFor="email">
+                          Email
+                          <input
+                            className="dates"
+                            id="email"
+                            name="email"
+                            autoComplete="off"
+                            defaultValue={data.client.email}
+                            onChange={this.handleChange}
+                          />
+                        </label>
+                        <SickButton type="submit">
+                          Sav{loading ? 'ing' : 'e'} Changes
+                        </SickButton>
+                      </fieldset>
+                    </Form>
+                  )}
+                </Mutation>
+              )
+            }}
+          </Query>
+        </Inner>
+      </>
     )
   }
 }

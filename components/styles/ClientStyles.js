@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const ClientStyles = styled.div`
   border: none;
-  border-radius: 25px;
+
   margin: 1px 0px;
   background: white;
   height: 30px;

@@ -7,7 +7,7 @@ const StyledPricing = styled.div`
     position: relative;
     width: 95%;
     max-width: 800px;
-    height: 500px;
+    height: 350px;
     margin: 100px auto;
     border-radius: 2px;
     box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
@@ -19,7 +19,7 @@ const StyledPricing = styled.div`
     -moz-osx-font-smoothing: grayscale;
     display: grid;
     grid-gap: 1px;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 250px 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     justify-content: center;
@@ -38,8 +38,8 @@ const StyledPricing = styled.div`
   }
 
   .stat-info {
-    font-size: 0.8rem;
-    margin-bottom: 0.2rem;
+    font-size: 1.4rem;
+    margin-bottom: 0rem;
     display: flex;
     justify-content: space-between;
   }
@@ -61,7 +61,7 @@ const StyledPricing = styled.div`
 
   .card {
     background: white;
-    height: 85%;
+    height: 95%;
     width: 88%;
     justify-self: center;
     display: flex;
@@ -131,6 +131,7 @@ const StyledPricing = styled.div`
     .top {
       height: 25%;
       width: 100%;
+      font-size: 20px;
       background: rgba(20, 110, 240, 1);
       color: white;
       font-weight: 600;
@@ -158,8 +159,8 @@ const StyledPricing = styled.div`
     }
 
     .value {
-      font-weight: 700;
-      font-size: 2.8rem;
+      font-weight: 600;
+      font-size: 2.3rem;
     }
 
     .month {
@@ -194,11 +195,10 @@ const PricingDisplay = () => {
     <StyledPricing>
       <div className="frame">
         <div className="card card-1">
-          <div className="top">Basic</div>
+          <div className="top">100k Leads</div>
           <div className="info">
             <div className="cost">
-              <div className="value">$25</div>
-              <div className="month">per month</div>
+              <div className="value">$400</div>
             </div>
             <div className="lines">
               {LINES.map((line, i) => {
@@ -210,11 +210,10 @@ const PricingDisplay = () => {
           </div>
         </div>
         <div className="card card-2">
-          <div className="top">Pro</div>
+          <div className="top">250k Leads</div>
           <div className="info">
             <div className="cost">
-              <div className="value">$35</div>
-              <div className="month">per month</div>
+              <div className="value">$800</div>
             </div>
             <div className="lines">
               {LINES.map((line, i) => {
@@ -226,11 +225,10 @@ const PricingDisplay = () => {
           </div>
         </div>
         <div className="card card-3">
-          <div className="top">Premium</div>
+          <div className="top">500k Leads</div>
           <div className="info">
             <div className="cost">
-              <div className="value">$0.01</div>
-              <div className="month">per month</div>
+              <div className="value">$1200</div>
             </div>
             <div className="lines">
               {LINES.map((line, i) => {
@@ -244,26 +242,10 @@ const PricingDisplay = () => {
 
         <div className="bars">
           <div className="stat-info">
-            <div className="stat-min">5 Users</div>
-            <div className="stat-max">100 Users</div>
+            <div className="stat-min">Total Leads</div>
+            {/* <div className="stat-max">100 Users</div> */}
           </div>
           <div className="stat-bar bar-1">
-            <span />
-          </div>
-
-          <div className="stat-info">
-            <div className="stat-min">20 GB</div>
-            <div className="stat-max">200 GB</div>
-          </div>
-          <div className="stat-bar bar-2">
-            <span />
-          </div>
-
-          <div className="stat-info">
-            <div className="stat-min">1 Project</div>
-            <div className="stat-max">50 Projects</div>
-          </div>
-          <div className="stat-bar bar-3">
             <span />
           </div>
         </div>

@@ -1,9 +1,9 @@
 import SignInSwitch from '../components/SignInSwitch'
-import Schedule from '../components/Schedule'
+import InboxComponent from '../components/InboxComponent'
 
 const SignupPage = props => (
   <SignInSwitch>
-    <Schedule id={props.query.id} />
+    <InboxComponent id={props.query.id} />
   </SignInSwitch>
 )
 

@@ -1,29 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const BackButton = styled.div`
+const BackButton = styled.a`
   cursor: pointer;
-  float: 'left';
-  position: absolute;
+  margin: 0;
+  position: relative;
   transition: 0.3s;
-  bottom: -3px;
+  width: 50px;
+  top: 0;
   &:hover {
     transform: scale(1.1);
   }
 `
 
-const SVG = ({
-  style = {
-    display: 'flex',
-    fontFamily: 'sans-serif',
+const SVG = (
+  props,
+  {
+    style = {
+      display: 'flex',
+      margin: '0',
+      fontFamily: 'sans-serif',
+    },
+    width = '50px',
+
+    height = '50px',
+    className = '',
+    viewBox = '0 0 50 50',
   },
-  fill = 'rgba(20,110,220,.2)',
-  width = '50px',
-  height = '50px',
-  className = '',
-  viewBox = '0 0 50 50',
-}) => (
-  <BackButton>
+) => (
+  <BackButton onClick={props.handleCancelClick}>
     <svg
       width={width}
       style={style}

@@ -1,6 +1,6 @@
 {
   "devFiles": [
-    "static/development/dll/dll_a0465ceb400e6bf8fc2b.js"
+    "static/development/dll/dll_0d4720db4c95fb5b7833.js"
   ],
   "pages": {
     "/_app": [
@@ -11,15 +11,15 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/index": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/clients": [
+    "/feedupload": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
     "/client": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/index": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

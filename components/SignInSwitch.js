@@ -1,8 +1,6 @@
 import { Query } from 'react-apollo'
 import { CURRENT_USER_QUERY } from './User'
 import SignIn from '../components/SignIn'
-import Footer from '../components/Footer'
-
 import styled from 'styled-components'
 
 const Columns = styled.div`
@@ -26,14 +24,12 @@ const SignInSwitch = props => (
       if (loading) return <p>Loading...</p>
       if (!data.me) {
         return (
-          <>
+
             <Columns>
               <SignIn />
             </Columns>
-            <Bottom>
-              <Footer className="bottom" />
-            </Bottom>
-          </>
+
+
         )
       }
       return props.children

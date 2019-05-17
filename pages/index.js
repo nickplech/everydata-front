@@ -1,12 +1,5 @@
-import DoDisplay from '../components/DoDisplay'
-import Schedule from '../components/Schedule'
+import HomePage from '../components/HomePage'
 
-const Home = props => (
-  <>
-    <DoDisplay>
-      <Schedule id={props.query.id} />
-    </DoDisplay>
-  </>
-)
+const Home = props => <HomePage id={props.query.id} />
 
 export default Home

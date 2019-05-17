@@ -21,10 +21,10 @@ const Submitted = styled.p`
   border-left: 5px solid green;
 `
 
-const Thinner = styled.div`
-  max-width: 600px;
-  margin: 50px auto;
-`
+// const Thinner = styled.div`
+//   max-width: 600px;
+//   margin: 50px auto;
+// `
 
 class RequestReset extends Component {
   state = {
@@ -35,7 +35,7 @@ class RequestReset extends Component {
   }
   render() {
     return (
-      <Thinner>
+      <>
         <Mutation mutation={REQUEST_RESET_MUTATION} variables={this.state}>
           {(requestReset, { error, loading, called }) => (
             <Form
@@ -49,7 +49,7 @@ class RequestReset extends Component {
               }}
             >
               <fieldset disabled={loading} aria-busy={loading}>
-                <h2>Reset Your Password?</h2>
+                <h2>Reset Password</h2>
                 <Error error={error} />
                 {!error && !loading && called && (
                   <Submitted>
@@ -72,7 +72,7 @@ class RequestReset extends Component {
             </Form>
           )}
         </Mutation>
-      </Thinner>
+      </>
     )
   }
 }

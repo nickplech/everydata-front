@@ -2,9 +2,9 @@ import React from 'react'
 import UpdateUserProfiles from './UpdateUserProfile'
 import Tabs from './Tabs'
 import styled from 'styled-components'
-import SubscriptionManagement from './SubscriptionManagement'
 import { Query } from 'react-apollo'
-import UpdateScheduleSettings from './UpdateScheduleSettings'
+import RequestReset from './RequestReset'
+import Permissions from './Permissions'
 import { CURRENT_USER_QUERY } from './User'
 
 const Styled = styled.div`
@@ -34,11 +34,8 @@ const TabParent = () => (
                 businessName={me.businessName}
               />
             </Tabs.Tab>
-            <Tabs.Tab id="tab2" title="Schedule">
-              <UpdateScheduleSettings />
-            </Tabs.Tab>
-            <Tabs.Tab id="tab3" title="Subscription">
-              <SubscriptionManagement />
+            <Tabs.Tab id="tab2" title="Password">
+              <RequestReset user={me} />
             </Tabs.Tab>
           </Tabs>
         )
